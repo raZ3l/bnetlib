@@ -22,7 +22,7 @@ use bnetlib\Connection;
  * @category   bnetlib
  * @package    Connection
  * @subpackage UnitTests
- * @group      Configuration
+ * @group      Connection
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
  */
