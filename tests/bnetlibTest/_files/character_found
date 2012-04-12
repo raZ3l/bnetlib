@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Date: Thu, 12 Apr 2012 00:43:42 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Retry-After: 600
+Last-Modified: Mon, 02 Apr 2012 14:41:26 GMT
+Content-Language: en-GB
+Vary: Accept-Encoding
+Keep-Alive: timeout=10, max=3998
+Connection: Keep-Alive
+Content-Type: application/json;charset=utf-8
+
+{"lastModified":1333377686000,"name":"Coss","realm":"Die ewige Wacht","class":8,"race":7,"gender":0,"level":85,"achievementPoints":10420,"thumbnail":"die-ewige-wacht/157/60753821-avatar.jpg"}

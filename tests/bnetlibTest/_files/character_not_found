@@ -1,0 +1,11 @@
+HTTP/1.1 404 Not Found
+Date: Thu, 12 Apr 2012 00:41:27 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Retry-After: 600
+Vary: Accept-Encoding
+Keep-Alive: timeout=10, max=4000
+Connection: Keep-Alive
+Content-Type: application/json;charset=utf-8
+
+{"status":"nok", "reason": "Character not found."}
