@@ -8,7 +8,7 @@
  * LICENSE file online at https://gitbub.com/coss/bnetlib/LISENCE
  *
  * @category  bnetlib
- * @package   Game
+ * @package   Connection
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   https://gitbub.com/coss/bnetlib/LISENCE     MIT License
  */
@@ -20,7 +20,7 @@ use Zend\Http\Request;
 
 /**
  * @category  bnetlib
- * @package   Game
+ * @package   Connection
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   https://gitbub.com/coss/bnetlib/LISENCE     MIT License
  */
