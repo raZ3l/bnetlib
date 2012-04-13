@@ -113,6 +113,10 @@ class WorldOfWarcraft extends AbstractGame
         'Recipe' => array(
             'class'  => 'bnetlib\Resource\Wow\Recipe',
             'config' => 'bnetlib\Resource\Wow\Configuration\Recipe'
+        ),
+        'Thumbnail' => array(
+            'class'  => 'bnetlib\Resource\Wow\Thumbnail',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Thumbnail'
         )
     );
 
