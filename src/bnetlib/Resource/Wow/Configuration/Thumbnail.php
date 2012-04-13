@@ -88,6 +88,6 @@ class Thumbnail implements ConfigurationInterface
      */
     public function isAuthenticationPossible()
     {
-        return true;
+        return false;
     }
 }
