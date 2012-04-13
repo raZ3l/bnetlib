@@ -1,0 +1,49 @@
+{
+    "realms": [
+        {
+            "type": "pvp",
+            "population": "high",
+            "queue": true,
+            "status": false,
+            "name": "Aegwynn",
+            "slug": "aegwynn",
+            "battlegroup": "Blutdurst"
+        },
+        {
+            "type": "pve",
+            "population": "medium",
+            "queue": false,
+            "status": true,
+            "name": "Aerie Peak",
+            "slug": "aerie-peak",
+            "battlegroup": "Misery"
+        },
+        {
+            "type": "rppvp",
+            "population": "low",
+            "queue": false,
+            "status": true,
+            "name": "Agamaggan",
+            "slug": "agamaggan",
+            "battlegroup": "Blackout"
+        },
+        {
+            "type": "rp",
+            "population": "medium",
+            "queue": false,
+            "status": true,
+            "name": "Aggramar",
+            "slug": "aggramar",
+            "battlegroup": "Blackout"
+        },
+        {
+            "type": "pvp",
+            "population": "low",
+            "queue": false,
+            "status": true,
+            "name": "Ahn'Qiraj",
+            "slug": "ahnqiraj",
+            "battlegroup": "Reckoning \/ Abrechnung"
+        }
+    ]
+}

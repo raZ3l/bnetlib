@@ -1,0 +1,104 @@
+{
+    "battlegroups": [
+        {
+            "name": "Battle net Invitational BG",
+            "slug": "battle-net-invitational-bg"
+        },
+        {
+            "name": "Blackout",
+            "slug": "blackout"
+        },
+        {
+            "name": "Blutdurst",
+            "slug": "blutdurst"
+        },
+        {
+            "name": "Cataclysme \/ Cataclysm",
+            "slug": "cataclysme-cataclysm"
+        },
+        {
+            "name": "Coliseum",
+            "slug": "coliseum"
+        },
+        {
+            "name": "Coliseum 1",
+            "slug": "coliseum-1"
+        },
+        {
+            "name": "Cruelty \/ Crueldad",
+            "slug": "cruelty-crueldad"
+        },
+        {
+            "name": "Cyclone \/ Wirbelsturm",
+            "slug": "cyclone-wirbelsturm"
+        },
+        {
+            "name": "Druckwelle",
+            "slug": "druckwelle"
+        },
+        {
+            "name": "EU Arena Pass",
+            "slug": "eu-arena-pass"
+        },
+        {
+            "name": "Embuscade \/ Hinterhalt",
+            "slug": "embuscade-hinterhalt"
+        },
+        {
+            "name": "Glutsturm \/ Emberstorm",
+            "slug": "glutsturm-emberstorm"
+        },
+        {
+            "name": "Impact",
+            "slug": "impact"
+        },
+        {
+            "name": "Misery",
+            "slug": "misery"
+        },
+        {
+            "name": "Muerdepiedras",
+            "slug": "muerdepiedras"
+        },
+        {
+            "name": "RU Arena Pass",
+            "slug": "ru-arena-pass"
+        },
+        {
+            "name": "Rampage \/ Saccage",
+            "slug": "rampage-saccage"
+        },
+        {
+            "name": "Raserei \/ Frenzy",
+            "slug": "raserei-frenzy"
+        },
+        {
+            "name": "Reckoning \/ Abrechnung",
+            "slug": "reckoning-abrechnung"
+        },
+        {
+            "name": "Riposte",
+            "slug": "riposte"
+        },
+        {
+            "name": "Sturmangriff \/ Charge",
+            "slug": "sturmangriff-charge"
+        },
+        {
+            "name": "Vengeance \/ Rache",
+            "slug": "vengeance-rache"
+        },
+        {
+            "name": "Vindication",
+            "slug": "vindication"
+        },
+        {
+            "name": "\u0412\u0438\u0445\u0440\u044c",
+            "slug": "\u0432\u0438\u0445\u0440\u044c"
+        },
+        {
+            "name": "\u0428\u043a\u0432\u0430\u043b",
+            "slug": "\u0448\u043a\u0432\u0430\u043b"
+        }
+    ]
+}
