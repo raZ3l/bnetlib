@@ -50,11 +50,6 @@ class ArenaTeam implements ConfigurationInterface
     protected $requiredArguments = array('realm', 'size', 'name');
 
     /**
-     * @var null
-     */
-    protected $optionalArguments = null;
-
-    /**
      * @var array
      */
     protected $manipulableArguments;
@@ -108,7 +103,7 @@ class ArenaTeam implements ConfigurationInterface
      */
     public function getOptionalArguments()
     {
-        return $this->optionalArguments;
+        return null;
     }
 
     /**

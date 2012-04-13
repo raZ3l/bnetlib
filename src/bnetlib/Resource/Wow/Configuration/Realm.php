@@ -44,11 +44,6 @@ class Realm implements ConfigurationInterface
     protected $argumentAliases = array('realms' => array('slug', 'realm'));
 
     /**
-     * @var null
-     */
-    protected $requiredArguments = null;
-
-    /**
      * @var array
      */
     protected $optionalArguments = array('realms');
@@ -100,7 +95,7 @@ class Realm implements ConfigurationInterface
      */
     public function getRequiredArguments()
     {
-        return $this->requiredArguments;
+        return null;
     }
 
     /**

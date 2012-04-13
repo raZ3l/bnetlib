@@ -33,26 +33,6 @@ class AuctionData implements ConfigurationInterface
     protected $resourceType = self::TYPE_STATIC_URL;
 
     /**
-     * @var null
-     */
-    protected $argumentAliases = null;
-
-    /**
-     * @var null
-     */
-    protected $requiredArguments = null;
-
-    /**
-     * @var null
-     */
-    protected $optionalArguments = null;
-
-    /**
-     * @var null
-     */
-    protected $manipulableArguments = null;
-
-    /**
      * @inheritdoc
      */
     public function getResourceType()
@@ -65,7 +45,7 @@ class AuctionData implements ConfigurationInterface
      */
     public function getRequiredArguments()
     {
-        return $this->requiredArguments;
+        return null;
     }
 
     /**
@@ -73,7 +53,7 @@ class AuctionData implements ConfigurationInterface
      */
     public function getArgumentAliases()
     {
-        return $this->argumentAliases;
+        return null;
     }
 
     /**
@@ -81,7 +61,7 @@ class AuctionData implements ConfigurationInterface
      */
     public function getOptionalArguments()
     {
-        return $this->optionalArguments;
+        return null;
     }
 
     /**
@@ -89,7 +69,7 @@ class AuctionData implements ConfigurationInterface
      */
     public function getManipulableArguments()
     {
-        return $this->manipulableArguments;
+        return null;
     }
 
     /**

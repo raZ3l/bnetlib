@@ -50,11 +50,6 @@ class ArenaLadder implements ConfigurationInterface
     protected $requiredArguments = array('battlegroup', 'size');
 
     /**
-     * @var null
-     */
-    protected $optionalArguments = null;
-
-    /**
      * @var array
      */
     protected $manipulableArguments;
@@ -108,7 +103,7 @@ class ArenaLadder implements ConfigurationInterface
      */
     public function getOptionalArguments()
     {
-        return $this->optionalArguments;
+        return null;
     }
 
     /**

@@ -25,7 +25,7 @@ use bnetlib\Resource\ConfigurationInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
  */
-class Quest implements ConfigurationInterface
+class Recipe implements ConfigurationInterface
 {
     /**
      * @const string
@@ -38,24 +38,9 @@ class Quest implements ConfigurationInterface
     protected $resourceType = self::TYPE_DYNAMIC_PATH;
 
     /**
-     * @var null
-     */
-    protected $argumentAliases = null;
-
-    /**
      * @var array
      */
     protected $requiredArguments = array('id');
-
-    /**
-     * @var null
-     */
-    protected $optionalArguments = null;
-
-    /**
-     * @var null
-     */
-    protected $manipulableArguments = null;
 
     /**
      * @inheritdoc
@@ -70,7 +55,7 @@ class Quest implements ConfigurationInterface
      */
     public function getArgumentAliases()
     {
-        return $this->argumentAliases;
+        return null;
     }
 
     /**
@@ -86,7 +71,7 @@ class Quest implements ConfigurationInterface
      */
     public function getOptionalArguments()
     {
-        return $this->optionalArguments;
+        return null;
     }
 
     /**
@@ -94,7 +79,7 @@ class Quest implements ConfigurationInterface
      */
     public function getManipulableArguments()
     {
-        return $this->manipulableArguments;
+        return null;
     }
 
     /**
