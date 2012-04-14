@@ -23,18 +23,25 @@ namespace bnetlib;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
  *
- * @method     mixed getAuction(array $args [, Resource\Utilizable $instance])
- * @method     mixed getAuctionData(array $args [, Resource\Utilizable $instance])
- * @method     mixed getCharacter(array $args [, Resource\Utilizable $instance])
+ * @method     mixed getArenaLadder(array $args [, Resource\ConsumeInterface $instance])
+ * @method     mixed getArenaTeam(array $args [, Resource\ConsumeInterface $instance])
+ * @method     mixed getAuction(array $args [, Resource\ConsumeInterface $instance])
+ * @method     mixed getAuctionData(array $args [, Resource\ConsumeInterface $instance])
+ * @method     mixed getBattlegroups([array $args])
+ * @method     mixed getCharacter(array $args [, Resource\ConsumeInterface $instance])
+ * @method     mixed getCharacterAchievements([array $args])
  * @method     mixed getCharacterClasses([array $args])
  * @method     mixed getCharacterRaces([array $args])
- * @method     mixed getGuild(array $args [, Resource\Utilizable $instance])
+ * @method     mixed getGuild(array $args [, Resource\ConsumeInterface $instance])
+ * @method     mixed getGuildAchievements([array $args])
  * @method     mixed getGuildPerks([array $args])
  * @method     mixed getGuildRewards([array $args])
- * @method     mixed getItem(array $args [, Resource\Utilizable $instance])
+ * @method     mixed getItem(array $args [, Resource\ConsumeInterface $instance])
  * @method     mixed getItemClasses([array $args])
- * @method     mixed getPvp(array $args [, Resource\Utilizable $instance])
- * @method     mixed getRealm([array $args])
+ * @method     mixed getQuest(array $args [, Resource\ConsumeInterface $instance])
+ * @method     mixed getRealm([array $args, [Resource\ConsumeInterface $instance]])
+ * @method     mixed getRecipe(array $args [, Resource\ConsumeInterface $instance])
+ * @method     mixed getThumbnail(array $args [, Resource\ConsumeInterface $instance])
  */
 class WorldOfWarcraft extends AbstractGame
 {
