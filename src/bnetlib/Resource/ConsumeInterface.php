@@ -1,3 +1,4 @@
+
 <?php
 /**
  * This file is part of the bnetlib Library.
@@ -21,10 +22,10 @@ namespace bnetlib\Resource;
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   https://gitbub.com/coss/bnetlib/LISENCE     MIT License
  */
-interface UtilizeInterface
+interface ConsumeInterface
 {
     /**
      * @return array
      */
-    public function getArguments();
+    public function consume();
 }

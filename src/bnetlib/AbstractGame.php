@@ -15,7 +15,7 @@
 
 namespace bnetlib;
 
-use bnetlib\Resource\UtilizeInterface;
+use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
 use bnetlib\Resource\ConfigurationInterface;
 
@@ -191,8 +191,8 @@ abstract class AbstractGame
                 $args = array_merge($args, $arg);
             } elseif (is_string($arg)) {
                 $args['url'] = $arg;
-            } elseif ($arg instanceof UtilizeInterface) {
-                foreach ($arg->getArguments() as $key => $value) {
+            } elseif ($arg instanceof ConsumeInterface) {
+                foreach ($arg->consume() as $key => $value) {
                     if (!isset($args[$key])) {
                         $args[$key] = $value;
                     }
@@ -201,7 +201,7 @@ abstract class AbstractGame
                 $errType = gettype($arg);
                 $errType = ($errType === 'object') ? get_class($closure) : $errType;
                 throw new Exception\InvalidArgumentException(sprintf(
-                    'Argument %i must be an array or implement UtilizeInterface, %s given.', $num, $errType
+                    'Argument %i must be an array or implement ConsumeInterface, %s given.', $num, $errType
                 ));
             }
         }

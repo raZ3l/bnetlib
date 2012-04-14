@@ -13,11 +13,11 @@
 
 namespace bnetlibTest\TestAssets;
 
-use bnetlib\Resource\UtilizeInterface;
+use bnetlib\Resource\ConsumeInterface;
 
-class DummyMagicResource implements UtilizeInterface
+class DummyMagicResource implements ConsumeInterface
 {
-    public function getArguments()
+    public function consume()
     {
         return array('sub' => 'www', 'end' => 'foobar');
 
