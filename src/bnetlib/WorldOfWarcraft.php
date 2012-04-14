@@ -126,17 +126,14 @@ class WorldOfWarcraft extends AbstractGame
     protected $locale = array(
         ConnectionInterface::REGION_US => array(
             ConnectionInterface::LOCALE_US,
-            ConnectionInterface::LOCALE_MX,
-            ConnectionInterface::LOCALE_BR
+            ConnectionInterface::LOCALE_MX
         ),
         ConnectionInterface::REGION_EU => array(
             ConnectionInterface::LOCALE_GB,
             ConnectionInterface::LOCALE_ES,
             ConnectionInterface::LOCALE_FR,
             ConnectionInterface::LOCALE_RU,
-            ConnectionInterface::LOCALE_DE,
-            ConnectionInterface::LOCALE_IT,
-            ConnectionInterface::LOCALE_PT
+            ConnectionInterface::LOCALE_DE
         ),
         ConnectionInterface::REGION_KR => array(ConnectionInterface::LOCALE_KR),
         ConnectionInterface::REGION_TW => array(ConnectionInterface::LOCALE_TW),
