@@ -34,7 +34,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->stub      = $this->getMockBuilder('Zend\Http\Client')
+        $this->stub       = $this->getMockBuilder('Zend\Http\Client')
                                  ->setMethods(array('doRequest'))
                                  ->getMock();
         $this->connection = new Connection($this->stub);
@@ -42,7 +42,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
     public function tearDown()
     {
-        unset($this->connection);
+        unset($this->stub, $this->connection);
     }
 
     public function testSetConfigAutoHttps()
@@ -60,11 +60,11 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
     public function testSignedRequest()
     {
-        if (!defined('TESTS_ONLINE') || TESTS_ONLINE === false)) {
-            $this->markTestSkipped("Skipped by TestConfiguration (TESTS_ONLINE)");
+        if (!defined('TESTS_ONLINE') || TESTS_ONLINE === false) {
+            $this->markTestSkipped('Skipped by TestConfiguration (TESTS_ONLINE)');
         }
-        if (!defined('TESTS_CONNECTION_ONLINE') || TESTS_CONNECTION_ONLINE === false)) {
-            $this->markTestSkipped("Skipped by TestConfiguration (TESTS_CONNECTION_ONLINE)");
+        if (!defined('TESTS_CONNECTION_ONLINE') || TESTS_CONNECTION_ONLINE === false) {
+            $this->markTestSkipped('Skipped by TestConfiguration (TESTS_CONNECTION_ONLINE)');
         }
 
         $connection = $this->getMockBuilder('bnetlib\Connection')
