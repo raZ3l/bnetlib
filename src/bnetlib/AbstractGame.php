@@ -167,12 +167,12 @@ abstract class AbstractGame
     /**
      * @param  string $name
      * @param  array  $arguments
-     * @return string|object
+     * @return array|object
      */
     public function __call($name, $arguments)
     {
         $args   = array();
-        $count  = count($args);
+        $count  = count($arguments);
         $name   = substr($name, 3);
 
         if (!isset($this->resources[$name])) {
