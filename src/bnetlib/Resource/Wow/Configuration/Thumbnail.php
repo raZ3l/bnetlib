@@ -46,6 +46,14 @@ class Thumbnail implements ConfigurationInterface
     /**
      * @inheritdoc
      */
+    public function isJson()
+    {
+        return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getResourceType()
     {
         return $this->resourceType;

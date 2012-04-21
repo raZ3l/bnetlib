@@ -45,6 +45,14 @@ class DynamicPathCfg implements ConfigurationInterface
         );
     }
 
+        /**
+     * @inheritdoc
+     */
+    public function isJson()
+    {
+        return true;
+    }
+
     /**
      * @inheritdoc
      */

@@ -39,6 +39,14 @@ class DynamicUrlCfg implements ConfigurationInterface
         );
     }
 
+        /**
+     * @inheritdoc
+     */
+    public function isJson()
+    {
+        return true;
+    }
+
     /**
      * @inheritdoc
      */

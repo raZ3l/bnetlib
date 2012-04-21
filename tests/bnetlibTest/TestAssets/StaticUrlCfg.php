@@ -27,6 +27,14 @@ class StaticUrlCfg implements ConfigurationInterface
 
     protected $manipulableArguments = null;
 
+        /**
+     * @inheritdoc
+     */
+    public function isJson()
+    {
+        return true;
+    }
+
     /**
      * @inheritdoc
      */

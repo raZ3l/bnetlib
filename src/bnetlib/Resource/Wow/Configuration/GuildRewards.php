@@ -40,6 +40,14 @@ class GuildRewards implements ConfigurationInterface
     /**
      * @inheritdoc
      */
+    public function isJson()
+    {
+        return true;
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getResourceType()
     {
         return $this->resourceType;

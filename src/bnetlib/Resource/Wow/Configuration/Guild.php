@@ -41,7 +41,7 @@ class Guild implements ConfigurationInterface
     /**
      * @var array
      */
-    protected $argumentAliases = array('realm' => 'slug');
+    protected $argumentAliases = array('realm' => 'slug', 'name' => 'guild');
 
     /**
      * @var array
@@ -71,6 +71,14 @@ class Guild implements ConfigurationInterface
                 return (is_array($v)) ? implode(',', $v) : $v;
             }
         );
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function isJson()
+    {
+        return true;
     }
 
     /**

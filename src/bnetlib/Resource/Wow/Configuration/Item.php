@@ -40,7 +40,20 @@ class Item implements ConfigurationInterface
     /**
      * @var array
      */
+    protected $argumentAliases = array('id' => 'itemid');
+
+    /**
+     * @var array
+     */
     protected $requiredArguments = array('id');
+
+    /**
+     * @inheritdoc
+     */
+    public function isJson()
+    {
+        return true;
+    }
 
     /**
      * @inheritdoc
@@ -55,7 +68,7 @@ class Item implements ConfigurationInterface
      */
     public function getArgumentAliases()
     {
-        return null;
+        return $this->argumentAliases;
     }
 
     /**

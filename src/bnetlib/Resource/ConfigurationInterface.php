@@ -35,6 +35,11 @@ interface ConfigurationInterface
     /**#@-*/
 
     /**
+     * @return boolean
+     */
+    public function isJson();
+
+    /**
      * @return int
      */
     public function getResourceType();
