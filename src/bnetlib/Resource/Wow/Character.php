@@ -155,15 +155,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     }
 
     /**
-     * @return string Realm slug
-     */
-    public function getRealmSlug()
-    {
-        return $this->data['slug'];
-    }
-
-    /**
-     * @return DateTime Last modification
+     * @return int Last modification (UTC unix timestamp)
      */
     public function getLastModified()
     {
@@ -459,7 +451,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isMale()
     {
-        return ($this->data['gender'] === 0) ? true : false;
+        return $this->data['gender'] === 0;
     }
 
     /**
@@ -467,7 +459,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isFemale()
     {
-        return ($this->data['gender'] === 1) ? true : false;
+        return $this->data['gender'] === 1;
     }
 
     /**
@@ -475,7 +467,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isAlliance()
     {
-        return ($this->data['faction'] === 0) ? true : false;
+        return $this->data['faction'] === 0;
     }
 
     /**
@@ -483,7 +475,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isHorde()
     {
-        return ($this->data['faction'] === 1) ? true : false;
+        return $this->data['faction'] === 1;
     }
 
     /**
@@ -491,7 +483,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isHuman()
     {
-        return ($this->data['race'] === 1) ? true : false;
+        return $this->data['race'] === 1;
     }
 
     /**
@@ -499,7 +491,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isOrc()
     {
-        return ($this->data['race'] === 2) ? true : false;
+        return $this->data['race'] === 2;
     }
 
     /**
@@ -507,7 +499,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isDwarf()
     {
-        return ($this->data['race'] === 3) ? true : false;
+        return $this->data['race'] === 3;
     }
 
     /**
@@ -515,7 +507,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isNightElf()
     {
-        return ($this->data['race'] === 4) ? true : false;
+        return $this->data['race'] === 4;
     }
 
     /**
@@ -523,7 +515,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isUndead()
     {
-        return ($this->data['race'] === 5) ? true : false;
+        return $this->data['race'] === 5;
     }
 
     /**
@@ -531,7 +523,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isTauren()
     {
-        return ($this->data['race'] === 6) ? true : false;
+        return $this->data['race'] === 6;
     }
 
     /**
@@ -539,7 +531,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isGnome()
     {
-        return ($this->data['race'] === 7) ? true : false;
+        return $this->data['race'] === 7;
     }
 
     /**
@@ -547,7 +539,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isTroll()
     {
-        return ($this->data['race'] === 8) ? true : false;
+        return $this->data['race'] === 8;
     }
 
     /**
@@ -555,7 +547,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isGoblin()
     {
-        return ($this->data['race'] === 9) ? true : false;
+        return $this->data['race'] === 9;
     }
 
     /**
@@ -563,7 +555,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isBloodElf()
     {
-        return ($this->data['race'] === 10) ? true : false;
+        return $this->data['race'] === 10;
     }
 
     /**
@@ -571,7 +563,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isDraenei()
     {
-        return ($this->data['race'] === 11) ? true : false;
+        return $this->data['race'] === 11;
     }
 
     /**
@@ -579,7 +571,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isWorgen()
     {
-        return ($this->data['race'] === 22) ? true : false;
+        return $this->data['race'] === 22;
     }
 
     /**
@@ -587,7 +579,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isWarrior()
     {
-        return ($this->data['class'] === 1) ? true : false;
+        return $this->data['class'] === 1;
     }
 
     /**
@@ -595,7 +587,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isPaladin()
     {
-        return ($this->data['class'] === 2) ? true : false;
+        return $this->data['class'] === 2;
     }
 
     /**
@@ -603,7 +595,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isHunter()
     {
-        return ($this->data['class'] === 3) ? true : false;
+        return $this->data['class'] === 3;
     }
 
     /**
@@ -611,7 +603,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isRogue()
     {
-        return ($this->data['class'] === 4) ? true : false;
+        return $this->data['class'] === 4;
     }
 
     /**
@@ -619,7 +611,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isPriest()
     {
-        return ($this->data['class'] === 5) ? true : false;
+        return $this->data['class'] === 5;
     }
 
     /**
@@ -627,7 +619,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isDeathKnight()
     {
-        return ($this->data['class'] === 6) ? true : false;
+        return $this->data['class'] === 6;
     }
 
     /**
@@ -635,7 +627,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isShaman()
     {
-        return ($this->data['class'] === 7)  ? true : false;
+        return $this->data['class'] === 7;
     }
 
     /**
@@ -643,7 +635,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isMage()
     {
-        return ($this->data['class'] === 8) ? true : false;
+        return $this->data['class'] === 8;
     }
 
     /**
@@ -651,7 +643,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isWarlock()
     {
-        return ($this->data['class'] === 9) ? true : false;
+        return $this->data['class'] === 9;
     }
 
     /**
@@ -659,7 +651,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      */
     public function isDruid()
     {
-        return ($this->data['class'] === 11) ? true : false;
+        return $this->data['class'] === 11;
     }
 
     /**
