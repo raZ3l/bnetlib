@@ -16,7 +16,7 @@
 
 namespace bnetlibTest\Resource;
 
-use bnetlib\WorldOfWarcraft;
+use bnetlib\Resource\Wow\Character;
 
 /**
  * @category   bnetlib
@@ -36,26 +36,12 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $data            = array();
-        $data['content'] = json_decode(file_get_contents(
+        $data = json_decode(file_get_contents(
             __DIR__ . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'character.json'
         ), true);
 
-        $connection = $this->getMockBuilder('bnetlib\Connection')
-                           ->setMethods(array('request'))
-                           ->getMock();
-
-        $connection->expects($this->any())
-                   ->method('request')
-                   ->will($this->returnValue($data));
-
-        $wow             = new WorldOfWarcraft($connection);
-        $this->character = $wow->getCharacter(array(
-            'region' => 'eu',
-            'name'   => 'unittest',
-            'realm'  => 'example-org'
-            // includes all fields
-        ));
+        $this->character = new Character();
+        $this->character->populate($data);
     }
 
     public function tearDown()
