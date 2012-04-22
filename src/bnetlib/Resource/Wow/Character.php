@@ -275,6 +275,186 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     }
 
     /**
+     * @return bnetlib\Resource\Wow\Shared\Achievements|null
+     */
+    public function getAchievements()
+    {
+        if (isset($this->data['achievements'])) {
+            return $this->data['achievements'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Appearance|null
+     */
+    public function getAppearance()
+    {
+        if (isset($this->data['appearance'])) {
+            return $this->data['appearance'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Shared\ListData|null
+     */
+    public function getCompanions()
+    {
+        if (isset($this->data['companions'])) {
+            return $this->data['companions'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Guild|null
+     */
+    public function getGuild()
+    {
+        if (isset($this->data['guild'])) {
+            return $this->data['guild'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Items\Guild|null
+     */
+    public function getItems()
+    {
+        if (isset($this->data['items'])) {
+            return $this->data['items'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Shared\ListData|null
+     */
+    public function getMounts()
+    {
+        if (isset($this->data['mounts'])) {
+            return $this->data['mounts'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Pets|null
+     */
+    public function getPets()
+    {
+        if (isset($this->data['pets'])) {
+            return $this->data['pets'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Professions|null
+     */
+    public function getProfessions()
+    {
+        if (isset($this->data['professions'])) {
+            return $this->data['professions'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Progression|null
+     */
+    public function getProgression()
+    {
+        if (isset($this->data['progression'])) {
+            return $this->data['progression'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Pvp|null
+     */
+    public function getPvp()
+    {
+        if (isset($this->data['pvp'])) {
+            return $this->data['pvp'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Shared\ListData|null
+     */
+    public function getQuests()
+    {
+        if (isset($this->data['quests'])) {
+            return $this->data['quests'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Reputation|null
+     */
+    public function getReputation()
+    {
+        if (isset($this->data['reputation'])) {
+            return $this->data['reputation'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Stats|null
+     */
+    public function getStats()
+    {
+        if (isset($this->data['stats'])) {
+            return $this->data['stats'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Talents|null
+     */
+    public function getTalents()
+    {
+        if (isset($this->data['talents'])) {
+            return $this->data['talents'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Titles|null
+     */
+    public function getTitles()
+    {
+        if (isset($this->data['titles'])) {
+            return $this->data['titles'];
+        }
+
+        return null;
+    }
+
+    /**
      * @return boolean
      */
     public function isMale()
@@ -488,6 +668,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     public function consume()
     {
         return array(
+            'character' => $this->data['name'],
             'realm'     => $this->data['realm'],
             'thumbnail' => $this->data['thumb']
         );

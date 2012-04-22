@@ -41,7 +41,7 @@ class Character implements ConfigurationInterface
     /**
      * @var array
      */
-    protected $argumentAliases = array('realm' => 'slug');
+    protected $argumentAliases = array('realm' => 'slug', 'name' => 'character');
 
     /**
      * @var array
