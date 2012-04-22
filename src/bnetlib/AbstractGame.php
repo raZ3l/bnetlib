@@ -283,7 +283,7 @@ abstract class AbstractGame
                         'Resource %s must implement ResourceInterface', $name
                     ));
                 }
-                $class->populate(json_decode($response['content'], true));
+                $class->populate($response['content']);
                 if (isset($response['headers'])) {
                     $class->setResponseHeaders((object) $response['headers']);
                 }
