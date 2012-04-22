@@ -2037,7 +2037,12 @@
             ]
         },
         "arenaTeams": [
-
+          {
+            "name":"Lordaeron's Defense",
+            "personalRating":2700,
+            "teamRating":2700,
+            "size":"5v5"
+          }
         ],
         "totalHonorableKills": 38091
     },
