@@ -53,6 +53,15 @@ abstract class SharedConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(true);
     }
 
+    public function testIsJson()
+    {
+        if (!is_bool($this->config->isJson())) {
+            $this->fail('Is Json must return a boolean.');
+        }
+
+        $this->assertTrue(true);
+    }
+
     public function testArgumentAliases()
     {
         $aliases = $this->config->getArgumentAliases();
