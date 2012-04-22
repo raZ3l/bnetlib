@@ -67,11 +67,11 @@ class WorldOfWarcraft extends AbstractGame
         ),
         'Battlegroups' => array(
             'class'  => 'bnetlib\Resource\Wow\Battlegroups',
-            'config' => 'bnetlib\bnetlib\Resource\Wow\Configuration\Battlegroups'
+            'config' => 'bnetlib\Resource\Wow\Configuration\Battlegroups'
         ),
         'Character' => array(
             'class'  => 'bnetlib\Resource\Wow\Character',
-            'config' => 'bnetlib\bnetlib\Resource\Wow\Configuration\Character'
+            'config' => 'bnetlib\Resource\Wow\Configuration\Character'
         ),
         'CharacterAchievements' => array(
             'class'  => 'bnetlib\Resource\Wow\CharacterAchievements',
@@ -133,14 +133,18 @@ class WorldOfWarcraft extends AbstractGame
     protected $locale = array(
         ConnectionInterface::REGION_US => array(
             ConnectionInterface::LOCALE_US,
-            ConnectionInterface::LOCALE_MX
+            ConnectionInterface::LOCALE_MX,
+            ConnectionInterface::LOCALE_BR
         ),
         ConnectionInterface::REGION_EU => array(
             ConnectionInterface::LOCALE_GB,
             ConnectionInterface::LOCALE_ES,
             ConnectionInterface::LOCALE_FR,
             ConnectionInterface::LOCALE_RU,
-            ConnectionInterface::LOCALE_DE
+            ConnectionInterface::LOCALE_DE,
+            ConnectionInterface::LOCALE_PT,
+            ConnectionInterface::LOCALE_IT
+
         ),
         ConnectionInterface::REGION_KR => array(ConnectionInterface::LOCALE_KR),
         ConnectionInterface::REGION_TW => array(ConnectionInterface::LOCALE_TW),

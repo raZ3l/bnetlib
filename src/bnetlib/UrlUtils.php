@@ -72,7 +72,6 @@ class UrlUtils
         }
 
         if (!preg_match('/^[a-z-]+$/i', $realm)) {
-            // Normalizer::normalize Ha!
             foreach (self::$normalizeCharacter as $old => $new) {
                 $realm = str_replace($old, $new, $realm);
             }
