@@ -2047,5 +2047,6 @@
         13138,
         8802,
         11632
-    ]
+    ],
+    "pets":[{"name":"Geisterbestie","creature":32517,"slot":0},{"name":"Monkey","creature":48440,"slot":4},{"name":"Rowbie","creature":24026,"slot":1},{"name":"Sambas","creature":50159,"slot":3},{"name":"SchubSchub","creature":50058,"slot":2},{"name":"Aasvogel","creature":8299,"slot":12},{"name":"Eber","creature":8303,"slot":8},{"name":"Felshetzer","creature":19350,"slot":19},{"name":"Fuchs","creature":43083,"slot":7},{"name":"Geisterbestie","creature":35189,"slot":23},{"name":"Geisterbestie","creature":50051,"slot":20},{"name":"Gondria","creature":33776,"slot":11},{"name":"Hy\u00e4ne","creature":8300,"slot":17},{"name":"Karoma","creature":50138,"slot":21},{"name":"Krokilisk","creature":3581,"slot":22},{"name":"Madexx","creature":51403,"slot":15},{"name":"Motte","creature":25498,"slot":6},{"name":"Pech","creature":28097,"slot":18},{"name":"Razer","creature":7434,"slot":9},{"name":"Schildkr\u00f6te","creature":4887,"slot":24},{"name":"Skorpid","creature":5823,"slot":5},{"name":"Spirit Beast","creature":54320,"slot":10},{"name":"Wolf","creature":8211,"slot":16},{"name":"B\u00e4r","creature":33009,"slot":13},{"name":"Knirsch","creature":32485,"slot":14}]
 }
