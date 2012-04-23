@@ -55,27 +55,27 @@ class GlyphTest extends \PHPUnit_Framework_TestCase
 
     public function testGlyphId()
     {
-        $this->assertEquals(self::$obj->getGlyphId(), 651);
+        $this->assertEquals(651, self::$obj->getGlyphId());
     }
 
     public function testItemId()
     {
-        $this->assertEquals(self::$obj->getItemId(), 44955);
+        $this->assertEquals(44955, self::$obj->getItemId());
     }
 
     public function testGlyphType()
     {
-        $this->assertEquals(self::$obj->getGlyphType(), 'prime');
+        $this->assertEquals('prime', self::$obj->getGlyphType());
     }
 
     public function testName()
     {
-        $this->assertEquals(self::$obj->getName(), 'Glyph of Arcane Blast');
+        $this->assertEquals('Glyph of Arcane Blast', self::$obj->getName());
     }
 
     public function testIcon()
     {
-        $this->assertEquals(self::$obj->getIcon(), 'spell_arcane_blast');
+        $this->assertEquals('spell_arcane_blast', self::$obj->getIcon());
     }
 
     public function testIsPrime()

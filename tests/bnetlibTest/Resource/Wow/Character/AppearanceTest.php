@@ -52,27 +52,27 @@ class AppearanceTest extends \PHPUnit_Framework_TestCase
 
     public function testFaceVariation()
     {
-        $this->assertEquals(self::$obj->getFaceVariation(), 4);
+        $this->assertEquals(4, self::$obj->getFaceVariation());
     }
 
     public function testSkinColor()
     {
-        $this->assertEquals(self::$obj->getSkinColor(), 1);
+        $this->assertEquals(1, self::$obj->getSkinColor());
     }
 
     public function testHairVariation()
     {
-        $this->assertEquals(self::$obj->getHairVariation(), 1);
+        $this->assertEquals(1, self::$obj->getHairVariation());
     }
 
     public function testHairColor()
     {
-        $this->assertEquals(self::$obj->getHairColor(), 7);
+        $this->assertEquals(7, self::$obj->getHairColor());
     }
 
     public function testFeatureVariation()
     {
-        $this->assertEquals(self::$obj->getFeatureVariation(), 4);
+        $this->assertEquals(4, self::$obj->getFeatureVariation());
     }
 
     public function testShowHelm()

@@ -58,27 +58,27 @@ class GuildTest extends \PHPUnit_Framework_TestCase
 
     public function testName()
     {
-        $this->assertEquals(self::$obj->getName(), 'Barmy');
+        $this->assertEquals('Barmy', self::$obj->getName());
     }
 
     public function testRealm()
     {
-        $this->assertEquals(self::$obj->getRealm(), 'Die ewige Wacht');
+        $this->assertEquals('Die ewige Wacht', self::$obj->getRealm());
     }
 
     public function testLevel()
     {
-        $this->assertEquals(self::$obj->getLevel(), 25);
+        $this->assertEquals(25, self::$obj->getLevel());
     }
 
     public function testMembers()
     {
-        $this->assertEquals(self::$obj->getMembers(), 161);
+        $this->assertEquals(161, self::$obj->getMembers());
     }
 
     public function testAchievementPoints()
     {
-        $this->assertEquals(self::$obj->getAchievementPoints(), 1425);
+        $this->assertEquals(1425, self::$obj->getAchievementPoints());
     }
 
     public function testEmblem()
@@ -88,26 +88,26 @@ class GuildTest extends \PHPUnit_Framework_TestCase
 
     public function testEmblemIcon()
     {
-        $this->assertEquals(self::$obj->getEmblemIcon(), 126);
+        $this->assertEquals(126, self::$obj->getEmblemIcon());
     }
 
     public function testEmblemIconColor()
     {
-        $this->assertEquals(self::$obj->getEmblemIconColor(), 'ffb1b8b1');
+        $this->assertEquals('ffb1b8b1', self::$obj->getEmblemIconColor());
     }
 
     public function testEmblemBorder()
     {
-        $this->assertEquals(self::$obj->getEmblemBorder(), 0);
+        $this->assertEquals(0, self::$obj->getEmblemBorder());
     }
 
     public function testEmblemBorderColor()
     {
-        $this->assertEquals(self::$obj->getEmblemBorderColor(), 'ff0f1415');
+        $this->assertEquals('ff0f1415', self::$obj->getEmblemBorderColor());
     }
 
     public function testEmblemBackgroundColor()
     {
-        $this->assertEquals(self::$obj->getEmblemBackgroundColor(), 'ff232323');
+        $this->assertEquals('ff232323', self::$obj->getEmblemBackgroundColor());
     }
 }

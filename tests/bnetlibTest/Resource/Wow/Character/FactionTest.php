@@ -52,27 +52,27 @@ class FactionTest extends \PHPUnit_Framework_TestCase
 
     public function testId()
     {
-        $this->assertEquals(self::$obj->getId(), 1098);
+        $this->assertEquals(1098, self::$obj->getId());
     }
 
     public function testName()
     {
-        $this->assertEquals(self::$obj->getName(), 'Knights of the Ebon Blade');
+        $this->assertEquals('Knights of the Ebon Blade', self::$obj->getName());
     }
 
     public function testStanding()
     {
-        $this->assertEquals(self::$obj->getStanding(), 7);
+        $this->assertEquals(7, self::$obj->getStanding());
     }
 
     public function testValue()
     {
-        $this->assertEquals(self::$obj->getValue(), 999);
+        $this->assertEquals(999, self::$obj->getValue());
     }
 
     public function testMax()
     {
-        $this->assertEquals(self::$obj->getMax(), 999);
+        $this->assertEquals(999, self::$obj->getMax());
     }
 
     public function testIsAtMax()

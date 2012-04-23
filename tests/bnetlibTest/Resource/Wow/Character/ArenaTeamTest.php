@@ -52,6 +52,6 @@ class ArenaTeamTest extends \PHPUnit_Framework_TestCase
 
     public function testPersonalRating()
     {
-        $this->assertEquals(self::$obj->getPersonalRating(), 2700);
+        $this->assertEquals(2700, self::$obj->getPersonalRating());
     }
 }

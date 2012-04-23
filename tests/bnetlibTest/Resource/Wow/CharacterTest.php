@@ -51,52 +51,52 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
 
     public function testName()
     {
-        $this->assertEquals(self::$obj->getName(), 'Coss');
+        $this->assertEquals('Coss', self::$obj->getName());
     }
 
     public function testRealm()
     {
-        $this->assertEquals(self::$obj->getRealm(), 'Die ewige Wacht');
+        $this->assertEquals('Die ewige Wacht', self::$obj->getRealm());
     }
 
     public function testLastModified()
     {
-        $this->assertEquals(self::$obj->getLastModified(), 1333377686000);
+        $this->assertEquals(1333377686000, self::$obj->getLastModified());
     }
 
     public function testThumbnail()
     {
-        $this->assertEquals(self::$obj->getThumbnail(), 'die-ewige-wacht/157/60753821-avatar.jpg');
+        $this->assertEquals('die-ewige-wacht/157/60753821-avatar.jpg', self::$obj->getThumbnail());
     }
 
     public function testLevel()
     {
-        $this->assertEquals(self::$obj->getLevel(), 85);
+        $this->assertEquals(85, self::$obj->getLevel());
     }
 
     public function testClass()
     {
-        $this->assertEquals(self::$obj->getClass(), 8);
+        $this->assertEquals(8, self::$obj->getClass());
     }
 
     public function testRace()
     {
-        $this->assertEquals(self::$obj->getRace(), 7);
+        $this->assertEquals(7, self::$obj->getRace());
     }
 
     public function testGender()
     {
-        $this->assertEquals(self::$obj->getGender(), 0);
+        $this->assertEquals(0, self::$obj->getGender());
     }
 
     public function testFaction()
     {
-        $this->assertEquals(self::$obj->getFaction(), 0);
+        $this->assertEquals(0, self::$obj->getFaction());
     }
 
     public function testAchievementPoints()
     {
-        $this->assertEquals(self::$obj->getAchievementPoints(), 10420);
+        $this->assertEquals(10420, self::$obj->getAchievementPoints());
     }
 
     public function testAchievementsField()

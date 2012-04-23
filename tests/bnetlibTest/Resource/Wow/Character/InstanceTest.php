@@ -58,22 +58,22 @@ class InstanceTest extends \PHPUnit_Framework_TestCase
 
     public function testName()
     {
-         $this->assertEquals(self::$obj->getName(), 'Molten Core');
+         $this->assertEquals('Molten Core', self::$obj->getName());
     }
 
     public function testNormal()
     {
-         $this->assertEquals(self::$obj->getNormal(), 2);
+         $this->assertEquals(2, self::$obj->getNormal());
     }
 
     public function testHeroic()
     {
-         $this->assertEquals(self::$obj->getHeroic(), 0);
+         $this->assertEquals(0, self::$obj->getHeroic());
     }
 
     public function testId()
     {
-         $this->assertEquals(self::$obj->getId(), 2717);
+         $this->assertEquals(2717, self::$obj->getId());
     }
 
     public function testBosses()
@@ -93,12 +93,12 @@ class InstanceTest extends \PHPUnit_Framework_TestCase
 
     public function testNormalProgress()
     {
-        $this->assertEquals(self::$obj->getNormalProgress(), '1/1');
+        $this->assertEquals('1/1', self::$obj->getNormalProgress());
     }
 
     public function testHeroicProgress()
     {
-         $this->assertEquals(self::$obj->getHeroicProgress(), '0/1');
+         $this->assertEquals('0/1', self::$obj->getHeroicProgress());
     }
 
     public function testIterator()
