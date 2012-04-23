@@ -1,0 +1,122 @@
+<?php
+/**
+ * This file is part of the bnetlib Library.
+ * Copyright (c) 2012 Eric Boh <cossish@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code. You can also view the
+ * LICENSE file online at https://gitbub.com/coss/bnetlib/LISENCE
+ *
+ * @category   bnetlib
+ * @package    Resource
+ * @subpackage UnitTests
+ * @copyright  2012 Eric Boh <cossish@gmail.com>
+ * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ */
+
+namespace bnetlibTest\Resource;
+
+use bnetlib\Resource\Wow\Character\Faction;
+
+/**
+ * @category   bnetlib
+ * @package    Resource
+ * @subpackage UnitTests
+ * @group      WorldOFWarcraft
+ * @group      WoW_Character
+ * @copyright  2012 Eric Boh <cossish@gmail.com>
+ * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ */
+class FactionTest extends \PHPUnit_Framework_TestCase
+{
+    /**
+     * @var bnetlib\Resource\Wow\Character\Faction
+     */
+    protected static $obj;
+
+    public static function setUpBeforeClass()
+    {
+        $data            = array();
+        $data['content'] = json_decode(file_get_contents(
+            dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'character.json'
+        ), true);
+
+        self::$obj = new Faction();
+        self::$obj->populate($data['content']['reputation'][0]);
+    }
+
+    public static function tearDownAfterClass()
+    {
+        self::$obj = null;
+    }
+
+    public function testId()
+    {
+        $this->assertEquals(self::$obj->getId(), 1098);
+    }
+
+    public function testName()
+    {
+        $this->assertEquals(self::$obj->getName(), 'Knights of the Ebon Blade');
+    }
+
+    public function testStanding()
+    {
+        $this->assertEquals(self::$obj->getStanding(), 7);
+    }
+
+    public function testValue()
+    {
+        $this->assertEquals(self::$obj->getValue(), 999);
+    }
+
+    public function testMax()
+    {
+        $this->assertEquals(self::$obj->getMax(), 999);
+    }
+
+    public function testIsAtMax()
+    {
+        $this->assertTrue(self::$obj->isAtMax());
+    }
+
+    public function testIsExalted()
+    {
+        $this->assertTrue(self::$obj->isExalted());
+    }
+
+    public function testIsRevered()
+    {
+        $this->assertFalse(self::$obj->isRevered());
+    }
+
+    public function testIsHonored()
+    {
+        $this->assertFalse(self::$obj->isHonored());
+    }
+
+    public function testIsFriendly()
+    {
+        $this->assertFalse(self::$obj->isFriendly());
+    }
+
+    public function testIsNeutral()
+    {
+        $this->assertFalse(self::$obj->isNeutral());
+    }
+
+    public function testIsUnfriendly()
+    {
+        $this->assertFalse(self::$obj->isUnfriendly());
+    }
+
+    public function testIsHostile()
+    {
+        $this->assertFalse(self::$obj->isHostile());
+    }
+
+    public function testIsHated()
+    {
+        $this->assertFalse(self::$obj->isHated());
+    }
+}

@@ -32,204 +32,270 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
     /**
      * @var bnetlib\Resource\Wow\Character
      */
-    protected $obj;
+    protected static $obj;
 
-    public function setUp()
+    public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
             __DIR__ . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'character.json'
         ), true);
 
-        $this->obj = new Character();
-        $this->obj->populate($data);
+        self::$obj = new Character();
+        self::$obj->populate($data);
     }
 
-    public function tearDown()
+    public static function tearDownAfterClass()
     {
-        unset($this->obj);
+        self::$obj = null;
     }
 
     public function testName()
     {
-        $this->assertEquals($this->obj->getName(), 'Coss');
+        $this->assertEquals(self::$obj->getName(), 'Coss');
     }
 
     public function testRealm()
     {
-        $this->assertEquals($this->obj->getRealm(), 'Die ewige Wacht');
+        $this->assertEquals(self::$obj->getRealm(), 'Die ewige Wacht');
     }
 
     public function testLastModified()
     {
-        $this->assertEquals($this->obj->getLastModified(), 1333377686000);
+        $this->assertEquals(self::$obj->getLastModified(), 1333377686000);
     }
 
     public function testThumbnail()
     {
-        $this->assertEquals($this->obj->getThumbnail(), 'die-ewige-wacht/157/60753821-avatar.jpg');
+        $this->assertEquals(self::$obj->getThumbnail(), 'die-ewige-wacht/157/60753821-avatar.jpg');
     }
 
     public function testLevel()
     {
-        $this->assertEquals($this->obj->getLevel(), 85);
+        $this->assertEquals(self::$obj->getLevel(), 85);
     }
 
     public function testClass()
     {
-        $this->assertEquals($this->obj->getClass(), 8);
+        $this->assertEquals(self::$obj->getClass(), 8);
     }
 
     public function testRace()
     {
-        $this->assertEquals($this->obj->getRace(), 7);
+        $this->assertEquals(self::$obj->getRace(), 7);
     }
 
     public function testGender()
     {
-        $this->assertEquals($this->obj->getGender(), 0);
+        $this->assertEquals(self::$obj->getGender(), 0);
     }
 
     public function testFaction()
     {
-        $this->assertEquals($this->obj->getFaction(), 0);
+        $this->assertEquals(self::$obj->getFaction(), 0);
     }
 
     public function testAchievementPoints()
     {
-        $this->assertEquals($this->obj->getAchievementPoints(), 10420);
+        $this->assertEquals(self::$obj->getAchievementPoints(), 10420);
     }
 
     public function testAchievementsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Shared\Achievements', $this->obj->getAchievements());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Shared\Achievements', self::$obj->getAchievements());
     }
 
     public function testAppearanceField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Appearance', $this->obj->getAppearance());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Appearance', self::$obj->getAppearance());
     }
 
     public function testCompanionsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Shared\ListData', $this->obj->getCompanions());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Shared\ListData', self::$obj->getCompanions());
     }
 
     public function testGuildField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Guild', $this->obj->getGuild());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Guild', self::$obj->getGuild());
     }
 
     public function testItemsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Items', $this->obj->getItems());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Items', self::$obj->getItems());
     }
 
     public function testMountsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Shared\ListData', $this->obj->getMounts());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Shared\ListData', self::$obj->getMounts());
     }
 
     public function testPetsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Pets', $this->obj->getPets());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Pets', self::$obj->getPets());
     }
 
     public function testProfessionsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Professions', $this->obj->getProfessions());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Professions', self::$obj->getProfessions());
     }
 
     public function testProgressionField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Progression', $this->obj->getProgression());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Progression', self::$obj->getProgression());
     }
 
     public function testPvpField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Pvp', $this->obj->getPvp());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Pvp', self::$obj->getPvp());
     }
 
     public function testQuestsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Shared\ListData', $this->obj->getQuests());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Shared\ListData', self::$obj->getQuests());
     }
 
     public function testReputationField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Reputation', $this->obj->getReputation());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Reputation', self::$obj->getReputation());
     }
 
     public function testStatsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Stats', $this->obj->getStats());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Stats', self::$obj->getStats());
     }
 
     public function testTalentsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Talents', $this->obj->getTalents());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Talents', self::$obj->getTalents());
     }
 
     public function testTitlesField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Titles', $this->obj->getTitles());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Titles', self::$obj->getTitles());
     }
 
     public function testIsMale()
     {
-        $this->assertTrue($this->obj->isMale());
+        $this->assertTrue(self::$obj->isMale());
     }
 
     public function testIsNotFemale()
     {
-        $this->assertFalse($this->obj->isFemale());
+        $this->assertFalse(self::$obj->isFemale());
     }
 
     public function testIsAlliance()
     {
-        $this->assertTrue($this->obj->isAlliance());
+        $this->assertTrue(self::$obj->isAlliance());
     }
 
     public function testIsNotHorde()
     {
-        $this->assertFalse($this->obj->isHorde());
+        $this->assertFalse(self::$obj->isHorde());
     }
 
     public function testIsGnome()
     {
-        $this->assertTrue($this->obj->isGnome());
+        $this->assertTrue(self::$obj->isGnome());
     }
 
-    public function testIsNotOtherRace()
+    public function testIsNotHuman()
     {
-        $this->assertFalse($this->obj->isHuman());
-        $this->assertFalse($this->obj->isOrc());
-        $this->assertFalse($this->obj->isHorde());
-        $this->assertFalse($this->obj->isDwarf());
-        $this->assertFalse($this->obj->isNightElf());
-        $this->assertFalse($this->obj->isUndead());
-        $this->assertFalse($this->obj->isTauren());
-        $this->assertFalse($this->obj->isTroll());
-        $this->assertFalse($this->obj->isGoblin());
-        $this->assertFalse($this->obj->isBloodElf());
-        $this->assertFalse($this->obj->isDraenei());
-        $this->assertFalse($this->obj->isWorgen());
+        $this->assertFalse(self::$obj->isHuman());
+    }
+
+    public function testIsNotOrc()
+    {
+        $this->assertFalse(self::$obj->isOrc());
+    }
+
+    public function testIsNotDwarf()
+    {
+        $this->assertFalse(self::$obj->isDwarf());
+    }
+
+    public function testIsNotNightElf()
+    {
+        $this->assertFalse(self::$obj->isNightElf());
+    }
+
+    public function testIsNotUndead()
+    {
+        $this->assertFalse(self::$obj->isUndead());
+    }
+
+    public function testIsNotTauren()
+    {
+        $this->assertFalse(self::$obj->isTauren());
+    }
+
+    public function testIsNotTroll()
+    {
+        $this->assertFalse(self::$obj->isTroll());
+    }
+
+    public function testIsNotGoblin()
+    {
+        $this->assertFalse(self::$obj->isGoblin());
+    }
+
+    public function testIsNotBloodElf()
+    {
+        $this->assertFalse(self::$obj->isBloodElf());
+    }
+
+    public function testIsNotDraenei()
+    {
+        $this->assertFalse(self::$obj->isDraenei());
+    }
+
+    public function testIsNotWorgen()
+    {
+        $this->assertFalse(self::$obj->isWorgen());
     }
 
     public function testIsMage()
     {
-        $this->assertTrue($this->obj->isMage());
+        $this->assertTrue(self::$obj->isMage());
     }
 
-    public function testIsNotOtherClass()
+    public function testIsNotWarrior()
     {
-        $this->assertFalse($this->obj->isWarrior());
-        $this->assertFalse($this->obj->isPaladin());
-        $this->assertFalse($this->obj->isHunter());
-        $this->assertFalse($this->obj->isRogue());
-        $this->assertFalse($this->obj->isPriest());
-        $this->assertFalse($this->obj->isDeathKnight());
-        $this->assertFalse($this->obj->isShaman());
-        $this->assertFalse($this->obj->isWarlock());
-        $this->assertFalse($this->obj->isDruid());
+        $this->assertFalse(self::$obj->isWarrior());
+    }
+
+    public function testIsNotPaladin()
+    {
+        $this->assertFalse(self::$obj->isPaladin());
+    }
+
+    public function testIsNotHunter()
+    {
+        $this->assertFalse(self::$obj->isHunter());
+    }
+
+    public function testIsNotRogue()
+    {
+        $this->assertFalse(self::$obj->isRogue());
+    }
+
+    public function testIsNotPriest()
+    {
+        $this->assertFalse(self::$obj->isPriest());
+    }
+
+    public function testIsNotDeathKnight()
+    {
+        $this->assertFalse(self::$obj->isDeathKnight());
+    }
+
+    public function testIsNotWarlock()
+    {
+        $this->assertFalse(self::$obj->isWarlock());
+    }
+
+    public function testIsNotDruid()
+    {
+        $this->assertFalse(self::$obj->isDruid());
     }
 }
