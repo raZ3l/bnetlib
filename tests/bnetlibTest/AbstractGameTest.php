@@ -39,7 +39,13 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
 
         $connection->expects($this->any())
                    ->method('request')
-                   ->will($this->returnCallback(array('bnetlibTest\AbstractGameTest', 'requestCallback')));
+                   ->will($this->returnCallback(function () {
+                        $args = func_get_args();
+                        return array(
+                            'content' => $args[0],
+                            'headers' => array('foo' => 'bar')
+                        );
+                   }));
 
         $this->obj = new TestAssets\DummyGame($connection);
     }
@@ -47,15 +53,6 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
     public function tearDown()
     {
         unset($this->obj);
-    }
-
-    static public function requestCallback()
-    {
-        $args = func_get_args();
-        return array(
-            'content' => json_encode($args[0]),
-            'headers' => array('foo' => 'bar')
-        );
     }
 
     public function testGetSupportedLocale()
@@ -82,9 +79,8 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetResourceConfigWithInvalidConfigClass()
     {
-        $clone = clone $this->obj;
-        $clone->setResource(array('StaticUrl' => array('config' => 'bnetlib\Connection')));
-        $clone->getResourceConfig('StaticUrl');
+        $this->obj->setResource(array('StaticUrl' => array('config' => 'bnetlib\Connection')));
+        $this->obj->getResourceConfig('StaticUrl');
     }
 
     public function testSetResourcWithArray()
@@ -94,10 +90,9 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
             'config' => 'Foo\Bar\Configuration'
         );
 
-        $clone = clone $this->obj;
-        $clone->setResource(array('StaticUrl' => $newValue));
+        $this->obj->setResource(array('StaticUrl' => $newValue));
 
-        $this->assertEquals($newValue, $clone->__getResourceArray('StaticUrl'));
+        $this->assertEquals($newValue, $this->obj->__getResourceArray('StaticUrl'));
     }
 
     public function testSetResourcWithString()
@@ -107,10 +102,9 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
             'config' => 'bnetlibTest\TestAssets\StaticUrlCfg'
         );
 
-        $clone = clone $this->obj;
-        $clone->setResource(array('StaticUrl' => 'Foo\Bar\Class'));
+        $this->obj->setResource(array('StaticUrl' => 'Foo\Bar\Class'));
 
-        $this->assertEquals($newValue, $clone->__getResourceArray('StaticUrl'));
+        $this->assertEquals($newValue, $this->obj->__getResourceArray('StaticUrl'));
     }
 
     /**
@@ -118,8 +112,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetResourcWithInvalidType()
     {
-        $clone = clone $this->obj;
-        $clone->setResource(array('StaticUrl' => null));
+        $this->obj->setResource(array('StaticUrl' => null));
     }
 
     /**
@@ -127,8 +120,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetResourcWithInvalidResourceName()
     {
-        $clone = clone $this->obj;
-        $clone->setResource(array('foobar' => null));
+        $this->obj->setResource(array('foobar' => null));
     }
 
     public function testReturnType()
@@ -140,9 +132,8 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
 
     public function testReplaceHttpWithHttps()
     {
-        $clone    = clone $this->obj;
-        $clone->getConnection()->setConfig(array('securerequests' => true));
-        $response = $clone->getStaticUrl('http://example.org/');
+        $this->obj->getConnection()->setConfig(array('securerequests' => true));
+        $response = $this->obj->getStaticUrl('http://example.org/');
         $data     = $response->getData();
 
         $this->assertEquals('https://example.org/', $data['url']);
@@ -150,10 +141,9 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
 
     public function testDontReplaceHttpWithHttps()
     {
-        $clone    = clone $this->obj;
-        $clone->getConnection()->setConfig(array('securerequests' => true));
-        $clone->setResource(array('StaticUrl' => array('config' => 'bnetlibTest\TestAssets\StaticUrlCfgNoAuth')));
-        $response = $clone->getStaticUrl('http://example.org/');
+        $this->obj->getConnection()->setConfig(array('securerequests' => true));
+        $this->obj->setResource(array('StaticUrl' => array('config' => 'bnetlibTest\TestAssets\StaticUrlCfgNoAuth')));
+        $response = $this->obj->getStaticUrl('http://example.org/');
         $data     = $response->getData();
 
         $this->assertEquals('http://example.org/', $data['url']);
@@ -246,9 +236,8 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
 
     public function testDynamicUrlWithHttps()
     {
-        $clone = clone $this->obj;
-        $clone->getConnection()->setConfig(array('securerequests' => true));
-        $response = $clone->getDynamicUrl(array(
+        $this->obj->getConnection()->setConfig(array('securerequests' => true));
+        $response = $this->obj->getDynamicUrl(array(
             'sub' => 'www',
             'end' => 'foobar'
         ));

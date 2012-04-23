@@ -37,7 +37,7 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $data = json_decode(file_get_contents(
-            __DIR__ . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'obj.json'
+            __DIR__ . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'character.json'
         ), true);
 
         $this->obj = new Character();
