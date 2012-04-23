@@ -112,17 +112,17 @@ class Stats implements ResourceInterface
     /**
      * @return int
      */
-    public function getSpirit()
+    public function getIntellect()
     {
-        return $this->data['spr'];
+        return $this->data['int'];
     }
 
     /**
      * @return int
      */
-    public function getIntellect()
+    public function getSpirit()
     {
-        return $this->data['int'];
+        return $this->data['spr'];
     }
 
     /**
@@ -142,7 +142,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getMastery()
     {
@@ -158,7 +158,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getCrit()
     {
@@ -174,7 +174,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getHit()
     {
@@ -222,7 +222,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getSpellCrit()
     {
@@ -238,9 +238,9 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
-    public function getSpellHitPercent()
+    public function getSpellHit()
     {
         return $this->data['spellHitPercent'];
     }
@@ -278,7 +278,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getDodge()
     {
@@ -294,7 +294,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getParry()
     {
@@ -350,7 +350,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getMainHandSpeed()
     {
@@ -358,7 +358,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getMainHandDps()
     {
@@ -390,7 +390,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getOffHandSpeed()
     {
@@ -430,7 +430,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getRangedSpeed()
     {
@@ -438,7 +438,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getRangedDps()
     {
@@ -446,7 +446,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getRangedCrit()
     {
@@ -462,7 +462,7 @@ class Stats implements ResourceInterface
     }
 
     /**
-     * @return int
+     * @return int|float
      */
     public function getRangedHit()
     {

@@ -45,6 +45,7 @@ class Title implements ResourceInterface
         $this->data['id']       = $data['id'];
         $this->data['title']    = $data['name'];
         $this->data['selected'] = isset($data['selected']);
+        $this->data['name']     = isset($data['character']) ? $data['character'] : null;
     }
 
     /**
@@ -84,7 +85,7 @@ class Title implements ResourceInterface
      */
     public function getFullName()
     {
-        return (isset($data['character'])) ? sprintf($data['name'], $data['character']) : null;
+        return (isset($this->data['name'])) ? sprintf($this->data['title'], $this->data['name']) : null;
     }
 
     /**

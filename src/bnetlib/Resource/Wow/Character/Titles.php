@@ -66,6 +66,7 @@ class Titles implements ResourceInterface, \Iterator
                 $class->setResponseHeaders($this->headers);
             }
             $class->populate($title);
+            $this->data[$this->position] = $class;
 
             if (isset($title['selected'])) {
                 $this->selected = $this->position;
@@ -102,7 +103,7 @@ class Titles implements ResourceInterface, \Iterator
     }
 
     /**
-     * @see bnetlib\Resource\Wow\Character\Title|null
+     * @return bnetlib\Resource\Wow\Character\Title|null
      */
     public function getSelected()
     {

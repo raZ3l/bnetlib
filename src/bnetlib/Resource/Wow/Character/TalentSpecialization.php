@@ -127,7 +127,7 @@ class TalentSpecialization implements ResourceInterface
     public function getSimpleBuild()
     {
         return sprintf(
-            '%i/%i/%i',
+            '%s/%s/%s',
             $this->data['trees'][0]['total'],
             $this->data['trees'][1]['total'],
             $this->data['trees'][2]['total']

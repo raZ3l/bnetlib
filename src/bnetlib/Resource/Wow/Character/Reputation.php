@@ -99,7 +99,7 @@ class Reputation implements ResourceInterface, \Iterator
     public function getById($id)
     {
         if (isset($this->index[$id])) {
-            $this->data[$this->index[$id]];
+            return $this->data[$this->index[$id]];
         }
 
         return null;
