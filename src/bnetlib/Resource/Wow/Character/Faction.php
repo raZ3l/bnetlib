@@ -114,7 +114,7 @@ class Faction implements ResourceInterface
      */
     public function isExalted()
     {
-        return $this->data['id'] === 7;
+        return $this->data['standing'] === 7;
     }
 
     /**
@@ -122,7 +122,7 @@ class Faction implements ResourceInterface
      */
     public function isRevered()
     {
-        return $this->data['id'] === 6;
+        return $this->data['standing'] === 6;
     }
 
     /**
@@ -130,7 +130,7 @@ class Faction implements ResourceInterface
      */
     public function isHonored()
     {
-        return $this->data['id'] === 5;
+        return $this->data['standing'] === 5;
     }
 
     /**
@@ -138,7 +138,7 @@ class Faction implements ResourceInterface
      */
     public function isFriendly()
     {
-        return $this->data['id'] === 4;
+        return $this->data['standing'] === 4;
     }
 
     /**
@@ -146,7 +146,7 @@ class Faction implements ResourceInterface
      */
     public function isNeutral()
     {
-        return $this->data['id'] === 3;
+        return $this->data['standing'] === 3;
     }
 
     /**
@@ -154,7 +154,7 @@ class Faction implements ResourceInterface
      */
     public function isUnfriendly()
     {
-        return $this->data['id'] === 2;
+        return $this->data['standing'] === 2;
     }
 
     /**
@@ -162,7 +162,7 @@ class Faction implements ResourceInterface
      */
     public function isHostile()
     {
-        return $this->data['id'] === 1;
+        return $this->data['standing'] === 1;
     }
 
     /**
@@ -170,6 +170,6 @@ class Faction implements ResourceInterface
      */
     public function isHated()
     {
-        return $this->data['id'] === 0;
+        return $this->data['standing'] === 0;
     }
 }

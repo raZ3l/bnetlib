@@ -102,7 +102,7 @@ class ArenaTeams implements ResourceInterface, \Iterator, \Countable
      */
     public function hasTeamSize($size)
     {
-        return isset($this->teams[$size]);
+        return isset($this->index[$size]);
     }
 
     /**
@@ -112,7 +112,7 @@ class ArenaTeams implements ResourceInterface, \Iterator, \Countable
     public function getTeamSize($size)
     {
         if (isset($this->index[$size])) {
-            $this->data[$this->index[$size]];
+            return $this->data[$this->index[$size]];
         }
 
         return null;

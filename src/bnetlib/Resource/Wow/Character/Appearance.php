@@ -110,7 +110,7 @@ class Appearance implements ResourceInterface
     /**
      * @return int
      */
-    public function getShowHelm()
+    public function isShowingHelm()
     {
         return $this->data[5];
     }
@@ -118,7 +118,7 @@ class Appearance implements ResourceInterface
     /**
      * @return int
      */
-    public function getShowCloak()
+    public function isShowingCloak()
     {
         return $this->data[6];
     }

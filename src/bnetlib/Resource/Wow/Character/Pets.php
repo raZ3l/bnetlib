@@ -99,11 +99,15 @@ class Pets implements ResourceInterface, \Iterator, \Countable
     }
 
     /**
-     * @return bnetlib\Resource\Wow\Character\Pet
+     * @return bnetlib\Resource\Wow\Character\Pet|null
      */
     public function getSelected()
     {
-        return $this->data[$this->selected];
+        if (isset($this->selected)) {
+            return $this->data[$this->selected];
+        }
+
+        return null;
     }
 
     /**

@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\Resource\Wow\Shared\ListData;
 
 /**
  * @category   bnetlib
@@ -43,6 +44,14 @@ class Profession implements ResourceInterface
     public function populate(array $data)
     {
         $this->data = $data;
+
+        $list = new ListData();
+        if (isset($this->headers)) {
+            $list->setResponseHeaders($this->headers);
+        }
+        $list->populate($this->data['recipes']);
+
+        $this->data['recipes'] = $list;
     }
 
     /**
@@ -115,7 +124,7 @@ class Profession implements ResourceInterface
      */
     public function knowsRecipe($id)
     {
-        return in_array($id, $this->data['recipes']);
+        return $this->data['recipes']->has($id);
     }
 
     /**

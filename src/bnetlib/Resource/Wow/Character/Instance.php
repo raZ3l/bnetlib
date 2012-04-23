@@ -70,15 +70,15 @@ class Instance implements ResourceInterface, \Iterator
 
         foreach ($data['bosses'] as $boss) {
             if (!in_array($boss['id'], $ignoreOnNoraml)) {
-                $this->data['progress']['nm'][0]++;
+                $this->data['progress']['nm'][1]++;
             }
-            $this->data['progress']['nm'][0]++;
+            $this->data['progress']['hm'][1]++;
 
             if ($boss['normalKills'] > 0 && !in_array($boss['id'], $ignoreOnNoraml)) {
-                $this->data['progress']['nm'][1]++;
+                $this->data['progress']['nm'][0]++;
             }
             if ($boss['heroicKills'] > 0) {
-                $this->data['progress']['nm'][1]++;
+                $this->data['progress']['nm'][0]++;
             }
 
             if ($boss['normalKills'] === 0 && !in_array($boss['id'], $ignoreOnNoraml)) {
@@ -86,7 +86,7 @@ class Instance implements ResourceInterface, \Iterator
             }
 
             if ($boss['heroicKills'] === 0) {
-                $this->clear['nm'] = false;
+                $this->clear['hm'] = false;
             }
         }
     }
@@ -194,7 +194,7 @@ class Instance implements ResourceInterface, \Iterator
      */
     public function isClearOnHeroic()
     {
-         return $this->clear['nm'];
+         return $this->clear['hm'];
     }
 
     /**
@@ -202,7 +202,7 @@ class Instance implements ResourceInterface, \Iterator
      */
     public function getNormalProgress()
     {
-         return sprintf('%i/%i', $this->data['progress']['nm'][0], $this->data['progress']['nm'][1]);
+         return vsprintf('%s/%s', $this->data['progress']['nm']);
     }
 
     /**
@@ -210,7 +210,7 @@ class Instance implements ResourceInterface, \Iterator
      */
     public function getHeroicProgress()
     {
-         return sprintf('%i/%i', $this->data['progress']['hm'][0], $this->data['progress']['hm'][1]);
+         return vsprintf('%s/%s', $this->data['progress']['hm']);
     }
 
     /**

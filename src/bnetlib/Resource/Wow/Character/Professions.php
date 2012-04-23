@@ -97,7 +97,7 @@ class Professions implements ResourceInterface, \Iterator
     public function getById($id)
     {
         if (isset($this->index['id'][$id])) {
-            return $this->index['id'][$id];
+            return $this->data[$this->index['id'][$id]];
         }
 
         return null;
