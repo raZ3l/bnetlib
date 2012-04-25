@@ -24,7 +24,7 @@ namespace bnetlib\Locale;
 interface LocaleAwareInterface
 {
     /**
-     * @param $locale Locatable
+     * @param $locale LocaleInterface
      */
-    public function setLocale(Locatable $locale);
+    public function setLocale(LocaleInterface $locale);
 }
