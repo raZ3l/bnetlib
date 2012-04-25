@@ -47,7 +47,12 @@ class ArenaTeam implements ConfigurationInterface
     /**
      * @var array
      */
-    protected $requiredArguments = array('realm', 'size', 'name');
+    protected $requiredArguments = array('realm', 'teamsize', 'name');
+
+    /**
+     * @var array
+     */
+    protected $optionalArguments = array('page', 'size', 'asc');
 
     /**
      * @var array
@@ -63,11 +68,17 @@ class ArenaTeam implements ConfigurationInterface
             'realm' => function ($v) {
                         return UrlUtils::slug($v);
             },
-            'size' => function ($v) {
+            'teamsize' => function ($v) {
                 if (!in_array($v, array('2v2', '3v3', '5v5'))) {
                     throw new DomainException(sprintf(
                         '%s is not a valid team size. Valid sizes are 2v2, 3v3 or 5v5', $v
                     ));
+                }
+                return $v;
+            },
+            'asc' => function ($v) {
+                if (is_bool($v)) {
+                    return ($v === true) ? 'true' : 'false';
                 }
                 return $v;
             }
@@ -111,7 +122,7 @@ class ArenaTeam implements ConfigurationInterface
      */
     public function getOptionalArguments()
     {
-        return null;
+        return $this->optionalArguments;
     }
 
     /**
