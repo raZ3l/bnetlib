@@ -14,7 +14,7 @@
  * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
  */
 
-namespace bnetlibTest\Resource;
+namespace bnetlibTest\Resource\Wow\Character;
 
 use bnetlib\Resource\Wow\Character\ArenaTeams;
 
@@ -52,7 +52,7 @@ class ArenaTeamsTest extends \PHPUnit_Framework_TestCase
 
     public function testCountable()
     {
-        $this->assertEquals(count(self::$obj), 1);
+        $this->assertEquals(1, count(self::$obj));
     }
 
     public function testHasTeam()

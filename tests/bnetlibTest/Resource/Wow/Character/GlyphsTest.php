@@ -14,7 +14,7 @@
  * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
  */
 
-namespace bnetlibTest\Resource;
+namespace bnetlibTest\Resource\Wow\Character;
 
 use bnetlib\Resource\Wow\Character\Glyphs;
 
@@ -53,7 +53,7 @@ class GlyphsTest extends \PHPUnit_Framework_TestCase
 
     public function testCountable()
     {
-        $this->assertEquals(count(self::$obj), 9);
+        $this->assertEquals(9, count(self::$obj));
     }
 
     public function testHasGlyphs()

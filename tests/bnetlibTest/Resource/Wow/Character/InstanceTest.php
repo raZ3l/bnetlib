@@ -14,7 +14,7 @@
  * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
  */
 
-namespace bnetlibTest\Resource;
+namespace bnetlibTest\Resource\Wow\Character;
 
 use bnetlib\Resource\Wow\Character\Instance;
 
