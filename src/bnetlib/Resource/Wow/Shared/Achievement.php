@@ -66,7 +66,7 @@ class Achievement implements ResourceInterface
      */
     public function getId()
     {
-        $this->data['a'];
+        return $this->data['a'];
     }
 
     /**
@@ -74,7 +74,7 @@ class Achievement implements ResourceInterface
      */
     public function getTimestamp()
     {
-        $this->data['ts'];
+        return $this->data['ts'];
     }
 
     /**
@@ -82,7 +82,7 @@ class Achievement implements ResourceInterface
      */
     public function getCriteria()
     {
-        $this->data['c'];
+        return $this->data['c'];
     }
 
     /**
@@ -90,7 +90,7 @@ class Achievement implements ResourceInterface
      */
     public function getCriteriaQuantity()
     {
-        $this->data['cq'];
+        return $this->data['cq'];
     }
 
     /**
@@ -98,7 +98,7 @@ class Achievement implements ResourceInterface
      */
     public function getCriteriaTimestamp()
     {
-        $this->data['cts'];
+        return $this->data['cts'];
     }
 
     /**
@@ -106,8 +106,6 @@ class Achievement implements ResourceInterface
      */
     public function getCriteriaCreated()
     {
-        $this->data['cc'];
+        return $this->data['cc'];
     }
-
-
 }

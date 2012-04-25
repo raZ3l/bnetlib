@@ -54,7 +54,7 @@ class Achievements implements ResourceInterface
                 $achievement->setResponseHeaders($this->headers);
             }
             $achievement->populate(array(
-                'a'  => $av,
+                'a'   => $av,
                 'ts'  => $data['achievementsCompletedTimestamp'][$i],
                 'c'   => $data['criteria'][$i],
                 'cq'  => $data['criteriaQuantity'][$i],
@@ -84,7 +84,7 @@ class Achievements implements ResourceInterface
 
     /**
      * @param  int $id
-     * @return Achievement|null
+     * @return bnetlib\Resource\Wow\Shared\Achievement|null
      */
     public function getById($id)
     {
@@ -103,6 +103,4 @@ class Achievements implements ResourceInterface
     {
         return isset($this->index[$id]);
     }
-
-
 }
