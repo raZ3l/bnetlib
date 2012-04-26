@@ -16,7 +16,6 @@
 
 namespace bnetlib\Resource\Wow\Character;
 
-use bnetlib\Resource\ResourceInterface;
 use bnetlib\Resource\Wow\Shared\Item as BaseItem;
 
 /**
@@ -26,7 +25,7 @@ use bnetlib\Resource\Wow\Shared\Item as BaseItem;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
  */
-class Item extends BaseItem implements ResourceInterface
+class Item extends BaseItem
 {
     /**
      * @inheritdoc
