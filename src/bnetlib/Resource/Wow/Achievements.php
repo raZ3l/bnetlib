@@ -17,7 +17,7 @@
 namespace bnetlib\Resource\Wow;
 
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Battlegroups\Battlegroup;
+use bnetlib\Resource\Wow\Achievements\Achievements as SubAchievements;
 
 /**
  * @category   bnetlib
@@ -26,7 +26,7 @@ use bnetlib\Resource\Wow\Battlegroups\Battlegroup;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Battlegroups implements ResourceInterface, \Iterator
+class Achievements implements ResourceInterface, \Iterator
 {
     /**
      * @var int
@@ -48,8 +48,8 @@ class Battlegroups implements ResourceInterface, \Iterator
      */
     public function populate(array $data)
     {
-        foreach ($data['battlegroups'] as $i => $value) {
-            $this->data[$i] = new Battlegroup();
+        foreach ($data['achievements'] as $i => $value) {
+            $this->data[$i] = new SubAchievements();
             if (isset($this->headers)) {
                 $this->data[$i]->setResponseHeaders($this->headers);
             }
@@ -83,7 +83,7 @@ class Battlegroups implements ResourceInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Wow\Battlegroups\Battlegroup
+     * @return self
      */
     public function current()
     {
