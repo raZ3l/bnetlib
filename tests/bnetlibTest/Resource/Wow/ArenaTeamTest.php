@@ -23,7 +23,7 @@ use bnetlib\Resource\Wow\ArenaTeam;
  * @package    Resource
  * @subpackage UnitTests
  * @group      WorldOFWarcraft
- * @group      WoW_ArenaLadder
+ * @group      WoW_ArenaTeam
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */

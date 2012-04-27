@@ -23,7 +23,7 @@ use bnetlib\Resource\Wow\AuctionData;
  * @package    Resource
  * @subpackage UnitTests
  * @group      WorldOFWarcraft
- * @group      WoW_Character
+ * @group      WoW_AuctionData
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
