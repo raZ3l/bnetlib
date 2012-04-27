@@ -10,7 +10,7 @@
  * @category  bnetlib
  * @package   Game
  * @copyright 2012 Eric Boh <cossish@gmail.com>
- * @license   https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 namespace bnetlib;
@@ -23,7 +23,7 @@ use bnetlib\Resource\ConfigurationInterface;
  * @category  bnetlib
  * @package   Game
  * @copyright 2012 Eric Boh <cossish@gmail.com>
- * @license   https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 abstract class AbstractGame
 {

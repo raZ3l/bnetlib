@@ -11,7 +11,7 @@
  * @package    Resource
  * @subpackage UnitTests
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 namespace bnetlibTest\Resource\Wow\Character;
@@ -25,7 +25,7 @@ use bnetlib\Resource\Wow\Character\Instance;
  * @group      WorldOFWarcraft
  * @group      WoW_Character
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 class InstanceTest extends \PHPUnit_Framework_TestCase
 {

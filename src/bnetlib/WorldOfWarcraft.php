@@ -11,7 +11,7 @@
  * @package    Game
  * @subpackage WorldOfWarcraft
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    https://gitbub.com/coss/bnetlib/LISENCE    MIT License
  */
 
 namespace bnetlib;
@@ -21,7 +21,7 @@ namespace bnetlib;
  * @package    Game
  * @subpackage WorldOfWarcraft
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  *
  * @method     mixed getArenaLadder(array $args [, Resource\ConsumeInterface $instance])
  * @method     mixed getArenaTeam(array $args [, Resource\ConsumeInterface $instance])

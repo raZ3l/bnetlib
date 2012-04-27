@@ -11,7 +11,7 @@
  * @package    Resource
  * @subpackage UnitTests
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 namespace bnetlibTest;
@@ -24,7 +24,7 @@ use bnetlib\UrlUtils;
  * @subpackage UnitTests
  * @group      Configuration
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 class UrlUtilsTest extends \PHPUnit_Framework_TestCase
 {

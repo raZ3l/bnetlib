@@ -8,7 +8,7 @@
  * LICENSE file online at https://gitbub.com/coss/bnetlib/LISENCE
  *
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 spl_autoload_register(function ($class) {

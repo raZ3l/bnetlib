@@ -11,7 +11,7 @@
  * @package    Connection
  * @subpackage UnitTests
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 namespace bnetlibTest\Locale;
@@ -24,7 +24,7 @@ use bnetlib\Locale\Locale;
  * @subpackage UnitTests
  * @group      Connection
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 class ConnectionTest extends \PHPUnit_Framework_TestCase
 {

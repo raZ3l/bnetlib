@@ -11,7 +11,7 @@
  * @package    Resource
  * @subpackage Configuration
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 namespace bnetlib\Resource;
@@ -21,7 +21,7 @@ namespace bnetlib\Resource;
  * @package    Resource
  * @subpackage Configuration
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 interface ConfigurationInterface
 {

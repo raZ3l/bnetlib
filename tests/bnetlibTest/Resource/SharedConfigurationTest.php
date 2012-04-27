@@ -11,7 +11,7 @@
  * @package    Resource
  * @subpackage UnitTests
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 namespace bnetlibTest\Resource;
@@ -24,7 +24,7 @@ use bnetlib\Resource\ConfigurationInterface;
  * @subpackage UnitTests
  * @group      Configuration
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 abstract class SharedConfigurationTest extends \PHPUnit_Framework_TestCase
 {

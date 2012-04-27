@@ -11,7 +11,7 @@
  * @package    Resource
  * @subpackage UnitTests
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 namespace bnetlibTest\Resource\Wow\Arena;
@@ -25,7 +25,7 @@ use bnetlib\Resource\Wow\Arena\Character;
  * @group      WorldOFWarcraft
  * @group      WoW_ArenaLadder
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 class CharacterTest extends \PHPUnit_Framework_TestCase
 {

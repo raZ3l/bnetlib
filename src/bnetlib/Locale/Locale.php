@@ -10,7 +10,7 @@
  * @category  bnetlib
  * @package   Locale
  * @copyright 2012 Eric Boh <cossish@gmail.com>
- * @license   https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 namespace bnetlib\Locale;
@@ -19,7 +19,7 @@ namespace bnetlib\Locale;
  * @category  bnetlib
  * @package   Locale
  * @copyright 2012 Eric Boh <cossish@gmail.com>
- * @license   https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 class Locale implements LocaleInterface
 {

@@ -11,7 +11,7 @@
  * @package    Resource
  * @subpackage WorldOfWarcraft
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 namespace bnetlib\Resource\Wow;
@@ -23,7 +23,7 @@ use bnetlib\Resource\Wow\Shared\Character as BaseCharacter;
  * @package    Resource
  * @subpackage WorldOfWarcraft
  * @copyright  2012 Eric Boh <cossish@gmail.com>
- * @license    https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 class Character extends BaseCharacter
 {

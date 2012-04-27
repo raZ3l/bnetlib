@@ -10,7 +10,7 @@
  * @category  bnetlib
  * @package   Exception
  * @copyright 2012 Eric Boh <cossish@gmail.com>
- * @license   https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 namespace bnetlib\Exception;
@@ -21,7 +21,7 @@ use bnetlib\Exception;
  * @category  bnetlib
  * @package   Exception
  * @copyright 2012 Eric Boh <cossish@gmail.com>
- * @license   https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 class PageNotFoundException extends RuntimeException implements ResponseException, Exception
 {

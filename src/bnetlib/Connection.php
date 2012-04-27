@@ -10,7 +10,7 @@
  * @category  bnetlib
  * @package   Connection
  * @copyright 2012 Eric Boh <cossish@gmail.com>
- * @license   https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
 namespace bnetlib;
@@ -22,7 +22,7 @@ use Zend\Http\Request;
  * @category  bnetlib
  * @package   Connection
  * @copyright 2012 Eric Boh <cossish@gmail.com>
- * @license   https://gitbub.com/coss/bnetlib/LISENCE     MIT License
+ * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 class Connection implements ConnectionInterface
 {
