@@ -11,7 +11,8 @@
                 "owner": "Uther",
                 "bid": 150000,
                 "buyout": 450000,
-                "quantity": 11
+                "quantity": 11,
+                "timeLeft":"VERY_LONG"
             }
         ]
     },
@@ -23,7 +24,8 @@
                 "owner": "Thrall",
                 "bid": 26751,
                 "buyout": 57665,
-                "quantity": 1
+                "quantity": 1,
+                "timeLeft":"VERY_LONG"
             }
         ]
     },
@@ -35,7 +37,170 @@
                 "owner": "Arthas",
                 "bid": 20000,
                 "buyout": 50000,
-                "quantity": 1
+                "quantity": 1,
+                "timeLeft":"VERY_LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"VERY_LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"VERY_LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"VERY_LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"VERY_LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"VERY_LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"VERY_LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63277,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"VERY_LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"SHORT"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"SHORT"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"LONG"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"MEDIUM"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"MEDIUM"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"MEDIUM"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"MEDIUM"
+            },
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1,
+                "timeLeft":"MEDIUM"
             }
         ]
     }
