@@ -16,6 +16,7 @@
 
 namespace bnetlib\Resource\Wow\Achievements;
 
+use bnetlib\Resource\Wow\Reward\Item;
 use bnetlib\Resource\ResourceInterface;
 
 /**

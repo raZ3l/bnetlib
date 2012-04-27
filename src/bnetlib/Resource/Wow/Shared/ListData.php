@@ -99,7 +99,7 @@ class ListData implements ResourceInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Wow\Character\Item
+     * @return object
      */
     public function current()
     {
