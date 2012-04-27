@@ -74,7 +74,7 @@ class WorldOfWarcraft extends AbstractGame
             'config' => 'bnetlib\Resource\Wow\Configuration\Character'
         ),
         'CharacterAchievements' => array(
-            'class'  => 'bnetlib\Resource\Wow\CharacterAchievements',
+            'class'  => 'bnetlib\Resource\Wow\Achievements',
             'config' => 'bnetlib\Resource\Wow\Configuration\CharacterAchievements'
         ),
         'CharacterClasses' => array(
@@ -90,7 +90,7 @@ class WorldOfWarcraft extends AbstractGame
             'config' => 'bnetlib\Resource\Wow\Configuration\Guild'
         ),
         'GuildAchievements' => array(
-            'class'  => 'bnetlib\Resource\Wow\GuildAchievements',
+            'class'  => 'bnetlib\Resource\Wow\Achievements',
             'config' => 'bnetlib\Resource\Wow\Configuration\GuildAchievements'
         ),
         'GuildPerks' => array(
