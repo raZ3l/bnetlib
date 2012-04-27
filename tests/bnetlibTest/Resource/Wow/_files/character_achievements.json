@@ -59,7 +59,7 @@
 
                         }
                     }
-                },
+                }
             ],
             "name": "General"
         },
@@ -188,7 +188,7 @@
                             "title": "Coming Down the Mountain",
                             "points": 10,
                             "description": "Complete 115 quests in Mount Hyjal."
-                        },
+                        }
                     ],
                     "name": "Cataclysm"
                 }
@@ -199,7 +199,7 @@
                     "title": "50 Quests Completed",
                     "points": 10,
                     "description": "Complete 50 quests."
-                }
+                },
                 {
                     "id": 1682,
                     "title": "The Loremaster",
