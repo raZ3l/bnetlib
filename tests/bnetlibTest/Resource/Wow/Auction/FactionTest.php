@@ -70,7 +70,7 @@ class FactionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException bnetlib\Resource\Wow\Auction\Exception\InvalidArgumentException
+     * @expectedException bnetlib\Exception\InvalidArgumentException
      */
     public function testByTimeWithInvalidName()
     {
@@ -78,7 +78,7 @@ class FactionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException bnetlib\Resource\Wow\Auction\Exception\InvalidArgumentException
+     * @expectedException bnetlib\Exception\InvalidArgumentException
      */
     public function testByTimeWithInvalidType()
     {

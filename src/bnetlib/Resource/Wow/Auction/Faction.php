@@ -18,6 +18,7 @@ namespace bnetlib\Resource\Wow\Auction;
 
 use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\Exception\InvalidArgumentException;
 
 /**
  * @category   bnetlib
@@ -141,8 +142,8 @@ class Faction implements ResourceInterface, \Iterator
 
     /**
      * @param  string|int $phrase
-     * @throws Exception\InvalidArgumentException
-     * @throws Exception\InvalidArgumentException
+     * @throws bnetlib\Exception\InvalidArgumentException
+     * @throws bnetlib\Exception\InvalidArgumentException
      * @return array
      */
     public function getByTime($phrase)
@@ -150,12 +151,12 @@ class Faction implements ResourceInterface, \Iterator
         if (is_string($phrase)) {
             $phrase = strtoupper($phrase);
             if (!isset($this->timeMap[$phrase])) {
-                throw new Exception\InvalidArgumentException(sprintf('%s is not a valid time phrase.', $phrase));
+                throw new InvalidArgumentException(sprintf('%s is not a valid time phrase.', $phrase));
             } else {
                 $phrase = $this->timeMap[$phrase];
             }
         } elseif (!is_numeric($phrase)) {
-            throw new Exception\InvalidArgumentException(sprintf(
+            throw new InvalidArgumentException(sprintf(
                 'A time phrase must be an array or string, %s given.', gettype($phrase)
             ));
         }

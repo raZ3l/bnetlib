@@ -142,8 +142,7 @@ class WorldOfWarcraft extends AbstractGame
             ConnectionInterface::LOCALE_FR,
             ConnectionInterface::LOCALE_RU,
             ConnectionInterface::LOCALE_DE,
-            ConnectionInterface::LOCALE_PT,
-            ConnectionInterface::LOCALE_IT
+            ConnectionInterface::LOCALE_PT
 
         ),
         ConnectionInterface::REGION_KR => array(ConnectionInterface::LOCALE_KR),
