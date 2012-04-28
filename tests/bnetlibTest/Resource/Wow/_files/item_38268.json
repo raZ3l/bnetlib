@@ -4,13 +4,71 @@
   "description":"Give to a Friend",
   "name":"Spare Hand",
   "stackable":1,
+
+  "allowableClasses": [
+    8
+  ],
+
+  "allowableRaces": [
+    5,
+    8,
+    2,
+    10,
+    6,
+    9
+  ],
+
   "itemBind": 0,
-  "bonusStats":[],
-  "itemSpells":[],
+
+  "bonusStats":[
+    {
+      "stat": 3,
+      "amount": 368,
+      "reforged": false
+    },
+    {
+      "stat": 31,
+      "amount": 220,
+      "reforged": false
+    },
+    {
+      "stat": 36,
+      "amount": 273,
+      "reforged": false
+    },
+    {
+      "stat": 7,
+      "amount": 611,
+      "reforged": false
+    }
+  ],
+
+
+  "itemSpells":[
+    {
+    "spellId": 107082,
+    "spell": {
+      "id": 107082,
+      "name": "Embrace of the Destroyer",
+      "icon": "inv_misc_head_dragon_black",
+      "description": "Slows your falling speed for 15 sec.",
+
+      "powerCost": "com.blizzard.battlenet.wow.spell.model.SpellPowerCost@47b10c56",
+      "castTime": "Instant cast",
+
+      "cooldown": "1 min cooldown"
+    },
+    "nCharges": 0,
+    "consumable": false,
+    "categoryId": 1335
+    }
+  ],
+
   "buyPrice":12,
   "itemClass": 2,
   "itemSubClass": 14,
   "containerSlots":0,
+
   "weaponInfo":{
     "damage":[
       {
@@ -21,6 +79,7 @@
     "weaponSpeed":2.5,
     "dps":0.6
   },
+
   "inventoryType":13,
   "equippable":true,
   "itemLevel":1,
@@ -37,7 +96,22 @@
     "sourceId":0,
     "sourceType":"NONE"
   },
+
+  "socketInfo": {
+    "sockets": [
+      {
+        "type": "RED"
+      },
+      {
+        "type": "RED"
+      }
+    ],
+    "socketBonus": "+20 Agility"
+  },
+
   "baseArmor":0,
-  "hasSockets":false,
-  "isAuctionable":true
+  "hasSockets":true,
+  "isAuctionable":true,
+  "armor": 0,
+  "displayInfoId": 50561
 }
