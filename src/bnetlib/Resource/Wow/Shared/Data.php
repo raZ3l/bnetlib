@@ -14,11 +14,9 @@
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-namespace bnetlib\Resource\Wow\Character;
+namespace bnetlib\Resource\Wow\Shared;
 
-use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Shared\GuildEmblem;
 
 /**
  * @category   bnetlib
@@ -27,8 +25,13 @@ use bnetlib\Resource\Wow\Shared\GuildEmblem;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, \Countable
+class Data implements ResourceInterface, \Iterator
 {
+    /**
+     * @var int
+     */
+    protected $position = 0;
+
     /**
      * @var array
      */
@@ -44,11 +47,7 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
      */
     public function populate(array $data)
     {
-        $this->data = $data;
-
-        foreach ($data['emblem'] as $key => $value) {
-            $this->data[$key] = $value;
-        }
+        $this->data  = $data;
     }
 
     /**
@@ -64,39 +63,7 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
      */
     public function setResponseHeaders(\stdClass $headers)
     {
-        return $this->headers = $headers;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->data['name'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getRealm()
-    {
-        return $this->data['realm'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getLevel()
-    {
-        return $this->data['level'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getMembers()
-    {
-        return $this->data['members'];
+        $this->headers = $headers;
     }
 
     /**
@@ -105,33 +72,49 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
      */
     public function count()
     {
-        return $this->data['members'];
+        return $this->count;
     }
 
     /**
-     * @return int
+     * @see \Iterator
      */
-    public function getAchievementPoints()
+    public function rewind()
     {
-        return $this->data['achievementPoints'];
+        $this->position = 0;
     }
 
     /**
-     * @return array
+     * @see    \Iterator
+     * @return objectQ
      */
-    public function getEmblem()
+    public function current()
     {
-        return $this->data['emblem'];
+        return $this->data[$this->position];
     }
 
     /**
-     * @inheritdoc
+     * @see    \Iterator
+     * @return string
      */
-    public function consume()
+    public function key()
     {
-        return array(
-            'guild' => $this->data['name'],
-            'realm' => $this->data['realm']
-        );
+        return $this->position;
+    }
+
+    /**
+     * @see \Iterator
+     */
+    public function next()
+    {
+        ++$this->position;
+    }
+
+    /**
+     * @see    \Iterator
+     * @return boolean
+     */
+    public function valid()
+    {
+        return isset($this->data[$this->position]);
     }
 }

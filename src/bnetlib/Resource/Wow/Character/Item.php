@@ -16,7 +16,7 @@
 
 namespace bnetlib\Resource\Wow\Character;
 
-use bnetlib\Resource\Wow\Shared\Item as BaseItem;
+use bnetlib\Resource\Wow\Item\Reward;
 
 /**
  * @category   bnetlib
@@ -25,7 +25,7 @@ use bnetlib\Resource\Wow\Shared\Item as BaseItem;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Item extends BaseItem
+class Item extends Reward
 {
     /**
      * @inheritdoc
@@ -34,7 +34,7 @@ class Item extends BaseItem
     {
         $this->data = $data;
 
-        if (empty($data['tooltipParams'])) {
+        if (!empty($data['tooltipParams'])) {
             foreach ($data['tooltipParams'] as $key => $value) {
                 if (preg_match('/gem(\d+)/', $key, $match)) {
                     $i = (int) $match[1];
@@ -51,30 +51,6 @@ class Item extends BaseItem
     }
 
     /**
-     * @return string
-     */
-    public function getIcon()
-    {
-        return $this->data['icon'];
-    }
-
-    /**
-     * @return boolean
-     */
-    public function hasTooltipParams()
-    {
-        return !empty($this->data['tooltipParams']);
-    }
-
-    /**
-     * @return array
-     */
-    public function getTooltipParams()
-    {
-        return $this->data['tooltipParams'];
-    }
-
-    /**
      * @return boolean
      */
     public function isTransmogrified()
@@ -83,7 +59,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return id|null
+     * @return int|null
      */
     public function getTransmogrification()
     {
@@ -123,7 +99,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return id|null
+     * @return int|null
      */
     public function getReforge()
     {
@@ -143,7 +119,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return id|null
+     * @return int|null
      */
     public function getEnchant()
     {

@@ -14,11 +14,10 @@
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-namespace bnetlib\Resource\Wow\Character;
+namespace bnetlib\Resource\Wow;
 
-use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Shared\GuildEmblem;
+use bnetlib\Resource\Wow\Character\ClassData;
 
 /**
  * @category   bnetlib
@@ -27,8 +26,18 @@ use bnetlib\Resource\Wow\Shared\GuildEmblem;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, \Countable
+class CharacterClasses implements ResourceInterface, \Iterator
 {
+    /**
+     * @var int
+     */
+    protected $position = 0;
+
+    /**
+     * @var array
+     */
+    protected $index = array();
+
     /**
      * @var array
      */
@@ -44,10 +53,13 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
      */
     public function populate(array $data)
     {
-        $this->data = $data;
-
-        foreach ($data['emblem'] as $key => $value) {
-            $this->data[$key] = $value;
+        foreach ($data['classes'] as $i => $value) {
+            $this->data[$i] = new ClassData();
+            if (isset($this->headers)) {
+                $this->data[$i]->setResponseHeaders($this->headers);
+            }
+            $this->data[$i]->populate($value);
+            $this->index[$value['id']] = $i;
         }
     }
 
@@ -64,74 +76,62 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
      */
     public function setResponseHeaders(\stdClass $headers)
     {
-        return $this->headers = $headers;
+        $this->headers = $headers;
     }
 
     /**
+     * @param  int $id
+     * @return bnetlib\Resource\Wow\Character\Class|null
+     */
+    public function getById($id)
+    {
+        if (isset($this->index[$id])) {
+            return $this->data[$this->index[$id]];
+        }
+
+        return null;
+    }
+
+    /**
+     * @see \Iterator
+     */
+    public function rewind()
+    {
+        $this->position = 0;
+    }
+
+    /**
+     * @see    \Iterator
+     * @return bnetlib\Resource\Wow\Character\Class
+     */
+    public function current()
+    {
+        return $this->data[$this->position];
+    }
+
+    /**
+     * @see    \Iterator
      * @return string
      */
-    public function getName()
+    public function key()
     {
-        return $this->data['name'];
+        return $this->position;
     }
 
     /**
-     * @return string
+     * @see \Iterator
      */
-    public function getRealm()
+    public function next()
     {
-        return $this->data['realm'];
+        ++$this->position;
     }
 
     /**
-     * @return int
+     * @see    \Iterator
+     * @return boolean
      */
-    public function getLevel()
+    public function valid()
     {
-        return $this->data['level'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getMembers()
-    {
-        return $this->data['members'];
-    }
-
-    /**
-     * @see    \Countable
-     * @return int
-     */
-    public function count()
-    {
-        return $this->data['members'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getAchievementPoints()
-    {
-        return $this->data['achievementPoints'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getEmblem()
-    {
-        return $this->data['emblem'];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function consume()
-    {
-        return array(
-            'guild' => $this->data['name'],
-            'realm' => $this->data['realm']
-        );
+        return isset($this->data[$this->position]);
     }
 }

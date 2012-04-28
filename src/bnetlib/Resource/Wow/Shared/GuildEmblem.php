@@ -14,11 +14,9 @@
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-namespace bnetlib\Resource\Wow\Character;
+namespace bnetlib\Resource\Wow\Shared;
 
-use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Shared\GuildEmblem;
 
 /**
  * @category   bnetlib
@@ -27,7 +25,7 @@ use bnetlib\Resource\Wow\Shared\GuildEmblem;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, \Countable
+class GuildEmblem implements ResourceInterface
 {
     /**
      * @var array
@@ -45,10 +43,6 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
     public function populate(array $data)
     {
         $this->data = $data;
-
-        foreach ($data['emblem'] as $key => $value) {
-            $this->data[$key] = $value;
-        }
     }
 
     /**
@@ -64,74 +58,46 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
      */
     public function setResponseHeaders(\stdClass $headers)
     {
-        return $this->headers = $headers;
+        $this->headers = $headers;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEmblemIcon()
+    {
+        return $this->data['icon'];
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getEmblemIconColor()
     {
-        return $this->data['name'];
+        return $this->data['iconColor'];
+    }
+
+    /**
+     * @return int
+     */
+    public function getEmblemBorder()
+    {
+        return $this->data['border'];
     }
 
     /**
      * @return string
      */
-    public function getRealm()
+    public function getEmblemBorderColor()
     {
-        return $this->data['realm'];
+        return $this->data['borderColor'];
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getLevel()
+    public function getEmblemBackgroundColor()
     {
-        return $this->data['level'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getMembers()
-    {
-        return $this->data['members'];
-    }
-
-    /**
-     * @see    \Countable
-     * @return int
-     */
-    public function count()
-    {
-        return $this->data['members'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getAchievementPoints()
-    {
-        return $this->data['achievementPoints'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getEmblem()
-    {
-        return $this->data['emblem'];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function consume()
-    {
-        return array(
-            'guild' => $this->data['name'],
-            'realm' => $this->data['realm']
-        );
+        return $this->data['backgroundColor'];
     }
 }

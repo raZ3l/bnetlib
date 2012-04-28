@@ -87,7 +87,8 @@ class Glyphs implements ResourceInterface, \Iterator, \Countable
     }
 
     /**
-     * @see \Countable
+     * @see    \Countable
+     * @return int
      */
     public function count()
     {

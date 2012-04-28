@@ -31,7 +31,7 @@ class Character extends BaseCharacter
      * @var array
      */
     protected $fields = array(
-        'achievements' => 'bnetlib\Resource\Wow\Shared\Achievements',
+        'achievements' => 'bnetlib\Resource\Wow\Achievements\Achievements',
         'appearance'   => 'bnetlib\Resource\Wow\Character\Appearance',
         'companions'   => 'bnetlib\Resource\Wow\Shared\ListData',
         'guild'        => 'bnetlib\Resource\Wow\Character\Guild',
@@ -55,7 +55,10 @@ class Character extends BaseCharacter
     {
         parent::populate($data);
 
-        $this->data['lastmod'] = $data['lastModified'];
+        $this->data['lastmod'] = null;
+        if (isset($data['lastModified'])) {
+            $this->data['lastmod'] = $data['lastModified'];
+        }
 
         foreach ($this->fields as $field => $class) {
             if (isset($data[$field])) {
@@ -82,7 +85,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return int Last modification (UTC unix timestamp)
+     * @return int|null Last modification (UTC unix timestamp)
      */
     public function getLastModified()
     {

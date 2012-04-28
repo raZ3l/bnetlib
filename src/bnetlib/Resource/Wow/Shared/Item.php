@@ -16,7 +16,6 @@
 
 namespace bnetlib\Resource\Wow\Shared;
 
-use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
 
 /**
@@ -26,7 +25,7 @@ use bnetlib\Resource\ResourceInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Item implements ResourceInterface, ConsumeInterface
+class Item implements ResourceInterface
 {
     /**
      * @var array
@@ -63,14 +62,6 @@ class Item implements ResourceInterface, ConsumeInterface
     }
 
     /**
-     * @inheritdoc
-     */
-    public function consume()
-    {
-        return array('itemid' => $this->data['id']);
-    }
-
-    /**
      * @return int
      */
     public function getId()
@@ -99,7 +90,7 @@ class Item implements ResourceInterface, ConsumeInterface
      */
     public function isPoor()
     {
-        return ($this->data['quality'] === 0);
+        return $this->data['quality'] === 0;
     }
 
     /**
@@ -107,7 +98,7 @@ class Item implements ResourceInterface, ConsumeInterface
      */
     public function isCommon()
     {
-        return ($this->data['quality'] === 1);
+        return $this->data['quality'] === 1;
     }
 
     /**
@@ -115,7 +106,7 @@ class Item implements ResourceInterface, ConsumeInterface
      */
     public function isUncommon()
     {
-        return ($this->data['quality'] === 2);
+        return $this->data['quality'] === 2;
     }
 
     /**
@@ -123,7 +114,7 @@ class Item implements ResourceInterface, ConsumeInterface
      */
     public function isRare()
     {
-        return ($this->data['quality'] === 3);
+        return $this->data['quality'] === 3;
     }
 
     /**
@@ -131,7 +122,7 @@ class Item implements ResourceInterface, ConsumeInterface
      */
     public function isEpic()
     {
-        return ($this->data['quality'] === 4);
+        return $this->data['quality'] === 4;
     }
 
     /**
@@ -139,7 +130,7 @@ class Item implements ResourceInterface, ConsumeInterface
      */
     public function isHeirloom()
     {
-        return ($this->data['quality'] === 5);
+        return $this->data['quality'] === 5;
     }
 
     /**
@@ -147,7 +138,7 @@ class Item implements ResourceInterface, ConsumeInterface
      */
     public function isArtifact()
     {
-        return ($this->data['quality'] === 6);
+        return $this->data['quality'] === 6;
     }
 
     /**
@@ -155,6 +146,6 @@ class Item implements ResourceInterface, ConsumeInterface
      */
     public function isLegendary()
     {
-        return ($this->data['quality'] === 7);
+        return $this->data['quality'] === 7;
     }
 }

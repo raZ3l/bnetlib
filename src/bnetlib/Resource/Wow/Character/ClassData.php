@@ -16,9 +16,7 @@
 
 namespace bnetlib\Resource\Wow\Character;
 
-use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Shared\GuildEmblem;
 
 /**
  * @category   bnetlib
@@ -27,7 +25,7 @@ use bnetlib\Resource\Wow\Shared\GuildEmblem;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, \Countable
+class ClassData implements ResourceInterface
 {
     /**
      * @var array
@@ -45,10 +43,6 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
     public function populate(array $data)
     {
         $this->data = $data;
-
-        foreach ($data['emblem'] as $key => $value) {
-            $this->data[$key] = $value;
-        }
     }
 
     /**
@@ -64,7 +58,31 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
      */
     public function setResponseHeaders(\stdClass $headers)
     {
-        return $this->headers = $headers;
+        $this->headers = $headers;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->data['id'];
+    }
+
+    /**
+     * @return int
+     */
+    public function getMask()
+    {
+        return $this->data['mask'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getPowerType()
+    {
+        return $this->data['powerType'];
     }
 
     /**
@@ -73,65 +91,5 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
     public function getName()
     {
         return $this->data['name'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getRealm()
-    {
-        return $this->data['realm'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getLevel()
-    {
-        return $this->data['level'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getMembers()
-    {
-        return $this->data['members'];
-    }
-
-    /**
-     * @see    \Countable
-     * @return int
-     */
-    public function count()
-    {
-        return $this->data['members'];
-    }
-
-    /**
-     * @return int
-     */
-    public function getAchievementPoints()
-    {
-        return $this->data['achievementPoints'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getEmblem()
-    {
-        return $this->data['emblem'];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function consume()
-    {
-        return array(
-            'guild' => $this->data['name'],
-            'realm' => $this->data['realm']
-        );
     }
 }

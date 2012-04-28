@@ -56,7 +56,7 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
 
     public function testAchievementsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Shared\Achievements', self::$obj->getAchievements());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Achievements\Achievements', self::$obj->getAchievements());
     }
 
     public function testAppearanceField()

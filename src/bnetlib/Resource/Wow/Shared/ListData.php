@@ -25,53 +25,8 @@ use bnetlib\Resource\ResourceInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class ListData implements ResourceInterface, \Iterator, \Countable
+class ListData extends Data implements \Countable
 {
-    /**
-     * @var int
-     */
-    protected $position = 0;
-
-    /**
-     * @var int
-     */
-    protected $count = 0;
-
-    /**
-     * @var array
-     */
-    protected $data = array();
-
-    /**
-     * @var \stdClass|null
-     */
-    protected $headers;
-
-    /**
-     * @inheritdoc
-     */
-    public function populate(array $data)
-    {
-        $this->data  = $data;
-        $this->count = count($data);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getResponseHeaders()
-    {
-        return $this->headers;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function setResponseHeaders(\stdClass $headers)
-    {
-        $this->headers = $headers;
-    }
-
     /**
      * @param  int $id
      * @return boolean
@@ -82,53 +37,11 @@ class ListData implements ResourceInterface, \Iterator, \Countable
     }
 
     /**
-     * @see \Countable
+     * @see    \Countable
+     * @return int
      */
     public function count()
     {
-        return $this->count;
-    }
-
-    /**
-     * @see \Iterator
-     */
-    public function rewind()
-    {
-        $this->position = 0;
-    }
-
-    /**
-     * @see    \Iterator
-     * @return object
-     */
-    public function current()
-    {
-        return $this->data[$this->position];
-    }
-
-    /**
-     * @see    \Iterator
-     * @return string
-     */
-    public function key()
-    {
-        return $this->position;
-    }
-
-    /**
-     * @see \Iterator
-     */
-    public function next()
-    {
-        ++$this->position;
-    }
-
-    /**
-     * @see    \Iterator
-     * @return boolean
-     */
-    public function valid()
-    {
-        return isset($this->data[$this->position]);
+        return count($this->data);
     }
 }
