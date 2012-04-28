@@ -16,7 +16,6 @@
 
 namespace bnetlib\Resource\Wow\Achievements;
 
-use bnetlib\Resource\Wow\Reward\Item;
 use bnetlib\Resource\ResourceInterface;
 
 /**
@@ -44,16 +43,6 @@ class Achievement implements ResourceInterface
     public function populate(array $data)
     {
         $this->data = $data;
-
-        if (isset($this->data['rewardItem'])) {
-            $class = new Item();
-            if (isset($this->headers)) {
-                $class->setResponseHeaders($this->headers);
-            }
-            $class->populate($this->data['rewardItem']);
-
-            $this->data['rewardItem'] = $class;
-        }
     }
 
     /**
@@ -73,90 +62,50 @@ class Achievement implements ResourceInterface
     }
 
     /**
-     * @return boolean
-     */
-    public function isAchievement()
-    {
-        return true;
-    }
-
-    /**
      * @return int
      */
     public function getId()
     {
-        return $this->data['id'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->data['title'];
+        return $this->data['a'];
     }
 
     /**
      * @return int
      */
-    public function getPoints()
+    public function getTimestamp()
     {
-        return $this->data['points'];
+        return $this->data['ts'];
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getDescription()
+    public function getCriteria()
     {
-        return $this->data['description'];
+        return $this->data['c'];
     }
 
     /**
-     * @return boolean
+     * @return int
      */
-    public function hasReward()
+    public function getCriteriaQuantity()
     {
-        return (isset($this->data['reward']) || isset($this->data['rewardItem']));
+        return $this->data['cq'];
     }
 
     /**
-     * @return boolean
+     * @return int
      */
-    public function hasRewardString()
+    public function getCriteriaTimestamp()
     {
-        return isset($this->data['reward']);
+        return $this->data['cts'];
     }
 
     /**
-     * @return string|null
+     * @return int
      */
-    public function getReward()
+    public function getCriteriaCreated()
     {
-        if (isset($this->data['reward'])) {
-            return $this->data['reward'];
-        }
-
-        return null;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function hasRewardItem()
-    {
-        return isset($this->data['rewardItem']);
-    }
-
-    /**
-     * @return bnetlib\Resource\Wow\Achievements\Achievement|null
-     */
-    public function getRewardItem()
-    {
-        if (isset($this->data['rewardItem'])) {
-            return $this->data['rewardItem'];
-        }
-
-        return null;
+        return $this->data['cc'];
     }
 }

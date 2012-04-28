@@ -25,37 +25,17 @@ use bnetlib\Resource\ResourceInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Achievements implements ResourceInterface, \Iterator
+class Achievements implements ResourceInterface
 {
     /**
-     * @var int
+     * @var array
      */
-    protected $position = 0;
+    protected $index = array();
 
     /**
      * @var array
      */
     protected $data = array();
-
-    /**
-     * @var int
-     */
-    protected $categoryId;
-
-    /**
-     * @var string
-     */
-    protected $categoryName;
-
-    /**
-     * @var int|null
-     */
-    protected $topCategoryId = null;
-
-    /**
-     * @var string|null
-     */
-    protected $topCategoryName = null;
 
     /**
      * @var \stdClass|null
@@ -67,33 +47,22 @@ class Achievements implements ResourceInterface, \Iterator
      */
     public function populate(array $data)
     {
-        $this->categoryId   = $data['id'];
-        $this->categoryName = $data['name'];
+        foreach ($data['achievementsCompleted'] as $i => $av) {
+            $this->index[$av] = $i;
+            $achievement      = new Achievement();
+            if (isset($this->headers)) {
+                $achievement->setResponseHeaders($this->headers);
+            }
+            $achievement->populate(array(
+                'a'   => $av,
+                'ts'  => $data['achievementsCompletedTimestamp'][$i],
+                'c'   => $data['criteria'][$i],
+                'cq'  => $data['criteriaQuantity'][$i],
+                'cts' => $data['criteriaTimestamp'][$i],
+                'cc'  => $data['criteriaCreated'][$i]
+            ));
 
-        if (isset($data['categories'])) {
-            foreach ($data['categories'] as $i => $value) {
-                $value['top'] = array($data['id'], $data['name']);
-                $class = new self();
-                if (isset($this->headers)) {
-                    $class->setResponseHeaders($this->headers);
-                }
-                $class->populate($value);
-                $this->data[] = $class;
-            }
-        } elseif (isset($data['achievements'])) {
-            if (isset($data['top'])) {
-                $this->topCategoryId   = $data['top'][0];
-                $this->topCategoryName = $data['top'][1];
-            }
-
-            foreach ($data['achievements'] as $i => $value) {
-                $class = new Achievement();
-                if (isset($this->headers)) {
-                    $class->setResponseHeaders($this->headers);
-                }
-                $class->populate($value);
-                $this->data[] = $class;
-            }
+            $this->data[$i] = $achievement;
         }
     }
 
@@ -114,93 +83,24 @@ class Achievements implements ResourceInterface, \Iterator
     }
 
     /**
+     * @param  int $id
+     * @return bnetlib\Resource\Wow\Achievements\Achievement|null
+     */
+    public function getById($id)
+    {
+        if (isset($this->index[$id])) {
+            return $this->data[$this->index[$id]];
+        }
+
+        return null;
+    }
+
+    /**
+     * @param  int $id
      * @return boolean
      */
-    public function isSubCategory()
+    public function has($id)
     {
-        return isset($this->topCategoryId);
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCategory()
-    {
-        return $this->categoryName;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getCategoryId()
-    {
-        return $this->categoryId;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getTopCategory()
-    {
-        return $this->topCategoryName;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getTopCategoryId()
-    {
-        return $this->topCategoryId;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isAchievement()
-    {
-        return false;
-    }
-
-    /**
-     * @see \Iterator
-     */
-    public function rewind()
-    {
-        $this->position = 0;
-    }
-
-    /**
-     * @see    \Iterator
-     * @return self|bnetlib\Resource\Wow\Achievements\Achievement
-     */
-    public function current()
-    {
-        return $this->data[$this->position];
-    }
-
-    /**
-     * @see    \Iterator
-     * @return string
-     */
-    public function key()
-    {
-        return $this->position;
-    }
-
-    /**
-     * @see \Iterator
-     */
-    public function next()
-    {
-        ++$this->position;
-    }
-
-    /**
-     * @see    \Iterator
-     * @return boolean
-     */
-    public function valid()
-    {
-        return isset($this->data[$this->position]);
+        return isset($this->index[$id]);
     }
 }

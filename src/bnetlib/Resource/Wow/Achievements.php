@@ -17,7 +17,7 @@
 namespace bnetlib\Resource\Wow;
 
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Achievements\Achievements as SubAchievements;
+use bnetlib\Resource\Wow\Achievements\DataAchievements;
 
 /**
  * @category   bnetlib
@@ -49,7 +49,7 @@ class Achievements implements ResourceInterface, \Iterator
     public function populate(array $data)
     {
         foreach ($data['achievements'] as $i => $value) {
-            $this->data[$i] = new SubAchievements();
+            $this->data[$i] = new DataAchievements();
             if (isset($this->headers)) {
                 $this->data[$i]->setResponseHeaders($this->headers);
             }

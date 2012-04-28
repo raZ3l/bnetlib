@@ -23,7 +23,7 @@ use bnetlib\Resource\Wow\Achievements\Achievement;
  * @package    Resource
  * @subpackage UnitTests
  * @group      WorldOFWarcraft
- * @group      WoW_Achievements
+ * @group      WoW_Shared
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
@@ -36,12 +36,16 @@ class AchievementTest extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        $data = json_decode(file_get_contents(
-            dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'character_achievements.json'
-        ), true);
-
         self::$obj = new Achievement();
-        self::$obj->populate($data['achievements'][1]['achievements'][1]);
+        self::$obj->populate(array(
+            'a'   => 6,
+            'ts'  => 1224092732000,
+            'c'   => 34,
+            'cq'  => 85,
+            'cts' => 1333377449000,
+            'cc'  => 1333377449000
+        ));
+
     }
 
     public static function tearDownAfterClass()
@@ -49,53 +53,33 @@ class AchievementTest extends \PHPUnit_Framework_TestCase
         self::$obj = null;
     }
 
-    public function testIsAchievement()
-    {
-        $this->assertTrue(self::$obj->isAchievement());
-    }
-
     public function testId()
     {
-        $this->assertEquals(1682, self::$obj->getId());
+       $this->assertEquals(6, self::$obj->getId());
     }
 
-    public function testName()
+    public function testTimestamp()
     {
-        $this->assertEquals('The Loremaster', self::$obj->getName());
+        $this->assertEquals(1224092732000, self::$obj->getTimestamp());
     }
 
-    public function testPoints()
+    public function testCriteria()
     {
-        $this->assertEquals(10, self::$obj->getPoints());
+        $this->assertEquals(34, self::$obj->getCriteria());
     }
 
-    public function testDescription()
+    public function testCriteriaQuantity()
     {
-        $this->assertEquals('Complete the quest achievements listed below.', self::$obj->getDescription());
+        $this->assertEquals(85, self::$obj->getCriteriaQuantity());
     }
 
-    public function hasReward()
+    public function testCriteriaTimestamp()
     {
-        $this->assertTrue(self::$obj->hasReward());
+        $this->assertEquals(1333377449000, self::$obj->getCriteriaTimestamp());
     }
 
-    public function hasRewardString()
+    public function testCriteriaCreated()
     {
-        $this->assertTrue(self::$obj->hasRewardString());
-    }
-
-    public function testReward()
-    {
-        $this->assertEquals('Reward: Title & Loremaster\'s Colors', self::$obj->getReward());
-    }
-
-    public function hasRewardItem()
-    {
-        $this->assertTrue(self::$obj->hasRewardItem());
-    }
-
-    public function testRewardItem()
-    {
-        $this->assertInstanceOf('bnetlib\Resource\Wow\Achievements\Item', self::$obj->getRewardItem());
+        $this->assertEquals(1333377449000, self::$obj->getCriteriaCreated());
     }
 }

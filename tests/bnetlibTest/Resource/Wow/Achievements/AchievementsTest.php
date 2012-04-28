@@ -23,7 +23,7 @@ use bnetlib\Resource\Wow\Achievements\Achievements;
  * @package    Resource
  * @subpackage UnitTests
  * @group      WorldOFWarcraft
- * @group      WoW_Achievements
+ * @group      WoW_Shared
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
@@ -36,12 +36,13 @@ class AchievementsTest extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        $data = json_decode(file_get_contents(
-            dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'character_achievements.json'
-        ), true);
+        $data            = array();
+        $data['content'] = json_decode(file_get_contents(
+            dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'character.json'
+        ), true);;
 
         self::$obj = new Achievements();
-        self::$obj->populate($data['achievements'][0]);
+        self::$obj->populate($data['content']['achievements']);
     }
 
     public static function tearDownAfterClass()
@@ -49,55 +50,18 @@ class AchievementsTest extends \PHPUnit_Framework_TestCase
         self::$obj = null;
     }
 
-    public function testIsNotSubCategory()
+    public function testById()
     {
-        $this->assertFalse(self::$obj->isSubCategory());
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Achievements\Achievement', self::$obj->getById(6));
     }
 
-    public function testIsNotAchievement()
+    public function testHas()
     {
-        $this->assertFalse(self::$obj->isAchievement());
+        $this->assertTrue(self::$obj->has(6));
     }
 
-    public function testCategory()
+    public function testHasNot()
     {
-        $this->assertEquals('General', self::$obj->getCategory());
-    }
-
-    public function testCategoryId()
-    {
-        $this->assertEquals(92, self::$obj->getCategoryId());
-    }
-
-    public function testTopCategory()
-    {
-        $this->assertNull(self::$obj->getTopCategory());
-    }
-
-    public function testTopCategoryId()
-    {
-        $this->assertNull(self::$obj->getTopCategoryId());
-    }
-
-    public function testTopCategoryWithValue()
-    {
-        $data = json_decode(file_get_contents(
-            dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'character_achievements.json'
-        ), true);
-
-        $data['achievements'][1]['categories'][0]['top'] = array(96, 'Quests');
-
-        $obj = new Achievements();
-        $obj->populate($data['achievements'][1]['categories'][0]);
-
-        $this->assertEquals('Quests', $obj->getTopCategory());
-        $this->assertEquals(96, $obj->getTopCategoryId());
-    }
-
-    public function testIterator()
-    {
-        foreach (self::$obj as $key => $av) {
-            $this->assertInstanceOf('bnetlib\Resource\Wow\Achievements\Achievement', $av);
-        }
+        $this->assertFalse(self::$obj->has(666));
     }
 }

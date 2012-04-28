@@ -52,7 +52,7 @@ class AchievementsTest extends \PHPUnit_Framework_TestCase
     public function testIterator()
     {
         foreach (self::$obj as $key => $av) {
-            $this->assertInstanceOf('bnetlib\Resource\Wow\Achievements\Achievements', $av);
+            $this->assertInstanceOf('bnetlib\Resource\Wow\Achievements\DataAchievements', $av);
         }
     }
 }
