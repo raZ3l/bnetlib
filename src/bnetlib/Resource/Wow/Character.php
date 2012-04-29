@@ -51,7 +51,7 @@ class Character extends BaseCharacter
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         parent::populate($data);
 

@@ -50,7 +50,7 @@ class Glyphs implements ResourceInterface, \Iterator, \Countable
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data as $type => $glyphs) {
             $this->index[$type] = array();

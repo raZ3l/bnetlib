@@ -40,7 +40,7 @@ class Appearance implements ResourceInterface
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $this->data[0] = $data['faceVariation'];
         $this->data[1] = $data['skinColor'];

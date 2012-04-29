@@ -51,7 +51,7 @@ class GuildRewards implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data['rewards'] as $i => $value) {
             $class = new Reward();

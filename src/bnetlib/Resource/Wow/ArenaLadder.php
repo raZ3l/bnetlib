@@ -50,7 +50,7 @@ class ArenaLadder implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data['arenateam'] as $i => $team) {
             $this->index[$team['ranking']] = $i;

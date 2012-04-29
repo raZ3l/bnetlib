@@ -50,7 +50,7 @@ class Pets implements ResourceInterface, \Iterator, \Countable
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data as $i => $pet) {
             if (isset($pet['selected'])) {

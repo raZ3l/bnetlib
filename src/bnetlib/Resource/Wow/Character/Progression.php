@@ -49,7 +49,7 @@ class Progression implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data['raids'] as $i => $instance) {
             $this->index[$instance['id']] = $i;

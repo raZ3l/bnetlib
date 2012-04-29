@@ -65,7 +65,7 @@ class DataAchievements implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $this->categoryId   = $data['id'];
         $this->categoryName = $data['name'];

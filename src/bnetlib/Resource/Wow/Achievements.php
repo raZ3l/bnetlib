@@ -46,7 +46,7 @@ class Achievements implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data['achievements'] as $i => $value) {
             $this->data[$i] = new DataAchievements();

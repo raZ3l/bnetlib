@@ -50,7 +50,7 @@ class Reputation implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data as $faction) {
             $this->index[$faction['id']] = $this->position;

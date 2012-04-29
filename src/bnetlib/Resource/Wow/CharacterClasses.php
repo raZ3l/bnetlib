@@ -51,7 +51,7 @@ class CharacterClasses implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data['classes'] as $i => $value) {
             $this->data[$i] = new ClassData();

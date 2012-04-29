@@ -39,9 +39,9 @@ class Auction implements ResourceInterface, ConsumeInterface
     protected $headers;
 
     /**
-     * @inheritdoc
+     * @param string $data
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $this->data = $data['files'][0];
     }

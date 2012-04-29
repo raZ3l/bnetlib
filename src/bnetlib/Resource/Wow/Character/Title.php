@@ -40,7 +40,7 @@ class Title implements ResourceInterface
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $this->data['id']       = $data['id'];
         $this->data['title']    = $data['name'];

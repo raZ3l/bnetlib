@@ -51,7 +51,7 @@ class GuildPerk implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data['perks'] as $i => $value) {
             $class = new Perk();

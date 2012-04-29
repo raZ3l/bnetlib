@@ -40,7 +40,7 @@ class SocketInfo implements ResourceInterface
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $sockets = array();
         foreach ($data['sockets'] as $i => $type) {

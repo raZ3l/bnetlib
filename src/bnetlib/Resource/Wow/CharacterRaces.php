@@ -51,7 +51,7 @@ class CharacterRaces implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data['races'] as $i => $value) {
             $this->data[$i] = new Race();

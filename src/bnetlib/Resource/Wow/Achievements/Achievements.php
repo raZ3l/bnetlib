@@ -45,7 +45,7 @@ class Achievements implements ResourceInterface
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data['achievementsCompleted'] as $i => $av) {
             $this->index[$av] = $i;

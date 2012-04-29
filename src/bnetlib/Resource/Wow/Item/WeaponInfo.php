@@ -40,7 +40,7 @@ class WeaponInfo implements ResourceInterface
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $this->data = $data;
     }

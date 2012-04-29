@@ -54,7 +54,7 @@ class Professions implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $i = 0;
 

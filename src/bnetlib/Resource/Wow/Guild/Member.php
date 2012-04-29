@@ -41,7 +41,7 @@ class Member implements ResourceInterface
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $class = new Character();
         if (isset($this->headers)) {

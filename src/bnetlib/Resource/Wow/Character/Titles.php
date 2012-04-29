@@ -50,7 +50,7 @@ class Titles implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data as $key => $title) {
             if ($key === 'name') {

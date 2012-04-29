@@ -50,7 +50,7 @@ class Talents implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data as $i => $spec) {
             if (isset($spec['selected'])) {

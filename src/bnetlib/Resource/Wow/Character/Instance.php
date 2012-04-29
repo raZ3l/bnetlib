@@ -53,7 +53,7 @@ class Instance implements ResourceInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $this->data = $data;
         $this->data['progress'] = array(

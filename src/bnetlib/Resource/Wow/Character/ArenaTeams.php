@@ -50,7 +50,7 @@ class ArenaTeams implements ResourceInterface, \Iterator, \Countable
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data as $i => $team) {
             $this->index[$team['size']] = $i;

@@ -42,7 +42,7 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $this->data = $data;
 

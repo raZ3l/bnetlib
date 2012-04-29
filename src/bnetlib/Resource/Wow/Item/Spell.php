@@ -40,7 +40,7 @@ class Spell implements ResourceInterface
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         unset($data['spellId']);
 

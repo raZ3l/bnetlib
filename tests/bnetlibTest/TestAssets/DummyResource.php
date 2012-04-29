@@ -26,7 +26,7 @@ class DummyResource implements ResourceInterface
         return $this->header;
     }
 
-    public function populate(array $data)
+    public function populate($data)
     {
         $this->data = $data;
     }

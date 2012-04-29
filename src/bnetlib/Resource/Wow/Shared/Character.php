@@ -48,7 +48,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $ally = array(1, 3, 4, 7, 11, 22); // horde (2, 5, 6, 8, 9, 10)
 
@@ -91,6 +91,8 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
                 $this->data[$key]->setLocale($locale);
             }
         }
+
+        return $this;
     }
 
     /**

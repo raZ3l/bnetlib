@@ -31,7 +31,7 @@ class Reward extends BaseItem implements ConsumeInterface
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $this->data = $data;
     }

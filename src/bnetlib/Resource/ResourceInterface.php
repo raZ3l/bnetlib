@@ -31,7 +31,7 @@ interface ResourceInterface
     /**
      * @param array $data
      */
-    public function populate(array $data);
+    public function populate($data);
 
     /**
      * @param \stdClass $headers

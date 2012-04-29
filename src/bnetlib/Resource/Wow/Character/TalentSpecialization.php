@@ -40,7 +40,7 @@ class TalentSpecialization implements ResourceInterface
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data as $key => $value) {
             if ($key === 'glyphs') {

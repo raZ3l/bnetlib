@@ -40,7 +40,7 @@ class Perk implements ResourceInterface
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         $class = new Spell();
         if (isset($this->headers)) {

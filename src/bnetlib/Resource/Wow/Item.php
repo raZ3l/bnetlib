@@ -35,7 +35,7 @@ class Item extends BaseItem
     /**
      * @inheritdoc
      */
-    public function populate(array $data)
+    public function populate($data)
     {
         foreach ($data as $key => $value) {
             switch ($key) {
