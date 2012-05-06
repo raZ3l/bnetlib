@@ -16,6 +16,7 @@
 
 namespace bnetlib\Resource\Wow\Achievements;
 
+use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
 
 /**
@@ -25,7 +26,7 @@ use bnetlib\Resource\ResourceInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Achievement implements ResourceInterface
+class Achievement implements ResourceInterface, ConsumeInterface
 {
     /**
      * @var array
@@ -51,6 +52,14 @@ class Achievement implements ResourceInterface
     public function getResponseHeaders()
     {
         return $this->headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function consume()
+    {
+        return array('achievementid' => $this->data['a']);
     }
 
     /**
