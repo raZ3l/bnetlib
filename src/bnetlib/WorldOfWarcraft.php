@@ -46,6 +46,11 @@ namespace bnetlib;
 class WorldOfWarcraft extends AbstractGame
 {
     /**
+     * @const string
+     */
+    const SHORT_NAME = 'wow';
+
+    /**
      * @inheritdoc
      */
     protected $resources = array(

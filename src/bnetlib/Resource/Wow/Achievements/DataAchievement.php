@@ -149,7 +149,7 @@ class DataAchievement implements ResourceInterface
     }
 
     /**
-     * @return bnetlib\Resource\Wow\Achievements\Achievement|null
+     * @return bnetlib\Resource\Wow\Item\Reward|null
      */
     public function getRewardItem()
     {

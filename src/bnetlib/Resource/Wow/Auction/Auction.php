@@ -16,7 +16,6 @@
 
 namespace bnetlib\Resource\Wow\Auction;
 
-use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
 
 /**

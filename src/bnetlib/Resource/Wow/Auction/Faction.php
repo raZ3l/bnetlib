@@ -235,7 +235,7 @@ class Faction implements ResourceInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Wow\Auction\Faction
+     * @return bnetlib\Resource\Wow\Auction\Auction
      */
     public function current()
     {
