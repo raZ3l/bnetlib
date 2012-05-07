@@ -23,7 +23,7 @@ use bnetlib\Resource\Wow\Guild\Reward;
  * @package    Resource
  * @subpackage UnitTests
  * @group      WorldOFWarcraft
- * @group      WoW_Character
+ * @group      WoW_Guild
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */

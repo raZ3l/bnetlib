@@ -16,6 +16,7 @@
 
 namespace bnetlib\Resource\Wow;
 
+use bnetlib\Resource\Wow\Guild\News;
 use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
 use bnetlib\Resource\Wow\Guild\Members;
@@ -57,6 +58,13 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface
                     break;
                 case 'achievements':
                     $this->data[$key] = new AchievementsList();
+                    if (isset($this->headers)) {
+                        $this->data[$key]->setResponseHeaders($this->headers);
+                    }
+                    $this->data[$key]->populate($value);
+                    break;
+                case 'news':
+                    $this->data[$key] = new News();
                     if (isset($this->headers)) {
                         $this->data[$key]->setResponseHeaders($this->headers);
                     }
@@ -147,18 +155,38 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface
     }
 
     /**
-     * @return bnetlib\Resource\Wow\Guild\Members
+     * @return bnetlib\Resource\Wow\Guild\Members|null
      */
     public function getMembers()
     {
-        return $this->data['members'];
+        if (isset($this->data['members'])) {
+            return $this->data['members'];
+        }
+
+        return null;
     }
 
     /**
-     * @return bnetlib\Resource\Wow\Achievements\Achievements
+     * @return bnetlib\Resource\Wow\Achievements\Achievements|nul
      */
     public function getAchievements()
     {
-        return $this->data['achievements'];
+        if (isset($this->data['achievements'])) {
+            return $this->data['achievements'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Achievements\News|nul
+     */
+    public function getNews()
+    {
+        if (isset($this->data['news'])) {
+            return $this->data['news'];
+        }
+
+        return null;
     }
 }

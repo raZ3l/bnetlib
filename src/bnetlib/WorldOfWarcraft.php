@@ -54,6 +54,10 @@ class WorldOfWarcraft extends AbstractGame
      * @inheritdoc
      */
     protected $resources = array(
+        'Achievement' => array(
+            'class'  => 'bnetlib\Resource\Wow\Achievement',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Achievement'
+        ),
         'ArenaLadder' => array(
             'class'  => 'bnetlib\Resource\Wow\ArenaLadder',
             'config' => 'bnetlib\Resource\Wow\Configuration\ArenaLadder'
