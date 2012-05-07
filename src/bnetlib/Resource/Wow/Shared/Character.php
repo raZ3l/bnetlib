@@ -170,7 +170,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     /**
      * @return string|null
      */
-    public function getClassString()
+    public function getClassLocale()
     {
         if (isset($this->locale)) {
             return $this->locale->get(sprintf('class.%s', $this->data['class']));
@@ -182,7 +182,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     /**
      * @return string|null
      */
-    public function getRaceString()
+    public function getRaceLocale()
     {
         if (isset($this->locale)) {
             return $this->locale->get(sprintf('race.%s', $this->data['race']));
@@ -194,7 +194,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     /**
      * @return string|null
      */
-    public function getGenderString()
+    public function getGenderLocale()
     {
         if (isset($this->locale)) {
             return $this->locale->get(sprintf('gender.%s', $this->data['gender']));
@@ -206,7 +206,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     /**
      * @return string|null
      */
-    public function getFactionString()
+    public function getFactionLocale()
     {
         if (isset($this->locale)) {
             return $this->locale->get(sprintf('faction.%s', $this->data['faction']));

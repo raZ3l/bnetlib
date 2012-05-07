@@ -7,34 +7,43 @@ bnetlib is an object-oriented interface for the Battle.net REST API. It tries to
 Requirements
 ------------
 
-bnetlib requires PHP 5.3.3+ and depends on [Zend\Http][1]
+bnetlib requires PHP 5.3.3+ and depends on [Zend\Http](https://github.com/zendframework/zf2/).
+
+
+Supports
+---------
+
+* If-Modified-Since Header
+* Returns simple array or full blown object
+* Locale String helper for class names, race names, etc. etc. etc.
 
 
 Resources
 ---------
 
-* Achievement `getAchievement()`
-* Auction `getAuction()` and `getAuctionData()`
-* Arena Team `getArenaTeam()`
-* Arena Ladder `getArenaLadder()`
-* Character `getCharacter()` and `getThumbnail()`
-* Guild `getGuild()`
-* Realms `getRealms()`
-* Item `getItem()`
-* Recipe `getRecipe()`
-* Data Battlegroups `getBattlegroups()`
-* Data Character Races `getCharacterRaces()`
-* Data Character Classes `getCharacterClasses()`
-* Data Character Achievements `getCharacterAchievements()`
-* Data Guild Rewards `getGuildRewards()`
-* Data Guild Perks `getGuildPerks()`
-* Data Guild Achievements `getGuildAchievements()`
-* Data Item Classes `getItemClasses()`
+### World of Warcraft
 
-* ItemSet (not yet)
-* PvP Area Status Fields (not yet)
-* Rated Battleground Ladder  (not yet)
-
+| Resource                    | Method                                |
+|-----------------------------|---------------------------------------|
+| Achievement                 | `getAchievement()`                    |
+| Auction                     | `getAuction()` and `getAuctionData()` |
+| Arena Team                  | `getArenaTeam()`                      |
+| Arena Ladder                | `getArenaLadder()`                    |
+| Rated Battleground Ladder   | Not yet                               |
+| Character                   | `getCharacter()` and `getThumbnail()` |
+| Guild                       | `getGuild()`                          |
+| Realms                      | `getRealms()`                         |
+| Item                        | `getItem()`                           |
+| Item Set                    | Not yet                               |
+| Recipe                      | `getRecipe()`                         |
+| Data Battlegroups           | `getBattlegroups()`                   |
+| Data Character Races        | `getCharacterRaces()`                 |
+| Data Character Classes      | `getCharacterClasses()`               |
+| Data Character Achievements | `getCharacterAchievements()`          |
+| Data Guild Rewards          | `getGuildRewards()`                   |
+| Data Guild Perks            | `getGuildPerks()`                     |
+| Data Guild Achievements     | `getGuildAchievements()`              |
+| Data Item Classes           | `getItemClasses()`                    |
 
 Example
 -------
@@ -80,12 +89,12 @@ Example
     $guild->setLocale($locale)
 
     // Faction: Horda
-    echo 'Faction: ' . $guild->getFactionString();
+    echo 'Faction: ' . $guild->getFactionLocale();
 
     $locale->setLocale(Connection::REGION_CN);
 
     // Faction: 部落
-    echo 'Faction: ' . $guild->getFactionString();
+    echo 'Faction: ' . $guild->getFactionLocale();
 
     foreach ($guild->getMembers() as $i => $member) {
         $character = $member->getCharacter();
@@ -124,5 +133,3 @@ License
 -------
 
 See the LICENSE file.
-
-[1]: https://github.com/zendframework/zf2/

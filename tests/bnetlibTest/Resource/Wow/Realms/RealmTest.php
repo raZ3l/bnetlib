@@ -84,6 +84,16 @@ class RealmTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Blackout', self::$obj->getBattlegroup());
     }
 
+    public function testWintergrasp()
+    {
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Realms\PvpArea', self::$obj->getWintergrasp());
+    }
+
+    public function testTolBarad()
+    {
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Realms\PvpArea', self::$obj->getTolBarad());
+    }
+
     public function testIsNotPvpRealm()
     {
         $this->assertFalse(self::$obj->isPvpRealm());

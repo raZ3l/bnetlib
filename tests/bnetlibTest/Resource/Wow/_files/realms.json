@@ -4,6 +4,18 @@
             "type": "pvp",
             "population": "high",
             "queue": true,
+            "wintergrasp": {
+                "area": 1,
+                "controlling-faction": 0,
+                "status": 2,
+                "next": 1336426680668
+            },
+            "tol-barad": {
+                "area": 21,
+                "controlling-faction": 1,
+                "status": 0,
+                "next": 1336429432809
+            },
             "status": false,
             "name": "Aegwynn",
             "slug": "aegwynn",
@@ -13,6 +25,18 @@
             "type": "pve",
             "population": "medium",
             "queue": false,
+            "wintergrasp": {
+                "area": 1,
+                "controlling-faction": 0,
+                "status": 2,
+                "next": 1336426680668
+            },
+            "tol-barad": {
+                "area": 21,
+                "controlling-faction": 1,
+                "status": 0,
+                "next": 1336429432809
+            },
             "status": true,
             "name": "Aerie Peak",
             "slug": "aerie-peak",
@@ -22,6 +46,18 @@
             "type": "rppvp",
             "population": "low",
             "queue": false,
+            "wintergrasp": {
+                "area": 1,
+                "controlling-faction": 0,
+                "status": 2,
+                "next": 1336426680668
+            },
+            "tol-barad": {
+                "area": 21,
+                "controlling-faction": 1,
+                "status": 0,
+                "next": 1336429432809
+            },
             "status": true,
             "name": "Agamaggan",
             "slug": "agamaggan",
@@ -31,6 +67,18 @@
             "type": "rp",
             "population": "medium",
             "queue": false,
+            "wintergrasp": {
+                "area": 1,
+                "controlling-faction": 0,
+                "status": 2,
+                "next": 1336426680668
+            },
+            "tol-barad": {
+                "area": 21,
+                "controlling-faction": 1,
+                "status": 0,
+                "next": 1336429432809
+            },
             "status": true,
             "name": "Aggramar",
             "slug": "aggramar",
@@ -40,6 +88,18 @@
             "type": "pvp",
             "population": "low",
             "queue": false,
+            "wintergrasp": {
+                "area": 1,
+                "controlling-faction": 0,
+                "status": 2,
+                "next": 1336426680668
+            },
+            "tol-barad": {
+                "area": 21,
+                "controlling-faction": 1,
+                "status": 0,
+                "next": 1336429432809
+            },
             "status": true,
             "name": "Ahn'Qiraj",
             "slug": "ahnqiraj",

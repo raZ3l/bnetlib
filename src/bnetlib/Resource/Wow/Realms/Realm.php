@@ -43,6 +43,16 @@ class Realm implements ResourceInterface
     public function populate($data)
     {
         $this->data = $data;
+
+        foreach (array('wintergrasp', 'tol-barad') as $key) {
+            $class = new PvpArea();
+            if (isset($this->headers)) {
+                $class->setResponseHeaders($this->headers);
+            }
+            $class->populate($this->data[$key]);
+
+            $this->data[$key] = $class;
+        }
     }
 
     /**
@@ -115,6 +125,22 @@ class Realm implements ResourceInterface
     public function getBattlegroup()
     {
         return $this->data['battlegroup'];
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Realms\PvpArea
+     */
+    public function getWintergrasp()
+    {
+        return $this->data['wintergrasp'];
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Realms\PvpArea
+     */
+    public function getTolBarad()
+    {
+        return $this->data['tol-barad'];
     }
 
     /**
