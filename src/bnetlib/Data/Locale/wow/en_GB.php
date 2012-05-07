@@ -43,14 +43,14 @@ return array (
   ),
   'race' => 
   array (
+    11 => 'Draenei',
     1 => 'Human',
     5 => 'Undead',
-    11 => 'Draenei',
     7 => 'Gnome',
     8 => 'Troll',
-    4 => 'Night Elf',
     2 => 'Orc',
     3 => 'Dwarf',
+    4 => 'Night Elf',
     10 => 'Blood Elf',
     22 => 'Worgen',
     6 => 'Tauren',

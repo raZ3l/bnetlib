@@ -40,7 +40,7 @@ interface ConnectionInterface
     const HOST_EU = 'eu.battle.net';
     const HOST_KR = 'kr.battle.net';
     const HOST_TW = 'tw.battle.net';
-    const HOST_CN = 'battlenet.com.cn';
+    const HOST_CN = 'www.battlenet.com.cn';
     /**#@-*/
 
     /**#@+

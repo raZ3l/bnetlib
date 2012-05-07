@@ -125,7 +125,7 @@ foreach ($config['locale'] as $game => $locales) {
                     $internal[$game]['default'][$key] = $value;
                 }
 
-                $output[$game][$config['default_locale']] = $internal[$game]['default'][$key];
+                $output[$game][$config['default_locale']][$key] = $internal[$game]['default'][$key];
             }
         } else {
             printf('Error: Missing key (%s) in %s.%s', $config['default_locale'], $game, PHP_EOL);
@@ -139,7 +139,9 @@ foreach ($config['locale'] as $game => $locales) {
     if (isset($games[$game])) {
         echo '> ' . $game . PHP_EOL;
         foreach ($locales as $locale => $content) {
-            if ($locale === '_all' && $locale === $config['default_locale']) {
+            if ($locale === '_all'
+                || $locale === $config['default_locale']
+                || !isset($internal[$game]['locale']['_all'][$locale])) {
                 continue;
             }
             echo '   :' . $locale . PHP_EOL;
@@ -151,8 +153,8 @@ foreach ($config['locale'] as $game => $locales) {
                             requestResource(
                                 $games[$game],
                                 $internal[$game]['dynamic'][$rKey]['method'],
-                                $config['default_locale'],
-                                $internal[$game]['locale']['_all'][$config['default_locale']]
+                                $locale,
+                                $internal[$game]['locale']['_all'][$locale]
                             )
                         );
                     } else {
