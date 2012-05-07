@@ -122,9 +122,9 @@ class WorldOfWarcraft extends AbstractGame
             'class'  => 'bnetlib\Resource\Wow\Quest',
             'config' => 'bnetlib\Resource\Wow\Configuration\Quest'
         ),
-        'Realm' => array(
-            'class'  => 'bnetlib\Resource\Wow\Realm',
-            'config' => 'bnetlib\Resource\Wow\Configuration\Realm'
+        'Realms' => array(
+            'class'  => 'bnetlib\Resource\Wow\Realms',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Realms'
         ),
         'Recipe' => array(
             'class'  => 'bnetlib\Resource\Wow\Recipe',

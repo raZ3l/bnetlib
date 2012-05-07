@@ -7,13 +7,14 @@ bnetlib is an object-oriented interface for the Battle.net REST API. It tries to
 Requirements
 ------------
 
-bnetlib requires PHP 5.3.3+ and depends on [Zend\Http](https://github.com/zendframework/zf2/).
+bnetlib requires PHP 5.3.3+ and depends on [`Zend\Http`](https://github.com/zendframework/zf2/).
 
 
 Supports
----------
+--------
 
 * If-Modified-Since Header
+* Application authentication
 * Returns simple array or full blown object
 * Locale String helper for class names, race names, etc. etc. etc.
 
@@ -33,6 +34,7 @@ Resources
 | Character                   | `getCharacter()` and `getThumbnail()` |
 | Guild                       | `getGuild()`                          |
 | Realms                      | `getRealms()`                         |
+| Quest                       | `getQuest()`                          |
 | Item                        | `getItem()`                           |
 | Item Set                    | Not yet                               |
 | Recipe                      | `getRecipe()`                         |
@@ -44,6 +46,13 @@ Resources
 | Data Guild Perks            | `getGuildPerks()`                     |
 | Data Guild Achievements     | `getGuildAchievements()`              |
 | Data Item Classes           | `getItemClasses()`                    |
+
+
+Autoloading
+-----------
+
+bnetlib is PSR-0 compliant and provides a [class map](https://github.com/coss/bnetlib/blob/master/src/bnetlib/_classmap.php). You may use any PSR-0 compliant/class map autoloader (like [`Zend\Loader`](https://github.com/zendframework/zf2/)) or use the fallback [`_autoload.php`](https://github.com/coss/bnetlib/blob/master/src/bnetlib/_autoload.php).
+
 
 Example
 -------
@@ -132,4 +141,4 @@ Example
 License
 -------
 
-See the LICENSE file.
+bnetlib is released under the MIT License. For the full copyright and license information see the [`LICENSE`](https://github.com/coss/bnetlib/blob/master/LICENSE) file.
