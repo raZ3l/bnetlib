@@ -1,5 +1,6 @@
 1.0.2                                                               2012-05-08
     * 33c2c1: Added PvP Area fields for Realms resource
+    * 607938: Fixed method error for Realms resource
 
 1.0.1                                                               2012-05-06
     * c07c4b: Added Realms resource + tests
