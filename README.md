@@ -1,7 +1,14 @@
-bnetlib
+bnetlib [![Build Status](https://secure.travis-ci.org/coss/bnetlib.png?branch=master)](http://travis-ci.org/coss/bnetlib)
 =======
 
 bnetlib is an object-oriented interface for the Battle.net REST API. It tries to keep a direct mapping to the actual resource names and response values.
+
+
+Requirements
+------------
+
+bnetlib requires PHP 5.3.3+ and depends on [Zend\Http][1]
+
 
 Resources
 ---------
@@ -27,6 +34,7 @@ Resources
 * ItemSet (not yet)
 * PvP Area Status Fields (not yet)
 * Rated Battleground Ladder  (not yet)
+
 
 Example
 -------
@@ -110,3 +118,11 @@ Example
             }
         }
     }
+
+
+License
+-------
+
+See the LICENSE file.
+
+[1]: https://github.com/zendframework/zf2/
