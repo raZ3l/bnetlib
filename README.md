@@ -6,45 +6,27 @@ bnetlib is an object-oriented interface for the Battle.net REST API. It tries to
 Resources
 ---------
 
-* Achievement
-   * `getAchievement()` (`bnetlib\Resource\Wow\Achievement`)
-* Auction
-   * `getAuction()` (`bnetlib\Resource\Wow\Auction`)
-   * `getAuctionData()` (`bnetlib\Resource\Wow\AuctionData`)
-* Arena Team
-   * `getArenaTeam()` (`bnetlib\Resource\Wow\ArenaTeam`)
-* Arena Ladder
-   * `getArenaLadder()` (`bnetlib\Resource\Wow\ArenaLadder`)
-* Character
-   * `getCharacter()` (`bnetlib\Resource\Wow\Character`)
-   * `getThumbnail()` (`bnetlib\Resource\Shared\File`)
-* Guild
-   * `getGuild()` (`bnetlib\Resource\Wow\Guild`)
-* Realms
-   * `getRealms()` (`bnetlib\Resource\Wow\Realms`)
-* PvP Area Status Fields (not yet)
-* Item
-   * `getItem()` (`bnetlib\Resource\Wow\Item`)
+* Achievement `getAchievement()`
+* Auction `getAuction()` and `getAuctionData()`
+* Arena Team `getArenaTeam()`
+* Arena Ladder `getArenaLadder()`
+* Character `getCharacter()` and `getThumbnail()`
+* Guild `getGuild()`
+* Realms `getRealms()`
+* Item `getItem()`
+* Recipe `getRecipe()`
+* Data Battlegroups `getBattlegroups()`
+* Data Character Races `getCharacterRaces()`
+* Data Character Classes `getCharacterClasses()`
+* Data Character Achievements `getCharacterAchievements()`
+* Data Guild Rewards `getGuildRewards()`
+* Data Guild Perks `getGuildPerks()`
+* Data Guild Achievements `getGuildAchievements()`
+* Data Item Classes `getItemClasses()`
+
 * ItemSet (not yet)
+* PvP Area Status Fields (not yet)
 * Rated Battleground Ladder  (not yet)
-* Recipe
-   * `getRecipe()` (`bnetlib\Resource\Wow\Recipe`)
-* Data Battlegroups
-   * `getBattlegroups()` (`bnetlib\Resource\Wow\Battlegroups`)
-* Data Character Races
-   * `getCharacterRaces()` (`bnetlib\Resource\Wow\CharacterRaces`)
-* Data Character Classes
-   * `getCharacterClasses()` (`bnetlib\Resource\Wow\CharacterClasses`)
-* Data Character Achievements
-   * `getCharacterAchievements()` (`bnetlib\Resource\Wow\CharacterAchievements`)
-* Data Guild Rewards
-   * `getGuildRewards()` (`bnetlib\Resource\Wow\GuildRewards`)
-* Data Guild Perks
-   * `getGuildPerks()` (`bnetlib\Resource\Wow\GuildPerks`)
-* Data Guild Achievements
-   * `getGuildAchievements()` (`bnetlib\Resource\Wow\GuildAchievements`)
-* Data Item Classes
-   * `getItemClasses()` (`bnetlib\Resource\Wow\ItemClasses`)
 
 Example
 -------
