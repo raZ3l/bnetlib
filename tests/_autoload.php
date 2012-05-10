@@ -19,7 +19,7 @@ spl_autoload_register(function ($class) {
     $sgm = explode('\\', $class);
     $ns  = array_shift($sgm);
     $nsl = array(
-        'Zend'        => __DIR__ . DIRECTORY_SEPARATOR . 'zend' . DIRECTORY_SEPARATOR
+        'Zend'        => __DIR__ . DIRECTORY_SEPARATOR . 'ZendFramework' . DIRECTORY_SEPARATOR
                          . 'library' . DIRECTORY_SEPARATOR . 'Zend' . DIRECTORY_SEPARATOR,
         'bnetlibTest' => __DIR__ . DIRECTORY_SEPARATOR . 'bnetlibTest' . DIRECTORY_SEPARATOR,
         'bnetlib'     => dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR

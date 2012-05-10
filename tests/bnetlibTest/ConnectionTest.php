@@ -28,9 +28,25 @@ use bnetlib\Connection;
  */
 class ConnectionTest extends \PHPUnit_Framework_TestCase
 {
+    protected static $params;
+
     protected $stub;
 
     protected $connection;
+
+    public static function setUpBeforeClass()
+    {
+        self::$params = array(
+            'url'          => 'http://example.org/',
+            'json'         => true,
+            'authenticate' => true
+        );
+    }
+
+    public static function tearDownAfterClass()
+    {
+        self::$params = null;
+    }
 
     public function setUp()
     {
@@ -85,6 +101,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
         $response = $connection->request(array(
             'url'          => 'http://everynothing.net/bnetauthtest.php?test=1',
+            'json'         => true,
             'authenticate' => true
         ));
 
@@ -105,10 +122,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
 
     public function testRequestCharacterFound()
@@ -121,10 +135,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $response = $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $response = $this->connection->request(self::$params);
 
         $this->assertArrayHasKey('content', $response);
         $this->assertArrayHasKey('headers', $response);
@@ -143,10 +154,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
 
     /**
@@ -162,10 +170,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
 
     /**
@@ -181,10 +186,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
 
     /**
@@ -200,10 +202,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
 
     /**
@@ -219,10 +218,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
 
     /**
@@ -238,10 +234,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
 
     /**
@@ -257,10 +250,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
 
     /**
@@ -276,10 +266,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
 
     /**
@@ -303,10 +290,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
 
     /*
@@ -324,10 +308,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
     */
 
@@ -344,9 +325,6 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
                    ->method('doRequest')
                    ->will($this->returnValue($content));
 
-        $this->connection->request(array(
-            'url'          => 'http://phpunittest.com/',
-            'authenticate' => true
-        ));
+        $this->connection->request(self::$params);
     }
 }

@@ -272,7 +272,8 @@ abstract class AbstractGame
         $response = $this->connection->request(array(
             'url'          => $url,
             'authenticate' => $authenticate,
-            'lastmodified' => $lastModified
+            'lastmodified' => $lastModified,
+            'json'         => $config->isJson()
         ));
 
         switch ($returnType) {

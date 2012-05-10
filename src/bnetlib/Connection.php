@@ -61,7 +61,7 @@ class Connection implements ConnectionInterface
     {
         $this->client = ($client) ?: new Client();
         $this->client->setConfig(array(
-            'useragent' => 'bnetlib/1.0.0 Zend\Http\Client (PHP/' . PHP_VERSION . ')'
+            'useragent' => 'bnetlib/1.0.3 Zend\Http\Client (PHP)'
         ));
 
         if (is_array($config)) {
@@ -98,7 +98,14 @@ class Connection implements ConnectionInterface
         }
 
         $response = $this->client->send($request);
-        $body     = $this->_decodeJson($response->getBody());
+        $body     = $response->getBody();
+
+        if ($params['json']) {
+            $body = $this->_decodeJson($body);
+            $error = (isset($body['reason'])) ? $body['reason'] : '';
+        } else {
+            $error = 'Unkown error for non json response.';
+        }
 
 
         switch ($response->getStatusCode()) {
@@ -121,21 +128,19 @@ class Connection implements ConnectionInterface
             case 304:
                 throw new Exception\CacheException('Not modified.');
             case 400:
-                $this->_identifyError($body['reason']);
+                $this->_identifyError($error);
             case 404:
-                throw new Exception\PageNotFoundException($body['reason']);
+                throw new Exception\PageNotFoundException($error);
             /**
              * @see http://tools.ietf.org/html/draft-nottingham-http-new-status-04#page-4
-             * @see http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_Error
              */
-            case 420:
             case 429:
                 throw new Exception\RequestsThrottledException('The application or IP has been throttled.');
             case 500:
-                $this->_identifyError($body['reason']);
+                $this->_identifyError($error);
             default:
                 throw new Exception\UnexpectedResponseException(sprintf(
-                    'Unexpected status code returned (%i).', $response->getStatusCode()
+                    'Unexpected status code returned (%s).', $response->getStatusCode()
                 ));
         }
     }
@@ -272,7 +277,7 @@ class Connection implements ConnectionInterface
     protected function _identifyError($reason)
     {
         /**
-         * Reasons = tl;dr so we will using md5 hashes to identify errors.
+         * Reasons = tl;dr so we will be using md5 hashes to identify errors.
          */
         $hash = md5($reason);
         switch ($hash) {
