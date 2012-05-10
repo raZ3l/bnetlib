@@ -16,7 +16,7 @@ Supports
 * If-Modified-Since Header
 * Application authentication
 * Returns simple array or full blown object
-* Locale String helper for class names, race names, etc. etc. etc.
+* Locale string helper for class names, race names, etc. etc. etc.
 
 
 Resources
@@ -30,13 +30,13 @@ Resources
 | Auction                     | `getAuction()` and `getAuctionData()` |
 | Arena Team                  | `getArenaTeam()`                      |
 | Arena Ladder                | `getArenaLadder()`                    |
-| Rated Battleground Ladder   | Not yet                               |
+| Rated Battleground Ladder   |                                       |
 | Character                   | `getCharacter()` and `getThumbnail()` |
 | Guild                       | `getGuild()`                          |
 | Realms                      | `getRealms()`                         |
 | Quest                       | `getQuest()`                          |
 | Item                        | `getItem()`                           |
-| Item Set                    | Not yet                               |
+| Item Set                    | `getItemSet()`                        |
 | Recipe                      | `getRecipe()`                         |
 | Data Battlegroups           | `getBattlegroups()`                   |
 | Data Character Races        | `getCharacterRaces()`                 |

@@ -37,6 +37,7 @@ namespace bnetlib;
  * @method     mixed getGuildPerks([array $args])
  * @method     mixed getGuildRewards([array $args])
  * @method     mixed getItem(array $args [, Resource\ConsumeInterface $instance])
+ * @method     mixed getItemSet(array $args)
  * @method     mixed getItemClasses([array $args])
  * @method     mixed getQuest(array $args [, Resource\ConsumeInterface $instance])
  * @method     mixed getRealm([array $args, [Resource\ConsumeInterface $instance]])
@@ -113,6 +114,10 @@ class WorldOfWarcraft extends AbstractGame
         'Item' => array(
             'class'  => 'bnetlib\Resource\Wow\Item',
             'config' => 'bnetlib\Resource\Wow\Configuration\Item'
+        ),
+        'ItemSet' => array(
+            'class'  => 'bnetlib\Resource\Wow\ItemSet',
+            'config' => 'bnetlib\Resource\Wow\Configuration\ItemSet'
         ),
         'ItemClasses' => array(
             'class'  => 'bnetlib\Resource\Wow\ItemClasses',
