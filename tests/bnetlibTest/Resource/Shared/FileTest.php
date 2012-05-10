@@ -64,7 +64,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
 
     public function testSaveAs()
     {
-        $tempnam = tempnam(sys_get_temp_dir(), 'phpunit');
+        $tempnam = tempnam(sys_get_temp_dir(), 'phpunit') . '.jpg';
 
         self::$obj->saveAs($tempnam);
 

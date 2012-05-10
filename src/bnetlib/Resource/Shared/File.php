@@ -75,6 +75,10 @@ class File implements ResourceInterface
      */
     public function saveAs($name)
     {
+        if (substr(mb_strtolower($name), -4) !== '.jpg') {
+            $name .= '.jpg';
+        }
+
         if (@file_put_contents($name, $this->data) === false) {
             return false;
         }
