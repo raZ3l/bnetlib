@@ -12,6 +12,7 @@ Changelog
 * [`87edf6`](https://github.com/coss/bnetlib/commit/87edf6) Added new keys for Item resource (see item_38268.json)
 * [`9570dd`](https://github.com/coss/bnetlib/commit/9570dd) Fixed error in Guild resource, Guild object is now LocaleAware
 * [`c52ba6`](https://github.com/coss/bnetlib/commit/c52ba6) Added Rated Battleground Ladder resource + tests
+* [`02e4b2`](https://github.com/coss/bnetlib/commit/02e4b2) Fixed issues with Zend\Http\Client::setConfig (zf2 commit: 25d922)
 
 
 1.0.3 (2012-05-10)
