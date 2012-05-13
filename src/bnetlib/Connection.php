@@ -60,7 +60,7 @@ class Connection implements ConnectionInterface
     public function __construct(Client $client = null, array $config = null)
     {
         $this->client = ($client) ?: new Client();
-        $this->client->setConfig(array(
+        $this->client->setOptions(array(
             'useragent' => 'bnetlib/' . self::VERSION . ' Zend\Http\Client (PHP)'
         ));
 
