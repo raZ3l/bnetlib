@@ -51,27 +51,27 @@ class GuildEmblemTest extends \PHPUnit_Framework_TestCase
         self::$obj = null;
     }
 
-    public function getEmblemIcon()
+    public function testEmblemIcon()
     {
         $this->assertEquals(126, self::$obj->getEmblemIcon());
     }
 
-    public function getEmblemIconColor()
+    public function testEmblemIconColor()
     {
         $this->assertEquals('ffb1b8b1', self::$obj->getEmblemIconColor());
     }
 
-    public function getEmblemBorder()
+    public function testEmblemBorder()
     {
         $this->assertEquals(0, self::$obj->getEmblemBorder());
     }
 
-    public function getEmblemBorderColor()
+    public function testEmblemBorderColor()
     {
         $this->assertEquals('ff0f1415', self::$obj->getEmblemBorderColor());
     }
 
-    public function getEmblemBackgroundColor()
+    public function testEmblemBackgroundColor()
     {
         $this->assertEquals('ff232323', self::$obj->getEmblemBackgroundColor());
     }

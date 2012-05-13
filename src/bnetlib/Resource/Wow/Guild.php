@@ -16,7 +16,9 @@
 
 namespace bnetlib\Resource\Wow;
 
+use bnetlib\Locale\LocaleInterface;
 use bnetlib\Resource\ConsumeInterface;
+use bnetlib\Locale\LocaleAwareInterface;
 use bnetlib\Resource\Wow\Shared\GuildEmblem;
 
 /**
@@ -26,7 +28,7 @@ use bnetlib\Resource\Wow\Shared\GuildEmblem;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Guild extends GuildEmblem implements ConsumeInterface
+class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterface
 {
     /**
      * @var array
@@ -36,6 +38,11 @@ class Guild extends GuildEmblem implements ConsumeInterface
         'members'      => 'bnetlib\Resource\Wow\Guild\Members',
         'achievements' => 'bnetlib\Resource\Wow\Achievements\Achievements',
     );
+
+    /**
+     * @var bnetlib\Locale\LocaleInterface
+     */
+    protected $locale;
 
     /**
      * @var array
@@ -90,6 +97,22 @@ class Guild extends GuildEmblem implements ConsumeInterface
     /**
      * @inheritdoc
      */
+    public function setLocale(LocaleInterface $locale)
+    {
+        $this->locale = $locale;
+
+        foreach ($this->data as $key => $value) {
+            if (is_object($value) && $value instanceof LocaleAwareInterface) {
+                $this->data[$key]->setLocale($locale);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function consume()
     {
         return array('realm' => $this->data['realm']);
@@ -133,6 +156,18 @@ class Guild extends GuildEmblem implements ConsumeInterface
     public function getFaction()
     {
         return $this->data['side'];
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFactionLocale()
+    {
+        if (isset($this->locale)) {
+            return $this->locale->get(sprintf('faction.%s', $this->data['side']));
+        }
+
+        return null;
     }
 
     /**
