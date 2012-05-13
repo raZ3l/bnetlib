@@ -321,6 +321,7 @@ abstract class SharedConfigurationTest extends \PHPUnit_Framework_TestCase
         $aliases   = $this->config->getArgumentAliases();
         $required  = $this->config->getRequiredArguments();
         $optional  = $this->config->getOptionalArguments();
+        $aliases   = ($aliases === null) ? array() : $aliases;
         $required  = ($required === null) ? array() : $required;
         $optional  = ($optional === null) ? array() : $optional;
         $whitelist = array_merge($required, $optional);

@@ -12,15 +12,17 @@
  */
 
 spl_autoload_register(function ($class) {
-    if (substr($class, 0, 7) !== 'bnetlib' && substr($class, 0, 4) !== 'Zend') {
+    if (substr($class, 0, 7) !== 'bnetlib'
+        && substr($class, 0, 4) !== 'Zend'
+        && substr($class, 0, 4) !== 'Buzz') {
         return false;
     }
 
     $sgm = explode('\\', $class);
     $ns  = array_shift($sgm);
     $nsl = array(
-        'Zend'        => __DIR__ . DIRECTORY_SEPARATOR . 'ZendFramework' . DIRECTORY_SEPARATOR
-                         . 'library' . DIRECTORY_SEPARATOR . 'Zend' . DIRECTORY_SEPARATOR,
+        'Zend'        => __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'ZendFramework'
+                         . DIRECTORY_SEPARATOR . 'library' . DIRECTORY_SEPARATOR . 'Zend' . DIRECTORY_SEPARATOR,
         'bnetlibTest' => __DIR__ . DIRECTORY_SEPARATOR . 'bnetlibTest' . DIRECTORY_SEPARATOR,
         'bnetlib'     => dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR
                          . 'bnetlib' . DIRECTORY_SEPARATOR

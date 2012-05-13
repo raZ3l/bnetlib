@@ -35,7 +35,7 @@ class RatedBattlegroundLadder implements ConfigurationInterface
     /**
      * @var int
      */
-    protected $resourceType = self::TYPE_DYNAMIC_PATH;
+    protected $resourceType = self::TYPE_STATIC_PATH;
 
     /**
      * @var array
