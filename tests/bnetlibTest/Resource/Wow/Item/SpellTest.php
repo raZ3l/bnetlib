@@ -121,4 +121,9 @@ class SpellTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(1335, self::$obj->getCategoryId());
     }
+
+    public function testTrigger()
+    {
+        $this->assertEquals('ON_EQUIP', self::$obj->getTrigger());
+    }
 }

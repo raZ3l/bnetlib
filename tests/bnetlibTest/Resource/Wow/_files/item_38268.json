@@ -60,7 +60,8 @@
     },
     "nCharges": 0,
     "consumable": false,
-    "categoryId": 1335
+    "categoryId": 1335,
+    "trigger": "ON_EQUIP"
     }
   ],
 
@@ -83,6 +84,15 @@
   "inventoryType":13,
   "equippable":true,
   "itemLevel":1,
+
+  "itemSet": {
+    "id": 1087,
+    "name": "Fangs of the Father",
+  "setBonuses": [{
+      "description": "Your melee attacks have a chance to grant Shadows of the Destroyer, increasing your Agility by 17, stacking up to 50 times. Each application past 30 grants an increasing chance to trigger Fury of the Destroyer. When triggered, this consumes all applications of Shadows of the Destroyer, immediately granting 5 combo points and cause your finishing moves to generate 5 combo points.  Lasts 6 sec.",
+      "threshold": 2
+    }]
+  },
   "maxCount":0,
   "maxDurability":16,
   "minFactionId":0,

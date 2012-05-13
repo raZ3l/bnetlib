@@ -16,11 +16,6 @@
 
 namespace bnetlib\Resource\Wow;
 
-use bnetlib\Resource\Wow\Item\Spells;
-use bnetlib\Resource\Wow\Item\BonusStats;
-use bnetlib\Resource\Wow\Item\WeaponInfo;
-use bnetlib\Resource\Wow\Item\SocketInfo;
-use bnetlib\Resource\Wow\Shared\ListData;
 use bnetlib\Resource\Wow\Shared\Item as BaseItem;
 
 /**
@@ -33,57 +28,32 @@ use bnetlib\Resource\Wow\Shared\Item as BaseItem;
 class Item extends BaseItem
 {
     /**
+     * @var array
+     */
+    protected $keys = array(
+        'itemSet'          => 'bnetlib\Resource\Wow\ItemSet',
+        'itemSpells'       => 'bnetlib\Resource\Wow\Item\Spells',
+        'allowableRaces'   => 'bnetlib\Resource\Wow\Shared\ListData',
+        'allowableClasses' => 'bnetlib\Resource\Wow\Shared\ListData',
+        'bonusStats'       => 'bnetlib\Resource\Wow\Item\BonusStats',
+        'weaponInfo'       => 'bnetlib\Resource\Wow\Item\WeaponInfo',
+        'socketInfo'       => 'bnetlib\Resource\Wow\Item\SocketInfo',
+    );
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
-        foreach ($data as $key => $value) {
-            switch ($key) {
-                case 'allowableRaces':
-                    $this->data[$key] = new ListData();
-                    if (isset($this->headers)) {
-                        $this->data[$key]->setResponseHeaders($this->headers);
-                    }
-                    $this->data[$key]->populate($value);
-                    break;
-                case 'allowableClasses':
-                    $this->data[$key] = new ListData();
-                    if (isset($this->headers)) {
-                        $this->data[$key]->setResponseHeaders($this->headers);
-                    }
-                    $this->data[$key]->populate($value);
-                    break;
-                case 'bonusStats':
-                    $this->data[$key] = new BonusStats();
-                    if (isset($this->headers)) {
-                        $this->data[$key]->setResponseHeaders($this->headers);
-                    }
-                    $this->data[$key]->populate($value);
-                    break;
-                case 'itemSpells':
-                    $this->data[$key] = new Spells();
-                    if (isset($this->headers)) {
-                        $this->data[$key]->setResponseHeaders($this->headers);
-                    }
-                    $this->data[$key]->populate($value);
-                    break;
-                case 'weaponInfo':
-                    $this->data[$key] = new WeaponInfo();
-                    if (isset($this->headers)) {
-                        $this->data[$key]->setResponseHeaders($this->headers);
-                    }
-                    $this->data[$key]->populate($value);
-                    break;
-                case 'socketInfo':
-                    $this->data[$key] = new SocketInfo();
-                    if (isset($this->headers)) {
-                        $this->data[$key]->setResponseHeaders($this->headers);
-                    }
-                    $this->data[$key]->populate($value);
-                    break;
-                default:
-                    $this->data[$key] = $value;
-                    break;
+        $this->data =  $data;
+
+        foreach ($this->keys as $key => $class) {
+            if (isset($data[$key])) {
+                $this->data[$key] = new $class();
+                if (isset($this->headers)) {
+                    $this->data[$key]->setResponseHeaders($this->headers);
+                }
+                $this->data[$key]->populate($data[$key]);
             }
         }
     }
@@ -324,6 +294,14 @@ class Item extends BaseItem
     public function getItemLevel()
     {
         return $this->data['itemLevel'];
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\ItemSet
+     */
+    public function getItemSet()
+    {
+        return $this->data['itemSet'];
     }
 
     /**

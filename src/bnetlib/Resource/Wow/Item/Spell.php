@@ -172,6 +172,14 @@ class Spell implements ResourceInterface
     }
 
     /**
+     * @return int
+     */
+    public function getTrigger()
+    {
+        return $this->data['trigger'];
+    }
+
+    /**
      * @return boolean
      */
     public function isConsumable()
