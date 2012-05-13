@@ -79,12 +79,17 @@ class GuildTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1425, self::$obj->getAchievementPoints());
     }
 
-    public function testAchievementsField()
+    public function testNewsField()
+    {
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Guild\News', self::$obj->getNews());
+    }
+
+    public function testMembersField()
     {
         $this->assertInstanceOf('bnetlib\Resource\Wow\Guild\Members', self::$obj->getMembers());
     }
 
-    public function testAppearanceField()
+    public function testAchievementsField()
     {
         $this->assertInstanceOf('bnetlib\Resource\Wow\Achievements\Achievements', self::$obj->getAchievements());
     }

@@ -16,12 +16,8 @@
 
 namespace bnetlib\Resource\Wow;
 
-use bnetlib\Resource\Wow\Guild\News;
 use bnetlib\Resource\ConsumeInterface;
-use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Guild\Members;
 use bnetlib\Resource\Wow\Shared\GuildEmblem;
-use bnetlib\Resource\Wow\Achievements\Achievements as AchievementsList;
 
 /**
  * @category   bnetlib
@@ -30,8 +26,17 @@ use bnetlib\Resource\Wow\Achievements\Achievements as AchievementsList;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface
+class Guild extends GuildEmblem implements ConsumeInterface
 {
+    /**
+     * @var array
+     */
+    protected $fields = array(
+        'news'         => 'bnetlib\Resource\Wow\Guild\News',
+        'members'      => 'bnetlib\Resource\Wow\Guild\Members',
+        'achievements' => 'bnetlib\Resource\Wow\Achievements\Achievements',
+    );
+
     /**
      * @var array
      */
@@ -47,39 +52,23 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface
      */
     public function populate($data)
     {
-        foreach ($data as $key => $value) {
-            switch ($key) {
-                case 'members':
-                    $this->data[$key] = new Members();
-                    if (isset($this->headers)) {
-                        $this->data[$key]->setResponseHeaders($this->headers);
-                    }
-                    $this->data[$key]->populate($value);
-                    break;
-                case 'achievements':
-                    $this->data[$key] = new AchievementsList();
-                    if (isset($this->headers)) {
-                        $this->data[$key]->setResponseHeaders($this->headers);
-                    }
-                    $this->data[$key]->populate($value);
-                    break;
-                case 'news':
-                    $this->data[$key] = new News();
-                    if (isset($this->headers)) {
-                        $this->data[$key]->setResponseHeaders($this->headers);
-                    }
-                    $this->data[$key]->populate($value);
-                    break;
-                case 'emblem':
-                    foreach ($value as $sKey => $sValue) {
-                        $this->data[$key][$sKey] = $sValue;
-                    }
-                    break;
-                default:
-                    $this->data[$key] = $value;
-                    break;
+        $this->data =  $data;
+
+        foreach ($this->fields as $field => $class) {
+            if (isset($data[$field])) {
+                $this->data[$field] = new $class();
+                if (isset($this->headers)) {
+                    $this->data[$field]->setResponseHeaders($this->headers);
+                }
+                $this->data[$field]->populate($data[$field]);
             }
         }
+
+        foreach ($data['emblem'] as $key => $value) {
+            $this->data[$key] = $value;
+        }
+
+        unset($this->fields, $this->data['emblem']);
     }
 
     /**

@@ -81,11 +81,6 @@ class GuildTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1425, self::$obj->getAchievementPoints());
     }
 
-    public function testEmblem()
-    {
-       $this->assertInternalType('array', self::$obj->getEmblem());
-    }
-
     public function testEmblemIcon()
     {
         $this->assertEquals(126, self::$obj->getEmblemIcon());

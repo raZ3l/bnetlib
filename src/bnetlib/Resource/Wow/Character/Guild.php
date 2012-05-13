@@ -49,6 +49,8 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
         foreach ($data['emblem'] as $key => $value) {
             $this->data[$key] = $value;
         }
+
+        unset($data['emblem']);
     }
 
     /**
@@ -114,14 +116,6 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
     public function getAchievementPoints()
     {
         return $this->data['achievementPoints'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getEmblem()
-    {
-        return $this->data['emblem'];
     }
 
     /**
