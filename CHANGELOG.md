@@ -13,6 +13,7 @@ Changelog
 * [`9570dd`](https://github.com/coss/bnetlib/commit/9570dd) Fixed error in Guild resource, Guild object is now LocaleAware
 * [`c52ba6`](https://github.com/coss/bnetlib/commit/c52ba6) Added Rated Battleground Ladder resource + tests
 * [`02e4b2`](https://github.com/coss/bnetlib/commit/02e4b2) Fixed issues with Zend\Http\Client::setConfig (zf2 commit: 25d922)
+* [`37ebb1`](https://github.com/coss/bnetlib/commit/37ebb1) Added config test for Rated Battleground Ladder resource
 
 
 1.0.3 (2012-05-10)
