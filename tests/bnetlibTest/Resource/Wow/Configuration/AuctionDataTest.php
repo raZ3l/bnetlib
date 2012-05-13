@@ -17,7 +17,6 @@
 namespace bnetlibTest\Resource\Wow\Configuration;
 
 use bnetlibTest\Resource\SharedConfigurationTest;
-use bnetlib\Resource\ConfigurationInterface;
 use bnetlib\Resource\Wow\Configuration\AuctionData;
 
 /**
@@ -43,23 +42,5 @@ class AuctionDataTest extends SharedConfigurationTest
     public function tearDown()
     {
         unset($this->config);
-    }
-
-    public function testResourceUrl()
-    {
-        if ($this->config->getResourceType() === ConfigurationInterface::TYPE_STATIC_URL) {
-            $this->assertTrue(true);
-            return;
-        }
-
-        if (defined('bnetlib\Resource\Wow\Configuration\AuctionData::RESOURCE_URL')) {
-            if (!is_string(AuctionData::RESOURCE_URL)) {
-                $this->fail('RESOURCE_URL must be a string.');
-            }
-        } else {
-            $this->fail('Configurations for types other then TYPE_STATIC_URL must have RESOURCE_URL definded.');
-        }
-
-        $this->assertTrue(true);
     }
 }

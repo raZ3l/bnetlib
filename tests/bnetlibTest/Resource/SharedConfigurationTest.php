@@ -28,6 +28,27 @@ use bnetlib\Resource\ConfigurationInterface;
  */
 abstract class SharedConfigurationTest extends \PHPUnit_Framework_TestCase
 {
+
+    public function testResourceUrl()
+    {
+        if ($this->config->getResourceType() === ConfigurationInterface::TYPE_STATIC_URL) {
+            $this->assertTrue(true);
+            return;
+        }
+
+        $class = get_class($this->config);
+
+        if (defined($class . '::RESOURCE_URL')) {
+            if (!is_string(constant($class . '::RESOURCE_URL'))) {
+                $this->fail('RESOURCE_URL must be a string.');
+            }
+        } else {
+            $this->fail('Configurations for types other then TYPE_STATIC_URL must have RESOURCE_URL definded.');
+        }
+
+        $this->assertTrue(true);
+    }
+
     public function testResourceType()
     {
         $types = array(
