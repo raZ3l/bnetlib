@@ -259,7 +259,7 @@ abstract class AbstractGame
             case ConfigurationInterface::TYPE_STATIC_PATH:
             case ConfigurationInterface::TYPE_DYNAMIC_URL:
             case ConfigurationInterface::TYPE_DYNAMIC_PATH:
-                $url = $this->_buildUrl($config, $args, $name);
+                $url = $this->buildUrl($config, $args, $name);
                 break;
 
             default:
@@ -301,7 +301,7 @@ abstract class AbstractGame
      * @param  string                 $name
      * @return string
      */
-    protected function _buildUrl($config, $args, $name)
+    protected function buildUrl($config, $args, $name)
     {
         $missing  = array();
         $query    = array();

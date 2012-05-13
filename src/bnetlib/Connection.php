@@ -54,14 +54,14 @@ class Connection implements ConnectionInterface
     );
 
     /**
-     * @param Client $client
-     * @param array  $config
+     * @param Zend\Http\Client $client
+     * @param array            $config
      */
     public function __construct(Client $client = null, array $config = null)
     {
         $this->client = ($client) ?: new Client();
         $this->client->setConfig(array(
-            'useragent' => 'bnetlib/1.0.3 Zend\Http\Client (PHP)'
+            'useragent' => 'bnetlib/' . self::VERSION . ' Zend\Http\Client (PHP)'
         ));
 
         if (is_array($config)) {
@@ -89,7 +89,7 @@ class Connection implements ConnectionInterface
             $date = gmdate('D, d M Y H:i:s \G\M\T');
             $path = $request->uri()->getPath();
             $headers->addHeaderLine('Date', $date);
-            $headers->addHeaderLine('Authorization', $this->_signRequest('GET', $date, $path));
+            $headers->addHeaderLine('Authorization', $this->signRequest('GET', $date, $path));
 
         }
 
@@ -99,50 +99,20 @@ class Connection implements ConnectionInterface
 
         $response = $this->client->send($request);
         $body     = $response->getBody();
+        $headers  = null;
 
-        if ($params['json']) {
-            $body = $this->_decodeJson($body);
-            $error = (isset($body['reason'])) ? $body['reason'] : '';
-        } else {
-            $error = 'Unkown error for non json response.';
-        }
-
-
-        switch ($response->getStatusCode()) {
-            case 200:
-                $return = array();
-                $return['content'] = $body;
-                if ($this->config['responseheader']) {
-                    /**
-                     * Normalizing header names
-                     * @see https://github.com/zendframework/zf2/blob/master/library/Zend/Http/Headers.php#L103
-                     */
-                    $headers = array();
-                    foreach ($response->headers()->toArray() as $h => $v) {
-                        $headers[str_replace(array('-', '_', ' ', '.'), '', strtolower($h))] = $v;
-                    }
-                    $return['headers'] = $headers;
-                }
-
-                return $return;
-            case 304:
-                throw new Exception\CacheException('Not modified.');
-            case 400:
-                $this->_identifyError($error);
-            case 404:
-                throw new Exception\PageNotFoundException($error);
+        if ($this->config['responseheader']) {
             /**
-             * @see http://tools.ietf.org/html/draft-nottingham-http-new-status-04#page-4
+             * Normalizing header names
+             * @see https://github.com/zendframework/zf2/blob/master/library/Zend/Http/Headers.php#L103
              */
-            case 429:
-                throw new Exception\RequestsThrottledException('The application or IP has been throttled.');
-            case 500:
-                $this->_identifyError($error);
-            default:
-                throw new Exception\UnexpectedResponseException(sprintf(
-                    'Unexpected status code returned (%s).', $response->getStatusCode()
-                ));
+            $headers = array();
+            foreach ($response->headers()->toArray() as $header => $value) {
+                $headers[str_replace(array('-', '_', ' ', '.'), '', strtolower($header))] = $value;
+            }
         }
+
+        return $this->createResponse($params['json'], $response->getStatusCode(), $body, $headers);
     }
 
     /**
@@ -237,12 +207,55 @@ class Connection implements ConnectionInterface
     }
 
     /**
+     * @param  boolean    $json
+     * @param  int        $status
+     * @param  string     $body
+     * @param  array|null $headers
+     * @return
+     */
+    protected function createResponse($json, $status, $body, $headers = null)
+    {
+        if ($json) {
+            $body  = $this->decodeJson($body);
+            $error = (isset($body['reason'])) ? $body['reason'] : '';
+        } else {
+            $error = 'Unkown error for non json response.';
+        }
+
+        switch ($status) {
+            case 200:
+                $return = array();
+                $return['content'] = $body;
+                $return['headers'] = $headers;
+
+                return $return;
+            case 304:
+                throw new Exception\CacheException('Not modified.');
+            case 400:
+                $this->identifyError($error);
+            case 404:
+                throw new Exception\PageNotFoundException($error);
+            /**
+             * @see http://tools.ietf.org/html/draft-nottingham-http-new-status-04#page-4
+             */
+            case 429:
+                throw new Exception\RequestsThrottledException('The application or IP has been throttled.');
+            case 500:
+                $this->identifyError($error);
+            default:
+                throw new Exception\UnexpectedResponseException(sprintf(
+                    'Unexpected status code returned (%s).', $status
+                ));
+        }
+    }
+
+    /**
      * @see    http://blizzard.github.com/api-wow-docs/#id3379854
      * @param  string $method
      * @param  string $path
-     * @return array|null
+     * @return string
      */
-    protected function _signRequest($method, $date, $path)
+    protected function signRequest($method, $date, $path)
     {
         $sign = sprintf("%s\n%s\n%s\n", $method, $date, $path);
         $hash = base64_encode(hash_hmac('sha1', $sign, $this->config['keys']['private'], true));
@@ -250,7 +263,11 @@ class Connection implements ConnectionInterface
         return sprintf('BNET %s:%s', $this->config['keys']['public'], $hash);
     }
 
-    protected function _decodeJson($json)
+    /**
+     * @param  string $json
+     * @return array
+     */
+    protected function decodeJson($json)
     {
         $json = json_decode($json, true);
 
@@ -274,7 +291,7 @@ class Connection implements ConnectionInterface
      * @param  string $reason
      * @return string
      */
-    protected function _identifyError($reason)
+    protected function identifyError($reason)
     {
         /**
          * Reasons = tl;dr so we will be using md5 hashes to identify errors.

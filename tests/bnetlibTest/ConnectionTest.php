@@ -84,11 +84,11 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
         }
 
         $connection = $this->getMockBuilder('bnetlib\Connection')
-                           ->setMethods(array('_decodeJson'))
+                           ->setMethods(array('decodeJson'))
                            ->getMock();
 
         $connection->expects($this->once())
-                   ->method('_decodeJson')
+                   ->method('decodeJson')
                    ->will($this->returnArgument(0));
 
         $connection->setConfig(array(
