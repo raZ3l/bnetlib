@@ -27,25 +27,25 @@ Resources
 | Resource                    | Method                                |
 |-----------------------------|---------------------------------------|
 | Achievement                 | `getAchievement()`                    |
-| Auction                     | `getAuction()` and `getAuctionData()` |
-| Arena Team                  | `getArenaTeam()`                      |
 | Arena Ladder                | `getArenaLadder()`                    |
-| Rated Battleground Ladder   |                                       |
+| Arena Team                  | `getArenaTeam()`                      |
+| Auction                     | `getAuction()` and `getAuctionData()` |
+| Battlegroups                | `getBattlegroups()`                   |
 | Character                   | `getCharacter()` and `getThumbnail()` |
+| Character Achievements      | `getCharacterAchievements()`          |
+| Character Classes           | `getCharacterClasses()`               |
+| Character Races             | `getCharacterRaces()`                 |
 | Guild                       | `getGuild()`                          |
-| Realms                      | `getRealms()`                         |
-| Quest                       | `getQuest()`                          |
+| Guild Achievements          | `getGuildAchievements()`              |
+| Guild Perks                 | `getGuildPerks()`                     |
+| Guild Rewards               | `getGuildRewards()`                   |
 | Item                        | `getItem()`                           |
+| Item Classes                | `getItemClasses()`                    |
 | Item Set                    | `getItemSet()`                        |
+| Quest                       | `getQuest()`                          |
+| Rated Battleground Ladder   | `getRatedBattlegroundLadder()`        |
 | Recipe                      | `getRecipe()`                         |
-| Data Battlegroups           | `getBattlegroups()`                   |
-| Data Character Races        | `getCharacterRaces()`                 |
-| Data Character Classes      | `getCharacterClasses()`               |
-| Data Character Achievements | `getCharacterAchievements()`          |
-| Data Guild Rewards          | `getGuildRewards()`                   |
-| Data Guild Perks            | `getGuildPerks()`                     |
-| Data Guild Achievements     | `getGuildAchievements()`              |
-| Data Item Classes           | `getItemClasses()`                    |
+| Realms                      | `getRealms()`                         |
 
 
 Autoloading
@@ -77,13 +77,6 @@ Example
 
     $wow = new WorldOfWarcraft();
 
-    $wow->setReturnType(WorldOfWarcraft::RETURN_PLAIN);
-
-    // gettype($realms) -> array
-    $realms = $wow->getRealms(array(
-        'region' => Connection::REGION_EU
-    ));
-
     // gettype($guild) -> object (bnetlib\Resource\Wow\Guild)
     $guild = $wow->getGuild(array(
         'realm'  => 'Blackrock',
@@ -91,7 +84,13 @@ Example
         'region' => Connection::REGION_EU,
         'locale' => Connection::LOCALE_DE,
         'fields' => 'members',
-        'return' => WorldOfWarcraft::RETURN_OBJECT
+    ));
+
+    $wow->setReturnType(WorldOfWarcraft::RETURN_PLAIN);
+
+    // gettype($realms) -> array
+    $realms = $wow->getRealms(array(
+        'region' => Connection::REGION_EU
     ));
 
     $locale = new Locale(WorldOfWarcraft::SHORT_NAME, Connection::LOCALE_ES);
@@ -106,13 +105,16 @@ Example
     echo 'Faction: ' . $guild->getFactionLocale();
 
     foreach ($guild->getMembers() as $i => $member) {
+        // gettype($character) -> object (bnetlib\Resource\Wow\Character)
         $character = $member->getCharacter();
         echo 'Name: ' $character->getName();
 
         if ($character->isMage() && $character->isUndead()) {
+            // gettype($character) -> object (bnetlib\Resource\Wow\Character)
             $character = $wow->getCharacter(
                 $character,
                 array(
+                    'return' => WorldOfWarcraft::RETURN_OBJECT,
                     'fields' => array('titles', 'talents', 'professions')
                 )
             );

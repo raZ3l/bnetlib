@@ -40,6 +40,7 @@ namespace bnetlib;
  * @method     mixed getItemSet(array $args)
  * @method     mixed getItemClasses([array $args])
  * @method     mixed getQuest(array $args [, Resource\ConsumeInterface $instance])
+ * @method     mixed getRatedBattlegroundLadder(array $args [, Resource\ConsumeInterface $instance])
  * @method     mixed getRealm([array $args, [Resource\ConsumeInterface $instance]])
  * @method     mixed getRecipe(array $args [, Resource\ConsumeInterface $instance])
  * @method     mixed getThumbnail(array $args [, Resource\ConsumeInterface $instance])
@@ -56,89 +57,93 @@ class WorldOfWarcraft extends AbstractGame
      */
     protected $resources = array(
         'Achievement' => array(
-            'class'  => 'bnetlib\Resource\Wow\Achievement',
-            'config' => 'bnetlib\Resource\Wow\Configuration\Achievement'
+            'class' => 'bnetlib\Resource\Wow\Achievement',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Achievement',
         ),
         'ArenaLadder' => array(
-            'class'  => 'bnetlib\Resource\Wow\ArenaLadder',
-            'config' => 'bnetlib\Resource\Wow\Configuration\ArenaLadder'
+            'class' => 'bnetlib\Resource\Wow\ArenaLadder',
+            'config' => 'bnetlib\Resource\Wow\Configuration\ArenaLadder',
         ),
         'ArenaTeam' => array(
-            'class'  => 'bnetlib\Resource\Wow\ArenaTeam',
-            'config' => 'bnetlib\Resource\Wow\Configuration\ArenaTeam'
+            'class' => 'bnetlib\Resource\Wow\ArenaTeam',
+            'config' => 'bnetlib\Resource\Wow\Configuration\ArenaTeam',
         ),
         'Auction' => array(
-            'class'  => 'bnetlib\Resource\Wow\Auction',
-            'config' => 'bnetlib\Resource\Wow\Configuration\Auction'
+            'class' => 'bnetlib\Resource\Wow\Auction',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Auction',
         ),
         'AuctionData' => array(
-            'class'  => 'bnetlib\Resource\Wow\AuctionData',
-            'config' => 'bnetlib\Resource\Wow\Configuration\AuctionData'
+            'class' => 'bnetlib\Resource\Wow\AuctionData',
+            'config' => 'bnetlib\Resource\Wow\Configuration\AuctionData',
         ),
         'Battlegroups' => array(
-            'class'  => 'bnetlib\Resource\Wow\Battlegroups',
-            'config' => 'bnetlib\Resource\Wow\Configuration\Battlegroups'
+            'class' => 'bnetlib\Resource\Wow\Battlegroups',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Battlegroups',
         ),
         'Character' => array(
-            'class'  => 'bnetlib\Resource\Wow\Character',
-            'config' => 'bnetlib\Resource\Wow\Configuration\Character'
+            'class' => 'bnetlib\Resource\Wow\Character',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Character',
         ),
         'CharacterAchievements' => array(
-            'class'  => 'bnetlib\Resource\Wow\Achievements',
-            'config' => 'bnetlib\Resource\Wow\Configuration\CharacterAchievements'
+            'class' => 'bnetlib\Resource\Wow\Achievements',
+            'config' => 'bnetlib\Resource\Wow\Configuration\CharacterAchievements',
         ),
         'CharacterClasses' => array(
-            'class'  => 'bnetlib\Resource\Wow\CharacterClasses',
-            'config' => 'bnetlib\Resource\Wow\Configuration\CharacterClasses'
+            'class' => 'bnetlib\Resource\Wow\CharacterClasses',
+            'config' => 'bnetlib\Resource\Wow\Configuration\CharacterClasses',
         ),
         'CharacterRaces' => array(
-            'class'  => 'bnetlib\Resource\Wow\CharacterRaces',
-            'config' => 'bnetlib\Resource\Wow\Configuration\CharacterRaces'
+            'class' => 'bnetlib\Resource\Wow\CharacterRaces',
+            'config' => 'bnetlib\Resource\Wow\Configuration\CharacterRaces',
         ),
         'Guild' => array(
-            'class'  => 'bnetlib\Resource\Wow\Guild',
-            'config' => 'bnetlib\Resource\Wow\Configuration\Guild'
+            'class' => 'bnetlib\Resource\Wow\Guild',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Guild',
         ),
         'GuildAchievements' => array(
-            'class'  => 'bnetlib\Resource\Wow\Achievements',
-            'config' => 'bnetlib\Resource\Wow\Configuration\GuildAchievements'
+            'class' => 'bnetlib\Resource\Wow\Achievements',
+            'config' => 'bnetlib\Resource\Wow\Configuration\GuildAchievements',
         ),
         'GuildPerks' => array(
-            'class'  => 'bnetlib\Resource\Wow\GuildPerks',
-            'config' => 'bnetlib\Resource\Wow\Configuration\GuildPerks'
+            'class' => 'bnetlib\Resource\Wow\GuildPerks',
+            'config' => 'bnetlib\Resource\Wow\Configuration\GuildPerks',
         ),
         'GuildRewards' => array(
-            'class'  => 'bnetlib\Resource\Wow\GuildRewards',
-            'config' => 'bnetlib\Resource\Wow\Configuration\GuildRewards'
+            'class' => 'bnetlib\Resource\Wow\GuildRewards',
+            'config' => 'bnetlib\Resource\Wow\Configuration\GuildRewards',
         ),
         'Item' => array(
-            'class'  => 'bnetlib\Resource\Wow\Item',
-            'config' => 'bnetlib\Resource\Wow\Configuration\Item'
-        ),
-        'ItemSet' => array(
-            'class'  => 'bnetlib\Resource\Wow\ItemSet',
-            'config' => 'bnetlib\Resource\Wow\Configuration\ItemSet'
+            'class' => 'bnetlib\Resource\Wow\Item',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Item',
         ),
         'ItemClasses' => array(
-            'class'  => 'bnetlib\Resource\Wow\ItemClasses',
-            'config' => 'bnetlib\Resource\Wow\Configuration\ItemClasses'
+            'class' => 'bnetlib\Resource\Wow\ItemClasses',
+            'config' => 'bnetlib\Resource\Wow\Configuration\ItemClasses',
+        ),
+        'ItemSet' => array(
+            'class' => 'bnetlib\Resource\Wow\ItemSet',
+            'config' => 'bnetlib\Resource\Wow\Configuration\ItemSet',
         ),
         'Quest' => array(
-            'class'  => 'bnetlib\Resource\Wow\Quest',
-            'config' => 'bnetlib\Resource\Wow\Configuration\Quest'
+            'class' => 'bnetlib\Resource\Wow\Quest',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Quest',
+        ),
+        'RatedBattlegroundLadder' => array(
+            'class' => 'bnetlib\Resource\Wow\RatedBattlegroundLadder',
+            'config' => 'bnetlib\Resource\Wow\Configuration\RatedBattlegroundLadder',
         ),
         'Realms' => array(
-            'class'  => 'bnetlib\Resource\Wow\Realms',
-            'config' => 'bnetlib\Resource\Wow\Configuration\Realms'
-        ),
+            'class' => 'bnetlib\Resource\Wow\Realms',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Realms',
+            ),
         'Recipe' => array(
-            'class'  => 'bnetlib\Resource\Wow\Recipe',
-            'config' => 'bnetlib\Resource\Wow\Configuration\Recipe'
+            'class' => 'bnetlib\Resource\Wow\Recipe',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Recipe',
         ),
         'Thumbnail' => array(
-            'class'  => 'bnetlib\Resource\Shared\File',
-            'config' => 'bnetlib\Resource\Wow\Configuration\Thumbnail'
-        )
+            'class' => 'bnetlib\Resource\Shared\File',
+            'config' => 'bnetlib\Resource\Wow\Configuration\Thumbnail',
+        ),
     );
 
     /**

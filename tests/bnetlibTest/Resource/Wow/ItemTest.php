@@ -184,6 +184,11 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1, self::$obj->getItemLevel());
     }
 
+    public function testItemSet()
+    {
+        $this->assertInstanceOf('bnetlib\Resource\Wow\ItemSet', self::$obj->getItemSet());
+    }
+
     public function testIsNotUnique()
     {
         $this->assertFalse(self::$obj->isUnique());
@@ -282,10 +287,5 @@ class ItemTest extends \PHPUnit_Framework_TestCase
     public function testArmor()
     {
         $this->assertEquals(0, self::$obj->getArmor());
-    }
-
-    public function testDisplayInfoId()
-    {
-        $this->assertEquals(50561, self::$obj->getDisplayInfoId());
     }
 }
