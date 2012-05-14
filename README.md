@@ -13,7 +13,8 @@ bnetlib requires PHP 5.3.3+ and depends on [`Zend\Http`](https://github.com/zend
 Todo
 ----
 
-* Write Documentation
+* Write Documentation (also improve api docs)
+* Improve Locale support (stats, reforged stats etc.)
 
 
 Supports
