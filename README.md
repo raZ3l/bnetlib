@@ -10,13 +10,6 @@ Requirements
 bnetlib requires PHP 5.3.3+ and depends on [`Zend\Http`](https://github.com/zendframework/zf2/).
 
 
-Todo
-----
-
-* Write Documentation (also improve api docs)
-* Improve Locale support (stats, reforged stats etc.)
-
-
 Supports
 --------
 
@@ -145,6 +138,107 @@ Example
             }
         }
     }
+
+
+Basic Documentation
+-------------------
+
+### Connection
+
+    use Zend\Http\Client;
+    use bnetlib\Connection;
+
+    $config = array(
+        /**
+         * Force SSL (https) connection.
+         */
+        'securerequests' => false,
+        /**
+         * Include response headers in return value
+         */
+        'responseheader' => true,
+        /**
+         * Application authentication
+         */
+        'keys' => array(
+            'public'  => null,
+            'private' => null
+        ),
+        /**
+         * These default values will be used if not supplied. You can overwrite the default values per request,
+         * by passing the 'region' oder 'locale' key.
+         */
+        'defaults' => array(
+            'region' => null,
+            'locale' => array(
+                Connection::REGION_US => null,
+                Connection::REGION_EU => null,
+                Connection::REGION_KR => null,
+                Connection::REGION_TW => null,
+                Connection::REGION_CN => null
+            )
+        )
+    );
+
+    /**
+     * You may pass an Client instance and config array.
+     */
+    $client     = new Client();
+    $connection = new Connection($client, $config);
+    $connection->setConfig($config);
+
+### World of Warcraft
+
+    use bnetlib\Connection;
+    use bnetlib\WorldOfWarcraft;
+
+    /**
+     * You may pass an Connection instance (must implement ConnectionInterface).
+     */
+    $wow = WorldOfWarcraft(new Connection());
+
+    /**
+     * You can overwrite resource classes and/or configs by using the ::setResource() method.
+     * The value of 'Character' may be an array or string. If you pass a string as value, the value will
+     * be interpreted as a class name.
+     */
+    $wow->setResource(array('Character' => array(
+        'class'  => 'Namespace\Class\Character',
+        'config' => 'Namespace\Config\Character'
+    )));
+
+    /**
+     * Sets the return type for resources (::RETURN_PLAIN or ::RETURN_OBJECT).
+     */
+    $wow->setReturnType(WorldOfWarcraft::RETURN_OBJECT);
+
+    /**
+     * Returns the supported locales for a region.
+     */
+    $wow->getSupportedLocale(Connection::REGION_US);
+
+### Consuming Resource Objects
+
+bnetlib allows consuming objects to supply request arguments. The following classes are consumable:
+
+* `bnetlib\Resource\Wow\Auction` > Auction files URL (`getAuctionData()`)
+* `bnetlib\Resource\Wow\AuctionData` > Realm name
+* `bnetlib\Resource\Wow\Achievements\Achievement` > Achievement Id
+* `bnetlib\Resource\Wow\Battlegroup` > Battlegroup name as slug
+* `bnetlib\Resource\Wow\Character\Glyph` > Glyph Id
+* `bnetlib\Resource\Wow\Character\Guild` > Realm name and Guild name
+* `bnetlib\Resource\Wow\Character\Record` > Realm name as slug, Battlegroup name as slug and Character name
+* `bnetlib\Resource\Wow\Guild` > Realm name
+* `bnetlib\Resource\Wow\Guild\NewsEntry` > Item Id (if set) and Character name (if set)
+* `bnetlib\Resource\Wow\Item\Reward` > Item Id
+* `bnetlib\Resource\Wow\Character` > Character name, Realm name and thumbnail URL (`getThumbnail()`)
+
+
+Todo
+----
+
+* Write (better) Documentation (also improve api docs)
+* Improve Locale support (stats, reforged stats etc.)
 
 
 License

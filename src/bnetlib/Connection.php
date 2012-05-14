@@ -36,9 +36,9 @@ class Connection implements ConnectionInterface
      */
     protected $config = array(
         'securerequests' => false,
-        'responseheader'  => true,
+        'responseheader' => true,
         'keys' => array(
-            'public' => null,
+            'public'  => null,
             'private' => null
         ),
         'defaults' => array(
