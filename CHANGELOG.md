@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.4 (2012-05-13)
+1.0.4 (2012-05-14)
 ------------------
 
 * [`f165f6`](https://github.com/coss/bnetlib/commit/f165f6) Improved extendability for Connection::request()
@@ -13,7 +13,10 @@ Changelog
 * [`9570dd`](https://github.com/coss/bnetlib/commit/9570dd) Fixed error in Guild resource, Guild object is now LocaleAware
 * [`c52ba6`](https://github.com/coss/bnetlib/commit/c52ba6) Added Rated Battleground Ladder resource + tests
 * [`02e4b2`](https://github.com/coss/bnetlib/commit/02e4b2) Fixed issues with Zend\Http\Client::setConfig (zf2 commit: 25d922)
-* [`37ebb1`](https://github.com/coss/bnetlib/commit/37ebb1) Added config test for Rated Battleground Ladder resource
+* [`37ebb1`](https://github.com/coss/bnetlib/commit/37ebb1) Added config test for Rated Battleground Ladder
+* [`daf077`](https://github.com/coss/bnetlib/commit/daf077) Fixed Realms config error
+* [`521b49`](https://github.com/coss/bnetlib/commit/521b49) Fixed class name error for Guild Perks resource and Realms config
+* [`81306c`](https://github.com/coss/bnetlib/commit/81306c) Added test for WorldOfWarcraft to ensure that resources are setup correctly
 
 
 1.0.3 (2012-05-10)
