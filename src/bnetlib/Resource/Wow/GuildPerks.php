@@ -26,7 +26,7 @@ use bnetlib\Resource\ResourceInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class GuildPerk implements ResourceInterface, \Iterator
+class GuildPerks implements ResourceInterface, \Iterator
 {
     /**
      * @var int

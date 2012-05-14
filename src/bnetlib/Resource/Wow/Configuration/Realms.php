@@ -26,7 +26,7 @@ use bnetlib\Resource\ConfigurationInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Realm implements ConfigurationInterface
+class Realms implements ConfigurationInterface
 {
     /**
      * @const string

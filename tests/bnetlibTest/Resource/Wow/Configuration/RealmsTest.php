@@ -17,7 +17,7 @@
 namespace bnetlibTest\Resource\Wow\Configuration;
 
 use bnetlibTest\Resource\SharedConfigurationTest;
-use bnetlib\Resource\Wow\Configuration\Realm;
+use bnetlib\Resource\Wow\Configuration\Realms;
 
 /**
  * @category   bnetlib
@@ -27,16 +27,16 @@ use bnetlib\Resource\Wow\Configuration\Realm;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class RealmTest extends SharedConfigurationTest
+class RealmsTest extends SharedConfigurationTest
 {
     /**
-     * @var Realm
+     * @var Realms
      */
     protected $config;
 
     public function setUp()
     {
-        $this->config = new Realm();
+        $this->config = new Realms();
     }
 
     public function tearDown()
