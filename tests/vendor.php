@@ -19,12 +19,8 @@ $dir    = __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'Zend
 
 if (!is_dir($dir)) {
     echo 'Installing Zend Framework 2...' . PHP_EOL;
-    system(sprintf('git clone -q git://github.com/zendframework/zf2.git %s', escapeshellarg($dir)), $return);
+    system(sprintf('git clone -q git://github.com/zendframework/zf2.git %s', escapeshellarg($dir)));
 } else {
     echo 'Updating Zend Framework 2...' . PHP_EOL;
-    system(sprintf('cd %s && git fetch -q origin && git reset --hard origin/master', escapeshellarg($dir)), $return);
-}
-
-if ($return > 0) {
-    exit($return);
+    system(sprintf('cd %s && git fetch -q origin && git reset --hard origin/master', escapeshellarg($dir)));
 }
