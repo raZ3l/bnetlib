@@ -57,12 +57,11 @@ bnetlib is PSR-0 compliant and provides a [class map](https://github.com/coss/bn
 Example
 -------
 
-    use bnetlib\Connection;
     use bnetlib\Locale\Locale;
     use bnetlib\WorldOfWarcraft;
 
-    $connection = new Connection();
-    $connection->setConfig(array(
+    $wow = new WorldOfWarcraft();
+    $wow->getConnection()->setConfig(array(
         'defaults' => array(
             'region' => Connection::REGION_EU,
             'locale' => array(
@@ -70,12 +69,6 @@ Example
             )
         )
     ));
-
-    $wow = new WorldOfWarcraft($connection);
-
-        OR
-
-    $wow = new WorldOfWarcraft();
 
     // gettype($guild) -> object (bnetlib\Resource\Wow\Guild)
     $guild = $wow->getGuild(array(
@@ -154,7 +147,8 @@ Basic Documentation
          */
         'securerequests' => false,
         /**
-         * Include response headers in return value
+         * Include response headers in return value and save the last response headers.
+         * @see Connection::getLastResponseHeaders()
          */
         'responseheader' => true,
         /**
@@ -187,15 +181,19 @@ Basic Documentation
     $connection = new Connection($client, $config);
     $connection->setConfig($config);
 
-### World of Warcraft
+### World of Warcraft and Diablo III
 
+    use bnetlib\Diablo;
     use bnetlib\Connection;
     use bnetlib\WorldOfWarcraft;
+    use bnetlib\Exception\CacheException;
 
     /**
      * You may pass an Connection instance (must implement ConnectionInterface).
+     * The only difference between Diablo and WorldOfWarcraft are the resources!
      */
-    $wow = WorldOfWarcraft(new Connection());
+    $diablo = new Diablo(new Connection());
+    $wow    = new WorldOfWarcraft(new Connection());
 
     /**
      * You can overwrite resource classes and/or configs by using the ::setResource() method.
@@ -217,6 +215,38 @@ Basic Documentation
      */
     $wow->getSupportedLocale(Connection::REGION_US);
 
+    /**
+     * Requesting resources and how it works:
+     *   - Validate method name against $resource array
+     *   - Lazy load resource config
+     *   - Combine and validate request parameters
+     *     - Up to 2 parameters are allowed (array or object implementing ConsumeInterface)
+     *     - An array key will always overwrite consumable array keys
+     *     - Manipulate parameters
+     *     - Build URL
+     *   - Requeest content
+     *   - Parse JSON/Identify any errors (json error, response error)
+     *     - All exceptions thrwon during the request implements ResponseException
+     *   - Create response object or array and return it
+     *
+     * Specials keys:
+     *   - region       = Set default region or per request
+     *   - locale       = Not nessesary, may use default locale
+     *   - lastmodified = RFC 1123 compliant string or timestamp
+     */
+    $realms = $wow->getRealms(array('region' => Connection::REGION_EU));
+
+    /**
+     * Working with the If-Modified-Since header:
+     * bnetlib will throw an CacheException if the requested resource is unchanged.
+     */
+    try {
+        $character =  $wow->character(/* some character */, array('lastmodified' => 1337104470));
+    } catch (CacheException $e) {
+        $headers = $wow->getConnection()->getLastResponseHeaders();
+        // do something...
+    }
+
 ### Consuming Resource Objects
 
 bnetlib allows consuming objects to supply request arguments. The following classes are consumable:
@@ -232,6 +262,9 @@ bnetlib allows consuming objects to supply request arguments. The following clas
 * `bnetlib\Resource\Wow\Guild\NewsEntry` > Item Id (if set) and Character name (if set)
 * `bnetlib\Resource\Wow\Item\Reward` > Item Id
 * `bnetlib\Resource\Wow\Character` > Character name, Realm name and thumbnail URL (`getThumbnail()`)
+
+    $auction = $wow->getAuction();
+    $data    = $wow->getAuctionData($auction);
 
 
 Todo

@@ -54,6 +54,11 @@ class Connection implements ConnectionInterface
     );
 
     /**
+     * @var array|null
+     */
+    protected $lastResponseHeaders = null;
+
+    /**
      * @param Zend\Http\Client $client
      * @param array            $config
      */
@@ -110,6 +115,8 @@ class Connection implements ConnectionInterface
             foreach ($response->headers()->toArray() as $header => $value) {
                 $headers[str_replace(array('-', '_', ' ', '.'), '', strtolower($header))] = $value;
             }
+
+            $this->lastResponseHeaders = $headers;
         }
 
         return $this->createResponse($params['json'], $response->getStatusCode(), $body, $headers);
@@ -204,6 +211,14 @@ class Connection implements ConnectionInterface
         }
 
         throw new Exception\DomainException(sprintf('Unable to find a host for %s.', $region));
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getLastResponseHeaders()
+    {
+        return $this->lastResponseHeaders;
     }
 
     /**
@@ -311,7 +326,7 @@ class Connection implements ConnectionInterface
             case '911fd139b916543848180092cbfa48da':
                 $exception = 'bnetlib\Exception\RequestBlockedException';
                 $reason    = 'The application or IP address has been blocked from making '
-                            . 'further requests. This ban may not be permanent.';
+                             . 'further requests. This ban may not be permanent.';
                 break;
             /**
              * Have you not been through enough? Will you continue to fight what you cannot defeat?
