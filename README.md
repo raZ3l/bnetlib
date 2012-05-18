@@ -251,6 +251,9 @@ Basic Documentation
 
 bnetlib allows consuming objects to supply request arguments. The following classes are consumable:
 
+    $auction = $wow->getAuction();
+    $data    = $wow->getAuctionData($auction);
+
 * `bnetlib\Resource\Wow\Auction` > Auction files URL (`getAuctionData()`)
 * `bnetlib\Resource\Wow\AuctionData` > Realm name
 * `bnetlib\Resource\Wow\Achievements\Achievement` > Achievement Id
@@ -262,9 +265,6 @@ bnetlib allows consuming objects to supply request arguments. The following clas
 * `bnetlib\Resource\Wow\Guild\NewsEntry` > Item Id (if set) and Character name (if set)
 * `bnetlib\Resource\Wow\Item\Reward` > Item Id
 * `bnetlib\Resource\Wow\Character` > Character name, Realm name and thumbnail URL (`getThumbnail()`)
-
-    $auction = $wow->getAuction();
-    $data    = $wow->getAuctionData($auction);
 
 
 Todo
