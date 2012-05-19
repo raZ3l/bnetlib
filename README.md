@@ -10,7 +10,7 @@ Requirements
 bnetlib requires PHP 5.3.3+ and depends on [`Zend\Http`](https://github.com/zendframework/zf2/).
 
 
-Supports
+Features
 --------
 
 * If-Modified-Since Header
@@ -51,7 +51,7 @@ Resources
 Autoloading
 -----------
 
-bnetlib is PSR-0 compliant and provides a [class map](https://github.com/coss/bnetlib/blob/master/src/bnetlib/_classmap.php). You may use any PSR-0 compliant/class map autoloader (like [`Zend\Loader`](https://github.com/zendframework/zf2/)) or use the fallback [`_autoload.php`](https://github.com/coss/bnetlib/blob/master/src/bnetlib/_autoload.php).
+bnetlib is PSR-0 compliant and provides a [class map](https://github.com/coss/bnetlib/blob/master/src/bnetlib/_classmap.php). You may use any PSR-0 compliant/class map autoloader you like (e.g. [`Zend\Loader`](https://github.com/zendframework/zf2/)) or use the fallback [`_autoload.php`](https://github.com/coss/bnetlib/blob/master/src/bnetlib/_autoload.php).
 
 
 Example
@@ -72,11 +72,11 @@ Example
 
     // gettype($guild) -> object (bnetlib\Resource\Wow\Guild)
     $guild = $wow->getGuild(array(
-        'realm'  => 'Blackrock',
-        'name'   => 'Roots of Dragonmaw',
+        'name'   => 'Barmy',
+        'realm'  => 'Die ewige Wacht',
         'region' => Connection::REGION_EU,
         'locale' => Connection::LOCALE_DE,
-        'fields' => 'members',
+        'fields' => 'members'
     ));
 
     $wow->setReturnType(WorldOfWarcraft::RETURN_PLAIN);
@@ -160,7 +160,7 @@ Basic Documentation
         ),
         /**
          * These default values will be used if not supplied. You can overwrite the default values per request,
-         * by passing the 'region' oder 'locale' key.
+         * by passing the 'region' or 'locale' key.
          */
         'defaults' => array(
             'region' => null,
@@ -181,28 +181,26 @@ Basic Documentation
     $connection = new Connection($client, $config);
     $connection->setConfig($config);
 
-### World of Warcraft and Diablo III
+### World of Warcraft
 
-    use bnetlib\Diablo;
     use bnetlib\Connection;
     use bnetlib\WorldOfWarcraft;
     use bnetlib\Exception\CacheException;
 
     /**
      * You may pass an Connection instance (must implement ConnectionInterface).
-     * The only difference between Diablo and WorldOfWarcraft are the resources!
      */
-    $diablo = new Diablo(new Connection());
-    $wow    = new WorldOfWarcraft(new Connection());
+    $wow    = new WorldOfWarcraft();
 
     /**
      * You can overwrite resource classes and/or configs by using the ::setResource() method.
      * The value of 'Character' may be an array or string. If you pass a string as value, the value will
      * be interpreted as a class name.
      */
-    $wow->setResource(array('Character' => array(
-        'class'  => 'Namespace\Class\Character',
-        'config' => 'Namespace\Config\Character'
+    $wow->setResource(array(
+        'Character' => array(
+            'class'  => 'Namespace\Class\Character',
+            'config' => 'Namespace\Config\Character'
     )));
 
     /**
@@ -221,12 +219,10 @@ Basic Documentation
      *   - Lazy load resource config
      *   - Combine and validate request parameters
      *     - Up to 2 parameters are allowed (array or object implementing ConsumeInterface)
-     *     - An array key will always overwrite consumable array keys
      *     - Manipulate parameters
      *     - Build URL
-     *   - Requeest content
-     *   - Parse JSON/Identify any errors (json error, response error)
-     *     - All exceptions thrwon during the request implements ResponseException
+     *   - Retrieve data from battle.net API
+     *   - Parse JSON and identify any errors (json error, response error)
      *   - Create response object or array and return it
      *
      * Specials keys:
@@ -236,40 +232,52 @@ Basic Documentation
      */
     $realms = $wow->getRealms(array('region' => Connection::REGION_EU));
 
-    /**
-     * Working with the If-Modified-Since header:
-     * bnetlib will throw an CacheException if the requested resource is unchanged.
-     */
-    try {
-        $character =  $wow->character(/* some character */, array('lastmodified' => 1337104470));
-    } catch (CacheException $e) {
-        $headers = $wow->getConnection()->getLastResponseHeaders();
-        // do something...
-    }
-
 ### Consuming Resource Objects
 
-bnetlib allows consuming objects to supply request arguments. The following classes are consumable:
+bnetlib allows consuming objects to supply request arguments. If you wish to overwrite a consumed array key, simply pass another array with that key as request argument.
 
-    $auction = $wow->getAuction();
-    $data    = $wow->getAuctionData($auction);
+The following classes are consumable:
 
-* `bnetlib\Resource\Wow\Auction` > Auction files URL (`getAuctionData()`)
+* `bnetlib\Resource\Wow\Auction` > Auction file URL
 * `bnetlib\Resource\Wow\AuctionData` > Realm name
 * `bnetlib\Resource\Wow\Achievements\Achievement` > Achievement Id
 * `bnetlib\Resource\Wow\Battlegroup` > Battlegroup name as slug
-* `bnetlib\Resource\Wow\Character\Glyph` > Glyph Id
+* `bnetlib\Resource\Wow\Character` > Character name, Realm name and thumbnail URL
+* `bnetlib\Resource\Wow\Character\Glyph` > Item Id
 * `bnetlib\Resource\Wow\Character\Guild` > Realm name and Guild name
 * `bnetlib\Resource\Wow\Character\Record` > Realm name as slug, Battlegroup name as slug and Character name
 * `bnetlib\Resource\Wow\Guild` > Realm name
 * `bnetlib\Resource\Wow\Guild\NewsEntry` > Item Id (if set) and Character name (if set)
 * `bnetlib\Resource\Wow\Item\Reward` > Item Id
-* `bnetlib\Resource\Wow\Character` > Character name, Realm name and thumbnail URL (`getThumbnail()`)
+
+Example:
+
+    $auction = $wow->getAuction();
+    $data    = $wow->getAuctionData($auction);
+
+### Exceptions
+
+bnetlib implements the Marker interface pattern for exceptions, so every exception thrown by this library can be caught by catching `bnetlib\Exception`. Exceptions thrown during the request implement another marker called `bnetlib\Exception\ResponseException`. Visit Blizzard's [API documentation](http://blizzard.github.com/api-wow-docs/#idp40928) for more details.
+
+The following exception may be thrown during the request:
+
+* `CacheException` > 'lastmodified' key passed and cache is still valid.
+* `JsonException` > Wrapper for json_decode errors, see [json_last_error](http://www.php.net/manual/en/function.json-last-error.php)
+* `InvalidAppException` > Invalid Application
+* `InvalidAppPermissionsException` > Invalid application permissions
+* `InvalidAppSignatureException` > Invalid application signature
+* `InvalidAuthHeaderException` > Invalid authentication header
+* `PageNotFoundException` > Wrapper for Response: Invalid Application
+* `RequestBlockedException` > Access denied, please contact api-support@blizzard.com
+* `RequestsThrottledException` > If at first you don't succeed, blow it up again. (too many requests)
+* `ServerErrorException` > Have you not been through enough? Will you continue to fight what you cannot defeat? (something unexpected happened)
+* `UnexpectedResponseException` > Unable to detect reason
 
 
 Todo
 ----
 
+* Add composer support
 * Write (better) Documentation (also improve api docs)
 * Improve Locale support (stats, reforged stats etc.)
 
