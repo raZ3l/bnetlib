@@ -267,11 +267,47 @@ The following exception may be thrown during the request:
 * `InvalidAppPermissionsException` > Invalid application permissions
 * `InvalidAppSignatureException` > Invalid application signature
 * `InvalidAuthHeaderException` > Invalid authentication header
-* `PageNotFoundException` > Wrapper for Response: Invalid Application
+* `PageNotFoundException` > When in doubt, blow it up. (page not found)
 * `RequestBlockedException` > Access denied, please contact api-support@blizzard.com
 * `RequestsThrottledException` > If at first you don't succeed, blow it up again. (too many requests)
 * `ServerErrorException` > Have you not been through enough? Will you continue to fight what you cannot defeat? (something unexpected happened)
 * `UnexpectedResponseException` > Unable to detect reason
+
+Example:
+
+    try {
+        $wow->getCharacter(/*some data*/);
+    } catch (bnetlib\Exception\CacheException $e) {
+        // Cache is still valid.
+
+        $headers = $wow->getConnection->getLastResponseHeaders();
+        // so something...
+    } catch (bnetlib\Exception\PageNotFoundException $e) {
+        // Character not found - typo?
+
+        $headers = $wow->getConnection->getLastResponseHeaders();
+        // so something...
+    } catch (bnetlib\Exception\RequestsThrottledException $e) {
+        // You've send to many requests, wait some time and try again.
+
+        $headers = $wow->getConnection->getLastResponseHeaders();
+        // so something...
+    } catch (bnetlib\Exception\RequestBlockedException $e) {
+        // You've been banned :C
+
+        $headers = $wow->getConnection->getLastResponseHeaders();
+        // so something...
+    } catch (bnetlib\Exception\ServerErrorException $e) {
+        // Server error, try again.
+
+        $headers = $wow->getConnection->getLastResponseHeaders();
+        // so something...
+    } catch (bnetlib\Exception\ResponseException $e) {
+        // Fallback, cache every other error
+
+        $headers = $wow->getConnection->getLastResponseHeaders();
+        // so something...
+    }
 
 
 Todo
