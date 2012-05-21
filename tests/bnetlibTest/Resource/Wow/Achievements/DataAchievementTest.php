@@ -74,6 +74,16 @@ class DataAchievementTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Complete the quest achievements listed below.', self::$obj->getDescription());
     }
 
+    public function hasCriteria()
+    {
+        $this->assertFalse(self::$obj->hasCriteria());
+    }
+
+    public function testCriteria()
+    {
+        $this->assertNull(self::$obj->getCriteria());
+    }
+
     public function hasReward()
     {
         $this->assertTrue(self::$obj->hasReward());

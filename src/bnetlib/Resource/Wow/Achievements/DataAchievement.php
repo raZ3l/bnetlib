@@ -31,6 +31,14 @@ class DataAchievement implements ResourceInterface
     /**
      * @var array
      */
+    protected $fields = array(
+        'rewardItem' => 'bnetlib\Resource\Wow\Item\Reward',
+        'criteria'   => 'bnetlib\Resource\Wow\Achievements\Criteria',
+    );
+
+    /**
+     * @var array
+     */
     protected $data = array();
 
     /**
@@ -45,14 +53,14 @@ class DataAchievement implements ResourceInterface
     {
         $this->data = $data;
 
-        if (isset($this->data['rewardItem'])) {
-            $class = new Reward();
-            if (isset($this->headers)) {
-                $class->setResponseHeaders($this->headers);
+        foreach ($this->fields as $field => $class) {
+            if (isset($data[$field])) {
+                $this->data[$field] = new $class();
+                if (isset($this->headers)) {
+                    $this->data[$field]->setResponseHeaders($this->headers);
+                }
+                $this->data[$field]->populate($data[$field]);
             }
-            $class->populate($this->data['rewardItem']);
-
-            $this->data['rewardItem'] = $class;
         }
     }
 
@@ -110,6 +118,26 @@ class DataAchievement implements ResourceInterface
     public function getDescription()
     {
         return $this->data['description'];
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasCriteria()
+    {
+        return isset($this->data['hasCriteria']);
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Achievements\Criteria|null
+     */
+    public function getCriteria()
+    {
+        if (isset($this->data['Criteria'])) {
+            return $this->data['Criteria'];
+        }
+
+        return null;
     }
 
     /**
