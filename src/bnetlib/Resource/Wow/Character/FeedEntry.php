@@ -14,11 +14,10 @@
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-namespace bnetlib\Resource\Wow\Guild;
+namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Achievements\DataAchievement;
 
 /**
  * @category   bnetlib
@@ -27,8 +26,16 @@ use bnetlib\Resource\Wow\Achievements\DataAchievement;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class NewsEntry implements ResourceInterface, ConsumeInterface
+class FeedEntry implements ResourceInterface, ConsumeInterface
 {
+    /**
+     * @var array
+     */
+    protected $fields = array(
+        'criteria'    => 'bnetlib\Resource\Wow\Achievements\Criteria',
+        'achievement' => 'bnetlib\Resource\Wow\Achievements\DataAchievement',
+    );
+
     /**
      * @var array
      */
@@ -46,13 +53,16 @@ class NewsEntry implements ResourceInterface, ConsumeInterface
     {
         $this->data = $data;
 
-        if (isset($data['achievement'])) {
-            $this->data['achievement'] = new DataAchievement();
-            if (isset($this->headers)) {
-                $this->data['achievement']->setResponseHeaders($this->headers);
+        foreach ($this->fields as $field => $class) {
+            if (isset($data[$field])) {
+                $this->data[$field] = new $class();
+                if (isset($this->headers)) {
+                    $this->data[$field]->setResponseHeaders($this->headers);
+                }
+                $this->data[$field]->populate($data[$field]);
             }
-            $this->data['achievement']->populate($data['achievement']);
         }
+
     }
 
     /**
@@ -81,9 +91,6 @@ class NewsEntry implements ResourceInterface, ConsumeInterface
         if (isset($this->data['itemId'])) {
             $consume['itemid'] = $this->data['itemId'];
         }
-        if (isset($this->data['character'])) {
-            $consume['character'] = $this->data['character'];
-        }
 
         return $consume;
     }
@@ -105,6 +112,14 @@ class NewsEntry implements ResourceInterface, ConsumeInterface
     }
 
     /**
+     * @return boolean
+     */
+    public function hasAchievement()
+    {
+        return isset($this->data['achievement']);
+    }
+
+    /**
      * @return bnetlib\Resource\Wow\Achievements\DataAchievement|null
      */
     public function getAchievement()
@@ -117,12 +132,20 @@ class NewsEntry implements ResourceInterface, ConsumeInterface
     }
 
     /**
-     * @return string|null
+     * @return boolean
      */
-    public function getCharacter()
+    public function hasCriteria()
     {
-        if (isset($this->data['character'])) {
-            return $this->data['character'];
+        return isset($this->data['criteria']);
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Achievements\Criteria|null
+     */
+    public function getCriteria()
+    {
+        if (isset($this->data['criteria'])) {
+            return $this->data['criteria'];
         }
 
         return null;
@@ -141,38 +164,10 @@ class NewsEntry implements ResourceInterface, ConsumeInterface
     }
 
     /**
-     * @return int|null
-     */
-    public function getLevelUp()
-    {
-        if (isset($this->data['levelUp'])) {
-            return $this->data['levelUp'];
-        }
-
-        return null;
-    }
-
-    /**
      * @return boolean
      */
-    public function isItemType()
+    public function isFeatOfStrength()
     {
-        return substr($this->data['type'], 0, 4) === 'item';
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isGuildType()
-    {
-        return substr($this->data['type'], 0, 5) === 'guild';
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isPlayerType()
-    {
-        return substr($this->data['type'], 0, 6) === 'player';
+        return (isset($this->data['featOfStrength']) && $this->data['featOfStrength'] === true);
     }
 }
