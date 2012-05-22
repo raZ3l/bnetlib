@@ -34,6 +34,7 @@ class Character extends BaseCharacter
         'achievements' => 'bnetlib\Resource\Wow\Achievements\Achievements',
         'appearance'   => 'bnetlib\Resource\Wow\Character\Appearance',
         'companions'   => 'bnetlib\Resource\Wow\Shared\ListData',
+        'feed'         => 'bnetlib\Resource\Wow\Character\Feed',
         'guild'        => 'bnetlib\Resource\Wow\Character\Guild',
         'items'        => 'bnetlib\Resource\Wow\Character\Items',
         'mounts'       => 'bnetlib\Resource\Wow\Shared\ListData',
@@ -135,6 +136,18 @@ class Character extends BaseCharacter
     {
         if (isset($this->data['guild'])) {
             return $this->data['guild'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bnetlib\Resource\Wow\Character\Feed|null
+     */
+    public function getFeed()
+    {
+        if (isset($this->data['feed'])) {
+            return $this->data['feed'];
         }
 
         return null;

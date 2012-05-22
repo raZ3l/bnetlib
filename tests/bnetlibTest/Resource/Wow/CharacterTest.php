@@ -84,6 +84,11 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('bnetlib\Resource\Wow\Shared\ListData', self::$obj->getMounts());
     }
 
+    public function testFeedField()
+    {
+        $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Feed', self::$obj->getFeed());
+    }
+
     public function testPetsField()
     {
         $this->assertInstanceOf('bnetlib\Resource\Wow\Character\Pets', self::$obj->getPets());
