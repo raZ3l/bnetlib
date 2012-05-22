@@ -6,7 +6,7 @@ Changelog
 
 * [`afc44f`](https://github.com/coss/bnetlib/commit/afc44f) Improved Fixed error in DataAchievement, added missing getter for criteria
 * [`ef7a4e`](https://github.com/coss/bnetlib/commit/ef7a4e) Added missing Character Feed field + tests and fixed error in NewsEntry::consume() method.
-
+* [`a2ea8c`](https://github.com/coss/bnetlib/commit/a2ea8c) Added Feed field in character resource + tests
 
 1.0.4 (2012-05-14)
 ------------------
