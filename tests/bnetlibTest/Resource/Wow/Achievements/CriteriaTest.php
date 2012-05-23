@@ -37,7 +37,7 @@ class CriteriaTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'achievement.json'
+            dirname(__DIR__) . '/_files/achievement.json'
         ), true);
 
         self::$obj = new Criteria();

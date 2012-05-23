@@ -37,7 +37,7 @@ class RecipeTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            __DIR__ . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'recipe_33994.json'
+            __DIR__ . '/_files/recipe_33994.json'
         ), true);
 
         self::$obj = new Recipe();

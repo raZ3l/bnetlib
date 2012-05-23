@@ -15,7 +15,7 @@ spl_autoload_register(function ($class) {
     static $classmap;
 
     if (!isset($classmap)) {
-        $classmap = include __DIR__ . DIRECTORY_SEPARATOR . '_classmap.php';
+        $classmap = include __DIR__ . '/_classmap.php';
     }
 
     if (isset($classmap[$class])) {

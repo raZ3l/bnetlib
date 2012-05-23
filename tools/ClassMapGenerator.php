@@ -12,8 +12,7 @@
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-error_reporting(E_ALL | E_STRICT);
-
+$max = 0;
 $map = array();
 $dir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'bnetlib';
 
@@ -66,14 +65,22 @@ foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir)) as 
     }
 
     $fullclass       = sprintf('%s\\%s', ltrim($namespace, '\\'), ltrim($class, '\\'));
-    $map[$fullclass] = str_replace(DIRECTORY_SEPARATOR, 'DIRECTORY_SEPARATOR', $relative);
+    $max = max(strlen($fullclass) + 2, $max);
+    $map[$fullclass] = str_replace(DIRECTORY_SEPARATOR, '/', $relative);
 }
 
 $classmap = var_export($map, true);
+$classmap = str_replace('\\\\', '\\', $classmap);
 $classmap = str_replace('array (', 'array(', $classmap);
 $classmap = str_replace('=>', '=> __DIR__ .', $classmap);
-$classmap = str_replace('DIRECTORY_SEPARATOR', '\' . DIRECTORY_SEPARATOR . \'', $classmap);
-$classmap = str_replace(' . \'\'', '', $classmap);
+$classmap = str_replace('  ', '    ', $classmap);
+$classmap = preg_replace_callback(
+    '/^(\s+)([^=]+)\s+=>/m',
+    function ($match) use ($max) {
+        return sprintf("%s%-{$max}s =>", $match[1], $match[2]);
+    },
+    $classmap
+);
 
 $header = <<<'EOD'
 <?php
@@ -92,4 +99,5 @@ $header = <<<'EOD'
 return
 EOD;
 
-file_put_contents($dir . DIRECTORY_SEPARATOR . '_classmap.php', sprintf('%s %s;', $header, $classmap));
+file_put_contents($dir . '/_classmap.php', sprintf('%s %s;', $header, $classmap));
+printf('Wrote file to %s/_classmap.php' . PHP_EOL, $dir);

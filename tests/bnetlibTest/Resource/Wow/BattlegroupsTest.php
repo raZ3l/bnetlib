@@ -37,7 +37,7 @@ class BattlegroupsTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            __DIR__ . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'battlegroups.json'
+            __DIR__ . '/_files/battlegroups.json'
         ), true);
 
         self::$obj = new Battlegroups();

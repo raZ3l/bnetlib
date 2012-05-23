@@ -37,7 +37,7 @@ class CharacterRacesTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            __DIR__ . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'character_races.json'
+            __DIR__ . '/_files/character_races.json'
         ), true);
 
         self::$obj = new CharacterRaces();

@@ -37,7 +37,7 @@ class ArenaTeamTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            __DIR__ . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'arena_ladder.json'
+            __DIR__ . '/_files/arena_ladder.json'
         ), true);
 
         self::$obj = new ArenaTeam();

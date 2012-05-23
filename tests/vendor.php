@@ -15,7 +15,7 @@
 set_time_limit(0);
 
 $return = 0;
-$dir    = __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'ZendFramework';
+$dir    = __DIR__ . '/vendor/ZendFramework';
 
 if (!is_dir($dir)) {
     echo 'Installing Zend Framework 2...' . PHP_EOL;

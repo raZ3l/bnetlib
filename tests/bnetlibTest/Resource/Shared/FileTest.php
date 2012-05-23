@@ -42,8 +42,8 @@ class FileTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $file = file_get_contents(
-            dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Wow' . DIRECTORY_SEPARATOR
-            . '_files' . DIRECTORY_SEPARATOR . 'thumbnail.jpg'
+            dirname(__DIR__) . '/Wow' . DIRECTORY_SEPARATOR
+            . '_files/thumbnail.jpg'
         );
 
         self::$hash = md5($file);

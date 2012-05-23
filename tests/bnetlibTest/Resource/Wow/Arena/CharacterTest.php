@@ -37,7 +37,7 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'arena_ladder.json'
+            dirname(__DIR__) . '/_files/arena_ladder.json'
         ), true);
 
         $stats = array();

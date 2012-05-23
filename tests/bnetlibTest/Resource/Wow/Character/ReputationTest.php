@@ -38,7 +38,7 @@ class ReputationTest extends \PHPUnit_Framework_TestCase
     {
         $data            = array();
         $data['content'] = json_decode(file_get_contents(
-            dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'character.json'
+            dirname(__DIR__) . '/_files/character.json'
         ), true);;
 
         self::$obj = new Reputation();

@@ -37,7 +37,7 @@ class WeaponInfoTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'item_38268.json'
+            dirname(__DIR__) . '/_files/item_38268.json'
         ), true);
 
         self::$obj = new WeaponInfo();

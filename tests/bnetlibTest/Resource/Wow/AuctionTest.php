@@ -37,7 +37,7 @@ class AuctionTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            __DIR__ . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'auctions.json'
+            __DIR__ . '/_files/auctions.json'
         ), true);
 
         self::$obj = new Auction();

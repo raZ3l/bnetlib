@@ -26,7 +26,7 @@ class UrlUtils
     /**
      * @var array
      */
-    static protected $replaceRuleSets = array(
+    protected static $replaceRuleSets = array(
         array(array('-', '\'', '(', ')', '/'), ''),
         array(' ', '-'),
         array('--', '-')
@@ -35,7 +35,7 @@ class UrlUtils
     /**
      * @var array
      */
-    static protected $normalizeCharacter = array(
+    protected static $normalizeCharacter = array(
         'Ă' => 'A',
         'Ǎ' => 'A',
         'Ą' => 'A',
@@ -255,7 +255,7 @@ class UrlUtils
      * @param  string $realm
      * @return string
      */
-    static public function slug($realm)
+    public static function slug($realm)
     {
         foreach (self::$replaceRuleSets as $rule) {
             $realm = str_replace($rule[0], $rule[1], $realm);

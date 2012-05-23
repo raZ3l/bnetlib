@@ -15,8 +15,8 @@ error_reporting(E_ALL | E_STRICT);
 
 include __DIR__ . '/_autoload.php';
 
-if (is_readable(__DIR__ . DIRECTORY_SEPARATOR . 'TestConfiguration.php')) {
-    include __DIR__ . DIRECTORY_SEPARATOR . 'TestConfiguration.php';
+if (is_readable(__DIR__ . '/TestConfiguration.php')) {
+    include __DIR__ . '/TestConfiguration.php';
 } else {
-    include __DIR__ . DIRECTORY_SEPARATOR . 'TestConfiguration.php.dist';
+    include __DIR__ . '/TestConfiguration.php.dist';
 }

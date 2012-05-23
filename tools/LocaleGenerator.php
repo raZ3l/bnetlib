@@ -12,13 +12,11 @@
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-error_reporting(E_ALL | E_STRICT);
-
-if (!is_readable(__DIR__ . DIRECTORY_SEPARATOR . 'LocaleConfig.php')) {
+if (!is_readable(__DIR__ . '/LocaleConfig.php')) {
     die('Unable to load config file.');
 }
 
-if (!is_readable(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR . '_autoload.php')) {
+if (!is_readable(dirname(__DIR__) . '/tests/_autoload.php')) {
     die('Unable to load autoloader.');
 }
 
@@ -69,8 +67,8 @@ function createKeyValueList($config, $response) {
     return $return;
 }
 
-$config = include __DIR__ . DIRECTORY_SEPARATOR . 'LocaleConfig.php';
-include dirname(__DIR__) . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR . '_autoload.php';
+$config = include __DIR__ . '/LocaleConfig.php';
+include dirname(__DIR__) . '/tests/_autoload.php';
 
 $games      = array();
 $output     = array();
@@ -100,7 +98,7 @@ foreach ($config['locale'] as $game => $locales) {
     if (isset($games[$game])) {
         if (isset($config['locale'][$game][$config['default_locale']])) {
             foreach ($config['locale'][$game][$config['default_locale']] as $key => $value) {
-                echo '> ' . $game . ':' . $key . PHP_EOL;
+                echo '> ' . $game . '.' . $key . PHP_EOL;
                 $internal[$game]['keys'][] = $key;
                 if (is_string($value)) {
                     list($method, $keyvalue)   = explode('|', $value);
@@ -138,14 +136,13 @@ foreach ($config['locale'] as $game => $locales) {
 echo 'Populate locales...' . PHP_EOL;
 foreach ($config['locale'] as $game => $locales) {
     if (isset($games[$game])) {
-        echo '> ' . $game . PHP_EOL;
         foreach ($locales as $locale => $content) {
             if ($locale === '_all'
                 || $locale === $config['default_locale']
                 || !isset($internal[$game]['locale']['_all'][$locale])) {
                 continue;
             }
-            echo '   :' . $locale . PHP_EOL;
+            echo '> ' . $game . '.' . $locale . PHP_EOL;
             foreach ($internal[$game]['keys'] as $rKey) {
                 if (!isset($content[$rKey])) {
                     if (isset($internal[$game]['dynamic'][$rKey])) {
@@ -197,10 +194,27 @@ foreach ($output as $game => $locales) {
     if (!is_dir($dir)) {
         mkdir($dir, 0777, true);
     }
-    echo '> ' . $game . PHP_EOL;
     foreach ($locales as $locale => $content) {
-        echo '   :' . $locale . PHP_EOL;
+        $max = 0;
+        foreach ($content as $key => $value) {
+            ksort($content[$key]);
+            foreach ($value as $sKey => $sValue) {
+                $plus = (is_int($sKey)) ? 0 : 2;
+                $max  = max(strlen((string) $sKey) + $plus, $max);
+            }
+        }
+        echo '> ' . $game . '.' . $locale . PHP_EOL;
+        $data = str_replace("=> \n  array", '=> array', var_export($content, true));
+        $data = str_replace('array (', 'array(', $data);
+        $data = str_replace('  ', '    ', $data);
+        $data = preg_replace_callback(
+            '/^(\s+)([^=]+)\s+=>/m',
+            function ($match) use ($max) {
+                return sprintf("%s%-{$max}s =>", $match[1], $match[2]);
+            },
+            $data
+        );
         $file = sprintf($config['filepath'], DIRECTORY_SEPARATOR, $game, $locale);
-        file_put_contents($file, sprintf('%s %s;', $header, var_export($content, true)));
+        file_put_contents($file, sprintf('%s %s;', $header, $data));
     }
 }
