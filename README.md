@@ -229,6 +229,7 @@ Basic Documentation
      *   - region       = Set default region or per request
      *   - locale       = Not nessesary, may use default locale
      *   - lastmodified = RFC 1123 compliant string or timestamp
+     *   - return       = Return type, ::RETURN_PLAIN or ::RETURN_OBJECT
      */
     $realms = $wow->getRealms(array('region' => Connection::REGION_EU));
 
