@@ -37,7 +37,7 @@ class ClassDataTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            dirname(__DIR__) . '/_files/item_classes.json'
+            dirname(__DIR__) . '/fixtures/item_classes.json'
         ), true);
 
         self::$obj = new ClassData();

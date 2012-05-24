@@ -37,7 +37,7 @@ class DataAchievementsTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            dirname(__DIR__) . '/_files/character_achievements.json'
+            dirname(__DIR__) . '/fixtures/character_achievements.json'
         ), true);
 
         self::$obj = new DataAchievements();
@@ -82,7 +82,7 @@ class DataAchievementsTest extends \PHPUnit_Framework_TestCase
     public function testTopCategoryWithValue()
     {
         $data = json_decode(file_get_contents(
-            dirname(__DIR__) . '/_files/character_achievements.json'
+            dirname(__DIR__) . '/fixtures/character_achievements.json'
         ), true);
 
         $data['achievements'][1]['categories'][0]['top'] = array(96, 'Quests');

@@ -115,7 +115,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestAccessDenied()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/access_denied'
+            __DIR__ . '/fixtures/access_denied'
         );
 
         $this->stub->expects($this->once())
@@ -128,7 +128,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestCharacterFound()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/character_found'
+            __DIR__ . '/fixtures/character_found'
         );
 
         $this->stub->expects($this->once())
@@ -147,7 +147,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestCharacterFoundAndCached()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/character_found_304'
+            __DIR__ . '/fixtures/character_found_304'
         );
 
         $this->stub->expects($this->once())
@@ -163,7 +163,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestCharacterNotFound()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/character_not_found'
+            __DIR__ . '/fixtures/character_not_found'
         );
 
         $this->stub->expects($this->once())
@@ -179,7 +179,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestInvalidApplication()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/invalid_application'
+            __DIR__ . '/fixtures/invalid_application'
         );
 
         $this->stub->expects($this->once())
@@ -195,7 +195,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestInvalidApplicationPermission()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/invalid_application_permissions'
+            __DIR__ . '/fixtures/invalid_application_permissions'
         );
 
         $this->stub->expects($this->once())
@@ -211,7 +211,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestInvalidApplicationSignature()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/invalid_application_signature'
+            __DIR__ . '/fixtures/invalid_application_signature'
         );
 
         $this->stub->expects($this->once())
@@ -227,7 +227,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestInvalidAuthHeader()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/invalid_authentication_header'
+            __DIR__ . '/fixtures/invalid_authentication_header'
         );
 
         $this->stub->expects($this->once())
@@ -243,7 +243,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestUnkownReason400Status()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/some_unknown_error_400'
+            __DIR__ . '/fixtures/some_unknown_error_400'
         );
 
         $this->stub->expects($this->once())
@@ -259,7 +259,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestSomethingUnexpectedHappened()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/something_unexpected_happened'
+            __DIR__ . '/fixtures/something_unexpected_happened'
         );
 
         $this->stub->expects($this->once())
@@ -283,7 +283,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestTooManyRequests()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/too_many_requests'
+            __DIR__ . '/fixtures/too_many_requests'
         );
 
         $this->stub->expects($this->once())
@@ -301,7 +301,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestTooManyRequests420()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/too_many_requests_420'
+            __DIR__ . '/fixtures/too_many_requests_420'
         );
 
         $this->stub->expects($this->once())
@@ -318,7 +318,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testRequestTooManyRequests429()
     {
         $content = file_get_contents(
-            __DIR__ . '/_files/too_many_requests_429'
+            __DIR__ . '/fixtures/too_many_requests_429'
         );
 
         $this->stub->expects($this->once())

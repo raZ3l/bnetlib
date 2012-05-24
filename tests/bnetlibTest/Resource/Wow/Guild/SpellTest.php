@@ -38,7 +38,7 @@ class SpellTest extends \PHPUnit_Framework_TestCase
     {
         $data            = array();
         $data['content'] = json_decode(file_get_contents(
-            dirname(__DIR__) . '/_files/guild_perks.json'
+            dirname(__DIR__) . '/fixtures/guild_perks.json'
         ), true);
 
         self::$obj = new Spell();

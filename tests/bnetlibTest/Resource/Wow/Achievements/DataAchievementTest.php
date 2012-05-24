@@ -37,7 +37,7 @@ class DataAchievementTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            dirname(__DIR__) . '/_files/character_achievements.json'
+            dirname(__DIR__) . '/fixtures/character_achievements.json'
         ), true);
 
         self::$obj = new DataAchievement();

@@ -43,7 +43,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
     {
         $file = file_get_contents(
             dirname(__DIR__) . '/Wow' . DIRECTORY_SEPARATOR
-            . '_files/thumbnail.jpg'
+            . 'fixtures/thumbnail.jpg'
         );
 
         self::$hash = md5($file);

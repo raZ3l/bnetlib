@@ -38,7 +38,7 @@ class MembersTest extends \PHPUnit_Framework_TestCase
     {
         $data            = array();
         $data['content'] = json_decode(file_get_contents(
-            dirname(__DIR__) . '/_files/guild.json'
+            dirname(__DIR__) . '/fixtures/guild.json'
         ), true);;
 
         self::$obj = new Members();

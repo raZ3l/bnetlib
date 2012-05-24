@@ -38,7 +38,7 @@ class AppearanceTest extends \PHPUnit_Framework_TestCase
     {
         $data            = array();
         $data['content'] = json_decode(file_get_contents(
-            dirname(__DIR__) . '/_files/character.json'
+            dirname(__DIR__) . '/fixtures/character.json'
         ), true);
 
         self::$obj = new Appearance();

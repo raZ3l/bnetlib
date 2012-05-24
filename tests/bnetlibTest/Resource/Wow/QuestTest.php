@@ -37,7 +37,7 @@ class QuestTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            __DIR__ . '/_files/quest_13146.json'
+            __DIR__ . '/fixtures/quest_13146.json'
         ), true);
 
         self::$obj = new Quest();

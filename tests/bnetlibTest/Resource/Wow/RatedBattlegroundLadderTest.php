@@ -37,7 +37,7 @@ class RatedBattlegroundLadderTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            __DIR__ . '/_files/rbg_ladder.json'
+            __DIR__ . '/fixtures/rbg_ladder.json'
         ), true);
 
         self::$obj = new RatedBattlegroundLadder();

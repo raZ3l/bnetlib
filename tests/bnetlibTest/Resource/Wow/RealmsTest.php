@@ -37,7 +37,7 @@ class RealmsTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            __DIR__ . '/_files/realms.json'
+            __DIR__ . '/fixtures/realms.json'
         ), true);
 
         self::$obj = new Realms();

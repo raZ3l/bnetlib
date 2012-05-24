@@ -37,7 +37,7 @@ class AuctionTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            dirname(__DIR__) . '/_files/auctions_data.json'
+            dirname(__DIR__) . '/fixtures/auctions_data.json'
         ), true);
 
         $timeMap = array(

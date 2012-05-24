@@ -37,7 +37,7 @@ class BonusTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            dirname(__DIR__) . '/_files/item_set_1060.json'
+            dirname(__DIR__) . '/fixtures/item_set_1060.json'
         ), true);
 
         self::$obj = new Bonus();

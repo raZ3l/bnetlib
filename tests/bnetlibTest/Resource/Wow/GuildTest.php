@@ -37,7 +37,7 @@ class GuildTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $data = json_decode(file_get_contents(
-            __DIR__ . '/_files/guild.json'
+            __DIR__ . '/fixtures/guild.json'
         ), true);
 
         self::$obj = new Guild();
