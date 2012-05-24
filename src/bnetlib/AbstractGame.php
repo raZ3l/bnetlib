@@ -15,8 +15,10 @@
 
 namespace bnetlib;
 
+use bnetlib\Connection\ZendFramework;
 use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\Connection\ConnectionInterface;
 use bnetlib\Resource\ConfigurationInterface;
 
 /**
@@ -72,7 +74,7 @@ abstract class AbstractGame
      */
     public function __construct(ConnectionInterface $connection = null)
     {
-        $this->connection = ($connection) ?: new Connection();
+        $this->connection = ($connection) ?: new ZendFramework();
     }
 
     /**

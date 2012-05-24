@@ -13,7 +13,7 @@
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-namespace bnetlib;
+namespace bnetlib\Connection;
 
 /**
  * @category  bnetlib
@@ -26,7 +26,7 @@ interface ConnectionInterface
     /**
      * @const string
      */
-    const VERSION = '1.0.4';
+    const VERSION = '1.0.6';
 
     /**#@+
      * @const string

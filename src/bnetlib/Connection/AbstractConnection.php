@@ -13,10 +13,7 @@
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-namespace bnetlib;
-
-use Zend\Http\Client;
-use Zend\Http\Request;
+namespace bnetlib\Connection;
 
 /**
  * @category  bnetlib
@@ -24,10 +21,10 @@ use Zend\Http\Request;
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Connection implements ConnectionInterface
+abstract class AbstractConnection
 {
     /**
-     * @var Zend\Http\Client
+     * @var object
      */
     protected $client = null;
 
@@ -59,67 +56,47 @@ class Connection implements ConnectionInterface
     protected $lastResponseHeaders = null;
 
     /**
-     * @param Zend\Http\Client $client
-     * @param array            $config
+     * @param  string $region
+     * @throws Exception\DomainException
+     * @return string
      */
-    public function __construct(Client $client = null, array $config = null)
+    public function getHost($region)
     {
-        $this->client = ($client) ?: new Client();
-        $this->client->setOptions(array(
-            'useragent' => 'bnetlib/' . self::VERSION . ' Zend\Http\Client (PHP)'
-        ));
-
-        if (is_array($config)) {
-            $this->setConfig($config);
+        $name = 'self::HOST_' . strtoupper($region);
+        if (defined($name)) {
+            return constant($name);
         }
+
+        throw new Exception\DomainException(sprintf('Unable to find a host for %s.', $region));
     }
 
     /**
-     * @inheritdoc
+     * @return boolean
      */
-    public function request(array $params)
+    public function doSecureRequest()
     {
-        $request  = new Request();
-        $headers  = $request->headers();
-        $request->setUri($params['url']);
-        $headers->addHeaderLine('Accept-Encoding', 'gzip,deflate');
+        return $this->config['securerequests'];
+    }
 
-        if ($params['authenticate'] === true
-            && $this->config['keys']['public'] !== null
-            && $this->config['keys']['private'] !== null) {
-            /**
-             * Note: DATE_RFC1123 my not be RFC 1123 compliant, depending on your platform.
-             * @see http://www.php.net/manual/de/function.gmdate.php#25031
-             */
-            $date = gmdate('D, d M Y H:i:s \G\M\T');
-            $path = $request->uri()->getPath();
-            $headers->addHeaderLine('Date', $date);
-            $headers->addHeaderLine('Authorization', $this->signRequest('GET', $date, $path));
+    /**
+     * @return string|null
+     */
+    public function getDefaultRegion()
+    {
+        return $this->config['defaults']['region'];
+    }
 
+    /**
+     * @param  string $region
+     * @return string|null
+     */
+    public function getDefaultLocale($region)
+    {
+        if (isset($this->config['defaults']['locale'][$region])) {
+            return $this->config['defaults']['locale'][$region];
         }
 
-        if (isset($params['lastmodified'])) {
-            $headers->addHeaderLine('If-Modified-Since', $params['lastmodified']);
-        }
-
-        $response = $this->client->send($request);
-        $body     = $response->getBody();
-        $headers  = null;
-
-        if ($this->config['responseheader']) {
-            /**
-             * Normalizing header names
-             * @see https://github.com/zendframework/zf2/blob/master/library/Zend/Http/Headers.php#L103
-             */
-            $headers = array();
-            foreach ($response->headers()->toArray() as $header => $value) {
-                $headers[str_replace(array('-', '_', ' ', '.'), '', strtolower($header))] = $value;
-            }
-
-            $this->lastResponseHeaders = $headers;
-        }
-
-        return $this->createResponse($params['json'], $response->getStatusCode(), $body, $headers);
+        return null;
     }
 
     /**
@@ -162,55 +139,11 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * @return boolean
-     */
-    public function doSecureRequest()
-    {
-        return $this->config['securerequests'];
-    }
-
-    /**
-     * @return Zend\Http\Client
+     * @return object
      */
     public function getClient()
     {
         return $this->client;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getDefaultRegion()
-    {
-        return $this->config['defaults']['region'];
-    }
-
-    /**
-     * @param  string $region
-     * @return string|null
-     */
-    public function getDefaultLocale($region)
-    {
-        if (isset($this->config['defaults']['locale'][$region])) {
-            return $this->config['defaults']['locale'][$region];
-        }
-
-        return null;
-    }
-
-    /**
-     * @param  string $region
-     * @throws Exception\DomainException
-     * @return string
-     */
-    public function getHost($region)
-    {
-        $name = 'self::HOST_' . strtoupper($region);
-        if (defined($name)) {
-            return constant($name);
-        }
-
-        throw new Exception\DomainException(sprintf('Unable to find a host for %s.', $region));
     }
 
     /**
