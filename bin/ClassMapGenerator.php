@@ -65,7 +65,7 @@ foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir)) as 
     }
 
     $fullclass       = sprintf('%s\\%s', ltrim($namespace, '\\'), ltrim($class, '\\'));
-    $max = max(strlen($fullclass) + 2, $max);
+    $max             = max(strlen($fullclass) + 2, $max);
     $map[$fullclass] = str_replace(DIRECTORY_SEPARATOR, '/', $relative);
 }
 
@@ -100,4 +100,50 @@ return
 EOD;
 
 file_put_contents($dir . '/_classmap.php', sprintf('%s %s;', $header, $classmap));
-printf('Wrote file to %s/_classmap.php' . PHP_EOL, $dir);
+echo 'Wrote map to _classmap.php' . PHP_EOL;
+
+$max      = 0;
+$services = array();
+$file     = $dir . '/ServiceLocator/ServiceLocator.php';
+
+foreach ($map as $class => $filename) {
+    if (substr($class, 0, 17) !== 'bnetlib\Resource\\') {
+        continue;
+    }
+
+    $service = $class;
+    $service = str_replace('bnetlib\\resource\\', '', strtolower($service));
+
+    if (in_array($service, array('configurationinterface', 'consumeinterface', 'resourceinterface'))) {
+        continue;
+    }
+
+    $service = str_replace('\\', '.', $service);
+    $service = str_replace('configuration', 'config', $service);
+    $max     = max(strlen($service) + 2, $max);
+
+    $services[$service] = $class;
+}
+
+$servicemap = var_export($services, true);
+$servicemap = str_replace('array (', 'array(', $servicemap);
+$servicemap = str_replace('  ', '        ', $servicemap);
+$servicemap = str_replace('\\\\', '\\', $servicemap);
+$servicemap = preg_replace_callback(
+    '/^(\s+)([^=]+)\s+=>/m',
+    function ($match) use ($max) {
+        return sprintf("%s%-{$max}s =>", $match[1], $match[2]);
+    },
+    $servicemap
+);
+$servicemap = str_replace(')', '    )', $servicemap);
+
+$content = file_get_contents($file);
+$content = preg_replace(
+    '/\$services\s=\sarray\(([^;]+)\)/m',
+    sprintf('$services = %s', $servicemap),
+    $content
+);
+
+file_put_contents($file, $content);
+echo 'Wrote services to ServiceLocator/ServiceLocator.php' . PHP_EOL;
