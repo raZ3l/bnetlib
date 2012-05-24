@@ -15,15 +15,13 @@
 
 namespace bnetlib\Exception;
 
-use bnetlib\Exception;
-
 /**
  * @category  bnetlib
  * @package   Exception
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class DomainException extends \DomainException implements Exception
+class DomainException extends \DomainException implements ExceptionInterface
 {
 
 }

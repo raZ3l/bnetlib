@@ -13,7 +13,7 @@
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-namespace bnetlib;
+namespace bnetlib\Exception;
 
 /**
  * @category  bnetlib
@@ -21,7 +21,7 @@ namespace bnetlib;
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-interface Exception
+class InvalidServiceNameException extends \Exception implements ExceptionInterface
 {
 
 }
