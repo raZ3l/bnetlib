@@ -21,7 +21,7 @@ namespace bnetlib\Resource;
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-interface ConsumeInterface
+interface ConsumeInterface extends ResourceInterface
 {
     /**
      * @return array

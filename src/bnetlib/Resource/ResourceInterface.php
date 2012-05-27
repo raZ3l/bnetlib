@@ -15,13 +15,15 @@
 
 namespace bnetlib\Resource;
 
+use bnetlib\ServiceLocator\ServiceLocatorAwareInterface;
+
 /**
  * @category  bnetlib
  * @package   Resource
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-interface ResourceInterface
+interface ResourceInterface extends ServiceLocatorAwareInterface
 {
     /**
      * @return \stdClass
