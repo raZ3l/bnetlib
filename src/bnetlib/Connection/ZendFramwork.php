@@ -38,7 +38,7 @@ class ZendFramework extends AbstractConnection implements ConnectionInterface
             'useragent' => 'bnetlib/' . self::VERSION . ' Zend\Http\Client (PHP)'
         ));
 
-        if (is_array($config)) {
+        if ($config !== null) {
             $this->setConfig($config);
         }
     }
@@ -54,7 +54,7 @@ class ZendFramework extends AbstractConnection implements ConnectionInterface
             $request->setUri($params['url']);
             $headers->addHeaderLine('Accept-Encoding', 'gzip,deflate');
 
-            if ($params['authenticate'] === true
+            if ($params['config']->isAuthenticationPossible() === true
                 && $this->config['keys']['public'] !== null
                 && $this->config['keys']['private'] !== null) {
                 /**
@@ -77,21 +77,13 @@ class ZendFramework extends AbstractConnection implements ConnectionInterface
             $headers  = null;
 
             if ($this->config['responseheader']) {
-                /**
-                 * Normalizing header names
-                 * @see https://github.com/zendframework/zf2/blob/master/library/Zend/Http/Headers.php#L103
-                 */
-                $headers = array();
-                foreach ($response->headers()->toArray() as $header => $value) {
-                    $headers[str_replace(array('-', '_', ' ', '.'), '', strtolower($header))] = $value;
-                }
-
+                $headers = $response->headers()->toArray();
                 $this->lastResponseHeaders = $headers;
             }
         } catch (\Exception $e) {
-            throw new ClientException('Exception catched, use getPrevious().', 0, $e);
+            throw new ClientException('Client exception catched, use getPrevious().', 0, $e);
         }
 
-        return $this->createResponse($params['json'], $response->getStatusCode(), $body, $headers);
+        return $this->createResponse($params['config']->isJson(), $response->getStatusCode(), $body, $headers);
     }
 }

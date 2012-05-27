@@ -15,6 +15,14 @@
 
 namespace bnetlib\Connection;
 
+use bnetlib\Exception\JsonException;
+use bnetlib\Exception\CacheException;
+use bnetlib\Exception\DomainException;
+use bnetlib\Exception\PageNotFoundException;
+use bnetlib\Exception\RequestsThrottledException;
+use bnetlib\Exception\ServerUnavailableException;
+use bnetlib\Exception\UnexpectedResponseException;
+
 /**
  * @category  bnetlib
  * @package   Connection
@@ -57,7 +65,7 @@ abstract class AbstractConnection
 
     /**
      * @param  string $region
-     * @throws Exception\DomainException
+     * @throws DomainException
      * @return string
      */
     public function getHost($region)
@@ -67,7 +75,7 @@ abstract class AbstractConnection
             return constant($name);
         }
 
-        throw new Exception\DomainException(sprintf('Unable to find a host for %s.', $region));
+        throw new DomainException(sprintf('Unable to find a host for %s.', $region));
     }
 
     /**
@@ -159,7 +167,7 @@ abstract class AbstractConnection
      * @param  int        $status
      * @param  string     $body
      * @param  array|null $headers
-     * @return
+     * @return array
      */
     protected function createResponse($json, $status, $body, $headers = null)
     {
@@ -178,28 +186,29 @@ abstract class AbstractConnection
 
                 return $return;
             case 304:
-                throw new Exception\CacheException('Not modified.');
+                throw new CacheException('Not modified.', $status);
             case 400:
-                $this->identifyError($error);
+                $this->identifyError($error, $status);
             case 404:
-                throw new Exception\PageNotFoundException($error);
-            /**
-             * @see http://tools.ietf.org/html/draft-nottingham-http-new-status-04#page-4
-             */
+                throw new PageNotFoundException($error, $status);
             case 429:
-                throw new Exception\RequestsThrottledException('The application or IP has been throttled.');
+                throw new RequestsThrottledException('The application or IP has been throttled.', $status);
             case 500:
-                $this->identifyError($error);
+                $this->identifyError($error, $status);
+            case 503:
+                throw new ServerUnavailableException('The server is currently unavailable.', $status);
             default:
-                throw new Exception\UnexpectedResponseException(sprintf(
-                    'Unexpected status code returned (%s).', $status
-                ));
+                throw new UnexpectedResponseException(
+                    sprintf('Unexpected status code returned (%s).', $status),
+                    $status
+                );
         }
     }
 
     /**
      * @see    http://blizzard.github.com/api-wow-docs/#id3379854
      * @param  string $method
+     * @param  string $date
      * @param  string $path
      * @return string
      */
@@ -213,6 +222,7 @@ abstract class AbstractConnection
 
     /**
      * @param  string $json
+     * @trows  JsonException Wrapper for json_last_error()
      * @return array
      */
     protected function decodeJson($json)
@@ -223,23 +233,23 @@ abstract class AbstractConnection
             case JSON_ERROR_NONE:
                 return $json;
             case JSON_ERROR_DEPTH:
-                throw new Exception\JsonException('The maximum stack depth has been exceeded.');
+                throw new JsonException('The maximum stack depth has been exceeded.');
             case JSON_ERROR_STATE_MISMATCH:
-                throw new Exception\JsonException('Underflow or the modes mismatch.');
+                throw new JsonException('Underflow or the modes mismatch.');
             case JSON_ERROR_CTRL_CHAR:
-                throw new Exception\JsonException('Unexpected control character found.');
+                throw new JsonException('Unexpected control character found.');
             case JSON_ERROR_SYNTAX:
-                throw new Exception\JsonException('Syntax error, malformed JSON.');
+                throw new JsonException('Syntax error, malformed JSON.');
             case JSON_ERROR_UTF8:
-                throw new Exception\JsonException('Malformed UTF-8 characters, possibly incorrectly encoded.');
+                throw new JsonException('Malformed UTF-8 characters, possibly incorrectly encoded.');
         }
     }
 
     /**
      * @param  string $reason
-     * @return string
+     * @param  int    $status
      */
-    protected function identifyError($reason)
+    protected function identifyError($reason, $status)
     {
         /**
          * Reasons = tl;dr so we will be using md5 hashes to identify errors.
@@ -306,6 +316,6 @@ abstract class AbstractConnection
                 break;
         }
 
-        throw new $exception($reason);
+        throw new $exception($reason, $status);
     }
 }
