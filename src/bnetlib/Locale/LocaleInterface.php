@@ -24,8 +24,9 @@ namespace bnetlib\Locale;
 interface LocaleInterface
 {
     /**
-     * @param  string $key
+     * @param  string      $key
+     * @param  string|null $game
      * @return string|null
      */
-    public function get($key);
+    public function get($key, $game = null;
 }

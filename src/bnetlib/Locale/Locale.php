@@ -45,30 +45,31 @@ class Locale implements LocaleInterface
 
 
     /**
-     * @param string $game
-     * @param string $locale
+     * @param string      $locale
+     * @param string|null $game
      */
-    public function __construct($game, $locale)
+    public function __construct($locale, $game = null)
     {
-        $this->game   = $game;
         $this->locale = $locale;
+        $this->game   = ($game) ?: 'wow';
         $this->file   = dirname(__DIR__) . '%1$sData%1$sLocale%1$s%2$s%1$s%3$s.php';
     }
 
     /**
      * @inheritdoc
      */
-    public function get($key)
+    public function get($key, $game = null)
     {
         list($type, $key) = explode('.', $key);
+        $game             = ($game) ?: $this->game;
 
-        if (!isset($this->memory[$this->locale][$this->game])) {
-            $this->memory[$this->locale][$this->game] = include sprintf(
-                $this->file, DIRECTORY_SEPARATOR, $this->game, $this->locale
+        if (!isset($this->memory[$this->locale][$game])) {
+            $this->memory[$this->locale][$game] = include sprintf(
+                $this->file, DIRECTORY_SEPARATOR, $game, $this->locale
             );
         }
-        if (isset($this->memory[$this->locale][$this->game][$type][$key])) {
-            return $this->memory[$this->locale][$this->game][$type][$key];
+        if (isset($this->memory[$this->locale][$game][$type][$key])) {
+            return $this->memory[$this->locale][$game][$type][$key];
         }
 
         return null;
