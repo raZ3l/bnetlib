@@ -27,6 +27,26 @@ use bnetlib\Resource\ResourceInterface;
  */
 class Professions implements ResourceInterface, \Iterator
 {
+    /**#@+
+     * @const int
+     */
+    const PROFESSION_ALCHEMY        = 171;
+    const PROFESSION_BLACKSMITHING  = 164;
+    const PROFESSION_ENCHANTING     = 333;
+    const PROFESSION_ENGINEERING    = 202;
+    const PROFESSION_HERBALISM      = 182;
+    const PROFESSION_INSCRIPTION    = 773;
+    const PROFESSION_JEWELCRAFTING  = 755;
+    const PROFESSION_LEATHERWORKING = 165;
+    const PROFESSION_MINING         = 186;
+    const PROFESSION_SKINNING       = 393;
+    const PROFESSION_TAILORING      = 197;
+    const PROFESSION_FIRST_AID      = 129;
+    const PROFESSION_ARCHAEOLOGY    = 794;
+    const PROFESSION_FISHING        = 356;
+    const PROFESSION_COOKING        = 185;
+    /**#@-*/
+
     /**
      * @var int
      */
