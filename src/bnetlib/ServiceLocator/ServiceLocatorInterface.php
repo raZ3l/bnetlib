@@ -25,6 +25,12 @@ interface ServiceLocatorInterface
 {
     /**
      * @param  string  $name
+     * @return boolean
+     */
+    public function has($name);
+
+    /**
+     * @param  string  $name
      * @param  boolean $shared
      * @return object
      */

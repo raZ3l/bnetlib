@@ -15,6 +15,12 @@
 
 namespace bnetlib\ServiceLocator;
 
+use bnetlib\Locale\LocaleInterface;
+use bnetlib\Exception\DomainException;
+use bnetlib\Locale\LocaleAwareInterface;
+use bnetlib\Resource\ConfigurationInterface;
+use bnetlib\Exception\InvalidArgumentException;
+use bnetlib\Exception\ServiceNotCreatedException;
 use bnetlib\Exception\InvalidServiceNameException;
 
 /**
@@ -23,8 +29,13 @@ use bnetlib\Exception\InvalidServiceNameException;
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class ServiceLocator implements ServiceLocatorInterface
+class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
 {
+    /**
+     * @var bnetlib\Locale\LocaleInterface|null
+     */
+    protected $locale = null;
+
     /**
      * @var array
      */
@@ -143,27 +154,97 @@ class ServiceLocator implements ServiceLocatorInterface
     );
 
     /**
+     * @inheritdoc
+     */
+    public function has($name)
+    {
+        return isset($this->services[$name]);
+    }
+
+    /**
      * @param  string  $name
      * @param  boolean $shared
-     * @throws bnetlib\Exception\InvalidServiceNameException
+     * @throws bnetlib\Exception\InvalidServiceNameException Unable to find service
+     * @throws bnetlib\Exception\ServiceNotCreatedException  Unable to create instance of service
+     * @throws bnetlib\Exception\DomainException             Config don't implment ConfigurationInterface
      * @return object
      */
     public function get($name, $shared = false)
     {
         if (!isset($this->services[$name])) {
-            throw new ServiceNotCreatedException(sprintf('Unable to fetch or create an instance for %s.', $name);
+            throw new InvalidServiceNameException(sprintf('There is no service namend %s.', $name);
         }
 
         if ($shared === true && isset($this->shared[$name])) {
             return $this->shared[$name];
         }
 
+        if (!class_exists($this->services[$name], true)) {
+            throw new ServiceNotCreatedException(sprintf(
+                'Unable to create an instance of %s (%s).', $name, $this->services[$name]
+            ));
+        }
+
         $instance = new $this->services[$name]();
+
+        if (strpos($this->services[$name], '.config.') !== false) {
+            if (!$instance instanceof ConfigurationInterface) {
+                throw new DomainException(sprintf('%s must implement ConfigurationInterface.', $name));
+            }
+        }
+
+        if ($instance instanceof ServiceLocatorAwareInterface) {
+            $instance->setServiceLocator($this);
+        }
+        if ($this->locale !== null && $instance instanceof LocaleAwareInterface) {
+            $instance->setLocale($this->locale);
+        }
 
         if ($shared === true) {
             $this->shared[$name] = $instance;
         }
 
         return $instance;
+    }
+
+    /**
+     * @param  string $name
+     * @param  string $class
+     * @return self
+     */
+    public function set($name, $class)
+    {
+        $this->services[$name] = $class;
+
+        return $this;
+    }
+
+    /**
+     * @param  array $services
+     * @return self
+     */
+    public function fomArray(array $services)
+    {
+        foreach ($services as $name => $class) {
+            $this->services[$name] = $class;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setLocale(LocaleInterface $locale)
+    {
+        $this->locale = $locale;
+
+        foreach ($this->shared as $key => $value) {
+            if ($value instanceof LocaleAwareInterface) {
+                $this->shared[$key]->setLocale($locale);
+            }
+        }
+
+        return $this;
     }
 }
