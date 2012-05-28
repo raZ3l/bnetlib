@@ -29,17 +29,17 @@ class ZendFramework extends AbstractConnection
 {
     /**
      * @param Zend\Http\Client $client
-     * @param array            $config
+     * @param array            $option
      */
-    public function __construct(Client $client = null, array $config = null)
+    public function __construct(Client $client = null, array $option = null)
     {
         $this->client = ($client) ?: new Client();
         $this->client->setOptions(array(
             'useragent' => 'bnetlib/' . self::VERSION . ' Zend\Http\Client (PHP)'
         ));
 
-        if ($config !== null) {
-            $this->setConfig($config);
+        if ($option !== null) {
+            $this->setOptions($option);
         }
     }
 
@@ -55,8 +55,8 @@ class ZendFramework extends AbstractConnection
             $headers->addHeaderLine('Accept-Encoding', 'gzip,deflate');
 
             if ($params['config']->isAuthenticationPossible() === true
-                && $this->config['keys']['public'] !== null
-                && $this->config['keys']['private'] !== null) {
+                && $this->option['keys']['public'] !== null
+                && $this->option['keys']['private'] !== null) {
                 /**
                  * Note: DATE_RFC1123 my not be RFC 1123 compliant, depending on your platform.
                  * @link http://www.php.net/manual/de/function.gmdate.php#25031
@@ -76,7 +76,7 @@ class ZendFramework extends AbstractConnection
             $body     = $response->getBody();
             $headers  = null;
 
-            if ($this->config['responseheader']) {
+            if ($this->option['responseheader']) {
                 $headers = $response->headers()->toArray();
                 $this->lastResponseHeaders = $headers;
             }

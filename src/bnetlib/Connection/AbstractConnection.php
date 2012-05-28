@@ -39,7 +39,7 @@ abstract class AbstractConnection implements ConnectionInterface
     /**
      * @var array
      */
-    protected $config = array(
+    protected $option = array(
         'securerequests' => false,
         'responseheader' => true,
         'keys' => array(
@@ -83,7 +83,7 @@ abstract class AbstractConnection implements ConnectionInterface
      */
     public function doSecureRequest()
     {
-        return $this->config['securerequests'];
+        return $this->option['securerequests'];
     }
 
     /**
@@ -91,7 +91,7 @@ abstract class AbstractConnection implements ConnectionInterface
      */
     public function getDefaultRegion()
     {
-        return $this->config['defaults']['region'];
+        return $this->option['defaults']['region'];
     }
 
     /**
@@ -100,47 +100,47 @@ abstract class AbstractConnection implements ConnectionInterface
      */
     public function getDefaultLocale($region)
     {
-        if (isset($this->config['defaults']['locale'][$region])) {
-            return $this->config['defaults']['locale'][$region];
+        if (isset($this->option['defaults']['locale'][$region])) {
+            return $this->option['defaults']['locale'][$region];
         }
 
         return null;
     }
 
     /**
-     * @param  array $config
+     * @param  array $option
      * @return self
      */
-    public function setConfig(array $config)
+    public function setOptions(array $option)
     {
-        if (isset($config['keys'])) {
-            if (isset($config['keys']['public'])) {
-                $this->config['keys']['public'] = $config['keys']['public'];
+        if (isset($option['keys'])) {
+            if (isset($option['keys']['public'])) {
+                $this->option['keys']['public'] = $option['keys']['public'];
             }
-            if (isset($config['keys']['private'])) {
-                $this->config['keys']['private'] = $config['keys']['private'];
+            if (isset($option['keys']['private'])) {
+                $this->option['keys']['private'] = $option['keys']['private'];
             }
         }
-        if (isset($config['defaults'])) {
-            if (isset($config['defaults']['region'])) {
-                $this->config['defaults']['region'] = $config['defaults']['region'];
+        if (isset($option['defaults'])) {
+            if (isset($option['defaults']['region'])) {
+                $this->option['defaults']['region'] = $option['defaults']['region'];
             }
-            if (isset($config['defaults']['locale'])) {
-                foreach ($config['defaults']['locale'] as $const => $default) {
-                    $this->config['defaults']['locale'][$const] = $default;
+            if (isset($option['defaults']['locale'])) {
+                foreach ($option['defaults']['locale'] as $const => $default) {
+                    $this->option['defaults']['locale'][$const] = $default;
                 }
             }
         }
         foreach (array('securerequests', 'responseheader') as $key) {
-            if (isset($config[$key])) {
-                $this->config[$key] = (boolean) $config[$key];
+            if (isset($option[$key])) {
+                $this->option[$key] = (boolean) $option[$key];
             }
         }
 
-        if ($this->config['keys']['public'] !== null
-            && $this->config['keys']['private'] !== null
-            && !isset($config['securerequests'])) {
-            $this->config['securerequests'] = true;
+        if ($this->option['keys']['public'] !== null
+            && $this->option['keys']['private'] !== null
+            && !isset($option['securerequests'])) {
+            $this->option['securerequests'] = true;
         }
 
         return $this;
@@ -215,9 +215,9 @@ abstract class AbstractConnection implements ConnectionInterface
     protected function signRequest($method, $date, $path)
     {
         $sign = sprintf("%s\n%s\n%s\n", $method, $date, $path);
-        $hash = base64_encode(hash_hmac('sha1', $sign, $this->config['keys']['private'], true));
+        $hash = base64_encode(hash_hmac('sha1', $sign, $this->option['keys']['private'], true));
 
-        return sprintf('BNET %s:%s', $this->config['keys']['public'], $hash);
+        return sprintf('BNET %s:%s', $this->option['keys']['public'], $hash);
     }
 
     /**

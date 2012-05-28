@@ -43,20 +43,20 @@ class Stub extends AbstractConnection implements ConnectionInterface
 
     /**
      * @param bnetlib\ServiceLocator\ServiceLocator $client
-     * @param array                                 $config
+     * @param array                                 $option
      */
-    public function __construct(ServiceLocator $client = null, array $config = null)
+    public function __construct(ServiceLocator $client = null, array $option = null)
     {
         $this->client = ($client) ?: new ServiceLocator();
 
-        $this->config['stub'] = array(
+        $this->option['stub'] = array(
             'memory' => true,
             'fake'   => false,
             'path'   => dirname(__DIR__) . '/Data/Fixtures',
         );
 
-        if (is_array($config)) {
-            $this->setConfig($config);
+        if (is_array($option)) {
+            $this->setOptions($option);
         }
     }
 
@@ -96,7 +96,7 @@ class Stub extends AbstractConnection implements ConnectionInterface
             if (isset($this->memory[$this->map[$class]])) {
                 $content = $this->memory[$this->map[$class]];
             } else {
-                $fullname = $this->config['stub']['path'] . '/' . $this->map[$class] . '.json';
+                $fullname = $this->option['stub']['path'] . '/' . $this->map[$class] . '.json';
 
                 if (file_exists($fullname)) {
                     $content = file_get_contents($fullname);
@@ -130,7 +130,7 @@ class Stub extends AbstractConnection implements ConnectionInterface
                 }
             }
 
-            if ($this->config['stub']['memory'] === true) {
+            if ($this->option['stub']['memory'] === true) {
                 $this->memory[$this->map[$class]] = $content;
             }
 
@@ -169,7 +169,7 @@ class Stub extends AbstractConnection implements ConnectionInterface
                 }
             }
 
-            if ($this->config['responseheader'] === false) {
+            if ($this->option['responseheader'] === false) {
                 $content['headers'] = null;
             } else {
                 $this->lastResponseHeaders = $content['headers'];
@@ -185,24 +185,24 @@ class Stub extends AbstractConnection implements ConnectionInterface
     /**
      * @inheritdoc
      */
-    public function setConfig(array $config)
+    public function setOptions(array $option)
     {
-        if (isset($config['stub'])) {
-            if (isset($config['stub']['fake'])) {
-                $this->config['stub']['fake'] = $config['stub']['fake'];
+        if (isset($option['stub'])) {
+            if (isset($option['stub']['fake'])) {
+                $this->option['stub']['fake'] = $option['stub']['fake'];
             }
-            if (isset($config['stub']['memory'])) {
-                $this->config['stub']['memory'] = $config['stub']['memory'];
+            if (isset($option['stub']['memory'])) {
+                $this->option['stub']['memory'] = $option['stub']['memory'];
 
-                if ($config['stub']['memory'] === false) {
+                if ($option['stub']['memory'] === false) {
                     unset($this->memory);
                 }
             }
-            if (isset($config['stub']['path'])) {
-                $this->config['stub']['path'] = $config['stub']['path'];
+            if (isset($option['stub']['path'])) {
+                $this->option['stub']['path'] = $option['stub']['path'];
             }
         }
 
-        parent::setConfig($config);
+        parent::setOptions($option);
     }
 }
