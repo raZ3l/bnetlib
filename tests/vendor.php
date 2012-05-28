@@ -17,7 +17,7 @@ set_time_limit(0);
 $return  = 0;
 $dir     = __DIR__ . '/vendor/';
 $vendors = array(
-    array('Buzz Library', 'Buzz', 'git://github.com/kriswallsmith/Buzz.git'),
+    //array('Buzz Library', 'Buzz', 'git://github.com/kriswallsmith/Buzz.git'),
     array('Zend Framework 2', 'ZendFramework', 'git://github.com/zendframework/zf2.git'),
 );
 
