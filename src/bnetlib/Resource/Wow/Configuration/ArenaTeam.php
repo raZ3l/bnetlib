@@ -70,7 +70,10 @@ class ArenaTeam implements ConfigurationInterface
                     ));
                 }
                 return $v;
-            }
+            },
+            'name' => function ($v) {
+                return rawurlencode($v);
+            },
         );
     }
 

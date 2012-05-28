@@ -69,7 +69,10 @@ class Guild implements ConfigurationInterface
             },
             'fields' => function ($v) {
                 return (is_array($v)) ? implode(',', $v) : $v;
-            }
+            },
+            'name' => function ($v) {
+                return rawurlencode($v);
+            },
         );
     }
 
