@@ -28,5 +28,5 @@ interface LocaleInterface
      * @param  string|null $game
      * @return string|null
      */
-    public function get($key, $game = null;
+    public function get($key, $game = null);
 }
