@@ -71,7 +71,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
 
     public function testReplaceHttpWithHttps()
     {
-        $this->obj->getConnection()->setConfig(array('securerequests' => true));
+        $this->obj->getConnection()->setOptions(array('securerequests' => true));
         $response = $this->obj->getStaticUrl('http://example.org/');
         $data     = $response->getData();
 
@@ -80,7 +80,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
 
     public function testDontReplaceHttpWithHttps()
     {
-        $this->obj->getConnection()->setConfig(array('securerequests' => true));
+        $this->obj->getConnection()->setOptions(array('securerequests' => true));
         $this->obj->getServiceLocator()->set('test.config.staticurl', 'bnetlibTest\TestAssets\StaticUrlCfgNoAuth');
         $response = $this->obj->getStaticUrl('http://example.org/');
         $data     = $response->getData();
@@ -175,7 +175,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
 
     public function testDynamicUrlWithHttps()
     {
-        $this->obj->getConnection()->setConfig(array('securerequests' => true));
+        $this->obj->getConnection()->setOptions(array('securerequests' => true));
         $response = $this->obj->getDynamicUrl(array(
             'sub' => 'www',
             'end' => 'foobar'

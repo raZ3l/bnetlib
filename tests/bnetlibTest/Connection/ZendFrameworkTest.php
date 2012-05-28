@@ -64,7 +64,7 @@ class ZendFrameworkTest extends \PHPUnit_Framework_TestCase
     public function testSetConfigAutoHttps()
     {
         $connection = new ZendFramework();
-        $connection->setConfig(array(
+        $connection->setOptions(array(
             'keys' => array(
                 'public'  => 'public',
                 'private' => 'private'
