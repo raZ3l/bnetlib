@@ -73,7 +73,7 @@ include dirname(__DIR__) . '/tests/_autoload.php';
 $games      = array();
 $output     = array();
 $internal   = array();
-$connection = new bnetlib\Connection();
+$connection = new bnetlib\Connection\ZendFramework();
 $reflection = new ReflectionClass($connection);
 $consts     = $reflection->getConstants();
 
@@ -176,7 +176,7 @@ $header = <<<'EOD'
  * file that was distributed with this source code. You can also view the
  * LICENSE file online at https://gitbub.com/coss/bnetlib/LISENCE
  *
- * @see        tools\LocaleGenerator.php
+ * @see        bin\LocaleGenerator.php
  *
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
