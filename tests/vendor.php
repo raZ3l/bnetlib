@@ -14,15 +14,26 @@
 
 set_time_limit(0);
 
-$return = 0;
-$dir    = __DIR__ . '/vendor/ZendFramework';
+$return  = 0;
+$dir     = __DIR__ . '/vendor/';
+$vendors = array(
+    array('Buzz Library', 'Buzz', 'git://github.com/kriswallsmith/Buzz.git'),
+    array('Zend Framework 2', 'ZendFramework', 'git://github.com/zendframework/zf2.git'),
+);
 
-if (!is_dir($dir)) {
-    echo 'Installing Zend Framework 2...' . PHP_EOL;
-    system(sprintf('git clone -q git://github.com/zendframework/zf2.git %s', escapeshellarg($dir)), $return);
-} else {
-    echo 'Updating Zend Framework 2...' . PHP_EOL;
-    system(sprintf('cd %s && git fetch -q origin && git reset --hard origin/master', escapeshellarg($dir)), $return);
+
+foreach ($vendors as $vendor) {
+    $fullDir = $dir . $vendor[1];
+
+    if (!is_dir($fullDir)) {
+        printf('Installing %s...' . PHP_EOL, $vendor[0]);
+        system(sprintf('git clone -q %s %s', $vendor[2], escapeshellarg($fullDir)), $return);
+    } else {
+        printf('Updating %s...' . PHP_EOL, $vendor[0]);
+        system(sprintf('cd %s && git fetch -q origin && git reset --hard origin/master', escapeshellarg($fullDir)), $return);
+    }
+
+    if ($return > 0) {
+        exit($return);
+    }
 }
-
-exit($return);
