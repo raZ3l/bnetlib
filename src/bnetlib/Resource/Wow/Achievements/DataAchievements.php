@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Achievements;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -63,6 +64,11 @@ class DataAchievements implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
@@ -73,7 +79,7 @@ class DataAchievements implements ResourceInterface, \Iterator
         if (isset($data['categories'])) {
             foreach ($data['categories'] as $i => $value) {
                 $value['top'] = array($data['id'], $data['name']);
-                $class = new self();
+                $class = $this->serviceLocator->get('wow.achievements.dataachievements');
                 if (isset($this->headers)) {
                     $class->setResponseHeaders($this->headers);
                 }
@@ -87,7 +93,7 @@ class DataAchievements implements ResourceInterface, \Iterator
             }
 
             foreach ($data['achievements'] as $i => $value) {
-                $class = new DataAchievement();
+                $class = $this->serviceLocator->get('wow.achievements.dataachievement');
                 if (isset($this->headers)) {
                     $class->setResponseHeaders($this->headers);
                 }
@@ -111,6 +117,14 @@ class DataAchievements implements ResourceInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

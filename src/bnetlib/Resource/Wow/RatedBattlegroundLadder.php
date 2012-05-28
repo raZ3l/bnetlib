@@ -17,7 +17,7 @@
 namespace bnetlib\Resource\Wow;
 
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Character\Record;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -49,6 +49,11 @@ class RatedBattlegroundLadder implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
@@ -56,7 +61,7 @@ class RatedBattlegroundLadder implements ResourceInterface, \Iterator
         foreach ($data['bgRecord'] as $i => $char) {
             $this->index[$char['rank']] = $i;
 
-            $this->data[$i] = new Record();
+            $this->data[$i] = $this->serviceLocator->get('wow.character.record');
             if (isset($this->headers)) {
                 $this->data[$i]->setResponseHeaders($this->headers);
             }
@@ -78,6 +83,14 @@ class RatedBattlegroundLadder implements ResourceInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

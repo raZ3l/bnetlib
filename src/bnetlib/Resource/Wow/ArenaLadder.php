@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -48,6 +49,11 @@ class ArenaLadder implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
@@ -55,7 +61,7 @@ class ArenaLadder implements ResourceInterface, \Iterator
         foreach ($data['arenateam'] as $i => $team) {
             $this->index[$team['ranking']] = $i;
 
-            $this->data[$i] = new ArenaTeam();
+            $this->data[$i] = $this->serviceLocator->get('wow.arenateam');
             if (isset($this->headers)) {
                 $this->data[$i]->setResponseHeaders($this->headers);
             }
@@ -77,6 +83,14 @@ class ArenaLadder implements ResourceInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

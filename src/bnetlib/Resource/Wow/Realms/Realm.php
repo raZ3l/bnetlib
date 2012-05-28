@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Realms;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -38,6 +39,11 @@ class Realm implements ResourceInterface
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
@@ -45,7 +51,7 @@ class Realm implements ResourceInterface
         $this->data = $data;
 
         foreach (array('wintergrasp', 'tol-barad') as $key) {
-            $class = new PvpArea();
+            $class = $this->serviceLocator->get('wow.realms.pvparea');
             if (isset($this->headers)) {
                 $class->setResponseHeaders($this->headers);
             }
@@ -69,6 +75,14 @@ class Realm implements ResourceInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

@@ -17,7 +17,7 @@
 namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Shared\ListData;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -39,13 +39,18 @@ class Profession implements ResourceInterface
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         $this->data = $data;
 
-        $list = new ListData();
+        $list = $this->serviceLocator->get('wow.shared.listdata');
         if (isset($this->headers)) {
             $list->setResponseHeaders($this->headers);
         }
@@ -68,6 +73,14 @@ class Profession implements ResourceInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

@@ -16,8 +16,7 @@
 
 namespace bnetlib\Resource\Wow;
 
-use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Arena\Character as ArenaCharacter;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 use bnetlib\Resource\Wow\Shared\ArenaTeam as BaseArenaTeam;
 
 /**
@@ -27,7 +26,7 @@ use bnetlib\Resource\Wow\Shared\ArenaTeam as BaseArenaTeam;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class ArenaTeam extends BaseArenaTeam implements ResourceInterface, \Iterator
+class ArenaTeam extends BaseArenaTeam implements \Iterator
 {
     /**
      * @var int
@@ -52,7 +51,7 @@ class ArenaTeam extends BaseArenaTeam implements ResourceInterface, \Iterator
                         }
                         $member['character']['statistic'] = $stats;
 
-                        $this->data['members'][$i] = new ArenaCharacter();
+                        $this->data['members'][$i] = $this->serviceLocator->get('wow.arena.character');
                         if (isset($this->headers)) {
                             $this->data['members'][$i]->setResponseHeaders($this->headers);
                         }

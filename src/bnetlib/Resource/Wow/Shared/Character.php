@@ -20,6 +20,7 @@ use bnetlib\Locale\LocaleInterface;
 use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
 use bnetlib\Locale\LocaleAwareInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -44,6 +45,11 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
      * @var \stdClass|null
      */
     protected $headers;
+
+    /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
 
     /**
      * @inheritdoc
@@ -82,15 +88,17 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     /**
      * @inheritdoc
      */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function setLocale(LocaleInterface $locale)
     {
         $this->locale = $locale;
-
-        foreach ($this->data as $key => $value) {
-            if (is_object($value) && $value instanceof LocaleAwareInterface) {
-                $this->data[$key]->setLocale($locale);
-            }
-        }
 
         return $this;
     }
@@ -173,7 +181,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     public function getClassLocale()
     {
         if (isset($this->locale)) {
-            return $this->locale->get(sprintf('class.%s', $this->data['class']));
+            return $this->locale->get(sprintf('class.%s', $this->data['class']), 'wow');
         }
 
         return null;
@@ -185,7 +193,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     public function getRaceLocale()
     {
         if (isset($this->locale)) {
-            return $this->locale->get(sprintf('race.%s', $this->data['race']));
+            return $this->locale->get(sprintf('race.%s', $this->data['race']), 'wow');
         }
 
         return null;
@@ -197,7 +205,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     public function getGenderLocale()
     {
         if (isset($this->locale)) {
-            return $this->locale->get(sprintf('gender.%s', $this->data['gender']));
+            return $this->locale->get(sprintf('gender.%s', $this->data['gender']), 'wow');
         }
 
         return null;
@@ -209,7 +217,7 @@ class Character implements ResourceInterface, ConsumeInterface, LocaleAwareInter
     public function getFactionLocale()
     {
         if (isset($this->locale)) {
-            return $this->locale->get(sprintf('faction.%s', $this->data['faction']));
+            return $this->locale->get(sprintf('faction.%s', $this->data['faction']), 'wow');
         }
 
         return null;

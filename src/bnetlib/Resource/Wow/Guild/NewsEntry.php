@@ -17,9 +17,7 @@
 namespace bnetlib\Resource\Wow\Guild;
 
 use bnetlib\Resource\ConsumeInterface;
-use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Achievements\DataAchievement;
-
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 /**
  * @category   bnetlib
  * @package    Resource
@@ -27,7 +25,7 @@ use bnetlib\Resource\Wow\Achievements\DataAchievement;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class NewsEntry implements ResourceInterface, ConsumeInterface
+class NewsEntry implements ConsumeInterface
 {
     /**
      * @var array
@@ -40,6 +38,11 @@ class NewsEntry implements ResourceInterface, ConsumeInterface
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
@@ -47,7 +50,7 @@ class NewsEntry implements ResourceInterface, ConsumeInterface
         $this->data = $data;
 
         if (isset($data['achievement'])) {
-            $this->data['achievement'] = new DataAchievement();
+            $this->data['achievement'] = $this->serviceLocator->get('wow.achievements.dataachievement');
             if (isset($this->headers)) {
                 $this->data['achievement']->setResponseHeaders($this->headers);
             }
@@ -69,6 +72,14 @@ class NewsEntry implements ResourceInterface, ConsumeInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

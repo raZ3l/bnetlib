@@ -31,13 +31,13 @@ class Item extends BaseItem
      * @var array
      */
     protected $keys = array(
-        'itemSet'          => 'bnetlib\Resource\Wow\ItemSet',
-        'itemSpells'       => 'bnetlib\Resource\Wow\Item\Spells',
-        'allowableRaces'   => 'bnetlib\Resource\Wow\Shared\ListData',
-        'allowableClasses' => 'bnetlib\Resource\Wow\Shared\ListData',
-        'bonusStats'       => 'bnetlib\Resource\Wow\Item\BonusStats',
-        'weaponInfo'       => 'bnetlib\Resource\Wow\Item\WeaponInfo',
-        'socketInfo'       => 'bnetlib\Resource\Wow\Item\SocketInfo',
+        'itemSet'          => 'wow.itemset',
+        'itemSpells'       => 'wow.item.spells',
+        'allowableRaces'   => 'wow.shared.listdata',
+        'allowableClasses' => 'wow.shared.listdata',
+        'bonusStats'       => 'wow.item.bonusstats',
+        'weaponInfo'       => 'wow.item.weaponinfo',
+        'socketInfo'       => 'wow.item.socketinfo',
     );
 
     /**
@@ -47,9 +47,9 @@ class Item extends BaseItem
     {
         $this->data =  $data;
 
-        foreach ($this->keys as $key => $class) {
+        foreach ($this->keys as $key => $service) {
             if (isset($data[$key])) {
-                $this->data[$key] = new $class();
+                $this->data[$key] = $this->serviceLocator->get($service);
                 if (isset($this->headers)) {
                     $this->data[$key]->setResponseHeaders($this->headers);
                 }

@@ -17,8 +17,8 @@
 namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ConsumeInterface;
-use bnetlib\Resource\ResourceInterface;
 use bnetlib\Resource\Wow\Shared\GuildEmblem;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -27,7 +27,7 @@ use bnetlib\Resource\Wow\Shared\GuildEmblem;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, \Countable
+class Guild extends GuildEmblem implements ConsumeInterface, \Countable
 {
     /**
      * @var array
@@ -38,6 +38,11 @@ class Guild extends GuildEmblem implements ResourceInterface, ConsumeInterface, 
      * @var \stdClass|null
      */
     protected $headers;
+
+    /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
 
     /**
      * @inheritdoc

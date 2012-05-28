@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -38,19 +39,24 @@ class Pvp implements ResourceInterface
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         $this->data['kills'] = $data['totalHonorableKills'];
 
-        $this->data['rbg'] = new RatedBattlegrounds();
+        $this->data['rbg'] = $this->serviceLocator->get('wow.character.ratedbattlegrounds');
         if (isset($this->headers)) {
             $this->data['rbg']->setResponseHeaders($this->headers);
         }
         $this->data['rbg']->populate($data['ratedBattlegrounds']);
 
-        $this->data['arena'] = new ArenaTeams();
+        $this->data['arena'] = $this->serviceLocator->get('wow.character.arenateams');
         if (isset($this->headers)) {
             $this->data['arena']->setResponseHeaders($this->headers);
         }
@@ -71,6 +77,14 @@ class Pvp implements ResourceInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

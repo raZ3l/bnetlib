@@ -16,8 +16,8 @@
 
 namespace bnetlib\Resource\Wow\Achievements;
 
-use bnetlib\Resource\Wow\Item\Reward;
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -31,9 +31,9 @@ class DataAchievement implements ResourceInterface
     /**
      * @var array
      */
-    protected $fields = array(
-        'rewardItem' => 'bnetlib\Resource\Wow\Item\Reward',
-        'criteria'   => 'bnetlib\Resource\Wow\Achievements\Criteria',
+    protected $services = array(
+        'rewardItem' => 'wow.item.reward',
+        'criteria'   => 'wow.achievements.criteria',
     );
 
     /**
@@ -47,19 +47,24 @@ class DataAchievement implements ResourceInterface
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         $this->data = $data;
 
-        foreach ($this->fields as $field => $class) {
-            if (isset($data[$field])) {
-                $this->data[$field] = new $class();
+        foreach ($this->services as $key => $service) {
+            if (isset($data[$key])) {
+                $this->data[$key] = $this->serviceLocator->get($service);
                 if (isset($this->headers)) {
-                    $this->data[$field]->setResponseHeaders($this->headers);
+                    $this->data[$key]->setResponseHeaders($this->headers);
                 }
-                $this->data[$field]->populate($data[$field]);
+                $this->data[$key]->populate($data[$key]);
             }
         }
     }
@@ -78,6 +83,14 @@ class DataAchievement implements ResourceInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

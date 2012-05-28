@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -48,6 +49,11 @@ class Glyphs implements ResourceInterface, \Iterator, \Countable
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
@@ -58,7 +64,7 @@ class Glyphs implements ResourceInterface, \Iterator, \Countable
             foreach ($glyphs as $glyph) {
                 $glyph['type'] = $type;
 
-                $class = new Glyph();
+                $class = $this->serviceLocator->get('wow.character.glyph');
                 if (isset($this->headers)) {
                     $class->setResponseHeaders($this->headers);
                 }
@@ -84,6 +90,14 @@ class Glyphs implements ResourceInterface, \Iterator, \Countable
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

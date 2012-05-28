@@ -17,9 +17,7 @@
 namespace bnetlib\Resource\Wow\Guild;
 
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Shared\ListData;
-use bnetlib\Resource\Wow\Achievements\Achievement;
-use bnetlib\Resource\Wow\Item\Reward as ItemReward;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -36,42 +34,38 @@ class Reward implements ResourceInterface
     protected $data = array();
 
     /**
+     * @var array
+     */
+    protected $services = array(
+        'item'        => 'wow.item.reward',
+        'races'       => 'wow.shared.listdata',
+        'achievement' => 'wow.achievements.achievement',
+
+    );
+
+    /**
      * @var \stdClass|null
      */
     protected $headers;
+
+    /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
 
     /**
      * @inheritdoc
      */
     public function populate($data)
     {
-        foreach ($data as $key => $value) {
-            switch ($key) {
-                case 'races':
-                    $this->data['races'] = new ListData();
-                    if (isset($this->headers)) {
-                        $this->data['races']->setResponseHeaders($this->headers);
-                    }
-                    $this->data['races']->populate($value);
-                    break;
-                case 'achievement':
-                    $this->data['achievement'] = new Achievement();
-                    if (isset($this->headers)) {
-                        $this->data['achievement']->setResponseHeaders($this->headers);
-                    }
-                    $this->data['achievement']->populate($value);
-                    break;
-                case 'item':
-                    $this->data['item'] = new ItemReward();
-                    if (isset($this->headers)) {
-                        $this->data['item']->setResponseHeaders($this->headers);
-                    }
-                    $this->data['item']->populate($value);
-                    break;
-                default:
-                    $this->data[$key] = $value;
-                    break;
+        $this->data = $data;
+
+        foreach ($this->services as $key => $service) {
+            $this->data[$key] = $this->serviceLocator->get($service);
+            if (isset($this->headers)) {
+                $this->data[$key]->setResponseHeaders($this->headers);
             }
+            $this->data[$key]->populate($data[$key]);
         }
     }
 
@@ -89,6 +83,14 @@ class Reward implements ResourceInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

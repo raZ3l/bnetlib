@@ -30,23 +30,23 @@ class Character extends BaseCharacter
     /**
      * @var array
      */
-    protected $fields = array(
-        'achievements' => 'bnetlib\Resource\Wow\Achievements\Achievements',
-        'appearance'   => 'bnetlib\Resource\Wow\Character\Appearance',
-        'companions'   => 'bnetlib\Resource\Wow\Shared\ListData',
-        'feed'         => 'bnetlib\Resource\Wow\Character\Feed',
-        'guild'        => 'bnetlib\Resource\Wow\Character\Guild',
-        'items'        => 'bnetlib\Resource\Wow\Character\Items',
-        'mounts'       => 'bnetlib\Resource\Wow\Shared\ListData',
-        'pets'         => 'bnetlib\Resource\Wow\Character\Pets',
-        'professions'  => 'bnetlib\Resource\Wow\Character\Professions',
-        'progression'  => 'bnetlib\Resource\Wow\Character\Progression',
-        'pvp'          => 'bnetlib\Resource\Wow\Character\Pvp',
-        'quests'       => 'bnetlib\Resource\Wow\Shared\ListData',
-        'reputation'   => 'bnetlib\Resource\Wow\Character\Reputation',
-        'stats'        => 'bnetlib\Resource\Wow\Character\Stats',
-        'talents'      => 'bnetlib\Resource\Wow\Character\Talents',
-        'titles'       => 'bnetlib\Resource\Wow\Character\Titles'
+    protected $services = array(
+        'achievements' => 'wow.achievements.achievements',
+        'appearance'   => 'wow.character.appearance',
+        'companions'   => 'wow.shared.listdata',
+        'feed'         => 'wow.character.feed',
+        'guild'        => 'wow.character.guild',
+        'items'        => 'wow.character.items',
+        'mounts'       => 'wow.shared.listdata',
+        'pets'         => 'wow.character.pets',
+        'professions'  => 'wow.character.professions',
+        'progression'  => 'wow.character.progression',
+        'pvp'          => 'wow.character.pvp',
+        'quests'       => 'wow.shared.listdata',
+        'reputation'   => 'wow.character.reputation',
+        'stats'        => 'wow.character.stats',
+        'talents'      => 'wow.character.talents',
+        'titles'       => 'wow.character.titles'
     );
 
     /**
@@ -61,11 +61,11 @@ class Character extends BaseCharacter
             $this->data['lastmod'] = $data['lastModified'];
         }
 
-        foreach ($this->fields as $field => $class) {
-            if (isset($data[$field])) {
-                $array = $data[$field];
+        foreach ($this->services as $key => $service) {
+            if (isset($data[$key])) {
+                $array = $data[$key];
 
-                switch ($field) {
+                switch ($key) {
                     case 'pvp':
                         $array['realm'] = $data['realm'];
                         break;
@@ -74,15 +74,13 @@ class Character extends BaseCharacter
                         break;
                 }
 
-                $this->data[$field] = new $class();
+                $this->data[$key] = $this->serviceLocator->get($service);
                 if (isset($this->headers)) {
-                    $this->data[$field]->setResponseHeaders($this->headers);
+                    $this->data[$key]->setResponseHeaders($this->headers);
                 }
-                $this->data[$field]->populate($array);
+                $this->data[$key]->populate($array);
             }
         }
-
-        unset($this->fields);
     }
 
     /**

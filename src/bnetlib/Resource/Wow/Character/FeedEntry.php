@@ -17,7 +17,7 @@
 namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ConsumeInterface;
-use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -26,14 +26,14 @@ use bnetlib\Resource\ResourceInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class FeedEntry implements ResourceInterface, ConsumeInterface
+class FeedEntry implements ConsumeInterface
 {
     /**
      * @var array
      */
-    protected $fields = array(
-        'criteria'    => 'bnetlib\Resource\Wow\Achievements\Criteria',
-        'achievement' => 'bnetlib\Resource\Wow\Achievements\DataAchievement',
+    protected $services = array(
+        'criteria'    => 'wow.achievements.criteria',
+        'achievement' => 'wow.achievements.dataachievement',
     );
 
     /**
@@ -47,22 +47,26 @@ class FeedEntry implements ResourceInterface, ConsumeInterface
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         $this->data = $data;
 
-        foreach ($this->fields as $field => $class) {
-            if (isset($data[$field])) {
-                $this->data[$field] = new $class();
+        foreach ($this->services as $key => $service) {
+            if (isset($data[$key])) {
+                $this->data[$key] = $this->serviceLocator->get($service);
                 if (isset($this->headers)) {
-                    $this->data[$field]->setResponseHeaders($this->headers);
+                    $this->data[$key]->setResponseHeaders($this->headers);
                 }
-                $this->data[$field]->populate($data[$field]);
+                $this->data[$key]->populate($data[$key]);
             }
         }
-
     }
 
     /**
@@ -79,6 +83,14 @@ class FeedEntry implements ResourceInterface, ConsumeInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

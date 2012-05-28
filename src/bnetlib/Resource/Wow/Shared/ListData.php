@@ -16,8 +16,6 @@
 
 namespace bnetlib\Resource\Wow\Shared;
 
-use bnetlib\Resource\ResourceInterface;
-
 /**
  * @category   bnetlib
  * @package    Resource

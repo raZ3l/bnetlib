@@ -16,8 +16,8 @@
 
 namespace bnetlib\Resource\Wow;
 
-use bnetlib\Resource\Wow\Realms\Realm;
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -66,12 +66,17 @@ class Realms implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         foreach ($data['realms'] as $i => $realm) {
-            $this->data[$i] = new Realm();
+            $this->data[$i] = $this->serviceLocator->get('wow.realms.realm');
             if (isset($this->headers)) {
                 $this->data[$i]->setResponseHeaders($this->headers);
             }
@@ -101,6 +106,14 @@ class Realms implements ResourceInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -48,6 +49,11 @@ class Items implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
@@ -62,7 +68,7 @@ class Items implements ResourceInterface, \Iterator
                     break;
                 default:
                     $this->index[]     = $name;
-                    $this->data[$name] = new Item();
+                    $this->data[$name] = $this->serviceLocator->get('wow.character.item');
                     if (isset($this->headers)) {
                         $this->data[$name]->setResponseHeaders($this->headers);
                     }
@@ -86,6 +92,14 @@ class Items implements ResourceInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

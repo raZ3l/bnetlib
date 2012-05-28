@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Item;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -48,12 +49,17 @@ class BonusStats implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         foreach ($data as $i => $value) {
-            $this->data[$i] = new Stat();
+            $this->data[$i] = $this->serviceLocator->get('wow.item.stat');
             if (isset($this->headers)) {
                 $this->data[$i]->setResponseHeaders($this->headers);
             }
@@ -77,6 +83,14 @@ class BonusStats implements ResourceInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

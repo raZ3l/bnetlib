@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -48,6 +49,11 @@ class Reputation implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
@@ -55,7 +61,7 @@ class Reputation implements ResourceInterface, \Iterator
         foreach ($data as $faction) {
             $this->index[$faction['id']] = $this->position;
 
-            $this->data[$this->position] = new Faction();
+            $this->data[$this->position] = $this->serviceLocator->get('wow.character.faction');
             if (isset($this->headers)) {
                 $this->data[$this->position]->setResponseHeaders($this->headers);
             }
@@ -81,6 +87,14 @@ class Reputation implements ResourceInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

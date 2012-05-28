@@ -16,9 +16,8 @@
 
 namespace bnetlib\Resource\Wow\Character;
 
-use bnetlib\Resource\Wow\Character;
 use bnetlib\Resource\ConsumeInterface;
-use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -27,7 +26,7 @@ use bnetlib\Resource\ResourceInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Record implements ResourceInterface, ConsumeInterface
+class Record implements ConsumeInterface
 {
     /**
      * @var array
@@ -40,6 +39,11 @@ class Record implements ResourceInterface, ConsumeInterface
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
@@ -48,7 +52,7 @@ class Record implements ResourceInterface, ConsumeInterface
 
         $data['character']['lastModified'] = $data['lastModified'];
 
-        $this->data['character'] = new Character();
+        $this->data['character'] = $this->serviceLocator->get('wow.character');
         if (isset($this->headers)) {
             $this->data['character']->setResponseHeaders($this->headers);
         }
@@ -69,6 +73,14 @@ class Record implements ResourceInterface, ConsumeInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

@@ -34,7 +34,7 @@ class Character extends BaseCharacter
     {
         parent::populate($data);
 
-        $this->data['stats'] = new Statistic();
+        $this->data['stats'] = $this->serviceLocator->get('wow.arena.statistic');
         if (isset($this->headers)) {
             $this->data['stats']->setResponseHeaders($this->headers);
         }

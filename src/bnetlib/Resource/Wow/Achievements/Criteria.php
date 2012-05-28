@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Achievements;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -36,6 +37,11 @@ class Criteria implements ResourceInterface
      * @var \stdClass|null
      */
     protected $headers;
+
+    /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
 
     /**
      * @inheritdoc
@@ -59,6 +65,14 @@ class Criteria implements ResourceInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

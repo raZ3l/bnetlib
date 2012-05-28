@@ -17,7 +17,7 @@
 namespace bnetlib\Resource\Wow\Battlegroups;
 
 use bnetlib\Resource\ConsumeInterface;
-use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -26,7 +26,7 @@ use bnetlib\Resource\ResourceInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Battlegroup implements ResourceInterface, ConsumeInterface
+class Battlegroup implements ConsumeInterface
 {
     /**
      * @var array
@@ -37,6 +37,11 @@ class Battlegroup implements ResourceInterface, ConsumeInterface
      * @var \stdClass|null
      */
     protected $headers;
+
+    /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
 
     /**
      * @inheritdoc
@@ -60,6 +65,14 @@ class Battlegroup implements ResourceInterface, ConsumeInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

@@ -16,8 +16,8 @@
 
 namespace bnetlib\Resource\Wow;
 
-use bnetlib\Resource\Wow\Guild\Reward;
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -49,12 +49,17 @@ class GuildRewards implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         foreach ($data['rewards'] as $i => $value) {
-            $class = new Reward();
+            $class = $this->serviceLocator->get('wow.guild.reward');
             if (isset($this->headers)) {
                 $class->setResponseHeaders($this->headers);
             }
@@ -79,6 +84,14 @@ class GuildRewards implements ResourceInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

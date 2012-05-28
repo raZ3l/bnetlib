@@ -17,7 +17,7 @@
 namespace bnetlib\Resource\Wow;
 
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\ItemSet\Bonus;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -49,6 +49,11 @@ class ItemSet implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
@@ -56,7 +61,7 @@ class ItemSet implements ResourceInterface, \Iterator
         $this->data = $data;
 
         foreach ($data['setBonuses'] as $i => $bonus) {
-            $this->data['setBonuses'][$i] = new Bonus();
+            $this->data['setBonuses'][$i] = $this->serviceLocator->get('wow.itemset.bonus');
             if (isset($this->headers)) {
                 $this->data['setBonuses'][$i]->setResponseHeaders($this->headers);
             }
@@ -80,6 +85,14 @@ class ItemSet implements ResourceInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

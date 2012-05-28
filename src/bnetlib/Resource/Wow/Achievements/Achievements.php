@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Achievements;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -43,13 +44,18 @@ class Achievements implements ResourceInterface
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         foreach ($data['achievementsCompleted'] as $i => $av) {
             $this->index[$av] = $i;
-            $achievement      = new Achievement();
+            $achievement      = $this->serviceLocator->get('wow.achievements.achievement');
             if (isset($this->headers)) {
                 $achievement->setResponseHeaders($this->headers);
             }
@@ -80,6 +86,14 @@ class Achievements implements ResourceInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

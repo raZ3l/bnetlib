@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -38,13 +39,18 @@ class TalentSpecialization implements ResourceInterface
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         foreach ($data as $key => $value) {
             if ($key === 'glyphs') {
-                $this->data[$key] = new Glyphs();
+                $this->data[$key] = $this->serviceLocator->get('wow.character.glyphs');
                 if (isset($this->headers)) {
                     $this->data[$key]->setResponseHeaders($this->headers);
                 }
@@ -71,6 +77,14 @@ class TalentSpecialization implements ResourceInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

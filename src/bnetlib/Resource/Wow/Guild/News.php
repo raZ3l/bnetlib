@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Guild;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -59,12 +60,17 @@ class News implements ResourceInterface, \Iterator, \Countable
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         foreach ($data as $i => $entry) {
-            $class = new NewsEntry();
+            $class = $this->serviceLocator->get('wow.guild.newsentry');
             if (isset($this->headers)) {
                 $class->setResponseHeaders($this->headers);
             }
@@ -89,6 +95,14 @@ class News implements ResourceInterface, \Iterator, \Countable
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

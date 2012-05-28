@@ -17,7 +17,7 @@
 namespace bnetlib\Resource\Wow;
 
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Character\Race;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -49,12 +49,17 @@ class CharacterRaces implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         foreach ($data['races'] as $i => $value) {
-            $this->data[$i] = new Race();
+            $this->data[$i] = $this->serviceLocator->get('wow.character.race');
             if (isset($this->headers)) {
                 $this->data[$i]->setResponseHeaders($this->headers);
             }
@@ -77,6 +82,14 @@ class CharacterRaces implements ResourceInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

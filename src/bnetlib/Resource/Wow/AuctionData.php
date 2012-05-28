@@ -17,8 +17,7 @@
 namespace bnetlib\Resource\Wow;
 
 use bnetlib\Resource\ConsumeInterface;
-use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Auction\Faction;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -27,7 +26,7 @@ use bnetlib\Resource\Wow\Auction\Faction;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class AuctionData implements ResourceInterface, ConsumeInterface, \Iterator
+class AuctionData implements ConsumeInterface, \Iterator
 {
     /**
      * @var int
@@ -50,6 +49,11 @@ class AuctionData implements ResourceInterface, ConsumeInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
@@ -62,7 +66,7 @@ class AuctionData implements ResourceInterface, ConsumeInterface, \Iterator
 
             $this->index[$key] = $this->position;
 
-            $this->data['f'][$this->position] = new Faction();
+            $this->data['f'][$this->position] = $this->serviceLocator->get('wow.auction.faction');
             if (isset($this->headers)) {
                 $this->data['f'][$this->position]->setResponseHeaders($this->headers);
             }
@@ -88,6 +92,14 @@ class AuctionData implements ResourceInterface, ConsumeInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

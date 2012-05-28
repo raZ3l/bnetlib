@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -58,12 +59,17 @@ class Feed implements ResourceInterface, \Iterator, \Countable
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         foreach ($data as $i => $entry) {
-            $class = new FeedEntry();
+            $class = $this->serviceLocator->get('wow.character.feedentry');
             if (isset($this->headers)) {
                 $class->setResponseHeaders($this->headers);
             }
@@ -91,6 +97,14 @@ class Feed implements ResourceInterface, \Iterator, \Countable
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

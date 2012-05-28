@@ -18,6 +18,7 @@ namespace bnetlib\Resource\Wow\Auction;
 
 use bnetlib\Resource\ResourceInterface;
 use bnetlib\Exception\InvalidArgumentException;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -61,6 +62,11 @@ class Faction implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @var array
      */
     protected $timeMap = array(
@@ -81,7 +87,7 @@ class Faction implements ResourceInterface, \Iterator
             $this->index['item'][$auction['item']][] = $i;
             $this->index['time'][$auction['time']][] = $i;
 
-            $this->data[$i] = new Auction();
+            $this->data[$i] = $this->serviceLocator->get('wow.auction.auction');
             if (isset($this->headers)) {
                 $this->data[$i]->setResponseHeaders($this->headers);
             }
@@ -103,6 +109,14 @@ class Faction implements ResourceInterface, \Iterator
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

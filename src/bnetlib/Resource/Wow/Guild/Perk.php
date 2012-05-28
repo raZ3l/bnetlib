@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Guild;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -38,11 +39,16 @@ class Perk implements ResourceInterface
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
-        $class = new Spell();
+        $class = $this->serviceLocator->get('wow.guild.spell');
         if (isset($this->headers)) {
             $class->setResponseHeaders($this->headers);
         }
@@ -66,6 +72,14 @@ class Perk implements ResourceInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

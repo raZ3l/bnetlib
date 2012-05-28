@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Guild;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -48,12 +49,17 @@ class Members implements ResourceInterface, \Iterator, \Countable
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         foreach ($data as $i => $member) {
-            $class = new Member();
+            $class = $this->serviceLocator->get('wow.guild.member');
             if (isset($this->headers)) {
                 $class->setResponseHeaders($this->headers);
             }
@@ -78,6 +84,14 @@ class Members implements ResourceInterface, \Iterator, \Countable
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**

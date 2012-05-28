@@ -20,6 +20,7 @@ use bnetlib\Locale\LocaleInterface;
 use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Locale\LocaleAwareInterface;
 use bnetlib\Resource\Wow\Shared\GuildEmblem;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -33,10 +34,10 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     /**
      * @var array
      */
-    protected $fields = array(
-        'news'         => 'bnetlib\Resource\Wow\Guild\News',
-        'members'      => 'bnetlib\Resource\Wow\Guild\Members',
-        'achievements' => 'bnetlib\Resource\Wow\Achievements\Achievements',
+    protected $services = array(
+        'news'         => 'wow.guild.news',
+        'members'      => 'wow.guild.members',
+        'achievements' => 'wow.achievements.achievements',
     );
 
     /**
@@ -55,19 +56,24 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
         $this->data =  $data;
 
-        foreach ($this->fields as $field => $class) {
-            if (isset($data[$field])) {
-                $this->data[$field] = new $class();
+        foreach ($this->services as $key => $service) {
+            if (isset($data[$key])) {
+                $this->data[$key] = $this->serviceLocator->get($service);
                 if (isset($this->headers)) {
-                    $this->data[$field]->setResponseHeaders($this->headers);
+                    $this->data[$key]->setResponseHeaders($this->headers);
                 }
-                $this->data[$field]->populate($data[$field]);
+                $this->data[$key]->populate($data[$key]);
             }
         }
 
@@ -75,7 +81,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
             $this->data[$key] = $value;
         }
 
-        unset($this->fields, $this->data['emblem']);
+        unset($this->data['emblem']);
     }
 
     /**
@@ -92,6 +98,14 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
     }
 
     /**
@@ -164,7 +178,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     public function getFactionLocale()
     {
         if (isset($this->locale)) {
-            return $this->locale->get(sprintf('faction.%s', $this->data['side']));
+            return $this->locale->get(sprintf('faction.%s', $this->data['side']), 'wow');
         }
 
         return null;

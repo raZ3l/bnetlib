@@ -17,6 +17,7 @@
 namespace bnetlib\Resource\Wow\Character;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
@@ -72,24 +73,27 @@ class Professions implements ResourceInterface, \Iterator
     protected $headers;
 
     /**
+     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
-        $i = 0;
 
         foreach (array('primary', 'secondary') as $type) {
             foreach ($data[$type] as $key => $value) {
-                $this->index['id'][$value['id']] = $i;
-                $this->index[$type][]            = $i;
-
-                $this->data[$i] = new Profession();
+                $class = $this->serviceLocator->get('wow.character.profession');
                 if (isset($this->headers)) {
-                    $this->data[$i]->setResponseHeaders($this->headers);
+                    $class->setResponseHeaders($this->headers);
                 }
-                $this->data[$i]->populate($value);
+                $class->populate($value);
 
-                $i++;
+                $this->data[]                    = $class;
+                $this->index[$type][]            = $class;
+                $this->index['id'][$value['id']] = $class;
             }
         }
     }
@@ -111,13 +115,21 @@ class Professions implements ResourceInterface, \Iterator
     }
 
     /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
+    }
+
+    /**
      * @param  int $id
      * @return bnetlib\Resource\Wow\Character\Profession|null
      */
     public function getById($id)
     {
         if (isset($this->index['id'][$id])) {
-            return $this->data[$this->index['id'][$id]];
+            return $this->index['id'][$id];
         }
 
         return null;
@@ -248,7 +260,7 @@ class Professions implements ResourceInterface, \Iterator
      */
     public function hasPrimaryProfession()
     {
-        return empty($this->index['primary']) ? false : true;
+        return !empty($this->index['primary']);
     }
 
     /**
@@ -256,7 +268,7 @@ class Professions implements ResourceInterface, \Iterator
      */
     public function hasSecondaryProfession()
     {
-        return empty($this->index['secondary']) ? false : true;
+        return !empty($this->index['secondary']);
     }
 
     /**
@@ -264,13 +276,9 @@ class Professions implements ResourceInterface, \Iterator
      */
     public function hasGatherProfession()
     {
-        foreach (array(182, 186, 393) as $id) {
-            if (isset($this->index['id'][$id])) {
-                return true;
-            }
-        }
+        $has = array_keys($this->index['id'], array(182, 186, 393));
 
-        return false;
+        return !empty($has);
     }
 
     /**

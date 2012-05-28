@@ -17,7 +17,7 @@
 namespace bnetlib\Resource\Wow;
 
 use bnetlib\Resource\ResourceInterface;
-use bnetlib\Resource\Wow\Achievements\Criteria;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 use bnetlib\Resource\Wow\Achievements\DataAchievement;
 
 /**
@@ -48,7 +48,7 @@ class Achievement extends DataAchievement implements \Iterator
         unset($this->data['criteria']);
 
         foreach ($data['criteria'] as $i => $criteria) {
-            $this->data['criteria'][$i] = new Criteria();
+            $this->data['criteria'][$i] = $this->serviceLocator->get('wow.achievements.criteria');
             if (isset($this->headers)) {
                 $this->data['criteria'][$i]->setResponseHeaders($this->headers);
             }
