@@ -18,8 +18,10 @@ namespace bnetlib;
 use bnetlib\Connection\ZendFramework;
 use bnetlib\Resource\ConsumeInterface;
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Connection\ConnectionInterface;
 use bnetlib\Resource\ConfigurationInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category  bnetlib
@@ -50,7 +52,7 @@ abstract class AbstractGame
     protected $locale = array();
 
     /**
-     * @var Connectable
+     * @var ConnectionInterface
      */
     protected $connection = null;
 
@@ -60,9 +62,9 @@ abstract class AbstractGame
     protected $resources = array();
 
     /**
-     * @var array
+     * @var ServiceLocatorInterface
      */
-    protected $configInstances = array();
+    protected $serviceLocator = null;
 
     /**
      * @var int
@@ -70,19 +72,29 @@ abstract class AbstractGame
     protected $returnType = self::RETURN_OBJECT;
 
     /**
-     * @param ConnectionInterface $connection
+     * @param ConnectionInterface     $connection
+     * @param ServiceLocatorInterface $locator
      */
-    public function __construct(ConnectionInterface $connection = null)
+    public function __construct(ConnectionInterface $connection = null, ServiceLocatorInterface $locator = null)
     {
-        $this->connection = ($connection) ?: new ZendFramework();
+        $this->connection     = ($connection) ?: new ZendFramework();
+        $this->serviceLocator = ($locator)    ?: new ServiceLocator();
     }
 
     /**
-     * @return Connectable
+     * @return ConnectionInterface
      */
     public function getConnection()
     {
         return $this->connection;
+    }
+
+    /**
+     * @return ServiceLocatorInterface
+     */
+    public function getServiceLocator()
+    {
+        return $this->serviceLocator;
     }
 
     /**
@@ -105,63 +117,6 @@ abstract class AbstractGame
     public function setReturnType($type)
     {
         $this->returnType = $type;
-
-        return $this;
-    }
-
-    /**
-     * @param  string $resource
-     * @throws Exception\DomainException
-     * @throws Exception\DomainException
-     * @return object
-     */
-    public function getResourceConfig($resource)
-    {
-        if (!isset($this->resources[$resource])) {
-            throw new Exception\DomainException(sprintf(self::ERROR_RESOURCE_NOT_FOUND, $resource));
-        }
-        if (!isset($this->configInstances[$resource])) {
-            $this->configInstances[$resource] = new $this->resources[$resource]['config'];
-
-            if (!$this->configInstances[$resource] instanceof ConfigurationInterface) {
-                throw new Exception\DomainException(sprintf(
-                    'Resource configuration for %s must implement ConfigurationInterface.', $resource
-                ));
-            }
-        }
-
-        return $this->configInstances[$resource];
-    }
-
-    /**
-     * @param  array $resources
-     * @throws Exception\InvalidArgumentException
-     * @throws Exception\DomainException
-     * @return self
-     */
-    public function setResource(array $resources)
-    {
-        foreach ($resources as $name => $data) {
-            if (isset($this->resources[$name])) {
-                if (is_array($data)) {
-                    if (isset($data['class'])) {
-                        $this->resources[$name]['class'] = $data['class'];
-                    }
-                    if (isset($data['config'])) {
-                        unset($this->configInstances[$name]);
-                        $this->resources[$name]['config'] = $data['config'];
-                    }
-                } elseif (is_string($data)) {
-                    $this->resources[$name]['class'] = $data;
-                } else {
-                    throw new Exception\InvalidArgumentException (sprintf(
-                        '%n must be an array or string, %s given.', $name, gettype($data)
-                    ));
-                }
-            } else {
-                throw new Exception\DomainException(sprintf(self::ERROR_RESOURCE_NOT_FOUND, $name));
-            }
-        }
 
         return $this;
     }
@@ -208,15 +163,15 @@ abstract class AbstractGame
             }
         }
 
-        $config         = $this->getResourceConfig($name);
-        $type           = $config->getResourceType();
-        $authenticate   = $config->isAuthenticationPossible();
-        $lastModified   = (isset($args['lastmodified'])) ? $args['lastmodified'] : null;
-        $returnType     = (isset($args['return'])) ? $args['return'] : $this->returnType;
+        $shortName    = constant(get_class($this) . '::SHORT_NAME');
+        $config       = $this->serviceLocator->get(sprintf('%s.config.%s', $shortName, strtolower($name)), true);
+        $type         = $config->getResourceType();
+        $lastModified = (isset($args['lastmodified'])) ? $args['lastmodified'] : null;
+        $returnType   = (isset($args['return'])) ? $args['return'] : $this->returnType;
 
         /**
          * Note: DATE_RFC1123 my not be RFC 1123 compliant, depending on your platform.
-         * @see http://www.php.net/manual/de/function.gmdate.php#25031
+         * @link http://www.php.net/manual/de/function.gmdate.php#25031
          */
         $lastModified = (is_numeric($lastModified)) ? gmdate('D, d M Y H:i:s \G\M\T', $lastModified) : $lastModified;
 
@@ -250,11 +205,7 @@ abstract class AbstractGame
                  * will use http as scheme, instead of https, when requested via https.
                  * Note: I'm unable to test this behavior for authenticated requests.
                  */
-                if ($authenticate === true && $this->connection->doSecureRequest() === true) {
-                    /**
-                     * dafuq! str_replace without $limit parameter... I'm disappointed!
-                     * @see https://bugs.php.net/bug.php?id=11457
-                     */
+                if ($config->isAuthenticationPossible() && $this->connection->doSecureRequest()) {
                     $url = preg_replace('/^http:/', 'https:', $url);
                 }
                 break;
@@ -273,14 +224,13 @@ abstract class AbstractGame
 
         $response = $this->connection->request(array(
             'url'          => $url,
-            'authenticate' => $authenticate,
+            'config'       => $config,
             'lastmodified' => $lastModified,
-            'json'         => $config->isJson()
         ));
 
         switch ($returnType) {
             case self::RETURN_OBJECT:
-                $class = new $this->resources[$name]['class'];
+                $class = $this->serviceLocator->get($this->resources[$name]);
                 if (!$class instanceof ResourceInterface) {
                     throw new Exception\DomainException(sprintf(
                         'Resource %s must implement ResourceInterface', $name
