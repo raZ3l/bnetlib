@@ -13,13 +13,20 @@
 
 namespace bnetlibTest\TestAssets;
 
-use bnetlib\Resource\ConsumeInterface;
+use bnetlib\AbstractGame;
 
-class DummyMagicResource implements ConsumeInterface
+class FakeGame extends AbstractGame
 {
-    public function consume()
-    {
-        return array('sub' => 'www', 'end' => 'foobar');
+    const SHORT_NAME = 'test';
 
-    }
+    protected $locale = array(
+        'foo' => 'bar'
+    );
+
+    protected $resources = array(
+        'StaticUrl'   => 'test.assets.fakeresource',
+        'StaticPath'  => 'test.assets.fakeresource',
+        'DynamicUrl'  => 'test.assets.fakeresource',
+        'DynamicPath' => 'test.assets.fakeresource',
+    );
 }

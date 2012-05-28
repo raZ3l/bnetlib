@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Item;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Item\Stat;
 
 /**
@@ -41,6 +42,7 @@ class StatTest extends \PHPUnit_Framework_TestCase
         ), true);
 
         self::$obj = new Stat();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['bonusStats'][0]);
     }
 

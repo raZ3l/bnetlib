@@ -15,7 +15,7 @@ namespace bnetlibTest\TestAssets;
 
 use bnetlib\Resource\ConfigurationInterface;
 
-class StaticUrlCfg implements ConfigurationInterface
+class StaticUrl implements ConfigurationInterface
 {
     protected $resourceType = self::TYPE_STATIC_URL;
 

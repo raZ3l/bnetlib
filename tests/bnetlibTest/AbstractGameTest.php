@@ -17,7 +17,7 @@
 namespace bnetlibTest;
 
 use bnetlib\AbstractGame;
-use bnetlib\ConnectionInterface;
+use bnetlib\Connection\ConnectionInterface;
 
 /**
  * @category   bnetlib
@@ -33,10 +33,11 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $connection = $this->getMockBuilder('bnetlib\Connection')
+        $connection = $this->getMockBuilder('bnetlib\Connection\ZendFramework')
                            ->setMethods(array('request'))
                            ->getMock();
 
+        // Can't use once even if I overwrite the mock for some classes
         $connection->expects($this->any())
                    ->method('request')
                    ->will($this->returnCallback(function () {
@@ -47,7 +48,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
                         );
                    }));
 
-        $this->obj = new TestAssets\DummyGame($connection);
+        $this->obj = new TestAssets\FakeGame($connection, new TestAssets\FakeServiceLocator());
     }
 
     public function tearDown()
@@ -61,73 +62,11 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->obj->getSupportedLocale('foobar'));
     }
 
-    public function testGetResourceConfig()
-    {
-        $this->assertInstanceOf('bnetlibTest\TestAssets\StaticUrlCfg', $this->obj->getResourceConfig('StaticUrl'));
-    }
-
-    /**
-     * @expectedException bnetlib\Exception\DomainException
-     */
-    public function testGetResourceConfigWithInvalidResourceName()
-    {
-        $this->obj->getResourceConfig('foobar');
-    }
-
-    /**
-     * @expectedException bnetlib\Exception\DomainException
-     */
-    public function testGetResourceConfigWithInvalidConfigClass()
-    {
-        $this->obj->setResource(array('StaticUrl' => array('config' => 'bnetlib\Connection')));
-        $this->obj->getResourceConfig('StaticUrl');
-    }
-
-    public function testSetResourcWithArray()
-    {
-        $newValue = array(
-            'class'  => 'Foo\Bar\Class',
-            'config' => 'Foo\Bar\Configuration'
-        );
-
-        $this->obj->setResource(array('StaticUrl' => $newValue));
-
-        $this->assertEquals($newValue, $this->obj->__getResourceArray('StaticUrl'));
-    }
-
-    public function testSetResourcWithString()
-    {
-        $newValue = array(
-            'class'  => 'Foo\Bar\Class',
-            'config' => 'bnetlibTest\TestAssets\StaticUrlCfg'
-        );
-
-        $this->obj->setResource(array('StaticUrl' => 'Foo\Bar\Class'));
-
-        $this->assertEquals($newValue, $this->obj->__getResourceArray('StaticUrl'));
-    }
-
-    /**
-     * @expectedException bnetlib\Exception\InvalidArgumentException
-     */
-    public function testSetResourcWithInvalidType()
-    {
-        $this->obj->setResource(array('StaticUrl' => null));
-    }
-
-    /**
-     * @expectedException bnetlib\Exception\DomainException
-     */
-    public function testSetResourcWithInvalidResourceName()
-    {
-        $this->obj->setResource(array('foobar' => null));
-    }
-
     public function testReturnType()
     {
         $response = $this->obj->getStaticUrl(array('url' => 'http://example.org/',));
 
-        $this->assertInstanceOf('bnetlibTest\TestAssets\DummyResource', $response);
+        $this->assertInstanceOf('bnetlibTest\TestAssets\FakeResource', $response);
     }
 
     public function testReplaceHttpWithHttps()
@@ -142,7 +81,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
     public function testDontReplaceHttpWithHttps()
     {
         $this->obj->getConnection()->setConfig(array('securerequests' => true));
-        $this->obj->setResource(array('StaticUrl' => array('config' => 'bnetlibTest\TestAssets\StaticUrlCfgNoAuth')));
+        $this->obj->getServiceLocator()->set('test.config.staticurl', 'bnetlibTest\TestAssets\StaticUrlCfgNoAuth');
         $response = $this->obj->getStaticUrl('http://example.org/');
         $data     = $response->getData();
 
@@ -151,7 +90,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
 
     public function testMagicResource()
     {
-        $response = $this->obj->getDynamicUrl(new TestAssets\DummyMagicResource());
+        $response = $this->obj->getDynamicUrl(new TestAssets\FakeMagicResource());
         $data = $response->getData();
 
         $this->assertEquals('http://www.example.org/dynamic/FOOBAR', $data['url']);
@@ -160,7 +99,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
     public function testMagicResourceWithArrayOverwrite()
     {
         $response = $this->obj->getDynamicUrl(
-            new TestAssets\DummyMagicResource(),
+            new TestAssets\FakeMagicResource(),
             array('end' => 'overwritten')
         );
         $data = $response->getData();
@@ -251,7 +190,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
         $response = $this->obj->getDynamicUrl(array(
             'sub'    => 'www',
             'end'    => 'foobar',
-            'locale' => 'de_DE'
+            'locale' => ConnectionInterface::LOCALE_DE
         ));
         $data = $response->getData();
 
@@ -318,7 +257,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
             'three'  => '3',
             'bar'    => 'asd',
             'foo'    => 'asd',
-            'locale' => 'de_DE',
+            'locale' => ConnectionInterface::LOCALE_DE,
             'region' => ConnectionInterface::REGION_US
         ));
         $data = $response->getData();
@@ -337,7 +276,7 @@ class AbstractGameTest extends \PHPUnit_Framework_TestCase
             'three'  => '3',
             'sdfsdf' => 'asd',
             'fooo'   => 'def',
-            'locale' => 'de_DE',
+            'locale' => ConnectionInterface::LOCALE_DE,
             'region' => ConnectionInterface::REGION_US
         ));
         $data = $response->getData();

@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Achievements;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Achievements\Achievement;
 
 /**
@@ -37,6 +38,7 @@ class AchievementTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         self::$obj = new Achievement();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate(array(
             'a'   => 6,
             'ts'  => 1224092732000,

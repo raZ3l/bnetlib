@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Achievements\Criteria;
 
 /**
@@ -41,6 +42,7 @@ class CriteriaTest extends \PHPUnit_Framework_TestCase
         ), true);
 
         self::$obj = new Criteria();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['criteria'][0]);
     }
 

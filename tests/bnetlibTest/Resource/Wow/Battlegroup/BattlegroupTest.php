@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Battlegroups;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Battlegroups\Battlegroup;
 
 /**
@@ -41,6 +42,7 @@ class BattlegroupTest extends \PHPUnit_Framework_TestCase
         ), true);
 
         self::$obj = new Battlegroup();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['battlegroups'][0]);
     }
 

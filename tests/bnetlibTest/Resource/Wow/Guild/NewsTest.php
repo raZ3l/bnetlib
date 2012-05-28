@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Guild;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Guild\News;
 
 /**
@@ -41,6 +42,7 @@ class NewsTest extends \PHPUnit_Framework_TestCase
         ), true);;
 
         self::$obj = new News();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['news']);
 
     }

@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Character;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Character\ArenaTeam;
 
 /**
@@ -42,6 +43,7 @@ class ArenaTeamTest extends \PHPUnit_Framework_TestCase
         ), true);
 
         self::$obj = new ArenaTeam();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['content']['pvp']['arenaTeams'][0]);
     }
 

@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Character;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Character\Pets;
 
 /**
@@ -42,6 +43,7 @@ class PetsTest extends \PHPUnit_Framework_TestCase
         ), true);;
 
         self::$obj = new Pets();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['content']['pets']);
 
     }

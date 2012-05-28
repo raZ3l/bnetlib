@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Arena;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Arena\Statistic;
 
 /**
@@ -49,6 +50,7 @@ class StatisticTest extends \PHPUnit_Framework_TestCase
         }
 
         self::$obj = new Statistic();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($stats);
     }
 

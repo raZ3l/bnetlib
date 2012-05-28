@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Character;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Character\Instance;
 
 /**
@@ -42,6 +43,7 @@ class InstanceTest extends \PHPUnit_Framework_TestCase
         ), true);;
 
         self::$obj = new Instance();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['content']['progression']['raids'][0]);
 
     }

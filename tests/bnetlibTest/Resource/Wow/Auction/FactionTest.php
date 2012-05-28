@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Auction;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Auction\Faction;
 
 /**
@@ -41,6 +42,7 @@ class FactionTest extends \PHPUnit_Framework_TestCase
         ), true);
 
         self::$obj = new Faction();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['neutral']['auctions']);
     }
 

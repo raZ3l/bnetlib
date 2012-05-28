@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Shared;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Shared\Item;
 
 /**
@@ -42,6 +43,7 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         ), true);;
 
         self::$obj = new Item();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['content']['items']['neck']);
 
     }

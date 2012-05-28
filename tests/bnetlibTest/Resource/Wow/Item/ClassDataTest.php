@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Item;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Item\ClassData;
 
 /**
@@ -41,6 +42,7 @@ class ClassDataTest extends \PHPUnit_Framework_TestCase
         ), true);
 
         self::$obj = new ClassData();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['classes'][0]);
 
     }

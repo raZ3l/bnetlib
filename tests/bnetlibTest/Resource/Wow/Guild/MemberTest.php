@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Guild;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Guild\Member;
 
 /**
@@ -42,6 +43,7 @@ class MemberTest extends \PHPUnit_Framework_TestCase
         ), true);
 
         self::$obj = new Member();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['content']['members'][0]);
 
     }

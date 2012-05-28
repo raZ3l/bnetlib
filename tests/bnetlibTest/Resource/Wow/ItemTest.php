@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Item;
 
 /**
@@ -36,11 +37,10 @@ class ItemTest extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        $data = json_decode(file_get_contents(
-            __DIR__ . '/fixtures/item_38268.json'
-        ), true);
+        $data = json_decode(file_get_contents(__DIR__ . '/fixtures/item_38268.json'), true);
 
         self::$obj = new Item();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data);
     }
 

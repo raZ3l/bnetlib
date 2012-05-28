@@ -16,7 +16,8 @@
 
 namespace bnetlibTest;
 
-use bnetlib\Connection;
+use bnetlib\Connection\ZendFramework;
+use bnetlib\Resource\WoW\Configuration\Character;
 
 /**
  * @category   bnetlib
@@ -26,7 +27,7 @@ use bnetlib\Connection;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class ConnectionTest extends \PHPUnit_Framework_TestCase
+class ZendFrameworkTest extends \PHPUnit_Framework_TestCase
 {
     protected static $params;
 
@@ -37,9 +38,8 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         self::$params = array(
-            'url'          => 'http://example.org/',
-            'json'         => true,
-            'authenticate' => true
+            'url'    => 'http://example.org/',
+            'config' => new Character(),
         );
     }
 
@@ -53,7 +53,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
         $this->stub       = $this->getMockBuilder('Zend\Http\Client')
                                  ->setMethods(array('doRequest'))
                                  ->getMock();
-        $this->connection = new Connection($this->stub);
+        $this->connection = new ZendFramework($this->stub);
     }
 
     public function tearDown()
@@ -63,7 +63,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
     public function testSetConfigAutoHttps()
     {
-        $connection = new Connection();
+        $connection = new ZendFramework();
         $connection->setConfig(array(
             'keys' => array(
                 'public'  => 'public',
@@ -83,7 +83,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
             $this->markTestSkipped('Skipped by TestConfiguration (TESTS_CONNECTION_ONLINE)');
         }
 
-        $connection = $this->getMockBuilder('bnetlib\Connection')
+        $connection = $this->getMockBuilder('bnetlib\Connection\ZendFramework')
                            ->setMethods(array('decodeJson'))
                            ->getMock();
 
@@ -114,9 +114,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testRequestAccessDenied()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/access_denied'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/access_denied');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -127,9 +125,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
     public function testRequestCharacterFound()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/character_found'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/character_found');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -146,9 +142,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testRequestCharacterFoundAndCached()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/character_found_304'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/character_found_304');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -162,9 +156,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testRequestCharacterNotFound()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/character_not_found'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/character_not_found');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -178,9 +170,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testRequestInvalidApplication()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/invalid_application'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/invalid_application');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -194,9 +184,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testRequestInvalidApplicationPermission()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/invalid_application_permissions'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/invalid_application_permissions');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -210,9 +198,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testRequestInvalidApplicationSignature()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/invalid_application_signature'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/invalid_application_signature');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -226,9 +212,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testRequestInvalidAuthHeader()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/invalid_authentication_header'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/invalid_authentication_header');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -238,13 +222,11 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException bnetlib\Exception\UnexpectedResponseException
+     * @expectedException bnetlib\Exception\UnknownErrorException
      */
     public function testRequestUnkownReason400Status()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/some_unknown_error_400'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/some_unknown_error_400');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -258,9 +240,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testRequestSomethingUnexpectedHappened()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/something_unexpected_happened'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/something_unexpected_happened');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -282,9 +262,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testRequestTooManyRequests()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/too_many_requests'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/too_many_requests');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -293,16 +271,14 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
         $this->connection->request(self::$params);
     }
 
-    /*
+    /**
      * Zend\Client throws an InvalidAgrumentException if a status code 420 is returned.
      *
-     * @expectedException bnetlib\Exception\RequestsThrottledException
-
+     * @expectedException bnetlib\Exception\ClientException
+     */
     public function testRequestTooManyRequests420()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/too_many_requests_420'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/too_many_requests_420');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')
@@ -310,16 +286,13 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
         $this->connection->request(self::$params);
     }
-    */
 
     /**
      * @expectedException bnetlib\Exception\RequestsThrottledException
      */
     public function testRequestTooManyRequests429()
     {
-        $content = file_get_contents(
-            __DIR__ . '/fixtures/too_many_requests_429'
-        );
+        $content = file_get_contents(dirname(__DIR__) . '/fixtures/too_many_requests_429');
 
         $this->stub->expects($this->once())
                    ->method('doRequest')

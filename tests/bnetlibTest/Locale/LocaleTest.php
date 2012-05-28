@@ -32,7 +32,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->locale = new Locale('test', 'de_DE');
+        $this->locale = new Locale('de_DE', 'test');
         $this->locale->setFile(__DIR__ . '%1$sfixtures%1$s%2$s%1$s%3$s.php');
     }
 

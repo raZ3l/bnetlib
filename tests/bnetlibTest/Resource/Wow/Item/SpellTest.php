@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Item;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Item\Spell;
 
 /**
@@ -41,6 +42,7 @@ class SpellTest extends \PHPUnit_Framework_TestCase
         ), true);
 
         self::$obj = new Spell();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['itemSpells'][0]);
     }
 

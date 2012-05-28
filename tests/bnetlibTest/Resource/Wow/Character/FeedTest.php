@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Character;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Character\Feed;
 
 /**
@@ -41,6 +42,7 @@ class FeedTest extends \PHPUnit_Framework_TestCase
         ), true);;
 
         self::$obj = new Feed();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['feed']);
 
     }

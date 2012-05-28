@@ -14,30 +14,38 @@
 namespace bnetlibTest\TestAssets;
 
 use bnetlib\Resource\ResourceInterface;
+use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
-class DummyResource implements ResourceInterface
+class FakeResource implements ResourceInterface
 {
     protected $data;
 
     protected $header;
 
-    public function getResponseHeaders()
-    {
-        return $this->header;
-    }
+    protected $locator;
 
     public function populate($data)
     {
         $this->data = $data;
     }
 
-    public function getData()
+    public function getResponseHeaders()
     {
-        return $this->data;
+        return $this->header;
     }
 
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->header = $headers;
+    }
+
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->locator = $locator;
+    }
+
+    public function getData()
+    {
+        return $this->data;
     }
 }

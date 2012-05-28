@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Auction;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Auction\Auction;
 
 /**
@@ -50,6 +51,7 @@ class AuctionTest extends \PHPUnit_Framework_TestCase
         $data['neutral']['auctions'][0]['time'] = $timeMap[$data['neutral']['auctions'][0]['timeLeft']];
 
         self::$obj = new Auction();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['neutral']['auctions'][0]);
     }
 

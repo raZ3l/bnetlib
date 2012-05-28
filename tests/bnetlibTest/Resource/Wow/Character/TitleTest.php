@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Character;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Character\Title;
 
 /**
@@ -44,6 +45,7 @@ class TitleTest extends \PHPUnit_Framework_TestCase
         $data['content']['titles'][0]['character'] = 'Coss';
 
         self::$obj = new Title();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['content']['titles'][0]);
 
     }

@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Achievements;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Achievements\DataAchievements;
 
 /**
@@ -41,6 +42,7 @@ class DataAchievementsTest extends \PHPUnit_Framework_TestCase
         ), true);
 
         self::$obj = new DataAchievements();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['achievements'][0]);
     }
 
@@ -88,6 +90,7 @@ class DataAchievementsTest extends \PHPUnit_Framework_TestCase
         $data['achievements'][1]['categories'][0]['top'] = array(96, 'Quests');
 
         $obj = new DataAchievements();
+        $obj->setServiceLocator(new ServiceLocator());
         $obj->populate($data['achievements'][1]['categories'][0]);
 
         $this->assertEquals('Quests', $obj->getTopCategory());

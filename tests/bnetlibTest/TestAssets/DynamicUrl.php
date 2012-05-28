@@ -15,7 +15,7 @@ namespace bnetlibTest\TestAssets;
 
 use bnetlib\Resource\ConfigurationInterface;
 
-class DynamicUrlCfg implements ConfigurationInterface
+class DynamicUrl implements ConfigurationInterface
 {
     const RESOURCE_URL = '%s.example.org/dynamic/%s';
 

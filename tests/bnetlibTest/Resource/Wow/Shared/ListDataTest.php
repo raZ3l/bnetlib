@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Shared;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Shared\ListData;
 
 /**
@@ -42,6 +43,7 @@ class ListDataTest extends \PHPUnit_Framework_TestCase
         ), true);;
 
         self::$obj = new ListData();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['content']['quests']);
 
     }

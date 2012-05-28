@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Item;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\ItemSet\Bonus;
 
 /**
@@ -41,6 +42,7 @@ class BonusTest extends \PHPUnit_Framework_TestCase
         ), true);
 
         self::$obj = new Bonus();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['setBonuses'][0]);
     }
 

@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Character;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Character\Glyph;
 
 /**
@@ -44,6 +45,7 @@ class GlyphTest extends \PHPUnit_Framework_TestCase
         $data['content']['talents'][0]['glyphs']['prime'][0]['type'] = 'prime';
 
         self::$obj = new Glyph();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['content']['talents'][0]['glyphs']['prime'][0]);
 
     }

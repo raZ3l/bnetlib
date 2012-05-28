@@ -16,7 +16,9 @@
 
 namespace bnetlibTest\Resource\Wow;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Achievements;
+use bnetlib\ServiceLocator\ServiceLocato;
 
 /**
  * @category   bnetlib
@@ -41,6 +43,7 @@ class AchievementsTest extends \PHPUnit_Framework_TestCase
         ), true);
 
         self::$obj = new Achievements();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data);
     }
 

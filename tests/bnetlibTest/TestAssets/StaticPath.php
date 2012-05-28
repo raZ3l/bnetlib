@@ -15,35 +15,19 @@ namespace bnetlibTest\TestAssets;
 
 use bnetlib\Resource\ConfigurationInterface;
 
-class DynamicPathCfg implements ConfigurationInterface
+class StaticPath implements ConfigurationInterface
 {
-    const RESOURCE_URL = '/dynamic/path/%s/%s/%s';
+    const RESOURCE_URL = '/static/resource';
 
-    protected $resourceType = self::TYPE_DYNAMIC_PATH;
+    protected $resourceType = self::TYPE_STATIC_PATH;
 
-    protected $argumentAliases = array('bar' => 'sdfsdf', 'foo' => array('fo', 'fooo'), 'two' => 'sec');
+    protected $argumentAliases = null;
 
-    protected $requiredArguments = array('one', 'two', 'three');
+    protected $requiredArguments = null;
 
-    protected $optionalArguments = array('foo', 'bar');
+    protected $optionalArguments = array('test');
 
     protected $manipulableArguments = null;
-
-
-    public function __construct()
-    {
-        $this->manipulableArguments = array(
-            'fooo' => function ($v) {
-                return strtoupper($v);
-            },
-            'one' => function ($v) {
-                return strtoupper($v);
-            },
-            'sec' => function ($v) {
-                return strtoupper($v);
-            }
-        );
-    }
 
         /**
      * @inheritdoc

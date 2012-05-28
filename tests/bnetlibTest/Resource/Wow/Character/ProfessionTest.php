@@ -16,6 +16,7 @@
 
 namespace bnetlibTest\Resource\Wow\Character;
 
+use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Resource\Wow\Character\Profession;
 
 /**
@@ -42,6 +43,7 @@ class ProfessionTest extends \PHPUnit_Framework_TestCase
         ), true);;
 
         self::$obj = new Profession();
+        self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['content']['professions']['primary'][0]);
 
     }
