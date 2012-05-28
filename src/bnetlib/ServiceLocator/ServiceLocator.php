@@ -172,7 +172,7 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
     public function get($name, $shared = false)
     {
         if (!isset($this->services[$name])) {
-            throw new InvalidServiceNameException(sprintf('There is no service namend %s.', $name);
+            throw new InvalidServiceNameException(sprintf('There is no service namend %s.', $name));
         }
 
         if ($shared === true && isset($this->shared[$name])) {
@@ -214,6 +214,10 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
      */
     public function set($name, $class)
     {
+        if (isset($this->shared[$name])) {
+            unset($this->shared[$name]);
+        }
+
         $this->services[$name] = $class;
 
         return $this;
@@ -226,6 +230,10 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
     public function fomArray(array $services)
     {
         foreach ($services as $name => $class) {
+            if (isset($this->shared[$name])) {
+                unset($this->shared[$name]);
+            }
+
             $this->services[$name] = $class;
         }
 
