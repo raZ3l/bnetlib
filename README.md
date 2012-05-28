@@ -3,6 +3,9 @@ bnetlib [![Build Status](https://secure.travis-ci.org/coss/bnetlib.png?branch=ma
 
 bnetlib is an object-oriented interface for the Battle.net REST API. It tries to keep a direct mapping to the actual resource names and response values.
 
+**Diablo preview:** Blizzard just released a preview for the [Diablo III API](http://us.battle.net/wow/en/forum/topic/5271598804?page=1#1). You can find a working implementation (in combination with the stub connection) for the latest preview under the [`diablo-preview`](https://github.com/coss/bnetlib/tree/diablo-preview) branch.
+
+> Note: The version 1.1 contains some BC breaks, read the [`UPGRADE.md`](https://github.com/coss/bnetlib/blob/master/UPGRADE.md) for more informations.
 
 Requirements
 ------------
@@ -59,9 +62,10 @@ Example
 
     use bnetlib\Locale\Locale;
     use bnetlib\WorldOfWarcraft;
+    use bnetlib\Resource\Wow\Character\Professions;
 
     $wow = new WorldOfWarcraft();
-    $wow->getConnection()->setConfig(array(
+    $wow->getConnection()->setOptions(array(
         'defaults' => array(
             'region' => Connection::REGION_EU,
             'locale' => array(
@@ -70,7 +74,7 @@ Example
         )
     ));
 
-    // gettype($guild) -> object (bnetlib\Resource\Wow\Guild)
+    /* @var $guild bnetlib\Resource\Wow\Guild */
     $guild = $wow->getGuild(array(
         'name'   => 'Barmy',
         'realm'  => 'Die ewige Wacht',
@@ -81,37 +85,52 @@ Example
 
     $wow->setReturnType(WorldOfWarcraft::RETURN_PLAIN);
 
-    // gettype($realms) -> array
+    /* @var $realms array */
     $realms = $wow->getRealms(array(
         'region' => Connection::REGION_EU
     ));
 
-    $locale = new Locale(WorldOfWarcraft::SHORT_NAME, Connection::LOCALE_ES);
+    /**
+     * You can pass a game short name as second argument. By default 'wow' will be used.
+     * Example: new Locale(Connection::LOCALE_DE, WorldOfWarcraft::SHORT_NAME);
+     */
+    $locale = new Locale(Connection::LOCALE_ES);
     $guild->setLocale($locale)
+    /**
+     * Note: The Service Locator is Locale aware. If you've set a Locale class,
+     *       the locator will pass it into every class it creates.
+     *
+     * $wow->getServiceLocator()->setLocale($locale);
+     */
 
     // Faction: Horda
     echo 'Faction: ' . $guild->getFactionLocale();
 
-    $locale->setLocale(Connection::REGION_CN);
+    $locale->setLocale(Connection::LOCALE_CN);
 
     // Faction: 部落
     echo 'Faction: ' . $guild->getFactionLocale();
 
-    foreach ($guild->getMembers() as $i => $member) {
-        // gettype($character) -> object (bnetlib\Resource\Wow\Character)
+    /* @var $members bnetlib\Resource\Wow\Guild\Members */
+    $members = $guild->getMembers();
+    foreach ($members as $member) {
+        /* @var $character bnetlib\Resource\Wow\Character */
         $character = $member->getCharacter();
         echo 'Name: ' $character->getName();
 
         if ($character->isMage() && $character->isUndead()) {
-            // gettype($character) -> object (bnetlib\Resource\Wow\Character)
+            // Consumes the old Character object and requests a new one with fields.
+            /* @var $character bnetlib\Resource\Wow\Character */
             $character = $wow->getCharacter(
                 $character,
                 array(
+                    // Note: The default return type is still ::RETURN_PLAIN!
                     'return' => WorldOfWarcraft::RETURN_OBJECT,
                     'fields' => array('titles', 'talents', 'professions')
                 )
             );
 
+            /* @var $titles bnetlib\Resource\Wow\Character\Titles */
             $titles = $character->getTitles();
             if ($titles->hasSelected()) {
                 $selected = $titles->getSelected();
@@ -123,11 +142,13 @@ Example
                 echo 'Title: ' . $selected->getFullName();
             }
 
+            /* @var $professions bnetlib\Resource\Wow\Character\Professions */
             $professions = $character->getProfessions();
             if ($professions->hasPrimaryProfession() && $professions->hasFirstAid()) {
-                $firstaid = $professions->getById(129);
+                /* @var $firstAid bnetlib\Resource\Wow\Character\Profession */
+                $firstAid = $professions->getById(Professions::PROFESSION_FIRST_AID);
 
-                echo $firstaid->has(23787);
+                echo $firstAid->has(23787);
             }
         }
     }
@@ -138,17 +159,16 @@ Basic Documentation
 
 ### Connection
 
-    use Zend\Http\Client;
-    use bnetlib\Connection;
+The Connection is used to communicate with the battle.net API via thrid-party HTTP libraries. As of Version 1.1, bnetlib ships with one ([`Zend\Http`](https://github.com/zendframework/zf2/) library adapter and a Stub adapter for development and testing.
 
-    $config = array(
+    $options = array(
         /**
-         * Force SSL (https) connection.
+         * Enforce SSL (HTTPS) connection.
          */
         'securerequests' => false,
         /**
          * Include response headers in return value and save the last response headers.
-         * @see Connection::getLastResponseHeaders()
+         * @see ::getLastResponseHeaders()
          */
         'responseheader' => true,
         /**
@@ -159,8 +179,8 @@ Basic Documentation
             'private' => null
         ),
         /**
-         * These default values will be used if not supplied. You can overwrite the default values per request,
-         * by passing the 'region' or 'locale' key.
+         * These default values will be used if not supplied. You can overwrite the default values
+         * per request, by passing the 'region' or 'locale' key.
          */
         'defaults' => array(
             'region' => null,
@@ -172,36 +192,70 @@ Basic Documentation
                 Connection::REGION_CN => null
             )
         )
+        /**
+         * These options are only available for the Stub Connection.
+         */
+        'stub' => array(
+            /**
+             * Keep fixture data in memory after loading
+             */
+            'memory' => true,
+            /**
+             * Path to fixtures. bnetlib ships with default fixtures,
+             * but you can generate own by using the bin/FixtureGenerator.php.
+             */
+            'path'   => 'path/to/bnetlib/Data/Fixtures',
+        )
     );
 
     /**
-     * You may pass an Client instance and config array.
+     * You may pass an Client/Browser instance and a options array.
      */
+    use Zend\Http\Client;
+    use bnetlib\Connection\ZendFramework;
+
     $client     = new Client();
-    $connection = new Connection($client, $config);
-    $connection->setConfig($config);
+    $connection = new ZendFramework(Client $client, array $options);
+
+
+    use bnetlib\ServiceLocator;
+    use bnetlib\Connection\Stub;
+    use bnetlib\ServiceLocatorInterface;
+
+    /**
+     * Note: The Stub connection uses the ServiceLocator to load the fixtures based on the service key.
+     *       If you've overwritten any configuration class, you must to pass the ServiceLocator in order
+     *       to be able to work with the Stub connection.
+     */
+    $client     = new ServiceLocator();
+    $connection = new Stub(ServiceLocatorInterface $client, array $options);
+
+    /**
+     * Sets option values
+     */
+    $connection->setOptions($options);
 
 ### World of Warcraft
 
-    use bnetlib\Connection;
     use bnetlib\WorldOfWarcraft;
-    use bnetlib\Exception\CacheException;
+    use bnetlib\Connection\ConnectionInterface;
+    use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
     /**
-     * You may pass an Connection instance (must implement ConnectionInterface).
+     * You may pass an Connection and Service Locator instance.
+     * By default `bnetlib\Connection\ZendFramework` and `ServiceLocator\ServiceLocator` will be used.
      */
-    $wow    = new WorldOfWarcraft();
+    $wow = new WorldOfWarcraft(ConnectionInterface $connection, ServiceLocatorInterface $serviceLocator);
 
     /**
-     * You can overwrite resource classes and/or configs by using the ::setResource() method.
-     * The value of 'Character' may be an array or string. If you pass a string as value, the value will
-     * be interpreted as a class name.
+     * Getter for the Connection object
      */
-    $wow->setResource(array(
-        'Character' => array(
-            'class'  => 'Namespace\Class\Character',
-            'config' => 'Namespace\Config\Character'
-    )));
+    $wow->getConnection();
+
+    /**
+     * Getter for the Service Locator object
+     */
+    $wow->getServiceLocator();
 
     /**
      * Sets the return type for resources (::RETURN_PLAIN or ::RETURN_OBJECT).
@@ -216,7 +270,7 @@ Basic Documentation
     /**
      * Requesting resources and how it works:
      *   - Validate method name against $resource array
-     *   - Lazy load resource config
+     *   - Load resource configuration via Service Locator
      *   - Combine and validate request parameters
      *     - Up to 2 parameters are allowed (array or object implementing ConsumeInterface)
      *     - Manipulate parameters
@@ -237,7 +291,7 @@ Basic Documentation
 
 bnetlib allows consuming objects to supply request arguments. If you wish to overwrite a consumed array key, simply pass another array with that key as request argument.
 
-The following classes are consumable:
+**The following classes are consumable:**
 
 * `bnetlib\Resource\Wow\Auction` > Auction file URL
 * `bnetlib\Resource\Wow\AuctionData` > Realm name
@@ -251,19 +305,20 @@ The following classes are consumable:
 * `bnetlib\Resource\Wow\Guild\NewsEntry` > Item Id (if set) and Character name (if set)
 * `bnetlib\Resource\Wow\Item\Reward` > Item Id
 
-Example:
+**Example:**
 
     $auction = $wow->getAuction();
     $data    = $wow->getAuctionData($auction);
 
 ### Exceptions
 
-bnetlib implements the Marker interface pattern for exceptions, so every exception thrown by this library can be caught by catching `bnetlib\Exception`. Exceptions thrown during the request implement another marker called `bnetlib\Exception\ResponseException`. Visit Blizzard's [API documentation](http://blizzard.github.com/api-wow-docs/#idp40928) for more details.
+bnetlib implements the Marker interface pattern for exceptions, that means that every exception thrown by this library can be caught by catching `Exception\ExceptionInterface`. Exceptions thrown during the request implement another marker called `Exception\ResponseExceptionInterface`. The Exception Code will be set to the returned HTTP Status Code, except for `Exception\ClientException`. Visit Blizzard's [API documentation](http://blizzard.github.com/api-wow-docs/#idp40928) for more details.
 
-The following exception may be thrown during the request:
+**The following exceptions may be thrown during the request:**
 
 * `CacheException` > 'lastmodified' key passed and cache is still valid.
 * `JsonException` > Wrapper for json_decode errors, see [json_last_error](http://www.php.net/manual/en/function.json-last-error.php)
+* `ClientException` > Intercepts all exceptions thrown by the client, use `$e->getPrevious()`
 * `InvalidAppException` > Invalid Application
 * `InvalidAppPermissionsException` > Invalid application permissions
 * `InvalidAppSignatureException` > Invalid application signature
@@ -272,44 +327,71 @@ The following exception may be thrown during the request:
 * `RequestBlockedException` > Access denied, please contact api-support@blizzard.com
 * `RequestsThrottledException` > If at first you don't succeed, blow it up again. (too many requests)
 * `ServerErrorException` > Have you not been through enough? Will you continue to fight what you cannot defeat? (something unexpected happened)
-* `UnexpectedResponseException` > Unable to detect reason
+* `ServerUnavailableException` > For HTTP 503 Service Unavailable responses
+* `UnexpectedResponseException` > Unexpected status code returned
+* `UnknownErrorException` > Unable to detect reason
 
-Example:
+**Example:**
 
     try {
         $wow->getCharacter(/*some data*/);
     } catch (bnetlib\Exception\CacheException $e) {
         // Cache is still valid.
-
         $headers = $wow->getConnection->getLastResponseHeaders();
         // so something...
     } catch (bnetlib\Exception\PageNotFoundException $e) {
         // Character not found - typo?
-
         $headers = $wow->getConnection->getLastResponseHeaders();
         // so something...
     } catch (bnetlib\Exception\RequestsThrottledException $e) {
         // You've send to many requests, wait some time and try again.
-
         $headers = $wow->getConnection->getLastResponseHeaders();
         // so something...
     } catch (bnetlib\Exception\RequestBlockedException $e) {
         // You've been banned :C
-
         $headers = $wow->getConnection->getLastResponseHeaders();
         // so something...
     } catch (bnetlib\Exception\ServerErrorException $e) {
         // Server error, try again.
-
         $headers = $wow->getConnection->getLastResponseHeaders();
         // so something...
-    } catch (bnetlib\Exception\ResponseException $e) {
+    } catch (bnetlib\Exception\ServerUnavailableException $e) {
+        // Server unavailable, try again later.
+        $headers = $wow->getConnection->getLastResponseHeaders();
+        // so something...
+    } catch (bnetlib\Exception\ClientException $e) {
+        // Catched Client Exception
+        $e = $e->getPrevious();
+        // so something...
+    } catch (bnetlib\Exception\ResponseExceptionInterface $e) {
         // Fallback, cache every other error
-
+        $status  = $e->getCode();
         $headers = $wow->getConnection->getLastResponseHeaders();
         // so something...
     }
 
+### ServiceLocator
+
+The Service Locator is used to create every resource specific instance. If you wish to extend `bnetlib`, simply overwrite a service entry in `ServiceLocator\ServiceLocator` or create your own Locator using the `ServiceLocator\ServiceLocatorInterface`.
+
+After the instantiation is done, the locator will try to inject the ServiceLocator itself and Locale object (if set), if the object is Service Locator or Locale aware.
+
+> Note: Every Resource class must implement `Resource\ResourceInterface` and every Configuration class must implement `Resource\ConfigurationInterface`.
+
+    use bnetlib\Locale\Locale;
+    use bnetlib\ServiceLocator\ServiceLocator;
+
+    $locator = new ServiceLocator();
+    $locator->set('wow.character', 'You\Namespace\Character');
+    $locator->fromArray(array(
+        'wow.guild'     => 'You\Namespace\Guild',
+        'wow.character' => 'You\Namespace\Character',
+    ));
+
+    /**
+     * Setter for Locale
+     */
+    $locator->setLocale(new Locale('de_DE'));
 
 Todo
 ----
