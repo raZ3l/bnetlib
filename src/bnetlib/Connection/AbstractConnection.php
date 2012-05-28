@@ -29,7 +29,7 @@ use bnetlib\Exception\UnexpectedResponseException;
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-abstract class AbstractConnection
+abstract class AbstractConnection implements ConnectionInterface
 {
     /**
      * @var object
@@ -175,7 +175,7 @@ abstract class AbstractConnection
             $body  = $this->decodeJson($body);
             $error = (isset($body['reason'])) ? $body['reason'] : '';
         } else {
-            $error = 'Unkown error for non json response.';
+            $error = 'Unkown error for non JSON response.';
         }
 
         switch ($status) {
@@ -222,7 +222,7 @@ abstract class AbstractConnection
 
     /**
      * @param  string $json
-     * @trows  JsonException Wrapper for json_last_error()
+     * @throws JsonException Wrapper for json_last_error()
      * @return array
      */
     protected function decodeJson($json)
@@ -274,11 +274,13 @@ abstract class AbstractConnection
             /**
              * Have you not been through enough? Will you continue to fight what you cannot defeat?
              * (something unexpected happened)
+             *
+             * Internal server error.
              */
             case '347edf2b3e1b7a05c857fe5853fe0125':
+            case '12f61df7baf5ed8af20b15c3bd04d056':
                 $exception = 'bnetlib\Exception\ServerErrorException';
-                $reason    = 'There was a server error or equally catastrophic exception '
-                             . 'preventing the request from being fulfilled.';
+                $reason    = 'There was a server error preventing the request from being fulfilled.';
                 break;
             /**
              * Invalid authentication header.
@@ -308,11 +310,10 @@ abstract class AbstractConnection
              */
             case '39b90417e5c7dba18a96eef9ddb62992':
                 $exception = 'bnetlib\Exception\InvalidAppPermissionsException';
-                $reason    = 'A request was made to an API resource that requires a higher application '
-                             . 'permission level.';
+                $reason    = 'You\'ve request an API resource that requires a higher application permission level.';
                 break;
             default:
-                $exception = 'bnetlib\Exception\UnexpectedResponseException';
+                $exception = 'bnetlib\Exception\UnknownErrorException';
                 break;
         }
 

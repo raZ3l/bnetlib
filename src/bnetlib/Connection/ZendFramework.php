@@ -25,7 +25,7 @@ use bnetlib\Exception\ClientException;
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class ZendFramework extends AbstractConnection implements ConnectionInterface
+class ZendFramework extends AbstractConnection
 {
     /**
      * @param Zend\Http\Client $client
@@ -59,7 +59,7 @@ class ZendFramework extends AbstractConnection implements ConnectionInterface
                 && $this->config['keys']['private'] !== null) {
                 /**
                  * Note: DATE_RFC1123 my not be RFC 1123 compliant, depending on your platform.
-                 * @see http://www.php.net/manual/de/function.gmdate.php#25031
+                 * @link http://www.php.net/manual/de/function.gmdate.php#25031
                  */
                 $date = gmdate('D, d M Y H:i:s \G\M\T');
                 $path = $request->uri()->getPath();
