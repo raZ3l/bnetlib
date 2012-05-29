@@ -13,7 +13,7 @@
 
 namespace bnetlibTest\TestAssets;
 
-use bnetlib\Resource\ConsumeInterface;
+use bnetlib\Resource\Entity\ConsumeInterface;
 
 class FakeMagicResource extends FakeResource implements ConsumeInterface
 {

@@ -13,7 +13,7 @@
 
 namespace bnetlibTest\TestAssets;
 
-use bnetlib\Resource\ConfigurationInterface;
+use bnetlib\Resource\Config\ConfigurationInterface;
 
 class DynamicPath implements ConfigurationInterface
 {

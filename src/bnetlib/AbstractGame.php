@@ -16,11 +16,11 @@
 namespace bnetlib;
 
 use bnetlib\Connection\ZendFramework;
-use bnetlib\Resource\ConsumeInterface;
-use bnetlib\Resource\ResourceInterface;
+use bnetlib\Resource\Entity\ConsumeInterface;
+use bnetlib\Resource\Entity\EntityInterface;
 use bnetlib\ServiceLocator\ServiceLocator;
 use bnetlib\Connection\ConnectionInterface;
-use bnetlib\Resource\ConfigurationInterface;
+use bnetlib\Resource\Config\ConfigurationInterface;
 use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
@@ -231,9 +231,9 @@ abstract class AbstractGame
         switch ($returnType) {
             case self::RETURN_OBJECT:
                 $class = $this->serviceLocator->get($this->resources[$name]);
-                if (!$class instanceof ResourceInterface) {
+                if (!$class instanceof EntityInterface) {
                     throw new Exception\DomainException(sprintf(
-                        'Resource %s must implement ResourceInterface', $name
+                        'Resource %s must implement EntityInterface', $name
                     ));
                 }
                 $class->populate($response['content']);

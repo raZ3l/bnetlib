@@ -13,10 +13,10 @@
 
 namespace bnetlibTest\TestAssets;
 
-use bnetlib\Resource\ResourceInterface;
+use bnetlib\Resource\Entity\EntityInterface;
 use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
-class FakeResource implements ResourceInterface
+class FakeResource implements EntityInterface
 {
     protected $data;
 

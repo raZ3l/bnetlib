@@ -67,6 +67,8 @@ abstract class SharedGameTest extends \PHPUnit_Framework_TestCase
                 if ($key === 'service') {
                     try {
                         self::$game->getServiceLocator()->get($entry);
+                    } catch (InvalidServiceNameException $e) {
+                        $errors[$resource][] = 'unable to find service '. $key;
                     } catch (ServiceNotCreatedException $e) {
                         $errors[$resource][] = 'unable to load service '. $key;
                     }
