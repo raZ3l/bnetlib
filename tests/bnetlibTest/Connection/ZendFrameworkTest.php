@@ -91,7 +91,7 @@ class ZendFrameworkTest extends \PHPUnit_Framework_TestCase
                    ->method('decodeJson')
                    ->will($this->returnArgument(0));
 
-        $connection->setConfig(array(
+        $connection->setOptions(array(
             'securerequests' => false,
             'keys' => array(
                 'public'  => '123PUBLIC456',
