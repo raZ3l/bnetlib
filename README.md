@@ -376,7 +376,7 @@ The Service Locator is used to create every resource specific instance. If you w
 
 After the instantiation is done, the locator will try to inject the ServiceLocator itself and Locale object (if set), if the object is Service Locator or Locale aware.
 
-> Note: Every Resource class must implement `Resource\ResourceInterface` and every Configuration class must implement `Resource\ConfigurationInterface`.
+> Note: Every Resource class must implement `Resource\EntityInterface` and every Configuration class must implement `Resource\ConfigurationInterface`.
 
     use bnetlib\Locale\Locale;
     use bnetlib\ServiceLocator\ServiceLocator;
