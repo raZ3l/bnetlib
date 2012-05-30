@@ -1,5 +1,5 @@
-bnetlib [![Build Status](https://secure.travis-ci.org/coss/bnetlib.png?branch=master)](http://travis-ci.org/coss/bnetlib)
-=======
+bnetlib 1.1 [![Build Status](https://secure.travis-ci.org/coss/bnetlib.png?branch=master)](http://travis-ci.org/coss/bnetlib)
+===========
 
 bnetlib is an object-oriented interface for the Battle.net REST API. It tries to keep a direct mapping to the actual resource names and response values.
 
@@ -19,13 +19,16 @@ Features
 * If-Modified-Since Header
 * Application authentication
 * Returns simple array or full blown object
+* Stub connection for testing and development
 * Locale string helper for class names, race names, etc. etc. etc.
 
 
 Resources
 ---------
 
-### World of Warcraft
+### World of Warcraft and Diablo III
+
+**World of Warcraft:**
 
 | Resource                    | Method                                |
 |-----------------------------|---------------------------------------|
@@ -60,26 +63,32 @@ bnetlib is PSR-0 compliant and provides a [class map](https://github.com/coss/bn
 Example
 -------
 
+    use bnetlib\Diablo;
     use bnetlib\Locale\Locale;
     use bnetlib\WorldOfWarcraft;
-    use bnetlib\Resource\Wow\Character\Professions;
+    use bnetlib\Connection\ConnectionInterface;
+    use bnetlib\Resource\EntityWow\Character\Professions;
 
+    /**
+     * Both games share the same interface
+     */
+    $d3  = new Diablo();
     $wow = new WorldOfWarcraft();
     $wow->getConnection()->setOptions(array(
         'defaults' => array(
-            'region' => Connection::REGION_EU,
+            'region' => ConnectionInterface::REGION_EU,
             'locale' => array(
-                Connection::REGION_EU => Connection::LOCALE_DE
+                ConnectionInterface::REGION_EU => ConnectionInterface::LOCALE_DE
             )
         )
     ));
 
-    /* @var $guild bnetlib\Resource\Wow\Guild */
+    /* @var $guild bnetlib\Resource\EntityWow\Guild */
     $guild = $wow->getGuild(array(
         'name'   => 'Barmy',
         'realm'  => 'Die ewige Wacht',
-        'region' => Connection::REGION_EU,
-        'locale' => Connection::LOCALE_DE,
+        'region' => ConnectionInterface::REGION_EU,
+        'locale' => ConnectionInterface::LOCALE_DE,
         'fields' => 'members'
     ));
 
@@ -87,14 +96,14 @@ Example
 
     /* @var $realms array */
     $realms = $wow->getRealms(array(
-        'region' => Connection::REGION_EU
+        'region' => ConnectionInterface::REGION_EU
     ));
 
     /**
      * You can pass a game short name as second argument. By default 'wow' will be used.
-     * Example: new Locale(Connection::LOCALE_DE, WorldOfWarcraft::SHORT_NAME);
+     * Example: new Locale(ConnectionInterface::LOCALE_DE, WorldOfWarcraft::SHORT_NAME);
      */
-    $locale = new Locale(Connection::LOCALE_ES);
+    $locale = new Locale(ConnectionInterface::LOCALE_ES);
     $guild->setLocale($locale)
     /**
      * Note: The Service Locator is Locale aware. If you've set a Locale class,
@@ -106,21 +115,21 @@ Example
     // Faction: Horda
     echo 'Faction: ' . $guild->getFactionLocale();
 
-    $locale->setLocale(Connection::LOCALE_CN);
+    $locale->setLocale(ConnectionInterface::LOCALE_CN);
 
     // Faction: 部落
     echo 'Faction: ' . $guild->getFactionLocale();
 
-    /* @var $members bnetlib\Resource\Wow\Guild\Members */
+    /* @var $members bnetlib\Resource\EntityWow\Guild\Members */
     $members = $guild->getMembers();
     foreach ($members as $member) {
-        /* @var $character bnetlib\Resource\Wow\Character */
+        /* @var $character bnetlib\Resource\EntityWow\Character */
         $character = $member->getCharacter();
         echo 'Name: ' $character->getName();
 
         if ($character->isMage() && $character->isUndead()) {
             // Consumes the old Character object and requests a new one with fields.
-            /* @var $character bnetlib\Resource\Wow\Character */
+            /* @var $character bnetlib\Resource\EntityWow\Character */
             $character = $wow->getCharacter(
                 $character,
                 array(
@@ -130,7 +139,7 @@ Example
                 )
             );
 
-            /* @var $titles bnetlib\Resource\Wow\Character\Titles */
+            /* @var $titles bnetlib\Resource\EntityWow\Character\Titles */
             $titles = $character->getTitles();
             if ($titles->hasSelected()) {
                 $selected = $titles->getSelected();
@@ -142,10 +151,10 @@ Example
                 echo 'Title: ' . $selected->getFullName();
             }
 
-            /* @var $professions bnetlib\Resource\Wow\Character\Professions */
+            /* @var $professions bnetlib\Resource\EntityWow\Character\Professions */
             $professions = $character->getProfessions();
             if ($professions->hasPrimaryProfession() && $professions->hasFirstAid()) {
-                /* @var $firstAid bnetlib\Resource\Wow\Character\Profession */
+                /* @var $firstAid bnetlib\Resource\EntityWow\Character\Profession */
                 $firstAid = $professions->getById(Professions::PROFESSION_FIRST_AID);
 
                 echo $firstAid->has(23787);
@@ -185,11 +194,11 @@ The Connection is used to communicate with the battle.net API via thrid-party HT
         'defaults' => array(
             'region' => null,
             'locale' => array(
-                Connection::REGION_US => null,
-                Connection::REGION_EU => null,
-                Connection::REGION_KR => null,
-                Connection::REGION_TW => null,
-                Connection::REGION_CN => null
+                ConnectionInterface::REGION_US => null,
+                ConnectionInterface::REGION_EU => null,
+                ConnectionInterface::REGION_KR => null,
+                ConnectionInterface::REGION_TW => null,
+                ConnectionInterface::REGION_CN => null
             )
         )
         /**
@@ -265,7 +274,7 @@ The Connection is used to communicate with the battle.net API via thrid-party HT
     /**
      * Returns the supported locales for a region.
      */
-    $wow->getSupportedLocale(Connection::REGION_US);
+    $wow->getSupportedLocale(ConnectionInterface::REGION_US);
 
     /**
      * Requesting resources and how it works:
@@ -285,7 +294,7 @@ The Connection is used to communicate with the battle.net API via thrid-party HT
      *   - lastmodified = RFC 1123 compliant string or timestamp
      *   - return       = Return type, ::RETURN_PLAIN or ::RETURN_OBJECT
      */
-    $realms = $wow->getRealms(array('region' => Connection::REGION_EU));
+    $realms = $wow->getRealms(array('region' => ConnectionInterface::REGION_EU));
 
 ### Consuming Resource Objects
 
@@ -293,17 +302,17 @@ bnetlib allows consuming objects to supply request arguments. If you wish to ove
 
 **The following classes are consumable:**
 
-* `bnetlib\Resource\Wow\Auction` > Auction file URL
-* `bnetlib\Resource\Wow\AuctionData` > Realm name
-* `bnetlib\Resource\Wow\Achievements\Achievement` > Achievement Id
-* `bnetlib\Resource\Wow\Battlegroup` > Battlegroup name as slug
-* `bnetlib\Resource\Wow\Character` > Character name, Realm name and thumbnail URL
-* `bnetlib\Resource\Wow\Character\Glyph` > Item Id
-* `bnetlib\Resource\Wow\Character\Guild` > Realm name and Guild name
-* `bnetlib\Resource\Wow\Character\Record` > Realm name as slug, Battlegroup name as slug and Character name
-* `bnetlib\Resource\Wow\Guild` > Realm name
-* `bnetlib\Resource\Wow\Guild\NewsEntry` > Item Id (if set) and Character name (if set)
-* `bnetlib\Resource\Wow\Item\Reward` > Item Id
+* `bnetlib\Resource\EntityWow\Auction` > Auction file URL
+* `bnetlib\Resource\EntityWow\AuctionData` > Realm name
+* `bnetlib\Resource\EntityWow\Achievements\Achievement` > Achievement Id
+* `bnetlib\Resource\EntityWow\Battlegroup` > Battlegroup name as slug
+* `bnetlib\Resource\EntityWow\Character` > Character name, Realm name and thumbnail URL
+* `bnetlib\Resource\EntityWow\Character\Glyph` > Item Id
+* `bnetlib\Resource\EntityWow\Character\Guild` > Realm name and Guild name
+* `bnetlib\Resource\EntityWow\Character\Record` > Realm name as slug, Battlegroup name as slug and Character name
+* `bnetlib\Resource\EntityWow\Guild` > Realm name
+* `bnetlib\Resource\EntityWow\Guild\NewsEntry` > Item Id (if set) and Character name (if set)
+* `bnetlib\Resource\EntityWow\Item\Reward` > Item Id
 
 **Example:**
 
@@ -376,16 +385,16 @@ The Service Locator is used to create every resource specific instance. If you w
 
 After the instantiation is done, the locator will try to inject the ServiceLocator itself and Locale object (if set), if the object is Service Locator or Locale aware.
 
-> Note: Every Resource class must implement `Resource\EntityInterface` and every Configuration class must implement `Resource\ConfigurationInterface`.
+> Note: Every Resource class must implement `Resource\ResourceInterface` and every Configuration class must implement `Resource\ConfigurationInterface`.
 
     use bnetlib\Locale\Locale;
     use bnetlib\ServiceLocator\ServiceLocator;
 
     $locator = new ServiceLocator();
-    $locator->set('wow.character', 'You\Namespace\Character');
+    $locator->set('wow.entity.character', 'You\Namespace\Character');
     $locator->fromArray(array(
-        'wow.guild'     => 'You\Namespace\Guild',
-        'wow.character' => 'You\Namespace\Character',
+        'wow.entity.guild'     => 'You\Namespace\Guild',
+        'wow.entity.character' => 'You\Namespace\Character',
     ));
 
     /**
