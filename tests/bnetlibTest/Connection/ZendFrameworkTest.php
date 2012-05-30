@@ -17,7 +17,7 @@
 namespace bnetlibTest;
 
 use bnetlib\Connection\ZendFramework;
-use bnetlib\Resource\Config\WoW\Character;
+use bnetlib\Resource\Config\Wow\Character;
 
 /**
  * @category   bnetlib
