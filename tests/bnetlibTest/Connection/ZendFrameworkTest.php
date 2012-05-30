@@ -101,12 +101,10 @@ class ZendFrameworkTest extends \PHPUnit_Framework_TestCase
 
         $response = $connection->request(array(
             'url'          => 'http://everynothing.net/bnetauthtest.php?test=1',
-            'json'         => true,
-            'authenticate' => true
+            'config' => new Character(),
         ));
 
         $this->assertEquals("Your authentication headers look good!\n", $response['content']);
-
     }
 
     /**
