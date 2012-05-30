@@ -113,17 +113,26 @@ foreach ($map as $class => $filename) {
 
     $service = $class;
     $service = str_replace('bnetlib\\resource\\', '', strtolower($service));
+    $service = explode('\\', $service);
 
-    if (in_array($service, array('configurationinterface', 'consumeinterface', 'resourceinterface'))) {
+    if (in_array(end($service), array('configurationinterface', 'consumeinterface', 'entityinterface'))) {
         continue;
     }
 
-    $service = str_replace('\\', '.', $service);
-    $service = str_replace('configuration', 'config', $service);
-    $max     = max(strlen($service) + 2, $max);
+    $reverse = array_reverse(array_slice($service, 0, 2));
+    $slice   = array_slice($service, 2);
+    $service = '';
 
+    foreach (array($reverse, $slice) as $array) {
+        $service .= ($service === '') ? '' : '.';
+        $service .= implode('.', $array);
+    }
+
+    $max                = max(strlen($service) + 2, $max);
     $services[$service] = $class;
 }
+
+ksort($services);
 
 $servicemap = var_export($services, true);
 $servicemap = str_replace('array (', 'array(', $servicemap);
