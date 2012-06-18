@@ -17,12 +17,12 @@ $map = array();
 $dir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'bnetlib';
 
 foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir)) as $item) {
-    $fullname = $item->getRealPath();
-    $relative = str_replace($dir, '', $fullname);
-
     if (!$item->isFile() || $item->getExtension() !== 'php') {
         continue;
     }
+
+    $fullname = $item->getRealPath();
+    $relative = str_replace($dir, '', $fullname);
 
     $content   = file_get_contents($fullname);
     $tokens    = token_get_all($content);

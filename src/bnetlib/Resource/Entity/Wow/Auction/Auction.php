@@ -16,6 +16,8 @@
 
 namespace bnetlib\Resource\Entity\Wow\Auction;
 
+use bnetlib\Locale\LocaleInterface;
+use bnetlib\Locale\LocaleAwareInterface;
 use bnetlib\Resource\Entity\EntityInterface;
 use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
@@ -26,7 +28,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Auction implements EntityInterface
+class Auction implements EntityInterface, LocaleAwareInterface
 {
     /**
      * @var array
@@ -34,12 +36,17 @@ class Auction implements EntityInterface
     protected $data = array();
 
     /**
+     * @var LocaleInterface
+     */
+    protected $locale;
+
+    /**
      * @var \stdClass|null
      */
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -73,6 +80,22 @@ class Auction implements EntityInterface
     public function setServiceLocator(ServiceLocatorInterface $locator)
     {
         $this->serviceLocator = $locator;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setLocale(LocaleInterface $locale)
+    {
+        $this->locale = $locale;
+
+        foreach ($this->data as $key => $value) {
+            if (is_object($value) && $value instanceof LocaleAwareInterface) {
+                $this->data[$key]->setLocale($locale);
+            }
+        }
+
+        return $this;
     }
 
     /**
@@ -110,7 +133,7 @@ class Auction implements EntityInterface
     /**
      * @return int
      */
-    public function getAuctionId()
+    public function getId()
     {
         return $this->data['auc'];
     }
@@ -161,5 +184,17 @@ class Auction implements EntityInterface
     public function getTimeLeft()
     {
         return $this->data['time'];
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTimeLeftLocale()
+    {
+        if (isset($this->locale)) {
+            return $this->locale->get(sprintf('auction.%s', $this->data['time']), 'wow');
+        }
+
+        return null;
     }
 }

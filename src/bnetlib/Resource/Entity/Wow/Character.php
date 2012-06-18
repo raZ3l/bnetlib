@@ -56,10 +56,17 @@ class Character extends BaseCharacter
     {
         parent::populate($data);
 
-        $this->data['lastmod'] = null;
+        $this->data['lastmod']    = null;
+        $this->data['lastModDate'] = null;
+
         if (isset($data['lastModified'])) {
+            $this->data['lastModDate'] = new \DateTime(
+                '@' . round(($data['lastModified'] / 1000), 0),
+                new \DateTimeZone('UTC')
+            );
             $this->data['lastmod'] = $data['lastModified'];
         }
+
 
         foreach ($this->services as $key => $service) {
             if (isset($data[$key])) {
@@ -84,7 +91,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return int|null Last modification (UTC unix timestamp)
+     * @return int|null
      */
     public function getLastModified()
     {
@@ -92,7 +99,15 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Shared\Achievements|null
+     * @return \DateTime|null
+     */
+    public function getDate()
+    {
+        return $this->data['lastModDate'];
+    }
+
+    /**
+     * @return Shared\Achievements|null
      */
     public function getAchievements()
     {
@@ -104,7 +119,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Appearance|null
+     * @return Character\Appearance|null
      */
     public function getAppearance()
     {
@@ -116,7 +131,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Shared\ListData|null
+     * @return Shared\ListData|null
      */
     public function getCompanions()
     {
@@ -128,7 +143,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Guild|null
+     * @return Character\Guild|null
      */
     public function getGuild()
     {
@@ -140,7 +155,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Feed|null
+     * @return Character\Feed|null
      */
     public function getFeed()
     {
@@ -152,7 +167,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Items\Guild|null
+     * @return Character\Items\Guild|null
      */
     public function getItems()
     {
@@ -164,7 +179,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Shared\ListData|null
+     * @return Shared\ListData|null
      */
     public function getMounts()
     {
@@ -176,7 +191,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Pets|null
+     * @return Character\Pets|null
      */
     public function getPets()
     {
@@ -188,7 +203,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Professions|null
+     * @return Character\Professions|null
      */
     public function getProfessions()
     {
@@ -200,7 +215,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Progression|null
+     * @return Character\Progression|null
      */
     public function getProgression()
     {
@@ -212,7 +227,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Pvp|null
+     * @return Character\Pvp|null
      */
     public function getPvp()
     {
@@ -224,7 +239,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Shared\ListData|null
+     * @return Shared\ListData|null
      */
     public function getQuests()
     {
@@ -236,7 +251,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Reputation|null
+     * @return Character\Reputation|null
      */
     public function getReputation()
     {
@@ -248,7 +263,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Stats|null
+     * @return Character\Stats|null
      */
     public function getStats()
     {
@@ -260,7 +275,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Talents|null
+     * @return Character\Talents|null
      */
     public function getTalents()
     {
@@ -272,7 +287,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Titles|null
+     * @return Character\Titles|null
      */
     public function getTitles()
     {

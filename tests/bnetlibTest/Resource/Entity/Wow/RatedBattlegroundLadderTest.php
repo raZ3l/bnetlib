@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\RatedBattlegroundLadder;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_RatedBattlegroundLadder
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -63,8 +63,14 @@ class RatedBattlegroundLadderTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $char) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Character\Record', $char);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

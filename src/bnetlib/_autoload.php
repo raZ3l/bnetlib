@@ -18,6 +18,8 @@ spl_autoload_register(function ($class) {
         $classmap = include __DIR__ . '/_classmap.php';
     }
 
+    $class = ltrim($class, '\\');
+
     if (isset($classmap[$class])) {
         return include $classmap[$class];
     }

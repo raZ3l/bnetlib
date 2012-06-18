@@ -44,7 +44,7 @@ class Battlegroups implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -87,6 +87,14 @@ class Battlegroups implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @see \Iterator
      */
     public function rewind()
@@ -96,7 +104,7 @@ class Battlegroups implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Battlegroups\Battlegroup
+     * @return Battlegroups\Battlegroup
      */
     public function current()
     {
@@ -105,7 +113,7 @@ class Battlegroups implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return int
      */
     public function key()
     {

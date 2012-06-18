@@ -38,7 +38,7 @@ class NewsEntry implements ConsumeInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -56,6 +56,11 @@ class NewsEntry implements ConsumeInterface
             }
             $this->data['achievement']->populate($data['achievement']);
         }
+
+        $this->data['date'] = new \DateTime(
+            '@' . round(($data['timestamp'] / 1000), 0),
+            new \DateTimeZone('UTC')
+        );
     }
 
     /**
@@ -116,7 +121,15 @@ class NewsEntry implements ConsumeInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Achievements\DataAchievement|null
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->data['date'];
+    }
+
+    /**
+     * @return \bnetlib\Resource\Entity\Wow\Achievements\DataAchievement|null
      */
     public function getAchievement()
     {

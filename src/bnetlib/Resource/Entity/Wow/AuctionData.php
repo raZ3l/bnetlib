@@ -49,7 +49,7 @@ class AuctionData implements ConsumeInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -103,6 +103,14 @@ class AuctionData implements ConsumeInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @return string
      */
     public function getRealm()
@@ -119,7 +127,7 @@ class AuctionData implements ConsumeInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Auction\Faction
+     * @return Auction\Faction
      */
     public function getAlliance()
     {
@@ -127,7 +135,7 @@ class AuctionData implements ConsumeInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Auction\Faction
+     * @return Auction\Faction
      */
     public function getHorde()
     {
@@ -135,7 +143,7 @@ class AuctionData implements ConsumeInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Auction\Faction
+     * @return Auction\Faction
      */
     public function getNeutral()
     {
@@ -160,7 +168,7 @@ class AuctionData implements ConsumeInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Auction\Faction
+     * @return Auction\Faction
      */
     public function current()
     {
@@ -169,7 +177,7 @@ class AuctionData implements ConsumeInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return int
      */
     public function key()
     {

@@ -39,7 +39,7 @@ class Pvp implements EntityInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -96,7 +96,7 @@ class Pvp implements EntityInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\RatedBattlegrounds
+     * @return RatedBattlegrounds
      */
     public function getRatedBattlegrounds()
     {
@@ -104,7 +104,7 @@ class Pvp implements EntityInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\ArenaTeams
+     * @return ArenaTeams
      */
     public function getArenaTeams()
     {

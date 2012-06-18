@@ -59,7 +59,7 @@ class Feed implements EntityInterface, \Iterator, \Countable
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -108,6 +108,14 @@ class Feed implements EntityInterface, \Iterator, \Countable
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param  string $type
      * @return array|null
      */
@@ -139,7 +147,7 @@ class Feed implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Character\FeedEntry
+     * @return FeedEntry
      */
     public function current()
     {
@@ -148,7 +156,7 @@ class Feed implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return int
      */
     public function key()
     {

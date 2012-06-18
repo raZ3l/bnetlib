@@ -40,7 +40,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, \Countable
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 

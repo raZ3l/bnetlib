@@ -49,7 +49,7 @@ class BonusStats implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -94,6 +94,14 @@ class BonusStats implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param  int $stat
      * @return boolean
      */
@@ -104,7 +112,7 @@ class BonusStats implements EntityInterface, \Iterator
 
     /**
      * @param  int $stat
-     * @return bnetlib\Resource\Entity\Wow\Item|null
+     * @return \bnetlib\Resource\Entity\Wow\Item|null
      */
     public function getByStat($stat)
     {
@@ -125,7 +133,7 @@ class BonusStats implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Item\Stat
+     * @return Stat
      */
     public function current()
     {

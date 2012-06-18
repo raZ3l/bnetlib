@@ -24,7 +24,7 @@ use bnetlib\ServiceLocator\ServiceLocato;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Achievements
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -52,10 +52,21 @@ class AchievementsTest extends \PHPUnit_Framework_TestCase
         self::$obj = null;
     }
 
+    public function testToArray()
+    {
+        $this->assertInternalType('array', self::$obj->toArray());
+    }
+
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $av) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Achievements\DataAchievements', $av);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

@@ -49,7 +49,7 @@ class Pets implements EntityInterface, \Iterator, \Countable
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -96,6 +96,14 @@ class Pets implements EntityInterface, \Iterator, \Countable
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @see    \Countable
      * @return int
      */
@@ -113,7 +121,7 @@ class Pets implements EntityInterface, \Iterator, \Countable
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Pet|null
+     * @return Pet|null
      */
     public function getSelected()
     {
@@ -134,7 +142,7 @@ class Pets implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Character\Pet
+     * @return Pet
      */
     public function current()
     {

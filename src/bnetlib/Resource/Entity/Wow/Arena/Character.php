@@ -42,7 +42,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\ArenaLadder\Statistic
+     * @return \bnetlib\Resource\Entity\Wow\ArenaLadder\Statistic
      */
     public function getStatistic()
     {

@@ -39,7 +39,7 @@ class TalentSpecialization implements EntityInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -157,7 +157,7 @@ class TalentSpecialization implements EntityInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Glyphs
+     * @return Glyphs
      */
     public function getGlyphs()
     {

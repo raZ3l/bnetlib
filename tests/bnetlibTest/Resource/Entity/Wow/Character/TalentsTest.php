@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\Character\Talents;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Character
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -75,8 +75,14 @@ class TalentsTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $spec) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Character\TalentSpecialization', $spec);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

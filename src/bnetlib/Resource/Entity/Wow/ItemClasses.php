@@ -49,7 +49,7 @@ class ItemClasses implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -94,7 +94,7 @@ class ItemClasses implements EntityInterface, \Iterator
 
     /**
      * @param  int $id
-     * @return bnetlib\Resource\Entity\Wow\Item\ClassData|null
+     * @return Item\ClassData|null
      */
     public function getById($id)
     {
@@ -103,6 +103,14 @@ class ItemClasses implements EntityInterface, \Iterator
         }
 
         return null;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
     }
 
     /**
@@ -115,7 +123,7 @@ class ItemClasses implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Item\ClassData
+     * @return Item\ClassData
      */
     public function current()
     {

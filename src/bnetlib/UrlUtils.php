@@ -8,7 +8,7 @@
  * LICENSE file online at https://gitbub.com/coss/bnetlib/LISENCE
  *
  * @category  bnetlib
- * @package   UrlUtils
+ * @package   Utility
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
@@ -17,7 +17,7 @@ namespace bnetlib;
 
 /**
  * @category  bnetlib
- * @package   UrlUtils
+ * @package   Utility
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
@@ -30,7 +30,7 @@ class UrlUtils
         array(array('-', '\'', '(', ')', '/'), ''),
         array(' ', '-'),
         array('--', '-')
-      );
+    );
 
     /**
      * @var array

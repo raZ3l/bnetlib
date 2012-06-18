@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\ArenaTeam;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_ArenaTeam
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -63,7 +63,7 @@ class ArenaTeamTest extends \PHPUnit_Framework_TestCase
 
     public function testCreated()
     {
-        $this->assertEquals(1310256000, self::$obj->getCreated());
+        $this->assertInstanceOf('DateTime', self::$obj->getCreated());
     }
 
     public function gePlayed()
@@ -113,8 +113,14 @@ class ArenaTeamTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $team) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Arena\Character', $team);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

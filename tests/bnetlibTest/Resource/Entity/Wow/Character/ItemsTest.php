@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\Character\Items;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Character
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -255,8 +255,14 @@ class ItemsTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $item) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Character\Item', $item);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

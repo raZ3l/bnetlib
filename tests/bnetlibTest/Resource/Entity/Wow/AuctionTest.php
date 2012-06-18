@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\Auction;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Auction
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -62,5 +62,10 @@ class AuctionTest extends \PHPUnit_Framework_TestCase
     public function testLastModified()
     {
         $this->assertEquals(1311362443895, self::$obj->getLastModified());
+    }
+
+    public function testDate()
+    {
+        $this->assertInstanceOf('DateTime', self::$obj->getDate());
     }
 }

@@ -16,6 +16,8 @@
 
 namespace bnetlib\Resource\Entity\Wow\Character;
 
+use bnetlib\Locale\LocaleInterface;
+use bnetlib\Locale\LocaleAwareInterface;
 use bnetlib\Resource\Entity\EntityInterface;
 use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
@@ -26,7 +28,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Faction implements EntityInterface
+class Faction implements EntityInterface, LocaleAwareInterface
 {
     /**
      * @var array
@@ -34,12 +36,17 @@ class Faction implements EntityInterface
     protected $data = array();
 
     /**
+     * @var LocaleInterface
+     */
+    protected $locale;
+
+    /**
      * @var \stdClass|null
      */
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -76,6 +83,16 @@ class Faction implements EntityInterface
     }
 
     /**
+     * @inheritdoc
+     */
+    public function setLocale(LocaleInterface $locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    /**
      * @return int
      */
     public function getId()
@@ -97,6 +114,18 @@ class Faction implements EntityInterface
     public function getStanding()
     {
         return $this->data['standing'];
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getStandingLocale()
+    {
+        if (isset($this->locale)) {
+            return $this->locale->get(sprintf('standing.%s', $this->data['standing']), 'wow');
+        }
+
+        return null;
     }
 
     /**

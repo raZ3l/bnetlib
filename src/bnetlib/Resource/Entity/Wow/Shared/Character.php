@@ -17,9 +17,9 @@
 namespace bnetlib\Resource\Entity\Wow\Shared;
 
 use bnetlib\Locale\LocaleInterface;
+use bnetlib\Locale\LocaleAwareInterface;
 use bnetlib\Resource\Entity\ConsumeInterface;
 use bnetlib\Resource\Entity\EntityInterface;
-use bnetlib\Locale\LocaleAwareInterface;
 use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
@@ -37,7 +37,7 @@ class Character implements EntityInterface, ConsumeInterface, LocaleAwareInterfa
     protected $data = array();
 
     /**
-     * @var bnetlib\Locale\LocaleInterface
+     * @var LocaleInterface
      */
     protected $locale;
 
@@ -47,7 +47,7 @@ class Character implements EntityInterface, ConsumeInterface, LocaleAwareInterfa
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 

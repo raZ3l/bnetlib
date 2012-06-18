@@ -89,6 +89,10 @@ return array(
                 'id' => 33994,
             ),
             'Thumbnail' => 'Character',
+            'Icon' => array(
+                'size' => 56,
+                'icon' => 'spell_holy_symbolofhope'
+            )
         ),
         '_extend' => array(
             'wow' => array(

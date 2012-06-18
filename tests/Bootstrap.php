@@ -11,6 +11,10 @@
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
+use bnetlib\WorldOfWarcraft;
+use bnetlib\Connection\Stub;
+use bnetlib\ServiceLocator\ServiceLocator;
+
 error_reporting(E_ALL | E_STRICT);
 
 include __DIR__ . '/_autoload.php';

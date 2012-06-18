@@ -16,7 +16,6 @@
 
 namespace bnetlib\Resource\Config\Wow;
 
-use bnetlib\UrlUtils;
 use bnetlib\Resource\Config\ConfigurationInterface;
 
 /**

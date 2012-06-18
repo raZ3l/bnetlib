@@ -49,7 +49,7 @@ class Glyphs implements EntityInterface, \Iterator, \Countable
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -98,6 +98,14 @@ class Glyphs implements EntityInterface, \Iterator, \Countable
     public function setServiceLocator(ServiceLocatorInterface $locator)
     {
         $this->serviceLocator = $locator;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
     }
 
     /**
@@ -175,7 +183,7 @@ class Glyphs implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Character\Glyph
+     * @return Glyph
      */
     public function current()
     {
@@ -184,7 +192,7 @@ class Glyphs implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return int
      */
     public function key()
     {

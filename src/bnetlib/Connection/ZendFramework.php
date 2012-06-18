@@ -28,14 +28,14 @@ use bnetlib\Exception\ClientException;
 class ZendFramework extends AbstractConnection
 {
     /**
-     * @param Zend\Http\Client $client
-     * @param array            $option
+     * @param Client $client
+     * @param array  $option
      */
     public function __construct(Client $client = null, array $option = null)
     {
         $this->client = ($client) ?: new Client();
         $this->client->setOptions(array(
-            'useragent' => 'bnetlib/' . self::VERSION . ' Zend\Http\Client (PHP)'
+            'useragent' => 'bnetlib/' . self::VERSION . ' Zend\Http (PHP)'
         ));
 
         if ($option !== null) {

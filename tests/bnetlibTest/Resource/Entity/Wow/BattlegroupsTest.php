@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\Battlegroups;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Battlegroups
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -48,8 +48,14 @@ class BattlegroupsTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $bg) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Battlegroups\Battlegroup', $bg);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\ArenaLadder;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_ArenaLadder
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -63,8 +63,14 @@ class ArenaLadderTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $team) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\ArenaTeam', $team);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

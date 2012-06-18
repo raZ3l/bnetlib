@@ -26,8 +26,15 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class File implements EntityInterface
+class Image implements EntityInterface
 {
+    /**#@+
+     * @const string
+     */
+    const FILE_EXTENSION       = '.jpg';
+    const FILE_EXTENSION_REGEX = '\.(jpeg|jpg)';
+    /**#@-*/
+
     /**
      * @var string
      */
@@ -39,7 +46,7 @@ class File implements EntityInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -84,13 +91,16 @@ class File implements EntityInterface
     }
 
     /**
+     * Saves the file as $name. If your file name does not end with self::FILE_EXTENSION_REGEX
+     * (jpeg or jpg), the file extension "jpg" will be used.
+     *
      * @param  string $name
      * @return boolean
      */
     public function saveAs($name)
     {
-        if (substr(mb_strtolower($name), -4) !== '.jpg') {
-            $name .= '.jpg';
+        if (!preg_match('/' . self::FILE_EXTENSION_REGEX . '$/i', $name)) {
+            $name .= self::FILE_EXTENSION;
         }
 
         if (@file_put_contents($name, $this->data) === false) {

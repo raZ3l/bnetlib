@@ -49,7 +49,7 @@ class Members implements EntityInterface, \Iterator, \Countable
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -108,6 +108,14 @@ class Members implements EntityInterface, \Iterator, \Countable
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @see    \Countable
      * @return int
      */
@@ -126,7 +134,7 @@ class Members implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Guild\Member
+     * @return Member
      */
     public function current()
     {

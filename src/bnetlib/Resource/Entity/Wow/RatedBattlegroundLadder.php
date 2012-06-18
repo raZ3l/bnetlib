@@ -49,7 +49,7 @@ class RatedBattlegroundLadder implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -94,8 +94,16 @@ class RatedBattlegroundLadder implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param  int $id
-     * @return bnetlib\Resource\Entity\Wow\Character\Record|null
+     * @return Character\Record|null
      */
     public function getById($id)
     {
@@ -108,7 +116,7 @@ class RatedBattlegroundLadder implements EntityInterface, \Iterator
 
     /**
      * @param  int $rank
-     * @return bnetlib\Resource\Entity\Wow\Character\Record|null
+     * @return Character\Record|null
      */
     public function getByRank($rank)
     {
@@ -129,7 +137,7 @@ class RatedBattlegroundLadder implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Character\Record
+     * @return Character\Record
      */
     public function current()
     {

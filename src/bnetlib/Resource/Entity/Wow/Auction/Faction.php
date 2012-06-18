@@ -62,7 +62,7 @@ class Faction implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -120,6 +120,14 @@ class Faction implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param  int $id
      * @return array
      */
@@ -155,8 +163,8 @@ class Faction implements EntityInterface, \Iterator
 
     /**
      * @param  string|int $phrase
-     * @throws bnetlib\Exception\InvalidArgumentException
-     * @throws bnetlib\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException
      * @return array
      */
     public function getByTime($phrase)
@@ -170,7 +178,7 @@ class Faction implements EntityInterface, \Iterator
             }
         } elseif (!is_numeric($phrase)) {
             throw new InvalidArgumentException(sprintf(
-                'A time phrase must be an array or string, %s given.', gettype($phrase)
+                'A time phrase must be a integer or string, %s given.', gettype($phrase)
             ));
         }
 
@@ -205,8 +213,8 @@ class Faction implements EntityInterface, \Iterator
     /**
      * @param  int    $id
      * @param  string $phrase
-     * @throws Exception\InvalidArgumentException
-     * @throws Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException
      * @return array
      */
     public function getItemAndTimeIntersection($id, $phrase)
@@ -248,7 +256,7 @@ class Faction implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Auction\Auction
+     * @return Auction
      */
     public function current()
     {

@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\Auction\Faction;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Character
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -49,6 +49,11 @@ class FactionTest extends \PHPUnit_Framework_TestCase
     public static function tearDownAfterClass()
     {
         self::$obj = null;
+    }
+
+    public function testToArray()
+    {
+        $this->assertInternalType('array', self::$obj->toArray());
     }
 
     public function testByItem()
@@ -99,8 +104,14 @@ class FactionTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $fac) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Auction\Auction', $fac);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

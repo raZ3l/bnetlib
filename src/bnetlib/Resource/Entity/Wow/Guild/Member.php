@@ -39,7 +39,7 @@ class Member implements EntityInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -91,7 +91,7 @@ class Member implements EntityInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character
+     * @return \bnetlib\Resource\Entity\Wow\Character
      */
     public function getCharacter()
     {

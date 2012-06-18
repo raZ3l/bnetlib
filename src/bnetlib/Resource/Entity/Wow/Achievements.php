@@ -45,7 +45,7 @@ class Achievements implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -85,6 +85,14 @@ class Achievements implements EntityInterface, \Iterator
     public function setServiceLocator(ServiceLocatorInterface $locator)
     {
         $this->serviceLocator = $locator;
+    }
+
+    /**
+     * @see array
+     */
+    public function toArray()
+    {
+        return $this->data;
     }
 
     /**

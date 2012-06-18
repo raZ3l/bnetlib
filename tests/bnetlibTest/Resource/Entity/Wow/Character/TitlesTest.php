@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\Character\Titles;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Character
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -65,8 +65,14 @@ class TitlesTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $title) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Character\Title', $title);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

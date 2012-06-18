@@ -73,7 +73,7 @@ class Professions implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -123,8 +123,16 @@ class Professions implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param  int $id
-     * @return bnetlib\Resource\Entity\Wow\Character\Profession|null
+     * @return Profession|null
      */
     public function getById($id)
     {
@@ -264,11 +272,27 @@ class Professions implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function getPrimaryProfessions()
+    {
+        return $this->index['primary'];
+    }
+
+    /**
      * @return boolean
      */
     public function hasSecondaryProfession()
     {
         return !empty($this->index['secondary']);
+    }
+
+    /**
+     * @return array
+     */
+    public function getSecondaryProfessions()
+    {
+        return $this->index['secondary'];
     }
 
     /**
@@ -291,7 +315,7 @@ class Professions implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Character\Profession
+     * @return Profession
      */
     public function current()
     {

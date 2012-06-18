@@ -49,7 +49,7 @@ class ItemSet implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -96,6 +96,14 @@ class ItemSet implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @return int
      */
     public function getId()
@@ -121,7 +129,7 @@ class ItemSet implements EntityInterface, \Iterator
 
     /**
      * @param  int $threshold
-     * @return bnetlib\Resource\Entity\Wow\ItemSet\Bonus|null
+     * @return ItemSet\Bonus|null
      */
     public function getByThreshold($threshold)
     {
@@ -151,7 +159,7 @@ class ItemSet implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\ItemSet\Bonus
+     * @return ItemSet\Bonus
      */
     public function current()
     {

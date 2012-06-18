@@ -20,6 +20,11 @@ defined('TESTS_ONLINE') || define('TESTS_ONLINE', true);
 
 /**
  * Affect the following tests:
- * - testSignedRequest() requires to connect to a third party website in order to test _signRequest();
+ * - Connection\AuraTest::testSignedRequest()
+ * - Connection\BuzzTest::testSignedRequest()
+ * - Connection\CheddarGetterTest::testSignedRequest()
+ * - Connection\ZendFrameworkTest::testSignedRequest()
+ *
+ * ::testSignedRequest() requires to connect to a third party website in order to test signRequest();
  */
 defined('TESTS_CONNECTION_ONLINE') || define('TESTS_CONNECTION_ONLINE', true);

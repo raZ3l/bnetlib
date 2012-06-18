@@ -49,7 +49,7 @@ class Reputation implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -98,6 +98,14 @@ class Reputation implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param  int $id
      * @return boolean
      */
@@ -108,7 +116,7 @@ class Reputation implements EntityInterface, \Iterator
 
     /**
      * @param  int $id
-     * @return bnetlib\Resource\Entity\Wow\Character\Faction|null
+     * @return Faction|null
      */
     public function getById($id)
     {
@@ -129,20 +137,20 @@ class Reputation implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Character\Faction
+     * @return Faction
      */
     public function current()
     {
-        return $this->data[$this->index[$this->position]];
+        return $this->data[$this->position];
     }
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return int
      */
     public function key()
     {
-        return $this->index[$this->position];
+        return $this->position;
     }
 
     /**
@@ -159,6 +167,6 @@ class Reputation implements EntityInterface, \Iterator
      */
     public function valid()
     {
-        return isset($this->index[$this->position]);
+        return isset($this->data[$this->position]);
     }
 }

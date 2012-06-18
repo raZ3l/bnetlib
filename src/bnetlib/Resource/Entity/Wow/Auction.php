@@ -39,7 +39,7 @@ class Auction implements ConsumeInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -49,6 +49,11 @@ class Auction implements ConsumeInterface
     public function populate($data)
     {
         $this->data = $data['files'][0];
+
+        $this->data['date'] = new \DateTime(
+            '@' . round(($data['files'][0]['lastModified'] / 1000), 0),
+            new \DateTimeZone('UTC')
+        );
     }
 
     /**
@@ -97,5 +102,13 @@ class Auction implements ConsumeInterface
     public function getLastModified()
     {
         return $this->data['lastModified'];
+    }
+
+    /**
+     * @return int
+     */
+    public function getDate()
+    {
+        return $this->data['date'];
     }
 }

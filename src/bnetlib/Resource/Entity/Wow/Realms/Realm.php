@@ -39,7 +39,7 @@ class Realm implements EntityInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -142,7 +142,7 @@ class Realm implements EntityInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Realms\PvpArea
+     * @return PvpArea
      */
     public function getWintergrasp()
     {
@@ -150,7 +150,7 @@ class Realm implements EntityInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Realms\PvpArea
+     * @return PvpArea
      */
     public function getTolBarad()
     {

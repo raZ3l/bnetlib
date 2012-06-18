@@ -12,17 +12,22 @@
  */
 
 spl_autoload_register(function ($class) {
-    if (substr($class, 0, 7) !== 'bnetlib' && substr($class, 0, 4) !== 'Zend' && substr($class, 0, 4) !== 'Buzz') {
+    if (substr($class, 0, 7) !== 'bnetlib'
+        && substr($class, 0, 4) !== 'Zend'
+        && substr($class, 0, 4) !== 'Buzz'
+        && substr($class, 0, 4) !== 'Aura') {
         return false;
     }
 
     $sgm = explode('\\', $class);
     $ns  = array_shift($sgm);
     $nsl = array(
-        'Buzz'        => __DIR__ . '/vendor/Buzz/lib/Buzz/',
-        'Zend'        => __DIR__ . '/vendor/ZendFramework/library/Zend/',
-        'bnetlibTest' => __DIR__ . '/bnetlibTest/',
-        'bnetlib'     => dirname(__DIR__) . '/src/bnetlib/',
+        'Aura'          => __DIR__ . '/vendor/Aura/Http/src/Aura/',
+    //  'CheddarGetter' => __DIR__ . '/vendor/CheddarGetter/',
+        'Buzz'          => __DIR__ . '/vendor/Buzz/lib/Buzz/',
+        'Zend'          => __DIR__ . '/vendor/ZendFramework/library/Zend/',
+        'bnetlibTest'   => __DIR__ . '/bnetlibTest/',
+        'bnetlib'       => dirname(__DIR__) . '/src/bnetlib/',
     );
 
 

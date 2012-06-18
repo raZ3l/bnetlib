@@ -16,6 +16,8 @@
 
 namespace bnetlib\Resource\Entity\Wow;
 
+use bnetlib\Locale\LocaleInterface;
+use bnetlib\Locale\LocaleAwareInterface;
 use bnetlib\ServiceLocator\ServiceLocatorInterface;
 use bnetlib\Resource\Entity\Wow\Shared\ArenaTeam as BaseArenaTeam;
 
@@ -26,12 +28,17 @@ use bnetlib\Resource\Entity\Wow\Shared\ArenaTeam as BaseArenaTeam;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class ArenaTeam extends BaseArenaTeam implements \Iterator
+class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
 {
     /**
      * @var int
      */
     protected $position = 0;
+
+    /**
+     * @var LocaleInterface
+     */
+    protected $locale;
 
     /**
      * @inheritdoc
@@ -63,7 +70,7 @@ class ArenaTeam extends BaseArenaTeam implements \Iterator
                     $this->data['size'] = $map[$value];
                     break;
                 case 'created':
-                    $this->data['created'] = strtotime($value . ' UTC');
+                    $this->data['created'] = new \DateTime($value, new \DateTimeZone('UTC'));
                     break;
                 case 'side':
                     $ally = array(1, 3, 4, 7, 11, 22); // horde (2, 5, 6, 8, 9, 10)
@@ -74,6 +81,30 @@ class ArenaTeam extends BaseArenaTeam implements \Iterator
                     break;
             }
         }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setLocale(LocaleInterface $locale)
+    {
+        $this->locale = $locale;
+
+        foreach ($this->data as $key => $value) {
+            if (is_object($value) && $value instanceof LocaleAwareInterface) {
+                $this->data[$key]->setLocale($locale);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
     }
 
     /**
@@ -93,7 +124,7 @@ class ArenaTeam extends BaseArenaTeam implements \Iterator
     }
 
     /**
-     * @return int
+     * @return \DateTime
      */
     public function getCreated()
     {
@@ -157,6 +188,18 @@ class ArenaTeam extends BaseArenaTeam implements \Iterator
     }
 
     /**
+     * @return string|null
+     */
+    public function getFactionLocale()
+    {
+        if (isset($this->locale)) {
+            return $this->locale->get(sprintf('faction.%s', $this->data['side']), 'wow');
+        }
+
+        return null;
+    }
+
+    /**
      * @return int
      */
     public function getCurrentWeekRanking()
@@ -173,6 +216,14 @@ class ArenaTeam extends BaseArenaTeam implements \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function getMembers()
+    {
+        return $this->data['members'];
+    }
+
+    /**
      * @see \Iterator
      */
     public function rewind()
@@ -182,11 +233,11 @@ class ArenaTeam extends BaseArenaTeam implements \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\ArenaLadder\Character
+     * @return Arena\Character
      */
     public function current()
     {
-        return $this->data[$this->position];
+        return $this->data['members'][$this->position];
     }
 
     /**
@@ -212,6 +263,6 @@ class ArenaTeam extends BaseArenaTeam implements \Iterator
      */
     public function valid()
     {
-        return isset($this->data[$this->position]);
+        return isset($this->data['members'][$this->position]);
     }
 }

@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\Achievement;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Achievement
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -63,8 +63,14 @@ class AchievementTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $criteria) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Achievements\Criteria', $criteria);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

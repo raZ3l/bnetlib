@@ -39,7 +39,7 @@ class Criteria implements EntityInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -84,7 +84,7 @@ class Criteria implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getDescription()
     {

@@ -39,7 +39,7 @@ class Record implements ConsumeInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -176,7 +176,7 @@ class Record implements ConsumeInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character
+     * @return \bnetlib\Resource\Entity\Wow\Character
      */
     public function getCharacter()
     {

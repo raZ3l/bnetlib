@@ -12,15 +12,37 @@
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-$useGzip = (isset($argv[1]) && in_array(ltrim($argv[1], '-'), array('gz', 'gzip')));
-
-if ($useGzip && !extension_loaded('zlib')) {
-    echo 'Please enable zlib' . PHP_EOL;
-    exit(1);
-}
+$useGzip = (isset($argv[1]) && in_array(ltrim($argv[1], '-'), array('gz', 'gzip', 'compress')));
 
 if (!file_exists(__DIR__ . '/FixtureConfig.php')) {
     die('Unable to load config file.');
+}
+
+$config = include __DIR__ . '/FixtureConfig.php';
+
+if ($useGzip === true) {
+    if (!extension_loaded('zlib')) {
+        echo 'Please enable zlib' . PHP_EOL;
+        exit(1);
+    }
+
+    echo 'Compressing JSON files...' . PHP_EOL;
+
+    foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($config['path'])) as $item) {
+        if (!$item->isFile() || $item->getExtension() !== 'json') {
+            continue;
+        }
+
+        printf('> gzip: %s' . PHP_EOL, $item->getFilename());
+
+        $content  = json_decode(file_get_contents($item->getRealPath()), true);
+
+        $gz = gzopen($item->getRealPath() . '.gz', 'w9');
+        gzwrite($gz, json_encode($content));
+        gzclose($gz);
+    }
+
+    exit();
 }
 
 if (!file_exists(dirname(__DIR__) . '/tests/_autoload.php')) {
@@ -31,8 +53,6 @@ function requestResource($game, $method, $args) {
     return call_user_func_array(array($game, 'get' . $method), $args);
 }
 
-
-$config = include __DIR__ . '/FixtureConfig.php';
 include dirname(__DIR__) . '/tests/_autoload.php';
 
 $games       = array();
@@ -45,7 +65,7 @@ $connection  = new bnetlib\Connection\ZendFramework();
 $locator     = new bnetlib\ServiceLocator\ServiceLocator();
 $defArgs     = (isset($config['config'])) ? $config['config'] : array();
 
-$connection->setConfig($defArgs);
+$connection->setOptions($defArgs);
 
 echo 'Create Game instances...' . PHP_EOL;
 foreach ($config['games'] as $game => $class) {
@@ -59,7 +79,7 @@ foreach ($config['games'] as $game => $class) {
     $resourceMap[$game] = $resourceMap[$game]->getValue($games[$game]);
 }
 
-echo 'Create request queue...' . PHP_EOL;
+echo 'Create request queue...' . PHP_EOL . PHP_EOL;
 foreach ($config['fixtures'] as $game => $requests) {
     if ($game === '_extend') {
         continue;
@@ -135,7 +155,7 @@ foreach ($queue as $game => $requests) {
 }
 
 if (isset($config['fixtures']['_extend'])) {
-    echo 'Extend data...' . PHP_EOL;
+    echo PHP_EOL. 'Extend data...' . PHP_EOL;
     foreach ($config['fixtures']['_extend'] as $game => $list) {
         if (!isset($games[$game])) {
             echo $game . 'not found!' . PHP_EOL;
@@ -188,20 +208,13 @@ if (isset($config['fixtures']['_extend'])) {
     }
 }
 
-echo 'Write to file...' . PHP_EOL;
+echo PHP_EOL . 'Write to files...' . PHP_EOL;
 foreach ($output as $game => $resources) {
     if (!is_dir($config['path'] . '/' . $game)) {
         mkdir($config['path'] . '/' . $game, 0777, true);
     }
     foreach ($resources as $resource => $content) {
         $file = sprintf('%s/%s/%s.json', $config['path'], $game, strtolower($resource));
-        if ($useGzip === true) {
-            $gz = gzopen($file . '.gz', 'w9');
-            gzwrite($gz, json_encode($content, JSON_PRETTY_PRINT));
-            gzclose($gz);
-        } else {
-
-            file_put_contents($file, json_encode($content, JSON_PRETTY_PRINT));
-        }
+        file_put_contents($file, json_encode($content, JSON_PRETTY_PRINT));
     }
 }

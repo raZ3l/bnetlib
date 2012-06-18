@@ -32,7 +32,7 @@ use bnetlib\Exception\InvalidServiceNameException;
 class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
 {
     /**
-     * @var bnetlib\Locale\LocaleInterface|null
+     * @var LocaleInterface|null
      */
     protected $locale = null;
 
@@ -46,7 +46,7 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
      */
     protected $services = array(
         'shared.entity.fallback'                    => 'bnetlib\Resource\Entity\Shared\Fallback',
-        'shared.entity.file'                        => 'bnetlib\Resource\Entity\Shared\File',
+        'shared.entity.image'                       => 'bnetlib\Resource\Entity\Shared\Image',
         'wow.config.achievement'                    => 'bnetlib\Resource\Config\Wow\Achievement',
         'wow.config.arenaladder'                    => 'bnetlib\Resource\Config\Wow\ArenaLadder',
         'wow.config.arenateam'                      => 'bnetlib\Resource\Config\Wow\ArenaTeam',
@@ -61,6 +61,7 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
         'wow.config.guildachievements'              => 'bnetlib\Resource\Config\Wow\GuildAchievements',
         'wow.config.guildperks'                     => 'bnetlib\Resource\Config\Wow\GuildPerks',
         'wow.config.guildrewards'                   => 'bnetlib\Resource\Config\Wow\GuildRewards',
+        'wow.config.icon'                           => 'bnetlib\Resource\Config\Wow\Icon',
         'wow.config.item'                           => 'bnetlib\Resource\Config\Wow\Item',
         'wow.config.itemclasses'                    => 'bnetlib\Resource\Config\Wow\ItemClasses',
         'wow.config.itemset'                        => 'bnetlib\Resource\Config\Wow\ItemSet',
@@ -187,7 +188,7 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
 
         $instance = new $this->services[$name]();
 
-        if (strpos($this->services[$name], '.config.') !== false) {
+        if (strpos($name, '.config.') !== false) {
             if (!$instance instanceof ConfigurationInterface) {
                 throw new DomainException(sprintf('%s must implement ConfigurationInterface.', $name));
             }

@@ -49,7 +49,7 @@ class Titles implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -109,6 +109,14 @@ class Titles implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @return boolean
      */
     public function hasSelected()
@@ -117,7 +125,7 @@ class Titles implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Title|null
+     * @return Title|null
      */
     public function getSelected()
     {
@@ -138,7 +146,7 @@ class Titles implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Character\Title
+     * @return Title
      */
     public function current()
     {

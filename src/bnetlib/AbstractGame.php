@@ -143,7 +143,6 @@ abstract class AbstractGame
             ));
         }
         foreach ($arguments as $num => $arg) {
-
             if (is_array($arg)) {
                 $args = array_merge($args, $arg);
             } elseif (is_string($arg)) {
@@ -173,7 +172,9 @@ abstract class AbstractGame
          * Note: DATE_RFC1123 my not be RFC 1123 compliant, depending on your platform.
          * @link http://www.php.net/manual/de/function.gmdate.php#25031
          */
-        $lastModified = (is_numeric($lastModified)) ? gmdate('D, d M Y H:i:s \G\M\T', $lastModified) : $lastModified;
+        $format       = 'D, d M Y H:i:s \G\M\T';
+        $lastModified = (is_numeric($lastModified)) ? gmdate($format, $lastModified) : $lastModified;
+        $lastModified = ($lastModified instanceof \DateTime) ? $lastModified->format($format) : $lastModified;
 
         if ($returnType !== self::RETURN_PLAIN && $returnType !== self::RETURN_OBJECT) {
             throw new Exception\DomainException('Invalid return type specified.');

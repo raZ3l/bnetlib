@@ -115,7 +115,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Shared\ListData|null
+     * @return Shared\ListData|null
      */
     public function getAllowableClasses()
     {
@@ -135,7 +135,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Shared\ListData|null
+     * @return Shared\ListData|null
      */
     public function getAllowableRacees()
     {
@@ -189,7 +189,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Item\BonusStats|null
+     * @return Item\BonusStats|null
      */
     public function getBonusStats()
     {
@@ -209,7 +209,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Item\Spells|null
+     * @return Item\Spells|null
      */
     public function getItemSpells()
     {
@@ -261,7 +261,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Item\WeaponInfo|null
+     * @return Item\WeaponInfo|null
      */
     public function getWeaponInfo()
     {
@@ -297,7 +297,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\ItemSet
+     * @return ItemSet
      */
     public function getItemSet()
     {
@@ -433,7 +433,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Item\SocketInfo|null
+     * @return Item\SocketInfo|null
      */
     public function getSocketInfo()
     {

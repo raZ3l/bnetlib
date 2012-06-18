@@ -49,7 +49,7 @@ class Reward implements EntityInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -110,7 +110,7 @@ class Reward implements EntityInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Shared\ListData
+     * @return \bnetlib\Resource\Entity\Wow\Shared\ListData
      */
     public function getRaces()
     {
@@ -118,7 +118,7 @@ class Reward implements EntityInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Item\Reward
+     * @return \bnetlib\Resource\Entity\Wow\Item\Reward
      */
     public function getItem()
     {
@@ -126,7 +126,7 @@ class Reward implements EntityInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Achievements\Achievement
+     * @return \bnetlib\Resource\Entity\Wow\Achievements\Achievement
      */
     public function geAchievement()
     {

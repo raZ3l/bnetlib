@@ -16,7 +16,7 @@
 
 namespace bnetlibTest\Resource\Entity\Shared;
 
-use bnetlib\Resource\Entity\Shared\File;
+use bnetlib\Resource\Entity\Shared\Image;
 
 /**
  * @category   bnetlib
@@ -27,10 +27,10 @@ use bnetlib\Resource\Entity\Shared\File;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class FileTest extends \PHPUnit_Framework_TestCase
+class ImageTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var bnetlib\Resource\Entity\Shared\File
+     * @var bnetlib\Resource\Entity\Shared\Image
      */
     protected static $obj;
 
@@ -47,7 +47,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
         );
 
         self::$hash = md5($file);
-        self::$obj  = new File();
+        self::$obj  = new Image();
         self::$obj->populate($file);
     }
 
@@ -62,11 +62,48 @@ class FileTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(self::$hash, md5(self::$obj->getData()));
     }
 
-    public function testSaveAs()
+    public function testSaveAsWithoutExtension()
+    {
+        $tempnam = tempnam(sys_get_temp_dir(), 'phpunit');
+
+        self::$obj->saveAs($tempnam);
+
+        $tempnam .= '.jpg';
+
+        $this->assertEquals(self::$hash, md5(file_get_contents($tempnam)));
+
+        unlink($tempnam);
+    }
+
+    public function testSaveAsJpg()
     {
         $tempnam = tempnam(sys_get_temp_dir(), 'phpunit') . '.jpg';
 
         self::$obj->saveAs($tempnam);
+
+        $this->assertEquals(self::$hash, md5(file_get_contents($tempnam)));
+
+        unlink($tempnam);
+    }
+
+    public function testSaveAsJpeg()
+    {
+        $tempnam = tempnam(sys_get_temp_dir(), 'phpunit') . '.jpeg';
+
+        self::$obj->saveAs($tempnam);
+
+        $this->assertEquals(self::$hash, md5(file_get_contents($tempnam)));
+
+        unlink($tempnam);
+    }
+
+    public function testSaveAsPng()
+    {
+        $tempnam = tempnam(sys_get_temp_dir(), 'phpunit') . '.png';
+
+        self::$obj->saveAs($tempnam);
+
+        $tempnam .= '.jpg';
 
         $this->assertEquals(self::$hash, md5(file_get_contents($tempnam)));
 

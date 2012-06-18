@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\AuctionData;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_AuctionData
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -78,8 +78,14 @@ class AuctionDataTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $fac) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Auction\Faction', $fac);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

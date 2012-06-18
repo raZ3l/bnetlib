@@ -49,7 +49,7 @@ class Items implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -103,6 +103,14 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @return int
      */
     public function getAverageItemLevel()
@@ -127,7 +135,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getBack()
     {
@@ -147,7 +155,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getChest()
     {
@@ -167,7 +175,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getFeet()
     {
@@ -187,7 +195,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getFirstFinger()
     {
@@ -207,7 +215,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getSecondFinger()
     {
@@ -227,7 +235,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getHands()
     {
@@ -247,7 +255,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getHead()
     {
@@ -267,7 +275,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getLegs()
     {
@@ -287,7 +295,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getMainHand()
     {
@@ -307,7 +315,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getOffHand()
     {
@@ -327,7 +335,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getNeck()
     {
@@ -347,7 +355,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getRanged()
     {
@@ -367,7 +375,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getShirt()
     {
@@ -387,7 +395,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getShoulder()
     {
@@ -407,7 +415,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getTabard()
     {
@@ -427,7 +435,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getFirstTrinket()
     {
@@ -447,7 +455,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getSecondTrinket()
     {
@@ -467,7 +475,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getWaist()
     {
@@ -487,7 +495,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\Item|null
+     * @return Item|null
      */
     public function getWrist()
     {
@@ -508,7 +516,7 @@ class Items implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Character\Item
+     * @return Item
      */
     public function current()
     {

@@ -7,7 +7,7 @@
  * file that was distributed with this source code. You can also view the
  * LICENSE file online at https://gitbub.com/coss/bnetlib/LISENCE
  *
- * @see        tools\LocaleGenerator.php
+ * @see        bin\LocaleGenerator.php
  *
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -21,6 +21,39 @@ return array(
     'faction' => array(
         0  => 'Aliança',
         1  => 'Horda',
+    ),
+    'auction' => array(
+        1  => 'Short',
+        2  => 'Medium',
+        3  => 'Long',
+        4  => 'Very Long',
+    ),
+    'itemquality' => array(
+        0  => 'Pobre',
+        1  => 'Comum',
+        2  => 'Incomum',
+        3  => 'Raro',
+        4  => 'Épico',
+        5  => 'Herança',
+        6  => 'Artefato',
+        7  => 'Lendário',
+    ),
+    'pvpareastatus' => array(
+        -1 => 'Unknown',
+        0  => 'Idle',
+        1  => 'Populating',
+        2  => 'Active',
+        3  => 'Concluded',
+    ),
+    'standing' => array(
+        0  => 'Hated',
+        1  => 'Hostile',
+        2  => 'Unfriendly',
+        3  => 'Neutral',
+        4  => 'Friendly',
+        5  => 'Honored',
+        6  => 'Revered',
+        7  => 'Exalted',
     ),
     'itemclass' => array(
         0  => 'Consumível',

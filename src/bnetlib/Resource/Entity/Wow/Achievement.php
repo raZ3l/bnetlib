@@ -18,7 +18,6 @@ namespace bnetlib\Resource\Entity\Wow;
 
 use bnetlib\Resource\Entity\EntityInterface;
 use bnetlib\ServiceLocator\ServiceLocatorInterface;
-use bnetlib\Resource\Entity\Wow\Achievements\DataAchievement;
 
 /**
  * @category   bnetlib
@@ -27,7 +26,7 @@ use bnetlib\Resource\Entity\Wow\Achievements\DataAchievement;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Achievement extends DataAchievement implements \Iterator
+class Achievement implements EntityInterface, \Iterator
 {
     /**
      * @var int
@@ -35,25 +34,78 @@ class Achievement extends DataAchievement implements \Iterator
     protected $position = 0;
 
     /**
+     * @var array
+     */
+    protected $services = array(
+        'rewardItems' => 'wow.entity.item.reward',
+        'criteria'    => 'wow.entity.achievements.criteria',
+    );
+
+    /**
+     * @var array
+     */
+    protected $data = array();
+
+    /**
+     * @var \stdClass|null
+     */
+    protected $headers;
+
+    /**
+     * @var ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
+    /**
      * @inheritdoc
      */
     public function populate($data)
     {
-        if (empty($data['rewardItems'])) {
-            unset($data['rewardItems']);
-        }
+        $this->data = $data;
 
-        parent::populate($data);
-
-        unset($this->data['criteria']);
-
-        foreach ($data['criteria'] as $i => $criteria) {
-            $this->data['criteria'][$i] = $this->serviceLocator->get('wow.entity.achievements.criteria');
-            if (isset($this->headers)) {
-                $this->data['criteria'][$i]->setResponseHeaders($this->headers);
+        foreach ($this->services as $key => $service) {
+            if (!empty($data[$key])) {
+                foreach ($data[$key] as $i => $entry) {
+                    $this->data[$key][$i] = $this->serviceLocator->get($service);
+                    if (isset($this->headers)) {
+                        $this->data[$key][$i]->setResponseHeaders($this->headers);
+                    }
+                    $this->data[$key][$i]->populate($entry);
+                }
             }
-            $this->data['criteria'][$i]->populate($criteria);
         }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getResponseHeaders()
+    {
+        return $this->headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setResponseHeaders(\stdClass $headers)
+    {
+        $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setServiceLocator(ServiceLocatorInterface $locator)
+    {
+        $this->serviceLocator = $locator;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
     }
 
     /**
@@ -65,11 +117,95 @@ class Achievement extends DataAchievement implements \Iterator
     }
 
     /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->data['id'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->data['title'];
+    }
+
+    /**
+     * @return int
+     */
+    public function getPoints()
+    {
+        return $this->data['points'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->data['description'];
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasCriteria()
+    {
+        return !empty($this->data['hasCriteria']);
+    }
+
+    /**
      * @return array
      */
     public function getCriteria()
     {
         return $this->data['criteria'];
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasReward()
+    {
+        return (isset($this->data['reward']) || !empty($this->data['rewardItems']));
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasRewardString()
+    {
+        return isset($this->data['reward']);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getReward()
+    {
+        if (isset($this->data['reward'])) {
+            return $this->data['reward'];
+        }
+
+        return null;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasRewardItems()
+    {
+        return !empty($this->data['rewardItems']);
+    }
+
+    /**
+     * @return array
+     */
+    public function getRewardItems()
+    {
+        return $this->data['rewardItems'];
     }
 
     /**
@@ -82,7 +218,7 @@ class Achievement extends DataAchievement implements \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Achievements\Criteria
+     * @return Achievements\Criteria
      */
     public function current()
     {

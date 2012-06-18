@@ -47,7 +47,7 @@ class FeedEntry implements ConsumeInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -67,6 +67,11 @@ class FeedEntry implements ConsumeInterface
                 $this->data[$key]->populate($data[$key]);
             }
         }
+
+        $this->data['date'] = new \DateTime(
+            '@' . round(($data['timestamp'] / 1000), 0),
+            new \DateTimeZone('UTC')
+        );
     }
 
     /**
@@ -124,6 +129,14 @@ class FeedEntry implements ConsumeInterface
     }
 
     /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->data['date'];
+    }
+
+    /**
      * @return boolean
      */
     public function hasAchievement()
@@ -132,7 +145,7 @@ class FeedEntry implements ConsumeInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Achievements\DataAchievement|null
+     * @return \bnetlib\Resource\Entity\Wow\Achievements\DataAchievement|null
      */
     public function getAchievement()
     {
@@ -152,7 +165,7 @@ class FeedEntry implements ConsumeInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Achievements\Criteria|null
+     * @return \bnetlib\Resource\Entity\Wow\Achievements\Criteria|null
      */
     public function getCriteria()
     {

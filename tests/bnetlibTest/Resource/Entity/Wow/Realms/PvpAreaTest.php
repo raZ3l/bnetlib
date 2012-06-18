@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\Realms\PvpArea;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Realms
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -74,11 +74,6 @@ class PvpAreaTest extends \PHPUnit_Framework_TestCase
     public function testStatus()
     {
         $this->assertEquals(2, self::$obj->getStatus());
-    }
-
-    public function testStatusString()
-    {
-        $this->assertEquals('Active', self::$obj->getStatusString());
     }
 
     public function testIsNotIdle()

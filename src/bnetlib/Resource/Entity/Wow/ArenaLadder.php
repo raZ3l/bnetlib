@@ -49,7 +49,7 @@ class ArenaLadder implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -94,8 +94,16 @@ class ArenaLadder implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param  int $id
-     * @return bnetlib\Resource\Entity\Wow\ArenaLadder\ArenaTeam|null
+     * @return Arena\ArenaTeam|null
      */
     public function getById($id)
     {
@@ -108,7 +116,7 @@ class ArenaLadder implements EntityInterface, \Iterator
 
     /**
      * @param  int $rank
-     * @return bnetlib\Resource\Entity\Wow\ArenaLadder\ArenaTeam|null
+     * @return Arena\ArenaTeam|null
      */
     public function getByRank($rank)
     {
@@ -129,7 +137,7 @@ class ArenaLadder implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\ArenaLadder\ArenaTeam
+     * @return Arena\ArenaTeam
      */
     public function current()
     {

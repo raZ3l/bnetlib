@@ -41,7 +41,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     );
 
     /**
-     * @var bnetlib\Locale\LocaleInterface
+     * @var LocaleInterface
      */
     protected $locale;
 
@@ -56,7 +56,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -76,6 +76,11 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
                 $this->data[$key]->populate($data[$key]);
             }
         }
+
+        $this->data['date'] = new \DateTime(
+            '@' . round(($data['lastModified'] / 1000), 0),
+            new \DateTimeZone('UTC')
+        );
 
         foreach ($data['emblem'] as $key => $value) {
             $this->data[$key] = $value;
@@ -141,6 +146,14 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     }
 
     /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->data['date'];
+    }
+
+    /**
      * @return string
      */
     public function getName()
@@ -193,7 +206,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Guild\Members|null
+     * @return Guild\Members|null
      */
     public function getMembers()
     {
@@ -205,7 +218,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Achievements\Achievements|nul
+     * @return Achievements\Achievements|nul
      */
     public function getAchievements()
     {
@@ -217,7 +230,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Achievements\News|nul
+     * @return Achievements\News|nul
      */
     public function getNews()
     {

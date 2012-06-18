@@ -49,7 +49,7 @@ class CharacterClasses implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -93,8 +93,16 @@ class CharacterClasses implements EntityInterface, \Iterator
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param  int $id
-     * @return bnetlib\Resource\Entity\Wow\Character\Class|null
+     * @return Character\Class|null
      */
     public function getById($id)
     {
@@ -115,7 +123,7 @@ class CharacterClasses implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Character\Class
+     * @return Character\Class
      */
     public function current()
     {

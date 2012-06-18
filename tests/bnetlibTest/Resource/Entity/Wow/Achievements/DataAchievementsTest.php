@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\Achievements\DataAchievements;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Achievements
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -99,8 +99,14 @@ class DataAchievementsTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $av) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Achievements\DataAchievement', $av);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

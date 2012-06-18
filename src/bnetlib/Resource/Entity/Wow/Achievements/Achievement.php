@@ -39,7 +39,7 @@ class Achievement implements ConsumeInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -100,6 +100,14 @@ class Achievement implements ConsumeInterface
     }
 
     /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->data['td'];
+    }
+
+    /**
      * @return int
      */
     public function getCriteria()
@@ -121,6 +129,14 @@ class Achievement implements ConsumeInterface
     public function getCriteriaTimestamp()
     {
         return $this->data['cts'];
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCriteriaDate()
+    {
+        return $this->data['ctd'];
     }
 
     /**

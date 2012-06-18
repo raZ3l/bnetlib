@@ -49,7 +49,7 @@ class Talents implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -96,7 +96,15 @@ class Talents implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\TalentSpecialization
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @return TalentSpecialization
      */
     public function getFristSpec()
     {
@@ -104,7 +112,7 @@ class Talents implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\TalentSpecialization
+     * @return TalentSpecialization
      */
     public function getSecoundSpec()
     {
@@ -112,7 +120,7 @@ class Talents implements EntityInterface, \Iterator
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Character\TalentSpecialization
+     * @return TalentSpecialization
      */
     public function getSelectedSpec()
     {
@@ -129,7 +137,7 @@ class Talents implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Character\TalentSpecialization
+     * @return TalentSpecialization
      */
     public function current()
     {

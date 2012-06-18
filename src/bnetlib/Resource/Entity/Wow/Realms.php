@@ -66,7 +66,7 @@ class Realms implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -88,6 +88,7 @@ class Realms implements EntityInterface, \Iterator
             $this->index['queue'][$queue][]                    = $this->data[$i];
             $this->index['status'][$status][]                  = $this->data[$i];
             $this->index['type'][$realm['type']][]             = $this->data[$i];
+            $this->index['bg'][$realm['battlegroup']][]        = $this->data[$i];
             $this->index['population'][$realm['population']][] = $this->data[$i];
         }
     }
@@ -114,6 +115,14 @@ class Realms implements EntityInterface, \Iterator
     public function setServiceLocator(ServiceLocatorInterface $locator)
     {
         $this->serviceLocator = $locator;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
     }
 
     /**
@@ -173,6 +182,19 @@ class Realms implements EntityInterface, \Iterator
     }
 
     /**
+     * @param  string $battlegroup
+     * @return array|null
+     */
+    public function getByBattlegroup($battlegroup)
+    {
+        if (isset($this->index['bg'][$battlegroup])) {
+            return $this->index['bg'][$battlegroup];
+        }
+
+        return null;
+    }
+
+    /**
      * @see \Iterator
      */
     public function rewind()
@@ -182,7 +204,7 @@ class Realms implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Realms\Realm
+     * @return Realms\Realm
      */
     public function current()
     {

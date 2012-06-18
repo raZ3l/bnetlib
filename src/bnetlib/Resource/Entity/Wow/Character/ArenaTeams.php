@@ -49,7 +49,7 @@ class ArenaTeams implements EntityInterface, \Iterator, \Countable
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -94,6 +94,14 @@ class ArenaTeams implements EntityInterface, \Iterator, \Countable
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @see    \Countable
      * @return int
      */
@@ -121,7 +129,7 @@ class ArenaTeams implements EntityInterface, \Iterator, \Countable
 
     /**
      * @param  string $size Team size 2v2, 3v3 or 5v5
-     * @return bnetlib\Resource\Entity\Wow\Character\ArenaTeam|null
+     * @return ArenaTeam|null
      */
     public function getTeamSize($size)
     {
@@ -142,7 +150,7 @@ class ArenaTeams implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Character\ArenaTeam
+     * @return ArenaTeam
      */
     public function current()
     {

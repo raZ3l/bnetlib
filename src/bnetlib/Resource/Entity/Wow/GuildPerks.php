@@ -49,7 +49,7 @@ class GuildPerks implements EntityInterface, \Iterator
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -95,7 +95,7 @@ class GuildPerks implements EntityInterface, \Iterator
 
     /**
      * @param  id $level
-     * @return bnetlib\Resource\Entity\Wow\Guild\Perk|null
+     * @return Guild\Perk|null
      */
     public function getByGuildLevel($level)
     {
@@ -104,6 +104,14 @@ class GuildPerks implements EntityInterface, \Iterator
         }
 
         return null;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
     }
 
     /**
@@ -116,7 +124,7 @@ class GuildPerks implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return bnetlib\Resource\Entity\Wow\Guild\Perk
+     * @return Guild\Perk
      */
     public function current()
     {

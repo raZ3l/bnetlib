@@ -38,6 +38,7 @@ use bnetlib\Connection\ConnectionInterface;
  * @method     mixed getGuildAchievements([array $args])
  * @method     mixed getGuildPerks([array $args])
  * @method     mixed getGuildRewards([array $args])
+ * @method     mixed getIcon(array $args [, Resource\ConsumeInterface $instance])
  * @method     mixed getItem(array $args [, Resource\ConsumeInterface $instance])
  * @method     mixed getItemSet(array $args)
  * @method     mixed getItemClasses([array $args])
@@ -72,6 +73,7 @@ class WorldOfWarcraft extends AbstractGame
         'GuildAchievements'       => 'wow.entity.achievements',
         'GuildPerks'              => 'wow.entity.guildperks',
         'GuildRewards'            => 'wow.entity.guildrewards',
+        'Icon'                    => 'shared.entity.image',
         'Item'                    => 'wow.entity.item',
         'ItemClasses'             => 'wow.entity.itemclasses',
         'ItemSet'                 => 'wow.entity.itemset',
@@ -79,7 +81,7 @@ class WorldOfWarcraft extends AbstractGame
         'RatedBattlegroundLadder' => 'wow.entity.ratedbattlegroundladder',
         'Realms'                  => 'wow.entity.realms',
         'Recipe'                  => 'wow.entity.recipe',
-        'Thumbnail'               => 'shared.entity.file',
+        'Thumbnail'               => 'shared.entity.image',
     );
 
     /**
@@ -98,7 +100,6 @@ class WorldOfWarcraft extends AbstractGame
             ConnectionInterface::LOCALE_RU,
             ConnectionInterface::LOCALE_DE,
             ConnectionInterface::LOCALE_PT
-
         ),
         ConnectionInterface::REGION_KR => array(ConnectionInterface::LOCALE_KR),
         ConnectionInterface::REGION_TW => array(ConnectionInterface::LOCALE_TW),

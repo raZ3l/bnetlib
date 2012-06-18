@@ -74,6 +74,7 @@ $games      = array();
 $output     = array();
 $internal   = array();
 $connection = new bnetlib\Connection\ZendFramework();
+#$connection->getClient()->setOptions(array('adapter' => 'Zend\Http\Client\Adapter\Curl'));
 $reflection = new ReflectionClass($connection);
 $consts     = $reflection->getConstants();
 

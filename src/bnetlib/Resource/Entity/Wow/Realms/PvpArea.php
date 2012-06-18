@@ -16,6 +16,8 @@
 
 namespace bnetlib\Resource\Entity\Wow\Realms;
 
+use bnetlib\Locale\LocaleInterface;
+use bnetlib\Locale\LocaleAwareInterface;
 use bnetlib\Resource\Entity\EntityInterface;
 use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
@@ -26,7 +28,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class PvpArea implements EntityInterface
+class PvpArea implements EntityInterface, LocaleAwareInterface
 {
     /**
      * @var array
@@ -39,7 +41,12 @@ class PvpArea implements EntityInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var LocaleInterface
+     */
+    protected $locale;
+
+    /**
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -49,6 +56,10 @@ class PvpArea implements EntityInterface
     public function populate($data)
     {
         $this->data = $data;
+
+        $next = new \DateTime('@' . round(($data['next'] / 1000), 0), new \DateTimeZone('UTC'));
+        $this->data['nextDate'] = $next;
+        $this->data['next']     = $data['next'];
     }
 
     /**
@@ -65,6 +76,16 @@ class PvpArea implements EntityInterface
     public function setResponseHeaders(\stdClass $headers)
     {
         $this->headers = $headers;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setLocale(LocaleInterface $locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
     }
 
     /**
@@ -92,6 +113,18 @@ class PvpArea implements EntityInterface
     }
 
     /**
+     * @return string|null
+     */
+    public function getControllingFactionLocale()
+    {
+        if (isset($this->locale)) {
+            return $this->locale->get(sprintf('faction.%s', $this->data['controlling-faction']), 'wow');
+        }
+
+        return null;
+    }
+
+    /**
      * @return boolean
      */
     public function isAllianceControlled()
@@ -116,22 +149,15 @@ class PvpArea implements EntityInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatusString()
+    public function getStatusLocale()
     {
-        switch ($this->data['status']) {
-            case 0:
-                return 'Idle';
-            case 1:
-                return 'Populating';
-            case 2:
-                return 'Active';
-            case 3:
-                return 'Concluded';
-            default:
-                return 'Unknown';
+        if (isset($this->locale)) {
+            return $this->locale->get(sprintf('pvpareastatus.%s', $this->data['status']), 'wow');
         }
+
+        return null;
     }
 
     /**
@@ -172,5 +198,15 @@ class PvpArea implements EntityInterface
     public function getNext()
     {
         return $this->data['next'];
+    }
+
+    /**
+     * Returns "next" as DateTime object.
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->data['nextDate'];
     }
 }

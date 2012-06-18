@@ -26,7 +26,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Achievements implements EntityInterface
+class Achievements implements EntityInterface, \Iterator, \Countable
 {
     /**
      * @var array
@@ -44,7 +44,7 @@ class Achievements implements EntityInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -53,6 +53,8 @@ class Achievements implements EntityInterface
      */
     public function populate($data)
     {
+        $tz = new \DateTimeZone('UTC');
+
         foreach ($data['achievementsCompleted'] as $i => $av) {
             $this->index[$av] = $i;
             $achievement      = $this->serviceLocator->get('wow.entity.achievements.achievement');
@@ -62,9 +64,11 @@ class Achievements implements EntityInterface
             $achievement->populate(array(
                 'a'   => $av,
                 'ts'  => $data['achievementsCompletedTimestamp'][$i],
+                'td'  => new \DateTime('@' . round(($data['achievementsCompletedTimestamp'][$i] / 1000), 0), $tz),
                 'c'   => $data['criteria'][$i],
                 'cq'  => $data['criteriaQuantity'][$i],
                 'cts' => $data['criteriaTimestamp'][$i],
+                'ctd' => new \DateTime('@' . round(($data['criteriaTimestamp'][$i] / 1000), 0), $tz),
                 'cc'  => $data['criteriaCreated'][$i]
             ));
 
@@ -97,8 +101,16 @@ class Achievements implements EntityInterface
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param  int $id
-     * @return bnetlib\Resource\Entity\Wow\Achievements\Achievement|null
+     * @return Achievement|null
      */
     public function getById($id)
     {
@@ -116,5 +128,57 @@ class Achievements implements EntityInterface
     public function has($id)
     {
         return isset($this->index[$id]);
+    }
+
+    /**
+     * @see    \Countable
+     * @return int
+     */
+    public function count()
+    {
+        return count($this->index);
+    }
+
+    /**
+     * @see \Iterator
+     */
+    public function rewind()
+    {
+        $this->position = 0;
+    }
+
+    /**
+     * @see    \Iterator
+     * @return Achievement
+     */
+    public function current()
+    {
+        return $this->data[$this->position];
+    }
+
+    /**
+     * @see    \Iterator
+     * @return int
+     */
+    public function key()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @see \Iterator
+     */
+    public function next()
+    {
+        ++$this->position;
+    }
+
+    /**
+     * @see    \Iterator
+     * @return boolean
+     */
+    public function valid()
+    {
+        return isset($this->data[$this->position]);
     }
 }

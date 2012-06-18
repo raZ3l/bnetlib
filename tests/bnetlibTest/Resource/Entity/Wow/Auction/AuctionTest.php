@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\Auction\Auction;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Character
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -82,7 +82,7 @@ class AuctionTest extends \PHPUnit_Framework_TestCase
 
     public function testAuctionId()
     {
-        $this->assertEquals(502, self::$obj->getAuctionId());
+        $this->assertEquals(502, self::$obj->getId());
     }
 
     public function testItemId()

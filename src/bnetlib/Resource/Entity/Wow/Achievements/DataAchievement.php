@@ -47,7 +47,7 @@ class DataAchievement implements EntityInterface
     protected $headers;
 
     /**
-     * @var bnetlib\ServiceLocator\ServiceLocatorInterface
+     * @var ServiceLocatorInterface
      */
     protected $serviceLocator;
 
@@ -60,11 +60,21 @@ class DataAchievement implements EntityInterface
 
         foreach ($this->services as $key => $service) {
             if (isset($data[$key])) {
-                $this->data[$key] = $this->serviceLocator->get($service);
-                if (isset($this->headers)) {
-                    $this->data[$key]->setResponseHeaders($this->headers);
+                if ($key !== 'criteria') {
+                    $this->data[$key] = $this->serviceLocator->get($service);
+                    if (isset($this->headers)) {
+                        $this->data[$key]->setResponseHeaders($this->headers);
+                    }
+                    $this->data[$key]->populate($data[$key]);
+                } else {
+                    foreach ($data[$key] as $i => $entry) {
+                        $this->data[$key][$i] = $this->serviceLocator->get($service);
+                        if (isset($this->headers)) {
+                            $this->data[$key][$i]->setResponseHeaders($this->headers);
+                        }
+                        $this->data[$key][$i]->populate($entry);
+                    }
                 }
-                $this->data[$key]->populate($data[$key]);
             }
         }
     }
@@ -142,12 +152,12 @@ class DataAchievement implements EntityInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Achievements\Criteria|null
+     * @return array|null
      */
     public function getCriteria()
     {
-        if (isset($this->data['Criteria'])) {
-            return $this->data['Criteria'];
+        if (isset($this->data['criteria'])) {
+            return $this->data['criteria'];
         }
 
         return null;
@@ -190,7 +200,7 @@ class DataAchievement implements EntityInterface
     }
 
     /**
-     * @return bnetlib\Resource\Entity\Wow\Item\Reward|null
+     * @return \bnetlib\Resource\Entity\Wow\Item\Reward|null
      */
     public function getRewardItem()
     {

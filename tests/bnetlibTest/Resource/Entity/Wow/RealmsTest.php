@@ -23,7 +23,7 @@ use bnetlib\Resource\Entity\Wow\Realms;
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOFWarcraft
+ * @group      WorldOfWarcraft
  * @group      WoW_Realms
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
@@ -73,8 +73,14 @@ class RealmsTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
+        $tested = false;
+
         foreach (self::$obj as $key => $realm) {
+            $tested = true;
             $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Realms\Realm', $realm);
+            break;
         }
+
+        $this->assertTrue($tested);
     }
 }

@@ -24,7 +24,7 @@ use bnetlib\ServiceLocator\ServiceLocator;
  * @copyright 2012 Eric Boh <cossish@gmail.com>
  * @license   http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Stub extends AbstractConnection implements ConnectionInterface
+class Stub extends AbstractConnection
 {
     /**
      * @var array
@@ -34,24 +34,19 @@ class Stub extends AbstractConnection implements ConnectionInterface
     /**
      * @var array
      */
-    protected $regex;
-
-    /**
-     * @var array
-     */
     protected $memory;
 
     /**
-     * @param bnetlib\ServiceLocator\ServiceLocator $client
-     * @param array                                 $option
+     * @param ServiceLocator $locator
+     * @param array          $option
      */
-    public function __construct(ServiceLocator $client = null, array $option = null)
+    public function __construct(ServiceLocator $locator = null, array $option = null)
     {
-        $this->client = ($client) ?: new ServiceLocator();
+        $this->client = ($locator) ?: new ServiceLocator();
 
         $this->option['stub'] = array(
             'memory' => true,
-            'fake'   => false,
+            'fake'   => true,
             'path'   => dirname(__DIR__) . '/Data/Fixtures',
         );
 
