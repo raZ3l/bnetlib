@@ -76,7 +76,7 @@ class ClassData implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {

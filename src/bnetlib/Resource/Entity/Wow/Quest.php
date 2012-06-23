@@ -76,7 +76,7 @@ class Quest implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -92,7 +92,7 @@ class Quest implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRequiredLevel()
     {
@@ -108,7 +108,7 @@ class Quest implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSuggestedPartyMembers()
     {
@@ -124,7 +124,7 @@ class Quest implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getLevel()
     {

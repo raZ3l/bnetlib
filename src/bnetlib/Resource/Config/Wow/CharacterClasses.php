@@ -33,7 +33,7 @@ class CharacterClasses implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/data/character/classes';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_STATIC_PATH;
 

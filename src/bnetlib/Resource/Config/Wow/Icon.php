@@ -34,7 +34,7 @@ class Icon implements ConfigurationInterface
     const RESOURCE_URL = '/wow-assets/static/images/icons/%s/%s.jpg';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_DYNAMIC_PATH;
 
@@ -59,7 +59,7 @@ class Icon implements ConfigurationInterface
     public function __construct()
     {
         $size = function ($v) {
-            if (!in_array((int) $v, array(56, 36, 18))) {
+            if (!in_array((integer) $v, array(56, 36, 18))) {
                 throw new DomainException(sprintf(
                     '%s is not a valid size. Valid sizes are 56, 36 or 18.', $v
                 ));

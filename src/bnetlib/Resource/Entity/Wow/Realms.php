@@ -46,7 +46,7 @@ class Realms implements EntityInterface, \Iterator
     /**#@-*/
 
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -213,7 +213,7 @@ class Realms implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

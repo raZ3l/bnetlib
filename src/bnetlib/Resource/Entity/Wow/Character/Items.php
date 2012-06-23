@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Items implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -111,7 +111,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getAverageItemLevel()
     {
@@ -119,7 +119,7 @@ class Items implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getAverageItemLevelEquipped()
     {
@@ -525,7 +525,7 @@ class Items implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return string Item slot name
      */
     public function key()
     {

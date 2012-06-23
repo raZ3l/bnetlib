@@ -28,7 +28,7 @@ use bnetlib\Resource\Config\ConfigurationInterface;
 class AuctionData implements ConfigurationInterface
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_STATIC_URL;
 

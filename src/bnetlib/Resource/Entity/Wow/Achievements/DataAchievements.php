@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class DataAchievements implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -39,7 +39,7 @@ class DataAchievements implements EntityInterface, \Iterator
     protected $data = array();
 
     /**
-     * @var int
+     * @var integer
      */
     protected $categoryId;
 
@@ -49,7 +49,7 @@ class DataAchievements implements EntityInterface, \Iterator
     protected $categoryName;
 
     /**
-     * @var int|null
+     * @var integer|null
      */
     protected $topCategoryId = null;
 
@@ -152,7 +152,7 @@ class DataAchievements implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int|null
+     * @return integer|null
      */
     public function getCategoryId()
     {
@@ -168,7 +168,7 @@ class DataAchievements implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int|null
+     * @return integer|null
      */
     public function getTopCategoryId()
     {
@@ -193,7 +193,7 @@ class DataAchievements implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return self|bnetlib\Resource\Entity\Wow\Achievements\Achievement
+     * @return self|Achievement
      */
     public function current()
     {
@@ -202,7 +202,7 @@ class DataAchievements implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return integer
      */
     public function key()
     {

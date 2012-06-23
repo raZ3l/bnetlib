@@ -29,12 +29,12 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Pets implements EntityInterface, \Iterator, \Countable
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
     /**
-     * @var int|null
+     * @var integer|null
      */
     protected $selected;
 
@@ -105,7 +105,7 @@ class Pets implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Countable
-     * @return int
+     * @return integer
      */
     public function count()
     {
@@ -151,7 +151,7 @@ class Pets implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

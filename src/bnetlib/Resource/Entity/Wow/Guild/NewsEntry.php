@@ -113,7 +113,7 @@ class NewsEntry implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getTimestamp()
     {
@@ -153,7 +153,7 @@ class NewsEntry implements ConsumeInterface
     }
 
     /**
-     * @return int|null
+     * @return integer|null
      */
     public function getItemId()
     {
@@ -165,7 +165,7 @@ class NewsEntry implements ConsumeInterface
     }
 
     /**
-     * @return int|null
+     * @return integer|null
      */
     public function getLevelUp()
     {

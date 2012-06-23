@@ -93,7 +93,7 @@ class Item implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -109,7 +109,7 @@ class Item implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getQuality()
     {

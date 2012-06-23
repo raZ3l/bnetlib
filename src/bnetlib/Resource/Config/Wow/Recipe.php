@@ -33,7 +33,7 @@ class Recipe implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/recipe/%s';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_DYNAMIC_PATH;
 

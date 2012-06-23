@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class ArenaLadder implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -102,7 +102,7 @@ class ArenaLadder implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $id
+     * @param  integer $id
      * @return Arena\ArenaTeam|null
      */
     public function getById($id)
@@ -115,7 +115,7 @@ class ArenaLadder implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $rank
+     * @param  integer $rank
      * @return Arena\ArenaTeam|null
      */
     public function getByRank($rank)
@@ -146,7 +146,7 @@ class ArenaLadder implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

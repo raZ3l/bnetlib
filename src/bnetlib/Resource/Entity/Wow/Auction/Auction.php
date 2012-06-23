@@ -131,7 +131,7 @@ class Auction implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -139,7 +139,7 @@ class Auction implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getItemId()
     {
@@ -155,7 +155,7 @@ class Auction implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getBid()
     {
@@ -163,7 +163,7 @@ class Auction implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getBuyout()
     {
@@ -171,7 +171,7 @@ class Auction implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getQuantity()
     {
@@ -179,7 +179,7 @@ class Auction implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int 1 = Short, 2 = Medium, 3 = Long and 4 = Very Long
+     * @return integer 1 = Short, 2 = Medium, 3 = Long and 4 = Very Long
      */
     public function getTimeLeft()
     {

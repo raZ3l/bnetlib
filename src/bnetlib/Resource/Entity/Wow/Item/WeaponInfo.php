@@ -76,7 +76,7 @@ class WeaponInfo implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMinDamage()
     {
@@ -84,7 +84,7 @@ class WeaponInfo implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMaxDamage()
     {
@@ -92,7 +92,7 @@ class WeaponInfo implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSpeed()
     {
@@ -100,7 +100,7 @@ class WeaponInfo implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getDps()
     {

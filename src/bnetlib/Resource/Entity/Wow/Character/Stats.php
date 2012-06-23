@@ -76,7 +76,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getHealth()
     {
@@ -92,7 +92,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getPower()
     {
@@ -100,7 +100,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getStrength()
     {
@@ -108,7 +108,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getAgility()
     {
@@ -116,7 +116,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getStamina()
     {
@@ -124,15 +124,15 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getIntellect()
     {
-        return $this->data['int'];
+        return $this->data['integer'];
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSpirit()
     {
@@ -140,7 +140,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getAttackPower()
     {
@@ -148,7 +148,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRangedAttackPower()
     {
@@ -156,7 +156,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getMastery()
     {
@@ -164,7 +164,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMasteryRating()
     {
@@ -172,7 +172,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getCrit()
     {
@@ -180,7 +180,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCritRating()
     {
@@ -188,7 +188,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getHit()
     {
@@ -196,7 +196,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getHitRating()
     {
@@ -204,7 +204,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getHasteRating()
     {
@@ -212,7 +212,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getExpertiseRating()
     {
@@ -220,7 +220,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSpellPower()
     {
@@ -228,7 +228,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSpellPenetration()
     {
@@ -236,7 +236,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getSpellCrit()
     {
@@ -244,7 +244,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSpellCritRating()
     {
@@ -252,7 +252,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getSpellHit()
     {
@@ -260,7 +260,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSpellHitRating()
     {
@@ -268,7 +268,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMpFive()
     {
@@ -276,7 +276,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMpFiveInCombat()
     {
@@ -284,7 +284,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getArmor()
     {
@@ -292,7 +292,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getDodge()
     {
@@ -300,7 +300,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getDodgeRating()
     {
@@ -308,7 +308,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getParry()
     {
@@ -316,7 +316,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getParryRating()
     {
@@ -324,7 +324,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getBlock()
     {
@@ -332,7 +332,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getBlockRating()
     {
@@ -340,7 +340,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getResilience()
     {
@@ -348,7 +348,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMainHandDmgMin()
     {
@@ -356,7 +356,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMainHandDmgMax()
     {
@@ -364,7 +364,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getMainHandSpeed()
     {
@@ -372,7 +372,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getMainHandDps()
     {
@@ -380,7 +380,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMainHandExpertise()
     {
@@ -388,7 +388,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getOffHandDmgMin()
     {
@@ -396,7 +396,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getOffHandDmgMax()
     {
@@ -404,7 +404,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getOffHandSpeed()
     {
@@ -412,7 +412,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getOffHandDps()
     {
@@ -420,7 +420,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getOffHandExpertise()
     {
@@ -428,7 +428,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRangedDmgMin()
     {
@@ -436,7 +436,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRangedDmgMax()
     {
@@ -444,7 +444,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getRangedSpeed()
     {
@@ -452,7 +452,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getRangedDps()
     {
@@ -460,7 +460,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getRangedCrit()
     {
@@ -468,7 +468,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRangedCritRating()
     {
@@ -476,7 +476,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int|float
+     * @return integer|float
      */
     public function getRangedHit()
     {
@@ -484,7 +484,7 @@ class Stats implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRangedHitRating()
     {

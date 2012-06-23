@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class RatedBattlegrounds implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -98,7 +98,7 @@ class RatedBattlegrounds implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getPersonalRating()
     {
@@ -114,7 +114,7 @@ class RatedBattlegrounds implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getWins()
     {
@@ -122,7 +122,7 @@ class RatedBattlegrounds implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getLosses()
     {
@@ -130,7 +130,7 @@ class RatedBattlegrounds implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getPlayed()
     {
@@ -164,7 +164,7 @@ class RatedBattlegrounds implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

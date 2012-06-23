@@ -97,7 +97,7 @@ class Auction implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getLastModified()
     {
@@ -105,7 +105,7 @@ class Auction implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getDate()
     {

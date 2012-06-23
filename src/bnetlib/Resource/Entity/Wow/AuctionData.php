@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class AuctionData implements ConsumeInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -177,7 +177,7 @@ class AuctionData implements ConsumeInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

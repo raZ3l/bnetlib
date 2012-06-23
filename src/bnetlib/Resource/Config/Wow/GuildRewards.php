@@ -33,7 +33,7 @@ class GuildRewards implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/data/guild/rewards';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_STATIC_PATH;
 

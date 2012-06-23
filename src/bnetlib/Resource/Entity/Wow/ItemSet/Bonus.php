@@ -76,7 +76,7 @@ class Bonus implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getThreshold()
     {

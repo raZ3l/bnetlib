@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Reputation implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -106,7 +106,7 @@ class Reputation implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $id
+     * @param  integer $id
      * @return boolean
      */
     public function hasEncountered($id)
@@ -115,7 +115,7 @@ class Reputation implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $id
+     * @param  integer $id
      * @return Faction|null
      */
     public function getById($id)
@@ -146,7 +146,7 @@ class Reputation implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

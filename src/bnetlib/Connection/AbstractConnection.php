@@ -65,7 +65,7 @@ abstract class AbstractConnection implements ConnectionInterface
 
     /**
      * @param  string $region
-     * @throws DomainException
+     * @throws DomainException If no host exists for that region.
      * @return string
      */
     public function getHost($region)
@@ -164,7 +164,7 @@ abstract class AbstractConnection implements ConnectionInterface
 
     /**
      * @param  boolean    $json
-     * @param  int        $status
+     * @param  integer        $status
      * @param  string     $body
      * @param  array|null $headers
      * @return array
@@ -247,7 +247,7 @@ abstract class AbstractConnection implements ConnectionInterface
 
     /**
      * @param  string $reason
-     * @param  int    $status
+     * @param  integer    $status
      */
     protected function identifyError($reason, $status)
     {

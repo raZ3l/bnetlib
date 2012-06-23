@@ -66,7 +66,7 @@ class Statistic implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRank()
     {
@@ -74,7 +74,7 @@ class Statistic implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function gePlayed()
     {
@@ -82,7 +82,7 @@ class Statistic implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getWon()
     {
@@ -90,7 +90,7 @@ class Statistic implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getLost()
     {
@@ -98,7 +98,7 @@ class Statistic implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSessionPlayed()
     {
@@ -106,7 +106,7 @@ class Statistic implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSessionWon()
     {
@@ -114,7 +114,7 @@ class Statistic implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSessionLost()
     {
@@ -122,7 +122,7 @@ class Statistic implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRating()
     {

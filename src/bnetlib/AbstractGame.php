@@ -40,7 +40,7 @@ abstract class AbstractGame
     /**#@-*/
 
     /**#@+
-     * @const int
+     * @const integer
      */
     const RETURN_PLAIN  = 1;
     const RETURN_OBJECT = 2;
@@ -67,7 +67,7 @@ abstract class AbstractGame
     protected $serviceLocator = null;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $returnType = self::RETURN_OBJECT;
 
@@ -98,7 +98,7 @@ abstract class AbstractGame
     }
 
     /**
-     * @param  int|const $region
+     * @param  integer|const $region
      * @return array|null
      */
     public function getSupportedLocale($region)
@@ -111,7 +111,7 @@ abstract class AbstractGame
     }
 
     /**
-     * @param  int $type
+     * @param  integer $type
      * @return self
      */
     public function setReturnType($type)

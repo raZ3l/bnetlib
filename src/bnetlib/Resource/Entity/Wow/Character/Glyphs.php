@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Glyphs implements EntityInterface, \Iterator, \Countable
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -110,7 +110,7 @@ class Glyphs implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Countable
-     * @return int
+     * @return integer
      */
     public function count()
     {
@@ -192,7 +192,7 @@ class Glyphs implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

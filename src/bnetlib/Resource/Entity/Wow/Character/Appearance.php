@@ -82,7 +82,7 @@ class Appearance implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getFaceVariation()
     {
@@ -90,7 +90,7 @@ class Appearance implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSkinColor()
     {
@@ -98,7 +98,7 @@ class Appearance implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getHairVariation()
     {
@@ -106,7 +106,7 @@ class Appearance implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getHairColor()
     {
@@ -114,7 +114,7 @@ class Appearance implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getFeatureVariation()
     {
@@ -122,7 +122,7 @@ class Appearance implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function isShowingHelm()
     {
@@ -130,7 +130,7 @@ class Appearance implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function isShowingCloak()
     {

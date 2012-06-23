@@ -96,7 +96,7 @@ class Record implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRank()
     {
@@ -104,7 +104,7 @@ class Record implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRating()
     {
@@ -112,7 +112,7 @@ class Record implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getWins()
     {
@@ -120,7 +120,7 @@ class Record implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getPlayed()
     {
@@ -128,7 +128,7 @@ class Record implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getLosses()
     {
@@ -136,7 +136,7 @@ class Record implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getLastModified()
     {

@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class BonusStats implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -102,7 +102,7 @@ class BonusStats implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $stat
+     * @param  integer $stat
      * @return boolean
      */
     public function hasStat($stat)
@@ -111,7 +111,7 @@ class BonusStats implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $stat
+     * @param  integer $stat
      * @return \bnetlib\Resource\Entity\Wow\Item|null
      */
     public function getByStat($stat)
@@ -142,7 +142,7 @@ class BonusStats implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return integer
      */
     public function key()
     {

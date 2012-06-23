@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class ItemClasses implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -93,7 +93,7 @@ class ItemClasses implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $id
+     * @param  integer $id
      * @return Item\ClassData|null
      */
     public function getById($id)
@@ -132,7 +132,7 @@ class ItemClasses implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return integer
      */
     public function key()
     {

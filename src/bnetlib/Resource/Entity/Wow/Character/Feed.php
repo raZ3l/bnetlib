@@ -39,7 +39,7 @@ class Feed implements EntityInterface, \Iterator, \Countable
     /**#@-*/
 
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -130,7 +130,7 @@ class Feed implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Countable
-     * @return int
+     * @return integer
      */
     public function count()
     {
@@ -156,7 +156,7 @@ class Feed implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

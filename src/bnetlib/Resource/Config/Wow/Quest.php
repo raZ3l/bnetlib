@@ -33,7 +33,7 @@ class Quest implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/quest/%s';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_DYNAMIC_PATH;
 

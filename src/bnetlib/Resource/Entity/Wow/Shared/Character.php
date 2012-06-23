@@ -128,7 +128,7 @@ class Character implements EntityInterface, ConsumeInterface, LocaleAwareInterfa
     }
 
     /**
-     * @return int Character level
+     * @return integer Character level
      */
     public function getLevel()
     {
@@ -136,7 +136,7 @@ class Character implements EntityInterface, ConsumeInterface, LocaleAwareInterfa
     }
 
     /**
-     * @return int Character class
+     * @return integer Character class
      */
     public function getClass()
     {
@@ -144,7 +144,7 @@ class Character implements EntityInterface, ConsumeInterface, LocaleAwareInterfa
     }
 
     /**
-     * @return int Character race
+     * @return integer Character race
      */
     public function getRace()
     {
@@ -152,7 +152,7 @@ class Character implements EntityInterface, ConsumeInterface, LocaleAwareInterfa
     }
 
     /**
-     * @return int Character gender
+     * @return integer Character gender
      */
     public function getGender()
     {
@@ -160,7 +160,7 @@ class Character implements EntityInterface, ConsumeInterface, LocaleAwareInterfa
     }
 
     /**
-     * @return int Character faction. 0 = Alliance, 1 = Horde
+     * @return integer Character faction. 0 = Alliance, 1 = Horde
      */
     public function getFaction()
     {
@@ -168,7 +168,7 @@ class Character implements EntityInterface, ConsumeInterface, LocaleAwareInterfa
     }
 
     /**
-     * @return int Achievement points
+     * @return integer Achievement points
      */
     public function getAchievementPoints()
     {

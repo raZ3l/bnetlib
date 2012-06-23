@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Data implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -53,7 +53,7 @@ class Data implements EntityInterface, \Iterator
      */
     public function populate($data)
     {
-        $this->data  = $data;
+        $this->data = $data;
     }
 
     /**
@@ -90,7 +90,7 @@ class Data implements EntityInterface, \Iterator
 
     /**
      * @see    \Countable
-     * @return int
+     * @return integer
      */
     public function count()
     {
@@ -107,7 +107,7 @@ class Data implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return objectQ
+     * @return mixed
      */
     public function current()
     {
@@ -116,7 +116,7 @@ class Data implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return integer
      */
     public function key()
     {

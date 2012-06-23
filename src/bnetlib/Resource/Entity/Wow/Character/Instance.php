@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Instance implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -172,7 +172,7 @@ class Instance implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getNormal()
     {
@@ -180,7 +180,7 @@ class Instance implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getHeroic()
     {
@@ -188,7 +188,7 @@ class Instance implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -254,7 +254,7 @@ class Instance implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

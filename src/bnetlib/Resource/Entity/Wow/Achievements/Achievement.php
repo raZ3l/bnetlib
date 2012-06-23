@@ -84,7 +84,7 @@ class Achievement implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -92,7 +92,7 @@ class Achievement implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getTimestamp()
     {
@@ -108,7 +108,7 @@ class Achievement implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCriteria()
     {
@@ -116,7 +116,7 @@ class Achievement implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCriteriaQuantity()
     {
@@ -124,7 +124,7 @@ class Achievement implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCriteriaTimestamp()
     {
@@ -140,7 +140,7 @@ class Achievement implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCriteriaCreated()
     {

@@ -109,7 +109,7 @@ class Achievements implements EntityInterface, \Iterator, \Countable
     }
 
     /**
-     * @param  int $id
+     * @param  integer $id
      * @return Achievement|null
      */
     public function getById($id)
@@ -122,7 +122,7 @@ class Achievements implements EntityInterface, \Iterator, \Countable
     }
 
     /**
-     * @param  int $id
+     * @param  integer $id
      * @return boolean
      */
     public function has($id)
@@ -132,7 +132,7 @@ class Achievements implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Countable
-     * @return int
+     * @return integer
      */
     public function count()
     {
@@ -158,7 +158,7 @@ class Achievements implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

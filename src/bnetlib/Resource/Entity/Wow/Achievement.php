@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Achievement implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -117,7 +117,7 @@ class Achievement implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -133,7 +133,7 @@ class Achievement implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getPoints()
     {
@@ -227,7 +227,7 @@ class Achievement implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

@@ -138,7 +138,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getLastModified()
     {
@@ -170,7 +170,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getLevel()
     {
@@ -178,7 +178,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getFaction()
     {
@@ -198,7 +198,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getAchievementPoints()
     {
@@ -230,7 +230,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     }
 
     /**
-     * @return Achievements\News|nul
+     * @return Guild\News|nul
      */
     public function getNews()
     {

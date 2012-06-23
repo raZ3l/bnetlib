@@ -78,7 +78,7 @@ class Spell implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -178,7 +178,7 @@ class Spell implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCharges()
     {
@@ -186,7 +186,7 @@ class Spell implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getTrigger()
     {
@@ -202,7 +202,7 @@ class Spell implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCategoryId()
     {

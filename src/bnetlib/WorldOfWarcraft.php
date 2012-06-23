@@ -17,6 +17,7 @@
 namespace bnetlib;
 
 use bnetlib\Connection\ConnectionInterface;
+use bnetlib\Resource\Entity\ConsumeInterface;
 
 /**
  * @category   bnetlib
@@ -25,28 +26,27 @@ use bnetlib\Connection\ConnectionInterface;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  *
- * @method     mixed getArenaLadder(array $args [, Resource\ConsumeInterface $instance])
- * @method     mixed getArenaTeam(array $args [, Resource\ConsumeInterface $instance])
- * @method     mixed getAuction(array $args [, Resource\ConsumeInterface $instance])
- * @method     mixed getAuctionData(array $args [, Resource\ConsumeInterface $instance])
- * @method     mixed getBattlegroups([array $args])
- * @method     mixed getCharacter(array $args [, Resource\ConsumeInterface $instance])
- * @method     mixed getCharacterAchievements([array $args])
- * @method     mixed getCharacterClasses([array $args])
- * @method     mixed getCharacterRaces([array $args])
- * @method     mixed getGuild(array $args [, Resource\ConsumeInterface $instance])
- * @method     mixed getGuildAchievements([array $args])
- * @method     mixed getGuildPerks([array $args])
- * @method     mixed getGuildRewards([array $args])
- * @method     mixed getIcon(array $args [, Resource\ConsumeInterface $instance])
- * @method     mixed getItem(array $args [, Resource\ConsumeInterface $instance])
- * @method     mixed getItemSet(array $args)
- * @method     mixed getItemClasses([array $args])
- * @method     mixed getQuest(array $args [, Resource\ConsumeInterface $instance])
- * @method     mixed getRatedBattlegroundLadder(array $args [, Resource\ConsumeInterface $instance])
- * @method     mixed getRealm([array $args, [Resource\ConsumeInterface $instance]])
- * @method     mixed getRecipe(array $args [, Resource\ConsumeInterface $instance])
- * @method     mixed getThumbnail(array $args [, Resource\ConsumeInterface $instance])
+ * @method     mixed getArenaLadder(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
+ * @method     mixed getArenaTeam(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
+ * @method     mixed getAuction(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
+ * @method     mixed getAuctionData(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
+ * @method     mixed getBattlegroups(array $args = null)
+ * @method     mixed getCharacter(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
+ * @method     mixed getCharacterAchievements(array $args = null)
+ * @method     mixed getCharacterClasses(array $args = null)
+ * @method     mixed getCharacterRaces(array $args = null)
+ * @method     mixed getGuild(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
+ * @method     mixed getGuildAchievements(array $args = null)
+ * @method     mixed getGuildPerks(array $args = null)
+ * @method     mixed getGuildRewards(array $args = null)
+ * @method     mixed getItem(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
+ * @method     mixed getItemSet(array $args = null)
+ * @method     mixed getItemClasses(array $args = null)
+ * @method     mixed getQuest(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
+ * @method     mixed getRatedBattlegroundLadder(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
+ * @method     mixed getRealm(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
+ * @method     mixed getRecipe(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
+ * @method     mixed getThumbnail(array|ConsumeInterface $args, array|ConsumeInterface $extra = null)
  */
 class WorldOfWarcraft extends AbstractGame
 {

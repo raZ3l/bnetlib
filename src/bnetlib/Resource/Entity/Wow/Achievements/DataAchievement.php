@@ -112,7 +112,7 @@ class DataAchievement implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -128,7 +128,7 @@ class DataAchievement implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getPoints()
     {

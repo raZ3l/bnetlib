@@ -88,7 +88,7 @@ class Pvp implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getKills()
     {

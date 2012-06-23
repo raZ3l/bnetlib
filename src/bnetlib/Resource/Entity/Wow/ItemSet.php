@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class ItemSet implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -104,7 +104,7 @@ class ItemSet implements EntityInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -128,7 +128,7 @@ class ItemSet implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $threshold
+     * @param  integer $threshold
      * @return ItemSet\Bonus|null
      */
     public function getByThreshold($threshold)
@@ -141,7 +141,7 @@ class ItemSet implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $threshold
+     * @param  integer $threshold
      * @return array
      */
     public function hasThreshold($threshold)
@@ -168,7 +168,7 @@ class ItemSet implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

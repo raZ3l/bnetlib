@@ -86,7 +86,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return int|null
+     * @return integer|null
      */
     public function getLastModified()
     {
@@ -102,7 +102,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return Shared\Achievements|null
+     * @return Achievements\Achievements|null
      */
     public function getAchievements()
     {
@@ -162,7 +162,7 @@ class Character extends BaseCharacter
     }
 
     /**
-     * @return Character\Items\Guild|null
+     * @return Character\Items|null
      */
     public function getItems()
     {

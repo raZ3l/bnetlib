@@ -91,7 +91,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, \Countable
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getLevel()
     {
@@ -99,7 +99,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, \Countable
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMembers()
     {
@@ -108,7 +108,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, \Countable
 
     /**
      * @see    \Countable
-     * @return int
+     * @return integer
      */
     public function count()
     {
@@ -116,7 +116,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, \Countable
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getAchievementPoints()
     {

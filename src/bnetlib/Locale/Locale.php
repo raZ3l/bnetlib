@@ -87,6 +87,11 @@ class Locale implements LocaleInterface
     }
 
     /**
+     * The value will be parsed trough sprintf.
+     * - %1$s = locale
+     * - %2$s = game (short name) string
+     * - %3$s = locale string
+     *
      * @param  string $value
      * @return self
      */

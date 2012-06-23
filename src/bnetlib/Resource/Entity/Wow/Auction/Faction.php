@@ -30,7 +30,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Faction implements EntityInterface, \Iterator
 {
     /**#@+
-     * @const int
+     * @const integer
      */
     const TIME_SHORT     = 1;
     const TIME_MEDIUM    = 2;
@@ -39,7 +39,7 @@ class Faction implements EntityInterface, \Iterator
     /**#@-*/
 
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -128,7 +128,7 @@ class Faction implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $id
+     * @param  integer $id
      * @return array
      */
     public function getByItem($id)
@@ -162,9 +162,9 @@ class Faction implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  string|int $phrase
-     * @throws InvalidArgumentException
-     * @throws InvalidArgumentException
+     * @param  string|integer $phrase
+     * @throws InvalidArgumentException If no valid time phrase was passed.
+     * @throws InvalidArgumentException If the argument is not a string nor an integer.
      * @return array
      */
     public function getByTime($phrase)
@@ -178,7 +178,7 @@ class Faction implements EntityInterface, \Iterator
             }
         } elseif (!is_numeric($phrase)) {
             throw new InvalidArgumentException(sprintf(
-                'A time phrase must be a integer or string, %s given.', gettype($phrase)
+                'A time phrase must be an integer or string, %s given.', gettype($phrase)
             ));
         }
 
@@ -211,10 +211,10 @@ class Faction implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int    $id
+     * @param  integer    $id
      * @param  string $phrase
-     * @throws InvalidArgumentException
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException If no valid time phrase was passed.
+     * @throws InvalidArgumentException If the argument is not a string nor an integer.
      * @return array
      */
     public function getItemAndTimeIntersection($id, $phrase)
@@ -228,7 +228,7 @@ class Faction implements EntityInterface, \Iterator
             }
         } elseif (!is_numeric($phrase)) {
             throw new Exception\InvalidArgumentException(sprintf(
-                'A time phrase must be an array or string, %s given.', gettype($phrase)
+                'A time phrase must be an integer or string, %s given.', gettype($phrase)
             ));
         }
 
@@ -265,7 +265,7 @@ class Faction implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

@@ -76,7 +76,7 @@ class ClassData implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -84,7 +84,7 @@ class ClassData implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMask()
     {

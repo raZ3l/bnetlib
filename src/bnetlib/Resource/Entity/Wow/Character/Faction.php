@@ -93,7 +93,7 @@ class Faction implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -109,7 +109,7 @@ class Faction implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getStanding()
     {
@@ -129,7 +129,7 @@ class Faction implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getValue()
     {
@@ -137,7 +137,7 @@ class Faction implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMax()
     {

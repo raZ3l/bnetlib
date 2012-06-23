@@ -84,7 +84,7 @@ class Glyph implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getGlyphId()
     {
@@ -92,7 +92,7 @@ class Glyph implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getItemId()
     {
@@ -100,7 +100,7 @@ class Glyph implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getGlyphType()
     {

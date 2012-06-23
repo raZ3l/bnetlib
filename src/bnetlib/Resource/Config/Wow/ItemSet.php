@@ -33,7 +33,7 @@ class ItemSet implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/item/set/%s';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_DYNAMIC_PATH;
 

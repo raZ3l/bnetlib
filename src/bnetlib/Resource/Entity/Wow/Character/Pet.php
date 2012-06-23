@@ -92,7 +92,7 @@ class Pet implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCreature()
     {
@@ -100,7 +100,7 @@ class Pet implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSlot()
     {

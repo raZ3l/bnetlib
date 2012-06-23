@@ -76,7 +76,7 @@ class GuildEmblem implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getEmblemIcon()
     {
@@ -92,7 +92,7 @@ class GuildEmblem implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getEmblemBorder()
     {

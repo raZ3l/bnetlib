@@ -78,7 +78,7 @@ class Title implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {

@@ -34,7 +34,7 @@ class Realms implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/realm/status';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_STATIC_PATH;
 

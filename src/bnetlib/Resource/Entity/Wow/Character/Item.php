@@ -37,7 +37,7 @@ class Item extends Reward
         if (!empty($data['tooltipParams'])) {
             foreach ($data['tooltipParams'] as $key => $value) {
                 if (preg_match('/gem(\d+)/', $key, $match)) {
-                    $i = (int) $match[1];
+                    $i = (integer) $match[1];
                     unset($this->data['tooltipParams'][$key]);
 
                     if (!isset($this->data['tooltipParams']['gems'])) {
@@ -59,7 +59,7 @@ class Item extends Reward
     }
 
     /**
-     * @return int|null
+     * @return integer|null
      */
     public function getTransmogrification()
     {
@@ -99,7 +99,7 @@ class Item extends Reward
     }
 
     /**
-     * @return int|null
+     * @return integer|null
      */
     public function getReforge()
     {
@@ -119,7 +119,7 @@ class Item extends Reward
     }
 
     /**
-     * @return int|null
+     * @return integer|null
      */
     public function getEnchant()
     {

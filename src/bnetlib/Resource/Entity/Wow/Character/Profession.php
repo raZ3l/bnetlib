@@ -84,7 +84,7 @@ class Profession implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -108,7 +108,7 @@ class Profession implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRank()
     {
@@ -116,7 +116,7 @@ class Profession implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMaxRank()
     {
@@ -132,7 +132,7 @@ class Profession implements EntityInterface
     }
 
     /**
-     * @param  int $id
+     * @param  integer $id
      * @return boolean
      */
     public function knowsRecipe($id)

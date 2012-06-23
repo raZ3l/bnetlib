@@ -33,7 +33,7 @@ class Battlegroups implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/data/battlegroups/';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_STATIC_PATH;
 

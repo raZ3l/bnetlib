@@ -121,7 +121,7 @@ class FeedEntry implements ConsumeInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getTimestamp()
     {
@@ -177,7 +177,7 @@ class FeedEntry implements ConsumeInterface
     }
 
     /**
-     * @return int|null
+     * @return integer|null
      */
     public function getItemId()
     {

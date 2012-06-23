@@ -34,7 +34,7 @@ class Character implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/character/%s/%s';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_DYNAMIC_PATH;
 

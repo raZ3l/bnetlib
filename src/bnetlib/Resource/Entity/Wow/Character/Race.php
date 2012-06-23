@@ -76,7 +76,7 @@ class Race implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -84,7 +84,7 @@ class Race implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMask()
     {

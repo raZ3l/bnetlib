@@ -26,7 +26,7 @@ namespace bnetlib\Resource\Config;
 interface ConfigurationInterface
 {
     /**#@+
-     * @const int
+     * @const integer
      */
     const TYPE_STATIC_URL   = 1;
     const TYPE_STATIC_PATH  = 2;
@@ -40,7 +40,7 @@ interface ConfigurationInterface
     public function isJson();
 
     /**
-     * @return int
+     * @return integer
      */
     public function getResourceType();
 

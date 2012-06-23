@@ -28,7 +28,7 @@ use bnetlib\Resource\Entity\Wow\Shared\ArenaTeam as BaseArenaTeam;
 class ArenaTeam extends BaseArenaTeam
 {
     /**
-     * @return int
+     * @return integer
      */
     public function getPersonalRating()
     {

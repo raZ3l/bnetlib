@@ -33,7 +33,7 @@ class GuildPerks implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/data/guild/perks';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_STATIC_PATH;
 

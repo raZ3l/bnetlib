@@ -83,7 +83,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getStacksize()
     {
@@ -99,7 +99,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getItemBind()
     {
@@ -221,7 +221,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getBuyPrice()
     {
@@ -229,7 +229,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getItemClass()
     {
@@ -237,7 +237,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getItemSubClass()
     {
@@ -245,7 +245,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getContainerSlots()
     {
@@ -273,7 +273,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getInventoryType()
     {
@@ -289,7 +289,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getItemLevel()
     {
@@ -313,7 +313,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getUniqueCount()
     {
@@ -321,7 +321,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getDurability()
     {
@@ -337,7 +337,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRequiredFactionId()
     {
@@ -353,7 +353,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRequiredStanding()
     {
@@ -361,7 +361,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSellPrice()
     {
@@ -377,7 +377,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRequiredLevel()
     {
@@ -393,7 +393,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRequiredProfession()
     {
@@ -409,7 +409,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRequiredProfessionRank()
     {
@@ -453,7 +453,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getBaseArmor()
     {
@@ -461,7 +461,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getArmor()
     {
@@ -469,7 +469,7 @@ class Item extends BaseItem
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getDisplayInfoId()
     {

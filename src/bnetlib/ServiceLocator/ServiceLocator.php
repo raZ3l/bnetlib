@@ -18,10 +18,11 @@ namespace bnetlib\ServiceLocator;
 use bnetlib\Locale\LocaleInterface;
 use bnetlib\Exception\DomainException;
 use bnetlib\Locale\LocaleAwareInterface;
-use bnetlib\Resource\Config\ConfigurationInterface;
+use bnetlib\Resource\Entity\EntityInterface;
 use bnetlib\Exception\InvalidArgumentException;
 use bnetlib\Exception\ServiceNotCreatedException;
 use bnetlib\Exception\InvalidServiceNameException;
+use bnetlib\Resource\Config\ConfigurationInterface;
 
 /**
  * @category  bnetlib
@@ -168,6 +169,7 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
      * @throws bnetlib\Exception\InvalidServiceNameException Unable to find service
      * @throws bnetlib\Exception\ServiceNotCreatedException  Unable to create instance of service
      * @throws bnetlib\Exception\DomainException             Config don't implment ConfigurationInterface
+     * @throws bnetlib\Exception\DomainException             Entity don't implment EntityInterface
      * @return object
      */
     public function get($name, $shared = false)
@@ -194,6 +196,12 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
             }
         }
 
+        if (strpos($name, '.entity.') !== false) {
+            if (!$instance instanceof EntityInterface) {
+                throw new DomainException(sprintf('%s must implement EntityInterface.', $name));
+            }
+        }
+
         if ($instance instanceof ServiceLocatorAwareInterface) {
             $instance->setServiceLocator($this);
         }
@@ -209,8 +217,8 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
     }
 
     /**
-     * @param  string $name
-     * @param  string $class
+     * @param  string $name  Service name
+     * @param  string $class FQCN
      * @return self
      */
     public function set($name, $class)
@@ -225,7 +233,7 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
     }
 
     /**
-     * @param  array $services
+     * @param  array $services Service name as key and FQCN as value.
      * @return self
      */
     public function fomArray(array $services)
@@ -242,6 +250,8 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
     }
 
     /**
+     * Inject a Locale object and tries to inject the object in shared instances.
+     *
      * @inheritdoc
      */
     public function setLocale(LocaleInterface $locale)

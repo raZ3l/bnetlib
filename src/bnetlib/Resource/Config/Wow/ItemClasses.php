@@ -33,7 +33,7 @@ class ItemClasses implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/data/item/classes';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_STATIC_PATH;
 

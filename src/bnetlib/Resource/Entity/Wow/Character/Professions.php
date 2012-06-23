@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Professions implements EntityInterface, \Iterator
 {
     /**#@+
-     * @const int
+     * @const integer
      */
     const PROFESSION_ALCHEMY        = 171;
     const PROFESSION_BLACKSMITHING  = 164;
@@ -49,7 +49,7 @@ class Professions implements EntityInterface, \Iterator
     /**#@-*/
 
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -131,7 +131,7 @@ class Professions implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $id
+     * @param  integer $id
      * @return Profession|null
      */
     public function getById($id)
@@ -324,7 +324,7 @@ class Professions implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

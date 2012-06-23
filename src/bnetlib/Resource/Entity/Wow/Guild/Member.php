@@ -83,7 +83,7 @@ class Member implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRank()
     {

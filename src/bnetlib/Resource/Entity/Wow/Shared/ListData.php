@@ -26,7 +26,7 @@ namespace bnetlib\Resource\Entity\Wow\Shared;
 class ListData extends Data implements \Countable
 {
     /**
-     * @param  int $id
+     * @param  integer $id
      * @return boolean
      */
     public function has($id)
@@ -36,7 +36,7 @@ class ListData extends Data implements \Countable
 
     /**
      * @see    \Countable
-     * @return int
+     * @return integer
      */
     public function count()
     {

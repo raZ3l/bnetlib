@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Members implements EntityInterface, \Iterator, \Countable
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -95,7 +95,7 @@ class Members implements EntityInterface, \Iterator, \Countable
     }
 
     /**
-     * @param  int $rank
+     * @param  integer $rank
      * @return array|null
      */
     public function getByRank($rank)
@@ -117,7 +117,7 @@ class Members implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Countable
-     * @return int
+     * @return integer
      */
     public function count()
     {
@@ -143,7 +143,7 @@ class Members implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return integer
      */
     public function key()
     {

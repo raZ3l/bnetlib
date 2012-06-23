@@ -33,7 +33,7 @@ class RatedBattlegroundLadder implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/pvp/ratedbg/ladder';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_STATIC_PATH;
 

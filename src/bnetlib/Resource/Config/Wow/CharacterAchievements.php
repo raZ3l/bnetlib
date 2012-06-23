@@ -33,7 +33,7 @@ class CharacterAchievements implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/data/character/achievements';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_STATIC_PATH;
 

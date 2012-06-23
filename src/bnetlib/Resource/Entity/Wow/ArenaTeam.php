@@ -31,7 +31,7 @@ use bnetlib\Resource\Entity\Wow\Shared\ArenaTeam as BaseArenaTeam;
 class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -116,7 +116,7 @@ class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRanking()
     {
@@ -132,7 +132,7 @@ class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function gePlayed()
     {
@@ -140,7 +140,7 @@ class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getWon()
     {
@@ -148,7 +148,7 @@ class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getLost()
     {
@@ -156,7 +156,7 @@ class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSessionPlayed()
     {
@@ -164,7 +164,7 @@ class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSessionWon()
     {
@@ -172,7 +172,7 @@ class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getSessionLost()
     {
@@ -180,7 +180,7 @@ class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getFaction()
     {
@@ -200,7 +200,7 @@ class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCurrentWeekRanking()
     {
@@ -208,7 +208,7 @@ class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getLastSessionRanking()
     {
@@ -242,7 +242,7 @@ class ArenaTeam extends BaseArenaTeam implements LocaleAwareInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return integer
      */
     public function key()
     {

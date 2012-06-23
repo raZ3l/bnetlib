@@ -33,7 +33,7 @@ class Thumbnail implements ConfigurationInterface
     const RESOURCE_URL = '/static-render/%s/%s';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_DYNAMIC_PATH;
 

@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class CharacterClasses implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -101,8 +101,8 @@ class CharacterClasses implements EntityInterface, \Iterator
     }
 
     /**
-     * @param  int $id
-     * @return Character\Class|null
+     * @param  integer $id
+     * @return Character\ClassData|null
      */
     public function getById($id)
     {
@@ -123,7 +123,7 @@ class CharacterClasses implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return Character\Class
+     * @return Character\ClassData
      */
     public function current()
     {
@@ -132,7 +132,7 @@ class CharacterClasses implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return integer
      */
     public function key()
     {

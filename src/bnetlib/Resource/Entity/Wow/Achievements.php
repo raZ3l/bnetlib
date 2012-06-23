@@ -30,7 +30,7 @@ use bnetlib\Resource\Entity\Wow\Achievements\DataAchievements;
 class Achievements implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -114,7 +114,7 @@ class Achievements implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return integer
      */
     public function key()
     {

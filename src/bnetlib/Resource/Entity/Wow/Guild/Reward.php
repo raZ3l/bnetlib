@@ -94,7 +94,7 @@ class Reward implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMinGuildLevel()
     {
@@ -102,7 +102,7 @@ class Reward implements EntityInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMinGuildStanding()
     {

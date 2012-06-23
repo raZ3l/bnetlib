@@ -34,7 +34,7 @@ class Auction implements ConfigurationInterface
     const RESOURCE_URL = '/api/wow/auction/data/%s';
 
     /**
-     * @var int
+     * @var integer
      */
     protected $resourceType = self::TYPE_DYNAMIC_PATH;
 

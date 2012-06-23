@@ -29,12 +29,12 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Talents implements EntityInterface, \Iterator
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $selected = 0;
 
@@ -146,7 +146,7 @@ class Talents implements EntityInterface, \Iterator
 
     /**
      * @see    \Iterator
-     * @return string
+     * @return integer
      */
     public function key()
     {

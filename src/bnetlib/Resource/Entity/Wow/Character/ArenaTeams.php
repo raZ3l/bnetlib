@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class ArenaTeams implements EntityInterface, \Iterator, \Countable
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $position = 0;
 
@@ -103,7 +103,7 @@ class ArenaTeams implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Countable
-     * @return int
+     * @return integer
      */
     public function count()
     {
@@ -159,7 +159,7 @@ class ArenaTeams implements EntityInterface, \Iterator, \Countable
 
     /**
      * @see    \Iterator
-     * @return int
+     * @return integer
      */
     public function key()
     {

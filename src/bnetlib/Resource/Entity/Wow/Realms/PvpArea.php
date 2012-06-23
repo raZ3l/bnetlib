@@ -97,7 +97,7 @@ class PvpArea implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getArea()
     {
@@ -105,7 +105,7 @@ class PvpArea implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getControllingFaction()
     {
@@ -141,7 +141,7 @@ class PvpArea implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getStatus()
     {
@@ -193,7 +193,7 @@ class PvpArea implements EntityInterface, LocaleAwareInterface
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getNext()
     {
