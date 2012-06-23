@@ -51,7 +51,6 @@ class Title implements EntityInterface
         $this->data['id']       = $data['id'];
         $this->data['title']    = $data['name'];
         $this->data['selected'] = isset($data['selected']);
-        $this->data['name']     = isset($data['character']) ? $data['character'] : null;
     }
 
     /**
@@ -92,14 +91,6 @@ class Title implements EntityInterface
     public function getTitle()
     {
         return $this->data['title'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getFullName()
-    {
-        return (isset($this->data['name'])) ? sprintf($this->data['title'], $this->data['name']) : null;
     }
 
     /**

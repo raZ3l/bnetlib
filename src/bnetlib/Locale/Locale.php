@@ -52,7 +52,7 @@ class Locale implements LocaleInterface
     {
         $this->locale = $locale;
         $this->game   = ($game) ?: 'wow';
-        $this->file   = dirname(__DIR__) . '%1$sData%1$sLocale%1$s%2$s%1$s%3$s.php';
+        $this->file   = dirname(__DIR__) . '%1$s..%1$s..%1$sdata%1$sLocale%1$s%2$s%1$s%3$s.php';
     }
 
     /**

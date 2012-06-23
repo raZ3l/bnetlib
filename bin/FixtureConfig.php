@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'path' => dirname(__DIR__) . '/src/bnetlib/Data/Fixtures',
+    'path' => dirname(__DIR__) . '/data/Fixtures',
     'games' => array(
         'wow' => 'bnetlib\WorldOfWarcraft'
     ),

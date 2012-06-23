@@ -47,7 +47,7 @@ class Stub extends AbstractConnection
         $this->option['stub'] = array(
             'memory' => true,
             'fake'   => true,
-            'path'   => dirname(__DIR__) . '/Data/Fixtures',
+            'path'   => dirname(__DIR__) . '/../../data/Fixtures',
         );
 
         if (is_array($option)) {
@@ -183,9 +183,6 @@ class Stub extends AbstractConnection
     public function setOptions(array $option)
     {
         if (isset($option['stub'])) {
-            if (isset($option['stub']['fake'])) {
-                $this->option['stub']['fake'] = $option['stub']['fake'];
-            }
             if (isset($option['stub']['memory'])) {
                 $this->option['stub']['memory'] = $option['stub']['memory'];
 

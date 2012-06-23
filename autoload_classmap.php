@@ -17,7 +17,6 @@ return array(
     'bnetlib\Locale\LocaleAwareInterface'                        => __DIR__ . '/Locale/LocaleAwareInterface.php',
     'bnetlib\Locale\LocaleInterface'                             => __DIR__ . '/Locale/LocaleInterface.php',
     'bnetlib\AbstractGame'                                       => __DIR__ . '/AbstractGame.php',
-    'bnetlib\Utility\Fake'                                       => __DIR__ . '/Utility/Fake.php',
     'bnetlib\Connection\Stub'                                    => __DIR__ . '/Connection/Stub.php',
     'bnetlib\Connection\AbstractConnection'                      => __DIR__ . '/Connection/AbstractConnection.php',
     'bnetlib\Connection\Aura'                                    => __DIR__ . '/Connection/Aura.php',

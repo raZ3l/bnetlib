@@ -135,4 +135,9 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Character\Titles', self::$obj->getTitles());
     }
+
+    public function testFullName()
+    {
+        $this->assertEquals('Coss the Insane', self::$obj->getFullName());
+    }
 }

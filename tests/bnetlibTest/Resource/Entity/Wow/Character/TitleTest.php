@@ -65,11 +65,6 @@ class TitleTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('%s of the Shattered Sun', self::$obj->getTitle());
     }
 
-    public function testFullName()
-    {
-        $this->assertEquals('Coss of the Shattered Sun', self::$obj->getFullName());
-    }
-
     public function testIsSelected()
     {
         $this->assertFalse(self::$obj->isSelected());

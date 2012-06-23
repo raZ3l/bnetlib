@@ -56,7 +56,7 @@ class Character extends BaseCharacter
     {
         parent::populate($data);
 
-        $this->data['lastmod']    = null;
+        $this->data['lastmod']     = null;
         $this->data['lastModDate'] = null;
 
         if (isset($data['lastModified'])) {
@@ -72,13 +72,8 @@ class Character extends BaseCharacter
             if (isset($data[$key])) {
                 $array = $data[$key];
 
-                switch ($key) {
-                    case 'pvp':
-                        $array['realm'] = $data['realm'];
-                        break;
-                    case 'titles':
-                        $array['name'] = $data['name'];
-                        break;
+                if ($key === 'pvp') {
+                    $array['realm'] = $data['realm'];
                 }
 
                 $this->data[$key] = $this->serviceLocator->get($service);
@@ -296,5 +291,21 @@ class Character extends BaseCharacter
         }
 
         return null;
+    }
+
+    /**
+     * Returns the full name for a character, e.g. Coss the Insane.
+     * If no title information is available or no title is selected,
+     * the normal character name will be returned.
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        if (isset($this->data['titles']) && $this->data['titles']->hasSelected()) {
+            return sprintf($this->data['titles']->getSelected()->getTitle(), $this->data['name']);
+        }
+
+        return $this->data['name'];
     }
 }

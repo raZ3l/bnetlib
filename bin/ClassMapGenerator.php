@@ -99,8 +99,8 @@ $header = <<<'EOD'
 return
 EOD;
 
-file_put_contents($dir . '/_classmap.php', sprintf('%s %s;', $header, $classmap));
-echo 'Wrote map to _classmap.php' . PHP_EOL;
+file_put_contents(dirname(__DIR__) . '/autoload_classmap.php', sprintf('%s %s;', $header, $classmap));
+echo 'Wrote map to autoload_classmap.php' . PHP_EOL;
 
 $max      = 0;
 $services = array();

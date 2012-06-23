@@ -5,7 +5,7 @@ return array(
         'wow' => 'bnetlib\WorldOfWarcraft'
     ),
     'default_locale' => 'en_US',
-    'filepath' => dirname(__DIR__) . '%1$ssrc%1$sbnetlib%1$sData%1$sLocale%1$s%2$s%1$s%3$s.php',
+    'filepath' => dirname(__DIR__) . '%1$sdata%1$sLocale%1$s%2$s%1$s%3$s.php',
     'locale' => array(
         'wow' => array(
             'en_US' => array(

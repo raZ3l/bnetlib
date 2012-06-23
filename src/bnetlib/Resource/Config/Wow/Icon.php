@@ -41,7 +41,7 @@ class Icon implements ConfigurationInterface
     /**
      * @var array
      */
-    protected $argumentAliases = array('size' => 'iconSize');
+    protected $argumentAliases = array('size' => 'iconsize');
 
     /**
      * @var array

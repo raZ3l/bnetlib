@@ -11,18 +11,4 @@
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-spl_autoload_register(function ($class) {
-    static $classmap;
-
-    if (!isset($classmap)) {
-        $classmap = include __DIR__ . '/_classmap.php';
-    }
-
-    $class = ltrim($class, '\\');
-
-    if (isset($classmap[$class])) {
-        return include $classmap[$class];
-    }
-
-    return false;
-});
+spl_autoload_register(include __DIR__ . '/autoload_function.php');
