@@ -1,0 +1,32 @@
+{
+    "name":        "coss/bnetlib",
+    "type":        "library",
+    "description": "A Battle.net PHP 5.3 Library",
+    "keywords":    [
+        "wow",
+        "world of warcraft",
+        "diablo",
+        "battle.net",
+        "battle",
+        "blizzard"
+    ],
+    "homepage":    "http://coss.github.com/bnetlib",
+    "license":     "MIT",
+    "authors":     [
+        {
+            "name":  "Eric Boh",
+            "email": "cossish@gmail.com"
+        }
+    ],
+    "require":     {
+        "php":                     ">= 5.3.3",
+        "Aura/Http":               "dev-1.0.0-beta2",
+        "kriswallsmith/buzz":      ">= 0.6",
+        "zendframework/zend-http": "dev-master"
+    },
+    "autoload":    {
+        "psr-0": {
+            "bnetlib": "src/"
+        }
+    }
+}
