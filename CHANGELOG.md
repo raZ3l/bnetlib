@@ -1,12 +1,14 @@
 Changelog
 =========
 
-1.2 (2012-06-23)
-----------------
+1.1.1 (2012-06-23)
+------------------
 
 * Added Aura and Buzz connection adapter and the Icon resource.
 * Added `getDate` Method for timestamps. Thats Method will return a `DateTime` object.
 * Added `toArray` Method for every travesable object.
+* Added composer support
+* Added demos
 * Improved the Locale support in Entities.
 * Moved all non-library files out of `/src/bnetlib` into `/data`
 

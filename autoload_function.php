@@ -23,4 +23,4 @@ return function ($class) {
     }
 
     return false;
-}
+};

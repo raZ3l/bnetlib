@@ -22,7 +22,7 @@ foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir)) as 
     }
 
     $fullname = $item->getRealPath();
-    $relative = str_replace($dir, '', $fullname);
+    $relative = str_replace(dirname(__DIR__), '', $fullname);
 
     $content   = file_get_contents($fullname);
     $tokens    = token_get_all($content);
