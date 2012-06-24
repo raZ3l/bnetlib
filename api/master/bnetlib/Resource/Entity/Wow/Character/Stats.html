@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>bnetlib\Resource\Entity\Wow\Character\Stats | bnetlib API</title>
+                    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../../../../classes.html">Classes</a></li>
+                            <li><a href="../../../../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../../../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../../../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">bnetlib API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../../../../bnetlib/Resource/Entity/Wow/Character.html">bnetlib\Resource\Entity\Wow\Character</a>\Stats</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>Stats</strong>        implements
+        <a href="../../../../../bnetlib/Resource/Entity/EntityInterface.html"><abbr title="bnetlib\Resource\Entity\EntityInterface">EntityInterface</abbr></a></p>
+
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_populate">populate</a>(array $data)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getResponseHeaders">getResponseHeaders</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setResponseHeaders">setResponseHeaders</a>(<abbr title="bnetlib\Resource\Entity\Wow\Character\stdClass">stdClass</abbr> $headers)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setServiceLocator">setServiceLocator</a>(<a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getHealth">getHealth</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getPowerType">getPowerType</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getPower">getPower</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getStrength">getStrength</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getAgility">getAgility</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getStamina">getStamina</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getIntellect">getIntellect</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getSpirit">getSpirit</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getAttackPower">getAttackPower</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getRangedAttackPower">getRangedAttackPower</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getMastery">getMastery</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getMasteryRating">getMasteryRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getCrit">getCrit</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getCritRating">getCritRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getHit">getHit</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getHitRating">getHitRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getHasteRating">getHasteRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getExpertiseRating">getExpertiseRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getSpellPower">getSpellPower</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getSpellPenetration">getSpellPenetration</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getSpellCrit">getSpellCrit</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getSpellCritRating">getSpellCritRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getSpellHit">getSpellHit</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getSpellHitRating">getSpellHitRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getMpFive">getMpFive</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getMpFiveInCombat">getMpFiveInCombat</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getArmor">getArmor</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getDodge">getDodge</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getDodgeRating">getDodgeRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getParry">getParry</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getParryRating">getParryRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getBlock">getBlock</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getBlockRating">getBlockRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getResilience">getResilience</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getMainHandDmgMin">getMainHandDmgMin</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getMainHandDmgMax">getMainHandDmgMax</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getMainHandSpeed">getMainHandSpeed</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getMainHandDps">getMainHandDps</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getMainHandExpertise">getMainHandExpertise</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getOffHandDmgMin">getOffHandDmgMin</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getOffHandDmgMax">getOffHandDmgMax</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getOffHandSpeed">getOffHandSpeed</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getOffHandDps">getOffHandDps</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getOffHandExpertise">getOffHandExpertise</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getRangedDmgMin">getRangedDmgMin</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getRangedDmgMax">getRangedDmgMax</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getRangedSpeed">getRangedSpeed</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getRangedDps">getRangedDps</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getRangedCrit">getRangedCrit</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getRangedCritRating">getRangedCritRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getRangedHit">getRangedHit</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getRangedHitRating">getRangedHitRating</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_populate">
+        <div class="location">at line 49</div>
+        <code>            public            
+    <strong>populate</strong>(array $data)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getResponseHeaders">
+        <div class="location">at line 57</div>
+        <code>            public            <a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a>
+    <strong>getResponseHeaders</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setResponseHeaders">
+        <div class="location">at line 65</div>
+        <code>            public            
+    <strong>setResponseHeaders</strong>(<abbr title="bnetlib\Resource\Entity\Wow\Character\stdClass">stdClass</abbr> $headers)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="bnetlib\Resource\Entity\Wow\Character\stdClass">stdClass</abbr></td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setServiceLocator">
+        <div class="location">at line 73</div>
+        <code>            public            
+    <strong>setServiceLocator</strong>(<a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a></td>
+                <td>$locator</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHealth">
+        <div class="location">at line 81</div>
+        <code>            public            integer
+    <strong>getHealth</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPowerType">
+        <div class="location">at line 89</div>
+        <code>            public            string
+    <strong>getPowerType</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPower">
+        <div class="location">at line 97</div>
+        <code>            public            integer
+    <strong>getPower</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getStrength">
+        <div class="location">at line 105</div>
+        <code>            public            integer
+    <strong>getStrength</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAgility">
+        <div class="location">at line 113</div>
+        <code>            public            integer
+    <strong>getAgility</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getStamina">
+        <div class="location">at line 121</div>
+        <code>            public            integer
+    <strong>getStamina</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getIntellect">
+        <div class="location">at line 129</div>
+        <code>            public            integer
+    <strong>getIntellect</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSpirit">
+        <div class="location">at line 137</div>
+        <code>            public            integer
+    <strong>getSpirit</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAttackPower">
+        <div class="location">at line 145</div>
+        <code>            public            integer
+    <strong>getAttackPower</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRangedAttackPower">
+        <div class="location">at line 153</div>
+        <code>            public            integer
+    <strong>getRangedAttackPower</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMastery">
+        <div class="location">at line 161</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getMastery</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMasteryRating">
+        <div class="location">at line 169</div>
+        <code>            public            integer
+    <strong>getMasteryRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCrit">
+        <div class="location">at line 177</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getCrit</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCritRating">
+        <div class="location">at line 185</div>
+        <code>            public            integer
+    <strong>getCritRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHit">
+        <div class="location">at line 193</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getHit</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHitRating">
+        <div class="location">at line 201</div>
+        <code>            public            integer
+    <strong>getHitRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHasteRating">
+        <div class="location">at line 209</div>
+        <code>            public            integer
+    <strong>getHasteRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getExpertiseRating">
+        <div class="location">at line 217</div>
+        <code>            public            integer
+    <strong>getExpertiseRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSpellPower">
+        <div class="location">at line 225</div>
+        <code>            public            integer
+    <strong>getSpellPower</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSpellPenetration">
+        <div class="location">at line 233</div>
+        <code>            public            integer
+    <strong>getSpellPenetration</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSpellCrit">
+        <div class="location">at line 241</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getSpellCrit</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSpellCritRating">
+        <div class="location">at line 249</div>
+        <code>            public            integer
+    <strong>getSpellCritRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSpellHit">
+        <div class="location">at line 257</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getSpellHit</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSpellHitRating">
+        <div class="location">at line 265</div>
+        <code>            public            integer
+    <strong>getSpellHitRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMpFive">
+        <div class="location">at line 273</div>
+        <code>            public            integer
+    <strong>getMpFive</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMpFiveInCombat">
+        <div class="location">at line 281</div>
+        <code>            public            integer
+    <strong>getMpFiveInCombat</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getArmor">
+        <div class="location">at line 289</div>
+        <code>            public            integer
+    <strong>getArmor</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getDodge">
+        <div class="location">at line 297</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getDodge</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getDodgeRating">
+        <div class="location">at line 305</div>
+        <code>            public            integer
+    <strong>getDodgeRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getParry">
+        <div class="location">at line 313</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getParry</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getParryRating">
+        <div class="location">at line 321</div>
+        <code>            public            integer
+    <strong>getParryRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getBlock">
+        <div class="location">at line 329</div>
+        <code>            public            integer
+    <strong>getBlock</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getBlockRating">
+        <div class="location">at line 337</div>
+        <code>            public            integer
+    <strong>getBlockRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getResilience">
+        <div class="location">at line 345</div>
+        <code>            public            integer
+    <strong>getResilience</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMainHandDmgMin">
+        <div class="location">at line 353</div>
+        <code>            public            integer
+    <strong>getMainHandDmgMin</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMainHandDmgMax">
+        <div class="location">at line 361</div>
+        <code>            public            integer
+    <strong>getMainHandDmgMax</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMainHandSpeed">
+        <div class="location">at line 369</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getMainHandSpeed</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMainHandDps">
+        <div class="location">at line 377</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getMainHandDps</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMainHandExpertise">
+        <div class="location">at line 385</div>
+        <code>            public            integer
+    <strong>getMainHandExpertise</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getOffHandDmgMin">
+        <div class="location">at line 393</div>
+        <code>            public            integer
+    <strong>getOffHandDmgMin</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getOffHandDmgMax">
+        <div class="location">at line 401</div>
+        <code>            public            integer
+    <strong>getOffHandDmgMax</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getOffHandSpeed">
+        <div class="location">at line 409</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getOffHandSpeed</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getOffHandDps">
+        <div class="location">at line 417</div>
+        <code>            public            integer
+    <strong>getOffHandDps</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getOffHandExpertise">
+        <div class="location">at line 425</div>
+        <code>            public            integer
+    <strong>getOffHandExpertise</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRangedDmgMin">
+        <div class="location">at line 433</div>
+        <code>            public            integer
+    <strong>getRangedDmgMin</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRangedDmgMax">
+        <div class="location">at line 441</div>
+        <code>            public            integer
+    <strong>getRangedDmgMax</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRangedSpeed">
+        <div class="location">at line 449</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getRangedSpeed</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRangedDps">
+        <div class="location">at line 457</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getRangedDps</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRangedCrit">
+        <div class="location">at line 465</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getRangedCrit</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRangedCritRating">
+        <div class="location">at line 473</div>
+        <code>            public            integer
+    <strong>getRangedCritRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRangedHit">
+        <div class="location">at line 481</div>
+        <code>            public            integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr>
+    <strong>getRangedHit</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer|<abbr title="bnetlib\Resource\Entity\Wow\Character\float">float</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRangedHitRating">
+        <div class="location">at line 489</div>
+        <code>            public            integer
+    <strong>getRangedHitRating</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            </body>
+</html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>bnetlib\Resource\Entity\Wow\Realms\Realm | bnetlib API</title>
+                    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../../../../classes.html">Classes</a></li>
+                            <li><a href="../../../../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../../../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../../../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">bnetlib API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../../../../bnetlib/Resource/Entity/Wow/Realms.html">bnetlib\Resource\Entity\Wow\Realms</a>\Realm</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>Realm</strong>        implements
+        <a href="../../../../../bnetlib/Resource/Entity/EntityInterface.html"><abbr title="bnetlib\Resource\Entity\EntityInterface">EntityInterface</abbr></a></p>
+
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_populate">populate</a>(array $data)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getResponseHeaders">getResponseHeaders</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setResponseHeaders">setResponseHeaders</a>(<abbr title="bnetlib\Resource\Entity\Wow\Realms\stdClass">stdClass</abbr> $headers)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setServiceLocator">setServiceLocator</a>(<a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getType">getType</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getPopulation">getPopulation</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_getQueue">getQueue</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_getStatus">getStatus</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getName">getName</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getSlug">getSlug</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getBattlegroup">getBattlegroup</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\Realms\bnetlib\Resource\Entity\Wow\Realms\PvpArea">PvpArea</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getWintergrasp">getWintergrasp</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\Realms\bnetlib\Resource\Entity\Wow\Realms\PvpArea">PvpArea</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getTolBarad">getTolBarad</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isPvpRealm">isPvpRealm</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isPveRealm">isPveRealm</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isRpPvpRealm">isRpPvpRealm</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isRpPveRealm">isRpPveRealm</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isRpRealm">isRpRealm</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isLowlyPopulated">isLowlyPopulated</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isMediumPopulated">isMediumPopulated</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isHighlyPopulated">isHighlyPopulated</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isOnline">isOnline</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasQueue">hasQueue</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_populate">
+        <div class="location">at line 49</div>
+        <code>            public            
+    <strong>populate</strong>(array $data)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getResponseHeaders">
+        <div class="location">at line 67</div>
+        <code>            public            <a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a>
+    <strong>getResponseHeaders</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setResponseHeaders">
+        <div class="location">at line 75</div>
+        <code>            public            
+    <strong>setResponseHeaders</strong>(<abbr title="bnetlib\Resource\Entity\Wow\Realms\stdClass">stdClass</abbr> $headers)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="bnetlib\Resource\Entity\Wow\Realms\stdClass">stdClass</abbr></td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setServiceLocator">
+        <div class="location">at line 83</div>
+        <code>            public            
+    <strong>setServiceLocator</strong>(<a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a></td>
+                <td>$locator</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getType">
+        <div class="location">at line 91</div>
+        <code>            public            string
+    <strong>getType</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPopulation">
+        <div class="location">at line 99</div>
+        <code>            public            string
+    <strong>getPopulation</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getQueue">
+        <div class="location">at line 107</div>
+        <code>            public            boolean
+    <strong>getQueue</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getStatus">
+        <div class="location">at line 115</div>
+        <code>            public            boolean
+    <strong>getStatus</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getName">
+        <div class="location">at line 123</div>
+        <code>            public            string
+    <strong>getName</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSlug">
+        <div class="location">at line 131</div>
+        <code>            public            string
+    <strong>getSlug</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getBattlegroup">
+        <div class="location">at line 139</div>
+        <code>            public            string
+    <strong>getBattlegroup</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getWintergrasp">
+        <div class="location">at line 147</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\Realms\bnetlib\Resource\Entity\Wow\Realms\PvpArea">PvpArea</abbr>
+    <strong>getWintergrasp</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\Realms\bnetlib\Resource\Entity\Wow\Realms\PvpArea">PvpArea</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getTolBarad">
+        <div class="location">at line 155</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\Realms\bnetlib\Resource\Entity\Wow\Realms\PvpArea">PvpArea</abbr>
+    <strong>getTolBarad</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\Realms\bnetlib\Resource\Entity\Wow\Realms\PvpArea">PvpArea</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isPvpRealm">
+        <div class="location">at line 163</div>
+        <code>            public            boolean
+    <strong>isPvpRealm</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isPveRealm">
+        <div class="location">at line 171</div>
+        <code>            public            boolean
+    <strong>isPveRealm</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isRpPvpRealm">
+        <div class="location">at line 179</div>
+        <code>            public            boolean
+    <strong>isRpPvpRealm</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isRpPveRealm">
+        <div class="location">at line 187</div>
+        <code>            public            boolean
+    <strong>isRpPveRealm</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isRpRealm">
+        <div class="location">at line 195</div>
+        <code>            public            boolean
+    <strong>isRpRealm</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isLowlyPopulated">
+        <div class="location">at line 203</div>
+        <code>            public            boolean
+    <strong>isLowlyPopulated</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isMediumPopulated">
+        <div class="location">at line 211</div>
+        <code>            public            boolean
+    <strong>isMediumPopulated</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isHighlyPopulated">
+        <div class="location">at line 219</div>
+        <code>            public            boolean
+    <strong>isHighlyPopulated</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isOnline">
+        <div class="location">at line 227</div>
+        <code>            public            boolean
+    <strong>isOnline</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasQueue">
+        <div class="location">at line 235</div>
+        <code>            public            boolean
+    <strong>hasQueue</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            </body>
+</html>

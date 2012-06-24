@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>bnetlib\Resource\Entity\Wow\Guild\News | bnetlib API</title>
+                    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../../../../classes.html">Classes</a></li>
+                            <li><a href="../../../../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../../../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../../../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">bnetlib API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../../../../bnetlib/Resource/Entity/Wow/Guild.html">bnetlib\Resource\Entity\Wow\Guild</a>\News</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>News</strong>        implements
+        <a href="../../../../../bnetlib/Resource/Entity/EntityInterface.html"><abbr title="bnetlib\Resource\Entity\EntityInterface">EntityInterface</abbr></a>, <a href="http://php.net/Iterator"><abbr title="Iterator">Iterator</abbr></a>, <a href="http://php.net/Countable"><abbr title="Countable">Countable</abbr></a></p>
+
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>TYPE_GUILD_CREATED</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>TYPE_GUILD_LEVEL</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>TYPE_GUILD_ACHIEVEMENT</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>TYPE_PLAYER_ACHIEVEMENT</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>TYPE_ITEM_LOOT</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>TYPE_ITEM_PURCHASE</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_populate">populate</a>(array $data)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getResponseHeaders">getResponseHeaders</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setResponseHeaders">setResponseHeaders</a>(<abbr title="bnetlib\Resource\Entity\Wow\Guild\stdClass">stdClass</abbr> $headers)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setServiceLocator">setServiceLocator</a>(<a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getByType">getByType</a>(string $type)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_count">count</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_rewind">rewind</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\Guild\bnetlib\Resource\Entity\Wow\Guild\NewsEntry">NewsEntry</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_current">current</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_key">key</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_next">next</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_valid">valid</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_populate">
+        <div class="location">at line 70</div>
+        <code>            public            
+    <strong>populate</strong>(array $data)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getResponseHeaders">
+        <div class="location">at line 87</div>
+        <code>            public            <a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a>
+    <strong>getResponseHeaders</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setResponseHeaders">
+        <div class="location">at line 95</div>
+        <code>            public            
+    <strong>setResponseHeaders</strong>(<abbr title="bnetlib\Resource\Entity\Wow\Guild\stdClass">stdClass</abbr> $headers)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="bnetlib\Resource\Entity\Wow\Guild\stdClass">stdClass</abbr></td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setServiceLocator">
+        <div class="location">at line 103</div>
+        <code>            public            
+    <strong>setServiceLocator</strong>(<a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a></td>
+                <td>$locator</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getByType">
+        <div class="location">at line 112</div>
+        <code>            public            array|null
+    <strong>getByType</strong>(string $type)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$type</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_count">
+        <div class="location">at line 125</div>
+        <code>            public            int
+    <strong>count</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Countable</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_rewind">
+        <div class="location">at line 133</div>
+        <code>            public            
+    <strong>rewind</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Iterator</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_current">
+        <div class="location">at line 142</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\Guild\bnetlib\Resource\Entity\Wow\Guild\NewsEntry">NewsEntry</abbr>
+    <strong>current</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\Guild\bnetlib\Resource\Entity\Wow\Guild\NewsEntry">NewsEntry</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Iterator</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_key">
+        <div class="location">at line 151</div>
+        <code>            public            string
+    <strong>key</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Iterator</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_next">
+        <div class="location">at line 159</div>
+        <code>            public            
+    <strong>next</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Iterator</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_valid">
+        <div class="location">at line 168</div>
+        <code>            public            boolean
+    <strong>valid</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Iterator</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+    
+            </div>
+            </body>
+</html>

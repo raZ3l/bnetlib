@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>bnetlib\AbstractGame | bnetlib API</title>
+                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../classes.html">Classes</a></li>
+                            <li><a href="../namespaces.html">Namespaces</a></li>
+                        <li><a href="../interfaces.html">Interfaces</a></li>
+            <li><a href="../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">bnetlib API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../bnetlib.html">bnetlib</a>\AbstractGame</h1>
+    </div>
+        <div class="content">
+                <p>abstract class    <strong>AbstractGame</strong></p>
+
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>ERROR_RESOURCE_NOT_FOUND</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>ERROR_MSSING_ARGUMENT</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>ERROR_INVALID_CONFIG</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>RETURN_PLAIN</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>RETURN_OBJECT</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(<a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a> $connection = null, <a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator = null)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getConnection">getConnection</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getServiceLocator">getServiceLocator</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getSupportedLocale">getSupportedLocale</a>(integer|<abbr title="bnetlib\const">const</abbr> $region)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../bnetlib/AbstractGame.html"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setReturnType">setReturnType</a>(integer $type)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|object
+                </td>
+                <td class="last">
+                    <a href="#method___call">__call</a>(string $name, array $arguments)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 78</div>
+        <code>            public            
+    <strong>__construct</strong>(<a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a> $connection = null, <a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator = null)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a></td>
+                <td>$connection</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a></td>
+                <td>$locator</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getConnection">
+        <div class="location">at line 87</div>
+        <code>            public            <a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a>
+    <strong>getConnection</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getServiceLocator">
+        <div class="location">at line 95</div>
+        <code>            public            <a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a>
+    <strong>getServiceLocator</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSupportedLocale">
+        <div class="location">at line 104</div>
+        <code>            public            array|null
+    <strong>getSupportedLocale</strong>(integer|<abbr title="bnetlib\const">const</abbr> $region)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer|<abbr title="bnetlib\const">const</abbr></td>
+                <td>$region</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setReturnType">
+        <div class="location">at line 117</div>
+        <code>            public            <a href="../bnetlib/AbstractGame.html"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a>
+    <strong>setReturnType</strong>(integer $type)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$type</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../bnetlib/AbstractGame.html"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___call">
+        <div class="location">at line 129</div>
+        <code>            public            array|object
+    <strong>__call</strong>(string $name, array $arguments)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|object</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            </body>
+</html>

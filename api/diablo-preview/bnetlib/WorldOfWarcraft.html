@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>bnetlib\WorldOfWarcraft | bnetlib API</title>
+                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../classes.html">Classes</a></li>
+                            <li><a href="../namespaces.html">Namespaces</a></li>
+                        <li><a href="../interfaces.html">Interfaces</a></li>
+            <li><a href="../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">bnetlib API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../bnetlib.html">bnetlib</a>\WorldOfWarcraft</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>WorldOfWarcraft</strong>        extends <a href="../bnetlib/AbstractGame.html"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a></p>
+
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>ERROR_RESOURCE_NOT_FOUND</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>ERROR_MSSING_ARGUMENT</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>ERROR_INVALID_CONFIG</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>RETURN_PLAIN</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>RETURN_OBJECT</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>SHORT_NAME</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(<a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a> $connection = null, <a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator = null)
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../bnetlib/AbstractGame.html#method___construct"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getConnection">getConnection</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../bnetlib/AbstractGame.html#method_getConnection"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getServiceLocator">getServiceLocator</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../bnetlib/AbstractGame.html#method_getServiceLocator"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getSupportedLocale">getSupportedLocale</a>(int|<abbr title="bnetlib\const">const</abbr> $region)
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../bnetlib/AbstractGame.html#method_getSupportedLocale"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../bnetlib/AbstractGame.html"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setReturnType">setReturnType</a>(int $type)
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../bnetlib/AbstractGame.html#method_setReturnType"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|object
+                </td>
+                <td class="last">
+                    <a href="#method___call">__call</a>(string $name, array $arguments)
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../bnetlib/AbstractGame.html#method___call"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getArenaLadder">getArenaLadder</a>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getArenaTeam">getArenaTeam</a>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getAuction">getAuction</a>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getAuctionData">getAuctionData</a>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getBattlegroups">getBattlegroups</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getCharacter">getCharacter</a>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getCharacterAchievements">getCharacterAchievements</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getCharacterClasses">getCharacterClasses</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getCharacterRaces">getCharacterRaces</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getGuild">getGuild</a>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getGuildAchievements">getGuildAchievements</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getGuildPerks">getGuildPerks</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getGuildRewards">getGuildRewards</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getItem">getItem</a>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getItemSet">getItemSet</a>(<abbr title="array ">array </abbr> $args)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getItemClasses">getItemClasses</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getQuest">getQuest</a>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getRatedBattlegroundLadder">getRatedBattlegroundLadder</a>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getRealm">getRealm</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getRecipe">getRecipe</a>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getThumbnail">getThumbnail</a>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">in <a href="../bnetlib/AbstractGame.html#method___construct"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a> at line 78</div>
+        <code>            public            
+    <strong>__construct</strong>(<a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a> $connection = null, <a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator = null)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a></td>
+                <td>$connection</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a></td>
+                <td>$locator</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getConnection">
+        <div class="location">in <a href="../bnetlib/AbstractGame.html#method_getConnection"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a> at line 87</div>
+        <code>            public            <a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a>
+    <strong>getConnection</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../bnetlib/Connection/ConnectionInterface.html"><abbr title="bnetlib\Connection\ConnectionInterface">ConnectionInterface</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getServiceLocator">
+        <div class="location">in <a href="../bnetlib/AbstractGame.html#method_getServiceLocator"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a> at line 95</div>
+        <code>            public            <a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a>
+    <strong>getServiceLocator</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSupportedLocale">
+        <div class="location">in <a href="../bnetlib/AbstractGame.html#method_getSupportedLocale"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a> at line 104</div>
+        <code>            public            array|null
+    <strong>getSupportedLocale</strong>(int|<abbr title="bnetlib\const">const</abbr> $region)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int|<abbr title="bnetlib\const">const</abbr></td>
+                <td>$region</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setReturnType">
+        <div class="location">in <a href="../bnetlib/AbstractGame.html#method_setReturnType"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a> at line 117</div>
+        <code>            public            <a href="../bnetlib/AbstractGame.html"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a>
+    <strong>setReturnType</strong>(int $type)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$type</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../bnetlib/AbstractGame.html"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___call">
+        <div class="location">in <a href="../bnetlib/AbstractGame.html#method___call"><abbr title="bnetlib\AbstractGame">AbstractGame</abbr></a> at line 129</div>
+        <code>            public            array|object
+    <strong>__call</strong>(string $name, array $arguments)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|object</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getArenaLadder">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getArenaLadder</strong>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr></td>
+                <td>$instance</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getArenaTeam">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getArenaTeam</strong>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr></td>
+                <td>$instance</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAuction">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getAuction</strong>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr></td>
+                <td>$instance</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAuctionData">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getAuctionData</strong>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr></td>
+                <td>$instance</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getBattlegroups">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getBattlegroups</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCharacter">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getCharacter</strong>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr></td>
+                <td>$instance</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCharacterAchievements">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getCharacterAchievements</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCharacterClasses">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getCharacterClasses</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCharacterRaces">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getCharacterRaces</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getGuild">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getGuild</strong>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr></td>
+                <td>$instance</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getGuildAchievements">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getGuildAchievements</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getGuildPerks">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getGuildPerks</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getGuildRewards">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getGuildRewards</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getItem">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getItem</strong>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr></td>
+                <td>$instance</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getItemSet">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getItemSet</strong>(<abbr title="array ">array </abbr> $args)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getItemClasses">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getItemClasses</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getQuest">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getQuest</strong>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr></td>
+                <td>$instance</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRatedBattlegroundLadder">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getRatedBattlegroundLadder</strong>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr></td>
+                <td>$instance</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRealm">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getRealm</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRecipe">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getRecipe</strong>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr></td>
+                <td>$instance</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getThumbnail">
+        <div class="location">at line 50</div>
+        <code>                        mixed
+    <strong>getThumbnail</strong>(<abbr title="array ">array </abbr> $args =  [, <abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr> $instance = ])</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="array ">array </abbr></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><abbr title="Resource\ConsumeInterface ">ConsumeInterface </abbr></td>
+                <td>$instance</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            </body>
+</html>

@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>bnetlib\Resource\Entity\Wow\Character\Items | bnetlib API</title>
+                    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../../../../classes.html">Classes</a></li>
+                            <li><a href="../../../../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../../../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../../../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">bnetlib API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../../../../bnetlib/Resource/Entity/Wow/Character.html">bnetlib\Resource\Entity\Wow\Character</a>\Items</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>Items</strong>        implements
+        <a href="../../../../../bnetlib/Resource/Entity/EntityInterface.html"><abbr title="bnetlib\Resource\Entity\EntityInterface">EntityInterface</abbr></a>, <a href="http://php.net/Iterator"><abbr title="Iterator">Iterator</abbr></a></p>
+
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_populate">populate</a>(array $data)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getResponseHeaders">getResponseHeaders</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setResponseHeaders">setResponseHeaders</a>(<abbr title="bnetlib\Resource\Entity\Wow\Character\stdClass">stdClass</abbr> $headers)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setServiceLocator">setServiceLocator</a>(<a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_toArray">toArray</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getAverageItemLevel">getAverageItemLevel</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_getAverageItemLevelEquipped">getAverageItemLevelEquipped</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasBack">hasBack</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getBack">getBack</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasChest">hasChest</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getChest">getChest</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasFeet">hasFeet</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getFeet">getFeet</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasFirstFinger">hasFirstFinger</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getFirstFinger">getFirstFinger</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasSecondFinger">hasSecondFinger</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getSecondFinger">getSecondFinger</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasHands">hasHands</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getHands">getHands</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasHead">hasHead</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getHead">getHead</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasLegs">hasLegs</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getLegs">getLegs</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasMainHand">hasMainHand</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getMainHand">getMainHand</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasOffHand">hasOffHand</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getOffHand">getOffHand</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasNeck">hasNeck</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getNeck">getNeck</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasRanged">hasRanged</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getRanged">getRanged</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasShirt">hasShirt</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getShirt">getShirt</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasShoulder">hasShoulder</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getShoulder">getShoulder</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasTabard">hasTabard</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getTabard">getTabard</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasFirstTrinket">hasFirstTrinket</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getFirstTrinket">getFirstTrinket</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasSecondTrinket">hasSecondTrinket</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getSecondTrinket">getSecondTrinket</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasWaist">hasWaist</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getWaist">getWaist</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_hasWrist">hasWrist</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getWrist">getWrist</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_rewind">rewind</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_current">current</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_key">key</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_next">next</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_valid">valid</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_populate">
+        <div class="location">at line 59</div>
+        <code>            public            
+    <strong>populate</strong>(array $data)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getResponseHeaders">
+        <div class="location">at line 84</div>
+        <code>            public            <a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a>
+    <strong>getResponseHeaders</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setResponseHeaders">
+        <div class="location">at line 92</div>
+        <code>            public            
+    <strong>setResponseHeaders</strong>(<abbr title="bnetlib\Resource\Entity\Wow\Character\stdClass">stdClass</abbr> $headers)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="bnetlib\Resource\Entity\Wow\Character\stdClass">stdClass</abbr></td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setServiceLocator">
+        <div class="location">at line 100</div>
+        <code>            public            
+    <strong>setServiceLocator</strong>(<a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a></td>
+                <td>$locator</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_toArray">
+        <div class="location">at line 108</div>
+        <code>            public            array
+    <strong>toArray</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAverageItemLevel">
+        <div class="location">at line 116</div>
+        <code>            public            integer
+    <strong>getAverageItemLevel</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAverageItemLevelEquipped">
+        <div class="location">at line 124</div>
+        <code>            public            integer
+    <strong>getAverageItemLevelEquipped</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasBack">
+        <div class="location">at line 132</div>
+        <code>            public            boolean
+    <strong>hasBack</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getBack">
+        <div class="location">at line 140</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getBack</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasChest">
+        <div class="location">at line 152</div>
+        <code>            public            boolean
+    <strong>hasChest</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getChest">
+        <div class="location">at line 160</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getChest</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasFeet">
+        <div class="location">at line 172</div>
+        <code>            public            boolean
+    <strong>hasFeet</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFeet">
+        <div class="location">at line 180</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getFeet</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasFirstFinger">
+        <div class="location">at line 192</div>
+        <code>            public            boolean
+    <strong>hasFirstFinger</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFirstFinger">
+        <div class="location">at line 200</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getFirstFinger</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasSecondFinger">
+        <div class="location">at line 212</div>
+        <code>            public            boolean
+    <strong>hasSecondFinger</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSecondFinger">
+        <div class="location">at line 220</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getSecondFinger</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasHands">
+        <div class="location">at line 232</div>
+        <code>            public            boolean
+    <strong>hasHands</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHands">
+        <div class="location">at line 240</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getHands</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasHead">
+        <div class="location">at line 252</div>
+        <code>            public            boolean
+    <strong>hasHead</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHead">
+        <div class="location">at line 260</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getHead</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasLegs">
+        <div class="location">at line 272</div>
+        <code>            public            boolean
+    <strong>hasLegs</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getLegs">
+        <div class="location">at line 280</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getLegs</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasMainHand">
+        <div class="location">at line 292</div>
+        <code>            public            boolean
+    <strong>hasMainHand</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMainHand">
+        <div class="location">at line 300</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getMainHand</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasOffHand">
+        <div class="location">at line 312</div>
+        <code>            public            boolean
+    <strong>hasOffHand</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getOffHand">
+        <div class="location">at line 320</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getOffHand</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasNeck">
+        <div class="location">at line 332</div>
+        <code>            public            boolean
+    <strong>hasNeck</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getNeck">
+        <div class="location">at line 340</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getNeck</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasRanged">
+        <div class="location">at line 352</div>
+        <code>            public            boolean
+    <strong>hasRanged</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRanged">
+        <div class="location">at line 360</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getRanged</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasShirt">
+        <div class="location">at line 372</div>
+        <code>            public            boolean
+    <strong>hasShirt</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getShirt">
+        <div class="location">at line 380</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getShirt</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasShoulder">
+        <div class="location">at line 392</div>
+        <code>            public            boolean
+    <strong>hasShoulder</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getShoulder">
+        <div class="location">at line 400</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getShoulder</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasTabard">
+        <div class="location">at line 412</div>
+        <code>            public            boolean
+    <strong>hasTabard</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getTabard">
+        <div class="location">at line 420</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getTabard</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasFirstTrinket">
+        <div class="location">at line 432</div>
+        <code>            public            boolean
+    <strong>hasFirstTrinket</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFirstTrinket">
+        <div class="location">at line 440</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getFirstTrinket</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasSecondTrinket">
+        <div class="location">at line 452</div>
+        <code>            public            boolean
+    <strong>hasSecondTrinket</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSecondTrinket">
+        <div class="location">at line 460</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getSecondTrinket</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasWaist">
+        <div class="location">at line 472</div>
+        <code>            public            boolean
+    <strong>hasWaist</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getWaist">
+        <div class="location">at line 480</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getWaist</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasWrist">
+        <div class="location">at line 492</div>
+        <code>            public            boolean
+    <strong>hasWrist</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getWrist">
+        <div class="location">at line 500</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null
+    <strong>getWrist</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_rewind">
+        <div class="location">at line 512</div>
+        <code>            public            
+    <strong>rewind</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Iterator</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_current">
+        <div class="location">at line 521</div>
+        <code>            public            <a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a>
+    <strong>current</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../../bnetlib/Resource/Entity/Wow/Character/Item.html"><abbr title="bnetlib\Resource\Entity\Wow\Character\Item">Item</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Iterator</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_key">
+        <div class="location">at line 530</div>
+        <code>            public            string
+    <strong>key</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>Item slot name</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Iterator</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_next">
+        <div class="location">at line 538</div>
+        <code>            public            
+    <strong>next</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Iterator</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_valid">
+        <div class="location">at line 547</div>
+        <code>            public            boolean
+    <strong>valid</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Iterator</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+    
+            </div>
+            </body>
+</html>

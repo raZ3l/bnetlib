@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>bnetlib\Resource\Entity\Wow\Character | bnetlib API</title>
+                    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../../../classes.html">Classes</a></li>
+                            <li><a href="../../../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">bnetlib API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../../../bnetlib/Resource/Entity/Wow.html">bnetlib\Resource\Entity\Wow</a>\Character</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>Character</strong>        extends <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></p>
+
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_populate">populate</a>(array $data)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getResponseHeaders">getResponseHeaders</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getResponseHeaders"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setResponseHeaders">setResponseHeaders</a>(<abbr title="bnetlib\Resource\Entity\Wow\Shared\stdClass">stdClass</abbr> $headers)
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_setResponseHeaders"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setServiceLocator">setServiceLocator</a>(<a href="../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator)
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_setServiceLocator"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setLocale">setLocale</a>(<a href="../../../../bnetlib/Locale/LocaleInterface.html"><abbr title="bnetlib\Locale\LocaleInterface">LocaleInterface</abbr></a> $locale)
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_setLocale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getName">getName</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getName"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getRealm">getRealm</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getRealm"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getThumbnail">getThumbnail</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getThumbnail"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_getLevel">getLevel</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getLevel"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_getClass">getClass</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getClass"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_getRace">getRace</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getRace"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_getGender">getGender</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getGender"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_getFaction">getFaction</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getFaction"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_getAchievementPoints">getAchievementPoints</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getAchievementPoints"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|null
+                </td>
+                <td class="last">
+                    <a href="#method_getClassLocale">getClassLocale</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getClassLocale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|null
+                </td>
+                <td class="last">
+                    <a href="#method_getRaceLocale">getRaceLocale</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getRaceLocale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|null
+                </td>
+                <td class="last">
+                    <a href="#method_getGenderLocale">getGenderLocale</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getGenderLocale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|null
+                </td>
+                <td class="last">
+                    <a href="#method_getFactionLocale">getFactionLocale</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getFactionLocale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isMale">isMale</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isMale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isFemale">isFemale</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isFemale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isAlliance">isAlliance</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isAlliance"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isHorde">isHorde</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isHorde"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isHuman">isHuman</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isHuman"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isOrc">isOrc</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isOrc"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isDwarf">isDwarf</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isDwarf"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isNightElf">isNightElf</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isNightElf"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isUndead">isUndead</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isUndead"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isTauren">isTauren</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isTauren"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isGnome">isGnome</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isGnome"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isTroll">isTroll</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isTroll"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isGoblin">isGoblin</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isGoblin"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isBloodElf">isBloodElf</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isBloodElf"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isDraenei">isDraenei</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isDraenei"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isWorgen">isWorgen</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isWorgen"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isWarrior">isWarrior</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isWarrior"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isPaladin">isPaladin</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isPaladin"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isHunter">isHunter</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isHunter"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isRogue">isRogue</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isRogue"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isPriest">isPriest</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isPriest"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isDeathKnight">isDeathKnight</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isDeathKnight"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isShaman">isShaman</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isShaman"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isMage">isMage</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isMage"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isWarlock">isWarlock</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isWarlock"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isDruid">isDruid</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isDruid"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_consume">consume</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_consume"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int|null
+                </td>
+                <td class="last">
+                    <a href="#method_getLastModified">getLastModified</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\Achievements">Achievements</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getAchievements">getAchievements</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Appearance">Appearance</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getAppearance">getAppearance</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\ListData">ListData</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getCompanions">getCompanions</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Guild">Guild</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getGuild">getGuild</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Feed">Feed</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getFeed">getFeed</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Items\Guild">Guild</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getItems">getItems</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\ListData">ListData</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getMounts">getMounts</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Pets">Pets</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getPets">getPets</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Professions">Professions</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getProfessions">getProfessions</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Progression">Progression</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getProgression">getProgression</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Pvp">Pvp</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getPvp">getPvp</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\ListData">ListData</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getQuests">getQuests</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Reputation">Reputation</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getReputation">getReputation</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Stats">Stats</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getStats">getStats</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Talents">Talents</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getTalents">getTalents</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Titles">Titles</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_getTitles">getTitles</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_populate">
+        <div class="location">at line 55</div>
+        <code>            public            
+    <strong>populate</strong>(array $data)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getResponseHeaders">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getResponseHeaders"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 75</div>
+        <code>            public            <a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a>
+    <strong>getResponseHeaders</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="http://php.net/stdClass"><abbr title="stdClass">stdClass</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setResponseHeaders">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_setResponseHeaders"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 83</div>
+        <code>            public            
+    <strong>setResponseHeaders</strong>(<abbr title="bnetlib\Resource\Entity\Wow\Shared\stdClass">stdClass</abbr> $headers)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="bnetlib\Resource\Entity\Wow\Shared\stdClass">stdClass</abbr></td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setServiceLocator">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_setServiceLocator"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 91</div>
+        <code>            public            
+    <strong>setServiceLocator</strong>(<a href="../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a> $locator)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../../bnetlib/ServiceLocator/ServiceLocatorInterface.html"><abbr title="bnetlib\ServiceLocator\ServiceLocatorInterface">ServiceLocatorInterface</abbr></a></td>
+                <td>$locator</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setLocale">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_setLocale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 99</div>
+        <code>            public            
+    <strong>setLocale</strong>(<a href="../../../../bnetlib/Locale/LocaleInterface.html"><abbr title="bnetlib\Locale\LocaleInterface">LocaleInterface</abbr></a> $locale)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../../bnetlib/Locale/LocaleInterface.html"><abbr title="bnetlib\Locale\LocaleInterface">LocaleInterface</abbr></a></td>
+                <td>$locale</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getName">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getName"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 109</div>
+        <code>            public            string
+    <strong>getName</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>Character name</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRealm">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getRealm"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 117</div>
+        <code>            public            string
+    <strong>getRealm</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>Realm name</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getThumbnail">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getThumbnail"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 125</div>
+        <code>            public            string
+    <strong>getThumbnail</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>Full Thumbnail URI</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getLevel">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getLevel"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 133</div>
+        <code>            public            int
+    <strong>getLevel</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>Character level</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getClass">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getClass"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 141</div>
+        <code>            public            int
+    <strong>getClass</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>Character class</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRace">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getRace"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 149</div>
+        <code>            public            int
+    <strong>getRace</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>Character race</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getGender">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getGender"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 157</div>
+        <code>            public            int
+    <strong>getGender</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>Character gender</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFaction">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getFaction"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 165</div>
+        <code>            public            int
+    <strong>getFaction</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>Character faction. 0 = Alliance, 1 = Horde</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAchievementPoints">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getAchievementPoints"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 173</div>
+        <code>            public            int
+    <strong>getAchievementPoints</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>Achievement points</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getClassLocale">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getClassLocale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 181</div>
+        <code>            public            string|null
+    <strong>getClassLocale</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRaceLocale">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getRaceLocale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 193</div>
+        <code>            public            string|null
+    <strong>getRaceLocale</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getGenderLocale">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getGenderLocale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 205</div>
+        <code>            public            string|null
+    <strong>getGenderLocale</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFactionLocale">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_getFactionLocale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 217</div>
+        <code>            public            string|null
+    <strong>getFactionLocale</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isMale">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isMale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 229</div>
+        <code>            public            boolean
+    <strong>isMale</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isFemale">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isFemale"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 237</div>
+        <code>            public            boolean
+    <strong>isFemale</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isAlliance">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isAlliance"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 245</div>
+        <code>            public            boolean
+    <strong>isAlliance</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isHorde">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isHorde"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 253</div>
+        <code>            public            boolean
+    <strong>isHorde</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isHuman">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isHuman"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 261</div>
+        <code>            public            boolean
+    <strong>isHuman</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isOrc">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isOrc"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 269</div>
+        <code>            public            boolean
+    <strong>isOrc</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isDwarf">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isDwarf"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 277</div>
+        <code>            public            boolean
+    <strong>isDwarf</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isNightElf">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isNightElf"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 285</div>
+        <code>            public            boolean
+    <strong>isNightElf</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isUndead">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isUndead"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 293</div>
+        <code>            public            boolean
+    <strong>isUndead</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isTauren">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isTauren"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 301</div>
+        <code>            public            boolean
+    <strong>isTauren</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isGnome">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isGnome"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 309</div>
+        <code>            public            boolean
+    <strong>isGnome</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isTroll">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isTroll"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 317</div>
+        <code>            public            boolean
+    <strong>isTroll</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isGoblin">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isGoblin"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 325</div>
+        <code>            public            boolean
+    <strong>isGoblin</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isBloodElf">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isBloodElf"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 333</div>
+        <code>            public            boolean
+    <strong>isBloodElf</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isDraenei">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isDraenei"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 341</div>
+        <code>            public            boolean
+    <strong>isDraenei</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isWorgen">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isWorgen"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 349</div>
+        <code>            public            boolean
+    <strong>isWorgen</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isWarrior">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isWarrior"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 357</div>
+        <code>            public            boolean
+    <strong>isWarrior</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isPaladin">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isPaladin"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 365</div>
+        <code>            public            boolean
+    <strong>isPaladin</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isHunter">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isHunter"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 373</div>
+        <code>            public            boolean
+    <strong>isHunter</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isRogue">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isRogue"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 381</div>
+        <code>            public            boolean
+    <strong>isRogue</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isPriest">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isPriest"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 389</div>
+        <code>            public            boolean
+    <strong>isPriest</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isDeathKnight">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isDeathKnight"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 397</div>
+        <code>            public            boolean
+    <strong>isDeathKnight</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isShaman">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isShaman"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 405</div>
+        <code>            public            boolean
+    <strong>isShaman</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isMage">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isMage"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 413</div>
+        <code>            public            boolean
+    <strong>isMage</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isWarlock">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isWarlock"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 421</div>
+        <code>            public            boolean
+    <strong>isWarlock</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isDruid">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_isDruid"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 429</div>
+        <code>            public            boolean
+    <strong>isDruid</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_consume">
+        <div class="location">in <a href="../../../../bnetlib/Resource/Entity/Wow/Shared/Character.html#method_consume"><abbr title="bnetlib\Resource\Entity\Wow\Shared\Character">Character</abbr></a> at line 437</div>
+        <code>            public            array
+    <strong>consume</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getLastModified">
+        <div class="location">at line 89</div>
+        <code>            public            int|null
+    <strong>getLastModified</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int|null</td>
+            <td>Last modification (UTC unix timestamp)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAchievements">
+        <div class="location">at line 97</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\Achievements">Achievements</abbr>|null
+    <strong>getAchievements</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\Achievements">Achievements</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAppearance">
+        <div class="location">at line 109</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Appearance">Appearance</abbr>|null
+    <strong>getAppearance</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Appearance">Appearance</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCompanions">
+        <div class="location">at line 121</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\ListData">ListData</abbr>|null
+    <strong>getCompanions</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\ListData">ListData</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getGuild">
+        <div class="location">at line 133</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Guild">Guild</abbr>|null
+    <strong>getGuild</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Guild">Guild</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFeed">
+        <div class="location">at line 145</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Feed">Feed</abbr>|null
+    <strong>getFeed</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Feed">Feed</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getItems">
+        <div class="location">at line 157</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Items\Guild">Guild</abbr>|null
+    <strong>getItems</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Items\Guild">Guild</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMounts">
+        <div class="location">at line 169</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\ListData">ListData</abbr>|null
+    <strong>getMounts</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\ListData">ListData</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPets">
+        <div class="location">at line 181</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Pets">Pets</abbr>|null
+    <strong>getPets</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Pets">Pets</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getProfessions">
+        <div class="location">at line 193</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Professions">Professions</abbr>|null
+    <strong>getProfessions</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Professions">Professions</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getProgression">
+        <div class="location">at line 205</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Progression">Progression</abbr>|null
+    <strong>getProgression</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Progression">Progression</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPvp">
+        <div class="location">at line 217</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Pvp">Pvp</abbr>|null
+    <strong>getPvp</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Pvp">Pvp</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getQuests">
+        <div class="location">at line 229</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\ListData">ListData</abbr>|null
+    <strong>getQuests</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Shared\ListData">ListData</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getReputation">
+        <div class="location">at line 241</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Reputation">Reputation</abbr>|null
+    <strong>getReputation</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Reputation">Reputation</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getStats">
+        <div class="location">at line 253</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Stats">Stats</abbr>|null
+    <strong>getStats</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Stats">Stats</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getTalents">
+        <div class="location">at line 265</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Talents">Talents</abbr>|null
+    <strong>getTalents</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Talents">Talents</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getTitles">
+        <div class="location">at line 277</div>
+        <code>            public            <abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Titles">Titles</abbr>|null
+    <strong>getTitles</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="bnetlib\Resource\Entity\Wow\bnetlib\Resource\Entity\Wow\Character\Titles">Titles</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            </body>
+</html>
