@@ -61,7 +61,7 @@ Resources
 Autoloading
 -----------
 
-bnetlib is PSR-0 compliant and provides a [class map](https://github.com/coss/bnetlib/blob/master/src/bnetlib/_classmap.php). You may use any PSR-0 compliant/class map autoloader you like (e.g. [`Zend\Loader`](https://github.com/zendframework/zf2) or [`Symfony's ClassLoader`](https://github.com/symfony/ClassLoader)) or use the fallback [`_autoload.php`](https://github.com/coss/bnetlib/blob/master/src/bnetlib/_autoload.php).
+bnetlib is PSR-0 compliant and provides a [class map](https://github.com/coss/bnetlib/blob/master/autoload_classmap.php). You may use any PSR-0 compliant/class map autoloader you like (e.g. [`Zend\Loader`](https://github.com/zendframework/zf2) or [`Symfony's ClassLoader`](https://github.com/symfony/ClassLoader)) or use the fallback [`autoload_register.php`](https://github.com/coss/bnetlib/blob/master/autoload_register.php).
 
 
 Example
@@ -127,7 +127,7 @@ Example
             );
 
             // Full Name: Thatguy Jenkins
-            echo 'Full Name: ' . $selected->getTile();
+            echo 'Full Name: ' . $character->getFullName();
 
             /* @var $titles bnetlib\Resource\Entity\Wow\Character\Titles */
             $titles = $character->getTitles();
@@ -136,7 +136,7 @@ Example
                 $selected = $titles->getSelected();
 
                 // Title: %s Jenkins
-                echo 'Title: ' . $selected->getTile();
+                echo 'Title: ' . $selected->getTitle();
             }
 
             /* @var $professions bnetlib\Resource\Entity\Wow\Character\Professions */

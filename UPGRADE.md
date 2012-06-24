@@ -1,8 +1,8 @@
 Upgrade
 =======
 
-1.2 (2012-06-23)
-----------------
+1.1.1 (2012-06-23)
+------------------
 
 **Entities:**
 * Removed the method `getFullname()` in the `Wow\Character\Title` Entity. You can now simply call `getFullName()` on a `Wow\Character` object, and the method will try to get the selected title, otherwise the method will return the character name.
