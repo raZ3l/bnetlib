@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>bnetlib - Entities</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div id="main">
+    <header>
+            <section>
+                <ul>
+                    <li>Docs:</li>
+                    <li><a href="http://coss.github.com/bnetlib/api" title="API Documentation">API</a></li>
+                    <li><a href="http://coss.github.com/bnetlib" title="End User Documentation">End-User</a></li>
+
+                    <li class="nav-space">Downlaod:</li>
+                    <li><a href="https://github.com/coss/bnetlib/zipball/master" title="Download as .zip">Zip</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/tarball/master" title="Download as .tar.gz">Tar</a></li>
+
+                    <li class="nav-space">Actions:</li>
+                    <li><a href="https://github.com/coss/bnetlib" title="Fork bnetlib on GitHub">Fork</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/toggle_watch" title="Watch bnetlib on GitHub">Watch</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/issues" title="Report an Issue">Issues</a></li>
+                </ul>
+            </section>
+            <h1 id="lib"><a href="http://coss.github.com/bnetlib" title="End User Documentation">bnetlib</a></h1>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="usage.html">Usage</a></li>
+                <li><a href="entities.html">Entities</a></li>
+                <li><a href="connection.html">Connection</a></li>
+                <li><a href="service-locator.html">Service Locator</a></li>
+                <li><a href="diablo.html">Diablo III</a></li>
+                <li><a href="world-of-warcraft.html">World of Warcraft</a></li>
+                <li><a href="license.html">License</a></li>
+            </ul>
+        </nav>
+        <section>
+            <article>
+                <div class="inner">
+                    <h1>Entities</h1>
+
+                    <p>As said before, Entities are the heart of the library and presumably the main difference between other Battle.net libraries. Every Entity is a Data Mapper responsible to map and modify the returned values.</p>
+
+                    <p>There are two kind of Entities: A normal (<code>EntityInterface</code>) and a consumable (<code>ConsumeInterface</code>) Entity. Every Entity is by default <code>Service Locator Aware</code>, to ensure that every Entity class can be overwritten via the Service Locator. Some of them are also <code>Locale Aware</code>, but only if there is any Locale support for that specific Entity.</p>
+
+                    <p class="note">You can configure bnetlib to return arrays instead of Entities.</p>
+
+                    <a name="consumable-entities"></a><h2>Consumable Entities</h2>
+                    <p>bnetlib allows consuming objects to supply request arguments. If you wish to overwrite a consumed array key, simply pass another array with that key as request argument.</p>
+
+                    <h3>World of Warcraft</h3>
+                    <p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th>Arguments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>Wow\Auction</code></td>
+                                    <td>Auction file URL</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Wow\AuctionData</code></td>
+                                    <td>Realm name</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Wow\Achievements\Achievement</code></td>
+                                    <td>Achievement Id</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Wow\Battlegroup</code></td>
+                                    <td>Battlegroup name as slug</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Wow\Character</code></td>
+                                    <td>Character name, Realm name and thumbnail URL</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Wow\Character\Glyph</code></td>
+                                    <td>Item Id</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Wow\Character\Guild</code></td>
+                                    <td>Realm name and Guild name</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Wow\Character\Record</code></td>
+                                    <td>Realm name as slug, Battlegroup name as slug and Character name</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Wow\Guild</code></td>
+                                    <td>Realm name</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Wow\Guild\NewsEntry</code></td>
+                                    <td>Item Id (if set) and Character name (if set)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Wow\Item\Reward</code></td>
+                                    <td>Item Id</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+
+                    <p class="note">Every Entity is located under the <code>bnetlib\Resource\Entity</code> namespace.</p>
+
+                    <a name="example"></a><h2>Example</h2>
+                    <pre>use bnetlib\Locale\Locale;
+use bnetlib\WorldOfWarcraft;
+use bnetlib\Connection\ZendFramework;
+
+$locale = new Locale(ZendFramework::LOCALE_DE);
+
+$connection = new ZendFramework();
+$connection->setOptions(array(
+    'defaults' => array(
+        'region' => ZendFramework::REGION_EU,
+        'locale' => array(
+            ZendFramework::REGION_EU => ZendFramework::LOCALE_DE
+        )
+    )
+));
+
+$wow = new WorldOfWarcraft($connection);
+$wow->getServiceLocator()->setLocale($locale);
+
+$character = $wow->getCharacter(array(
+    'name'   => 'Coss',
+    'fields' => 'titles',
+    'realm'  => 'Blackrock',
+));
+
+$thumbnail = $wow->getThumbnail($character);</pre>
+                    <p class="note">The Thumbnail Resource will consume the Character Resource to extract the Thumbnail URL.</p>
+<pre>$thumbnail->saveAs('/tmp/bnetlib/thumbnail');
+
+print_r((array) $character->getResponseHeaders());
+
+// Coss the Insane
+echo $character->getFullName();
+
+// 5
+echo $character->getRace();
+
+// Untoter
+echo $character->getRaceLocale();
+
+if ($character->isMage()) {
+    echo 'The Character is a Mage.';
+
+    // In german: Magier
+    echo 'In german: ' $character->getClassLocale();
+}
+
+$character->setLocale(new Locale(ZendFramework::LOCALE_ES));
+
+// 1335813669000
+echo $character->getLastModified();
+
+// Monday, 30 April 2012 19:21:09
+echo $character->getDate()->format('l, d F Y H:i:s');</pre>
+                <p class="note">Entities are very user friendly. For exampe: The <code>::saveAs()</code> Method will automaticly append the appropiate file extension, if it is missing.</p>
+
+                <p>If your are still not fully convinced, have a look at the <code><a href="https://github.com/coss/bnetlib/tree/master/demos">demos</a></code> bnetlib ships with.</p>
+                </div>
+            </article>
+        </section>
+    </section>
+    <footer>
+        © 2012 Eric Boh. All rights reserved.
+    </footer>
+</div>
+</body>
+</html>

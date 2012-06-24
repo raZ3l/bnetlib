@@ -1,0 +1,256 @@
+body {
+    color: #444;
+    background: #ddd;
+    font: normal 14px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #82BD1A;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+article a {
+    font-weight: bold;
+}
+
+p, dl {
+    margin: 0 0 15px;
+}
+
+h1, h2, h3 {
+    color: #555;
+    margin: 0 0 30px 0;
+}
+
+h2, h3 {
+    margin: 0 0 20px 0;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 21px;
+    padding-top: 20px;
+}
+
+h3 {
+    font-size: 17px;
+    padding-top: 10px;
+}
+
+hgroup h1,
+hgroup h2,
+hgroup h3 {
+    margin: 0 0 15px 0;
+}
+
+p:last-child,
+dl:last-child {
+    margin: 0;
+}
+
+
+#main {
+    width: 875px;
+    margin: 75px auto;
+}
+
+#lib {
+    font-size: 40px;
+}
+
+#lib a {
+    color: #444;
+}
+
+#lib a:hover,
+#lib a:focus {
+    color: #82BD1A;
+    text-decoration: none;
+}
+
+footer {
+    clear: both;
+    color: #999;
+    font-size: 11px;
+    text-align: right;
+}
+
+nav {
+    float: left;
+    width: 175px;
+}
+
+section>section{
+    margin: 0;
+    float: right;
+    width: 675px;
+}
+
+article {
+    background: #fff;
+    margin-bottom: 25px;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .25);
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, .25);
+    -o-box-shadow: 0 0 3px rgba(0, 0, 0, .25);
+    box-shadow: 0 0 3px rgba(0, 0, 0, .25);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+nav {
+    margin-top: 30px;
+}
+
+nav ul,
+section>ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: bold;
+}
+
+header>section {
+    top: 0;
+    right: 2px;
+    float: right;
+    position: relative;
+}
+
+section>ul>li {
+    font-size: 13px;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.nav-space {
+    margin-left: 25px;
+}
+
+nav a,
+section>ul>li>a {
+    color: #eee;
+    line-height: 1;
+    background: #888;
+    padding: 4px 7px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.inner {
+    padding: 30px;
+}
+
+nav>ul {
+    margin-bottom: 25px;
+}
+
+nav a {
+    color: #444;
+    padding: 7px;
+    display: block;
+    background: transparent;
+}
+
+nav a:hover,
+nav a:focus,
+section>ul>li>a:hover,
+section>ul>li>a:focus {
+    color: #eee;
+    background: #82BD1A;
+    text-decoration: none;
+}
+
+pre,
+.note {
+    color: #333;
+    padding: 10px;
+    background: #efefef;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.note {
+    background: #E9F7E0;
+}
+
+.note:before {
+    float: left;
+    display: block;
+    content: 'Note: ';
+    font-weight: bold;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+dd {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 615px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+th {
+    font-weight: bold;
+}
+
+th, td {
+    padding: 4px 7px;
+    border-right: 1px solid #999;
+}
+
+th:last-child,
+td:last-child {
+    border-right: 0;
+}
+
+th.center, td.center {
+    text-align: center;
+}
+
+.resource {
+    text-align: center;
+}
+
+.resource th, .resource td {
+    width: 33.3%
+}
+
+td {
+    font-size: 13px;
+    border-top: 1px solid #999;
+}
+
+pre, code {
+    font-size: 12px;
+    font-family: Consolas, Menlo, "Liberation Mono", Courier, monospace;
+}
+
+.clear {
+    clear: both;
+}
+
+.part {
+    width: 50%
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}

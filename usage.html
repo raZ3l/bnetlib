@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>bnetlib - Usage</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div id="main">
+    <header>
+            <section>
+                <ul>
+                    <li>Docs:</li>
+                    <li><a href="http://coss.github.com/bnetlib/api" title="API Documentation">API</a></li>
+                    <li><a href="http://coss.github.com/bnetlib" title="End User Documentation">End-User</a></li>
+
+                    <li class="nav-space">Downlaod:</li>
+                    <li><a href="https://github.com/coss/bnetlib/zipball/master" title="Download as .zip">Zip</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/tarball/master" title="Download as .tar.gz">Tar</a></li>
+
+                    <li class="nav-space">Actions:</li>
+                    <li><a href="https://github.com/coss/bnetlib" title="Fork bnetlib on GitHub">Fork</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/toggle_watch" title="Watch bnetlib on GitHub">Watch</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/issues" title="Report an Issue">Issues</a></li>
+                </ul>
+            </section>
+            <h1 id="lib"><a href="http://coss.github.com/bnetlib" title="End User Documentation">bnetlib</a></h1>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="usage.html">Usage</a></li>
+                <li><a href="entities.html">Entities</a></li>
+                <li><a href="connection.html">Connection</a></li>
+                <li><a href="service-locator.html">Service Locator</a></li>
+                <li><a href="diablo.html">Diablo III</a></li>
+                <li><a href="world-of-warcraft.html">World of Warcraft</a></li>
+                <li><a href="license.html">License</a></li>
+            </ul>
+        </nav>
+        <section>
+            <article>
+                <div class="inner">
+                    <h1>Usage</h1>
+
+                    <p>The usage is pretty straightforward. You create an object for your preferred Game, optionally pass the dependencies and start requesting. But let's take a look at some code:</p>
+
+                    <pre>use bnetlib\WorldOfWarcraft;
+
+$wow       = new WorldOfWarcraft();
+$character = $wow->getCharacter(array(
+    'region' => 'eu',
+    'name'   => 'Coss',
+    'realm'  => 'Blackrock',
+));</pre>
+                    <p>Yeah, it is that simple, but take a look at what happens under the hood. The Game Object follows the <a href="http://en.wikipedia.org/wiki/Poka-yoke">Poka Yoke</a> principle, that means that the Object will create instances of it's dependencies by itself, if nothing got passed.</p>
+
+                    <p class="note">The default connection adapter is <code>ZendFramework</code> and return type is <code>::RETURN_OBJECT</code>.</p>
+
+                    <a name="specials-request-keys"></a><h2>Specials Request Keys</h2>
+                    <p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="center">Key</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="center"><code>region</code></td>
+                                    <td>You have to set the region per request or set the default region in the connection adapter (e.g. <code>us</code>).</td>
+                                </tr>
+                                <tr>
+                                    <td class="center"><code>locale</code></td>
+                                    <td>Sets the preferred locale (ISO 639/RFC 5646; e.g. <code>en_US</code>).</td>
+                                </tr>
+                                <tr>
+                                    <td class="center"><code>lastmodified</code></td>
+                                    <td>RFC 1123 compliant string, timestamp or <code>DateTime</code> object.</td>
+                                </tr>
+                                <tr>
+                                    <td class="center"><code>return</code></td>
+                                    <td>Sets the preferred return type, <code>::RETURN_PLAIN</code> or <code>::RETURN_OBJECT</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+
+                    <p class="note">The Connection Interface (<code>bnetlib\Connection\ConnectionInterface</code>), which every adapter implements, provides class constants for every region and locale.</p>
+
+                    <a name="world-of-warcraft-and-diablo-iii"></a><h2>World of Warcraft and Diablo III</h2>
+                    <p>Lets take a deeper look at what you can do with the Game object.</p>
+                    <pre>use bnetlib\Diablo;
+use bnetlib\Locale\Locale;
+use bnetlib\WorldOfWarcraft;
+use bnetlib\Connection\ZendFramework;
+
+$wow = new WorldOfWarcraft();
+$wow->getConnection()->setOptions(array(
+    'defaults' => array(
+        'region' => ZendFramework::REGION_EU,
+        'locale' => array(
+            ZendFramework::REGION_EU => ZendFramework::LOCALE_DE
+        )
+    )
+));
+$wow->getServiceLocator()->setLocale(new Locale(ZendFramework::LOCALE_DE));
+
+$diablo = new Diablo($wow->getConnection(), $wow->getServiceLocator());
+
+$wow->setReturnType(WorldOfWarcraft::RETURN_PLAIN);
+
+// array('en_US', 'es_MX', 'pt_BR')
+print_r($wow->getSupportedLocale(ZendFramework::REGION_US));</pre>
+
+                    <a name="exceptions"></a><h2>Exceptions</h2>
+                    <p>bnetlib implements the <a href="http://en.wikipedia.org/wiki/Marker_interface_pattern">Marker interface pattern</a> for exceptions, that means that every exception thrown by this library can be caught by catching <code>ExceptionInterface</code>. Exceptions thrown during the request implement another marker called <code>ResponseExceptionInterface</code>. The Exception Code will be set to the returned HTTP Status Code, except for <code>ClientException</code>. Visit Blizzard's API documentation for more details.</p>
+
+                    <h3>Exceptions thrown during the request</h3>
+                    <p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>CacheException</code></td>
+                                    <td>If the <code>lastmodified</code> key was passed and cache is still valid.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>JsonException</code></td>
+                                    <td>Wrapper for <code>json_decode</code> errors, see <code><a href="http://www.php.net/manual/en/function.json-last-error.php">json_last_error</a></code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>ClientException</code></td>
+                                    <td>Intercepts all exceptions thrown by the client, use <code>$e->getPrevious()</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>InvalidAppException</code></td>
+                                    <td>Invalid Application.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>InvalidAppPermissionsException</code></td>
+                                    <td>Invalid application permissions.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>InvalidAppSignatureException</code></td>
+                                    <td>Invalid application signature.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>InvalidAuthHeaderException</code></td>
+                                    <td>Invalid authentication header.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>PageNotFoundException</code></td>
+                                    <td>When in doubt, blow it up. (page not found).</td>
+                                </tr>
+                                <tr>
+                                    <td><code>RequestBlockedException</code></td>
+                                    <td>Access denied, please contact api-support@blizzard.com.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>RequestsThrottledException</code></td>
+                                    <td>If at first you don't succeed, blow it up again. (too many requests).</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ServerErrorException</code></td>
+                                    <td>Have you not been through enough? Will you continue to fight what you cannot defeat? (something unexpected happened).</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ServerUnavailableException</code></td>
+                                    <td>For HTTP 503 Service Unavailable responses.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>UnexpectedResponseException</code></td>
+                                    <td>Unexpected status code returned.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>UnknownErrorException</code></td>
+                                    <td>Unable to detect reason.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+
+                    <p class="note">Every Exception is located under the <code>bnetlib\Exception</code> namespace.</p>
+
+                    <h3>Example</h3>
+                    <pre>try {
+    $wow->getCharacter(/*some data*/);
+} catch (bnetlib\Exception\CacheException $e) {
+    $headers = $wow->getConnection->getLastResponseHeaders();
+    // so something...
+} catch (bnetlib\Exception\PageNotFoundException $e) {
+    $headers = $wow->getConnection->getLastResponseHeaders();
+    // so something...
+} catch (bnetlib\Exception\RequestsThrottledException $e) {
+    $headers = $wow->getConnection->getLastResponseHeaders();
+    // so something...
+} catch (bnetlib\Exception\RequestBlockedException $e) {
+    $headers = $wow->getConnection->getLastResponseHeaders();
+    // so something...
+} catch (bnetlib\Exception\ServerErrorException $e) {
+    $headers = $wow->getConnection->getLastResponseHeaders();
+    // so something...
+} catch (bnetlib\Exception\ServerUnavailableException $e) {
+    $headers = $wow->getConnection->getLastResponseHeaders();
+    // so something...
+} catch (bnetlib\Exception\ClientException $e) {
+    $e = $e->getPrevious();
+    // so something...
+} catch (bnetlib\Exception\ResponseExceptionInterface $e) {
+    // Fallback, cache every other error
+    $status  = $e->getCode();
+    $headers = $wow->getConnection->getLastResponseHeaders();
+    // so something...
+}</pre>
+
+                    <a name="request-workflow"></a><h2>Request Workflow</h2>
+                    <p>
+                        Whenever you request a Resource, the following will happen under the hood:
+                        <ol>
+                            <li>Look for Resource name in <code>$game::$resources</code> array.</li>
+                            <li>Parse passed arguments and check for the types, strings will be converted into <code>'url' => 'value'</code>. If a consumable Entity got passed, the arguments will be extracted.</li>
+                            <li>Lazy load the Configuration class.</li>
+                            <li>Checks for <code>lastmodified</code> key in arguments. If present, checks if the value is a string, otherwise convert the timestamp/DateTime object to RFC 1123 compliant Date string.</li>
+                            <li>Validates the passed arguments and builds the request URL as described in the Configuration. If the URL does not need to be build because it is static, the Object will enforce HTTPS if enabled.</li>
+                            <li>Pass the URL and configuration object to the connection adapter.
+                                <ol>
+                                    <li>Request Resource.</li>
+                                    <li>Decode JSON (only for JSON responses) and throw an Exception on error.</li>
+                                    <li>Check the Response status code and throw an Exception on error.</li>
+                                    <li>Try to identify the error to throw the appropriate Exception.</li>
+                                </ol>
+                            </li>
+                            <li>Populate Entity or return the plain array, depending on your configuration.</li>
+                        </ol>
+                    </p>
+
+                    <p>Have a look at <a href="entities.html">Entities</a> and the <a href="service-locator.html">Service Locator</a> for more informations or try the <code><a href="https://github.com/coss/bnetlib/tree/master/demos">demos</a></code>.</p>
+                </div>
+            </article>
+        </section>
+    </section>
+    <footer>
+        © 2012 Eric Boh. All rights reserved.
+    </footer>
+</div>
+</body>
+</html>

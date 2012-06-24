@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>bnetlib - Service Locator</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div id="main">
+    <header>
+            <section>
+                <ul>
+                    <li>Docs:</li>
+                    <li><a href="http://coss.github.com/bnetlib/api" title="API Documentation">API</a></li>
+                    <li><a href="http://coss.github.com/bnetlib" title="End User Documentation">End-User</a></li>
+
+                    <li class="nav-space">Downlaod:</li>
+                    <li><a href="https://github.com/coss/bnetlib/zipball/master" title="Download as .zip">Zip</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/tarball/master" title="Download as .tar.gz">Tar</a></li>
+
+                    <li class="nav-space">Actions:</li>
+                    <li><a href="https://github.com/coss/bnetlib" title="Fork bnetlib on GitHub">Fork</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/toggle_watch" title="Watch bnetlib on GitHub">Watch</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/issues" title="Report an Issue">Issues</a></li>
+                </ul>
+            </section>
+            <h1 id="lib"><a href="http://coss.github.com/bnetlib" title="End User Documentation">bnetlib</a></h1>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="usage.html">Usage</a></li>
+                <li><a href="entities.html">Entities</a></li>
+                <li><a href="connection.html">Connection</a></li>
+                <li><a href="service-locator.html">Service Locator</a></li>
+                <li><a href="diablo.html">Diablo III</a></li>
+                <li><a href="world-of-warcraft.html">World of Warcraft</a></li>
+                <li><a href="license.html">License</a></li>
+            </ul>
+        </nav>
+        <section>
+            <article>
+                <div class="inner">
+                    <h1>Service Locator</h1>
+
+                    <p>The Service Locator is used to create every resource specific instance. If you wish to extend bnetlib, simply overwrite a service entry in the Service Locator or create your own Locator using the <code>ServiceLocatorInterface</code>.</p>
+
+                    <p>After the instantiation is done, the locator will try to inject the Service Locator itself and a Locale object (if set), if the object is Service Locator or Locale aware.</p>
+
+                    <pre>use bnetlib\Locale\Locale;
+use bnetlib\ServiceLocator\ServiceLocator;
+
+$locator = new ServiceLocator();
+$locator->set('wow.entity.character', 'You\Namespace\Character');
+$locator->fromArray(array(
+    'wow.entity.guild'     => 'You\Namespace\Guild',
+    'wow.entity.character' => 'You\Namespace\Character',
+));
+
+$config = $locator->get('wow.config.character', true);
+
+$locator->setLocale(new Locale('de_DE'));</pre>
+
+                    <p class="note">Every Entity class must implement <code>EntityInterface</code> and every configuration class must implement <code>ConfigurationInterface</code>.</p>
+                </div>
+            </article>
+        </section>
+    </section>
+    <footer>
+        © 2012 Eric Boh. All rights reserved.
+    </footer>
+</div>
+</body>
+</html>

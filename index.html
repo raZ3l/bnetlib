@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>bnetlib</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div id="main">
+    <header>
+            <section>
+                <ul>
+                    <li>Docs:</li>
+                    <li><a href="http://coss.github.com/bnetlib/api" title="API Documentation">API</a></li>
+                    <li><a href="http://coss.github.com/bnetlib" title="End User Documentation">End-User</a></li>
+
+                    <li class="nav-space">Downlaod:</li>
+                    <li><a href="https://github.com/coss/bnetlib/zipball/master" title="Download as .zip">Zip</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/tarball/master" title="Download as .tar.gz">Tar</a></li>
+
+                    <li class="nav-space">Actions:</li>
+                    <li><a href="https://github.com/coss/bnetlib" title="Fork bnetlib on GitHub">Fork</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/toggle_watch" title="Watch bnetlib on GitHub">Watch</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/issues" title="Report an Issue">Issues</a></li>
+                </ul>
+            </section>
+            <h1 id="lib"><a href="http://coss.github.com/bnetlib" title="End User Documentation">bnetlib</a></h1>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="usage.html">Usage</a></li>
+                <li><a href="entities.html">Entities</a></li>
+                <li><a href="connection.html">Connection</a></li>
+                <li><a href="service-locator.html">Service Locator</a></li>
+                <li><a href="diablo.html">Diablo III</a></li>
+                <li><a href="world-of-warcraft.html">World of Warcraft</a></li>
+                <li><a href="license.html">License</a></li>
+            </ul>
+        </nav>
+        <section>
+            <article>
+                <div class="inner">
+                    <h1>bnetlib</h1>
+
+                    <p>bnetlib is an object-oriented interface for the Battle.net REST-ish API. It tries to keep a direct mapping to the actual resource names and response values.</p>
+
+                    <p>The connection itself will be done by third-party libraries. bnetlib ships with the following adapters: <a href="https://github.com/auraphp/Aura.Http">Aura</a>, <a href="https://github.com/kriswallsmith/Buzz">Buzz</a>, <a href="https://github.com/zendframework/zf2">ZendFramework</a> and even a Stub adapter.</p>
+
+                    <p>Entities are the heart of the library and presumably the main difference between other Battle.net libraries. They provide an object-oriented interface for the returned data, convenient methods, data conversion, locale support for non-localized data and can even be used to provide request arguments like Realm Names, Character Names or Item Ids. But if you prefer a lightweight array, simply set the return value to <code>::RETURN_PLAIN</code> and the library will return the response as array (for JSON) or binary string (for Images).</p>
+
+                    <p>Extending bnetlib is simple... trivially simple! The library uses various techniques to ensure that you can replace every single class with your own:
+                        <ul>
+                            <li><strong>No</strong> hardcoded dependencies. Most dependencies are visible from the outside and if that is not possible to achieve, the library will make use of the Service Locator.</li>
+                            <li><strong>No</strong> type hints for actual classes. Just implement an interface and you are ready to go.</li>
+                        </ul>
+                    </p>
+
+                    <h3>Related Links</h3>
+                    <span class="part left">
+                        <a href="http://us.battle.net/wow/en/forum/topic/2743700663">Known Issues</a><br>
+                        <a href="http://us.battle.net/wow/en/forum/topic/2743691064">Applications, Rate Limits & Throttling</a>
+                    </span>
+                    <span class="part rigt">
+                        <a href="http://us.blizzard.com/en-us/company/about/copyrightnotices.html">Blizzard Copyright Notices</a><br>
+                        <a href="http://blizzard.github.com/api-wow-docs/">World of Warcraft API</a> - <a href="https://github.com/Blizzard/d3-api-docs">Diablo III API</a>
+                    </span>
+                    <br class="clear">
+                </div>
+            </article>
+        </section>
+    </section>
+    <footer>
+        © 2012 Eric Boh. All rights reserved.
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>bnetlib - Connection</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div id="main">
+    <header>
+            <section>
+                <ul>
+                    <li>Docs:</li>
+                    <li><a href="http://coss.github.com/bnetlib/api" title="API Documentation">API</a></li>
+                    <li><a href="http://coss.github.com/bnetlib" title="End User Documentation">End-User</a></li>
+
+                    <li class="nav-space">Downlaod:</li>
+                    <li><a href="https://github.com/coss/bnetlib/zipball/master" title="Download as .zip">Zip</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/tarball/master" title="Download as .tar.gz">Tar</a></li>
+
+                    <li class="nav-space">Actions:</li>
+                    <li><a href="https://github.com/coss/bnetlib" title="Fork bnetlib on GitHub">Fork</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/toggle_watch" title="Watch bnetlib on GitHub">Watch</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/issues" title="Report an Issue">Issues</a></li>
+                </ul>
+            </section>
+            <h1 id="lib"><a href="http://coss.github.com/bnetlib" title="End User Documentation">bnetlib</a></h1>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="usage.html">Usage</a></li>
+                <li><a href="entities.html">Entities</a></li>
+                <li><a href="connection.html">Connection</a></li>
+                <li><a href="service-locator.html">Service Locator</a></li>
+                <li><a href="diablo.html">Diablo III</a></li>
+                <li><a href="world-of-warcraft.html">World of Warcraft</a></li>
+                <li><a href="license.html">License</a></li>
+            </ul>
+        </nav>
+        <section>
+            <article>
+                <div class="inner">
+                    <h1>Connection</h1>
+
+                    <p>There are so many HTTP libraries out there, that writing an own HTTP layer would mean to reinvent the wheel. Because of that, the library uses connection adapters for third-party libraries to connect to the battle.net API. bnetlib ships with 3 (<a href="https://github.com/auraphp/Aura.Http">Aura</a>, <a href="https://github.com/kriswallsmith/Buzz">Buzz</a>, <a href="https://github.com/zendframework/zf2">ZendFramework</a>) adapters plus a Stub adapter for testing and development.</p>
+
+
+                    <h2>Options</h2>
+                    <p>The connection adapter is also responsible for holding API specific options, such as default values or application authentication keys.</p>
+
+                    <dl>
+                        <dt><code>securerequests</code> (default is: <code>false</code>, expects <code>boolean</code>)</dt>
+                        <dd>Forces the adapter to connect via the Secure Sockets Layer. The value will be set to <code>true</code> if you set application authentication keys.</dd>
+
+                        <dt><code>responseheader</code> (default is: <code>true</code>, expects <code>boolean</code>)</dt>
+                        <dd>Include response headers in return value and save the last response headers. (see the adapter <code>::getLastResponseHeaders()</code> method)</dd>
+
+                        <dt><code>keys</code> (<code>array</code>)</dt>
+                        <dd>
+                            <dl>
+                                <dt><code>public</code> (expects <code>string</code>)</dt>
+                                <dd>Public Application Authentication key</dd>
+
+                                <dt><code>private</code> (expects <code>string</code>)</dt>
+                                <dd>Private Application Authentication key</dd>
+                            </dl>
+                        </dd>
+
+                        <dt><code>defaults (<code>array</code>)</code></dt>
+                        <dd>
+                            <p>These default values will be used if not supplied.</p>
+                            <dl>
+                                <dt><code>region</code> (expects <code>string</code>)</dt>
+                                <dd>Sets the default <code>region</code>, otherwise you have to specify the <code>region</code> for every request.</dd>
+
+                                <dt><code>locale (<code>array</code>)</code></dt>
+                                <dd>
+                                    <dl>
+                                        <dt><code>us</code>, <code>eu</code>, <code>kr</code>, <code>tw</code> or <code>cn</code>  (expects <code>string</code>)</dt>
+                                        <dd>Sets the default <code>locale</code> for a specific <code>region</code>.</dd>
+                                    </dl>
+                                </dd>
+                            </dl>
+                        </dd>
+                    </dl>
+
+                    <p>The Stub connection adapter got some special Option keys.</p>
+
+                    <dl>
+                        <dt><code>stub (<code>array</code>)</code></dt>
+                        <dd>
+                            <dl>
+                                <dt><code>memory</code> (default is: <code>true</code>, expects <code>boolean</code>)</dt>
+                                <dd>Keep fixture data in memory after loading, may redurce disk I/O.</dd>
+
+                                <dt><code>path</code> (default is: <code>path/to/bnetlib/Data/Fixtures</code>, expects <code>string</code>)</dt>
+                                <dd>Path to fixtures. bnetlib ships with default fixtures, but you can generate own by using the <code>FixtureGenerator</code>.</dd>
+                            </dl>
+                        </dd>
+                    </dl>
+
+                    <h2>Example</h2>
+                    <pre>$connection->setOptions(array(
+    'responseheader' => false,
+    'defaults'       => array(
+        'region' => ConnectionInterface::REGION_EU,
+        'locale' => array(
+            ConnectionInterface::REGION_US => ConnectionInterface::LOCALE_MX,
+            ConnectionInterface::REGION_EU => ConnectionInterface::LOCALE_DE,
+        )
+    )
+));</pre>
+                </div>
+            </article>
+        </section>
+    </section>
+    <footer>
+        © 2012 Eric Boh. All rights reserved.
+    </footer>
+</div>
+</body>
+</html>

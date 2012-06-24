@@ -1,0 +1,559 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>bnetlib - World of Warcraft</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div id="main">
+    <header>
+            <section>
+                <ul>
+                    <li>Docs:</li>
+                    <li><a href="http://coss.github.com/bnetlib/api" title="API Documentation">API</a></li>
+                    <li><a href="http://coss.github.com/bnetlib" title="End User Documentation">End-User</a></li>
+
+                    <li class="nav-space">Downlaod:</li>
+                    <li><a href="https://github.com/coss/bnetlib/zipball/master" title="Download as .zip">Zip</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/tarball/master" title="Download as .tar.gz">Tar</a></li>
+
+                    <li class="nav-space">Actions:</li>
+                    <li><a href="https://github.com/coss/bnetlib" title="Fork bnetlib on GitHub">Fork</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/toggle_watch" title="Watch bnetlib on GitHub">Watch</a></li>
+                    <li><a href="https://github.com/coss/bnetlib/issues" title="Report an Issue">Issues</a></li>
+                </ul>
+            </section>
+            <h1 id="lib"><a href="http://coss.github.com/bnetlib" title="End User Documentation">bnetlib</a></h1>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="usage.html">Usage</a></li>
+                <li><a href="entities.html">Entities</a></li>
+                <li><a href="connection.html">Connection</a></li>
+                <li><a href="service-locator.html">Service Locator</a></li>
+                <li><a href="diablo.html">Diablo III</a></li>
+                <li><a href="world-of-warcraft.html">World of Warcraft</a></li>
+                <li><a href="license.html">License</a></li>
+            </ul>
+        </nav>
+        <section>
+            <article>
+                <div class="inner">
+                    <h1>World of Warcraft</h1>
+                    <pre>$wow = new bnetlib\WorldOfWarcraft();</pre>
+                    <p>See also the <a href="usage.html#specials-request-keys">Specials Request Keys</a>, <a href="usage.html#exceptions">Exceptions</a> and <a href="entities.html#consumable-entities">Consumable Entities</a> section.</p>
+                    <h3>Table of Contents</h3>
+                    <!-- ~tableOfContents --><span class="part left">
+01. <a href="#achievement">Achievement</a><br>
+02. <a href="#arena-ladder">Arena Ladder</a><br>
+03. <a href="#arena-team">Arena Team</a><br>
+04. <a href="#auction">Auction</a><br>
+05. <a href="#auction-data">Auction Data</a><br>
+06. <a href="#battlegroups">Battlegroups</a><br>
+07. <a href="#character">Character</a><br>
+08. <a href="#character-achievements">Character Achievements</a><br>
+09. <a href="#character-classes">Character Classes</a><br>
+10. <a href="#character-races">Character Races</a><br>
+11. <a href="#guild">Guild</a><br>
+12. <a href="#guild-achievements">Guild Achievements</a><br>
+</span><span class="part right">
+13. <a href="#guild-perks">Guild Perks</a><br>
+14. <a href="#guild-rewards">Guild Rewards</a><br>
+15. <a href="#icon">Icon</a><br>
+16. <a href="#item">Item</a><br>
+17. <a href="#item-classes">Item Classes</a><br>
+18. <a href="#item-set">Item Set</a><br>
+19. <a href="#quest">Quest</a><br>
+20. <a href="#rated-battleground-ladder">Rated Battleground Ladder</a><br>
+21. <a href="#realms">Realms</a><br>
+22. <a href="#recipe">Recipe</a><br>
+23. <a href="#thumbnail">Thumbnail</a><br>
+</span><!-- tableOfContents~ -->
+                    <br class="clear">
+                </div>
+            </article>
+            <!-- ~resources --><article>
+<div class="inner">
+<a name="achievement"></a><h2>Achievement</h2>
+<pre>$resource = $wow->getAchievement(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><code>achievementid</code></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table></p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="arena-ladder"></a><h2>Arena Ladder</h2>
+<pre>$resource = $wow->getArenaLadder(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>battlegroup</td>
+<td><code>bgslug</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>teamsize</td>
+<td><code>-</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>page</td>
+<td><code>-</code></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>size</td>
+<td><code>-</code></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>asc</td>
+<td><code>-</code></td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table></p>
+
+                            <p class="note"><strong><code>asc</code></strong>: Accepts a <code>boolean</code> as string or PHP type. Example: <code>'asc' => true, 'asc' => 'true'</code></p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="arena-team"></a><h2>Arena Team</h2>
+<pre>$resource = $wow->getArenaTeam(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>realm</td>
+<td><code>slug</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>teamsize</td>
+<td><code>-</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>name</td>
+<td><code>-</code></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table></p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="auction"></a><h2>Auction</h2>
+<pre>$resource = $wow->getAuction(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>realm</td>
+<td><code>slug</code></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table></p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="auction-data"></a><h2>Auction Data</h2>
+<pre>$resource = $wow->getAuctionData(/* URL */ or array('url' => /* URL */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><code>-</code></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table></p>
+
+                            <p class="note"><strong><code>url</code></strong>: If you pass an string as argument, the argument will be interpreted as the value of <code>url</code></p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="battlegroups"></a><h2>Battlegroups</h2>
+<pre>$resource = $wow->getBattlegroups();</pre>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="character"></a><h2>Character</h2>
+<pre>$resource = $wow->getCharacter(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>realm</td>
+<td><code>slug</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>name</td>
+<td><code>character</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>fields</td>
+<td><code>-</code></td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table></p>
+
+                            <p class="note"><strong><code>fields</code></strong>: Accepts an <code>array</code> (list) or a <code>string</code>.</p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="character-achievements"></a><h2>Character Achievements</h2>
+<pre>$resource = $wow->getCharacterAchievements();</pre>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="character-classes"></a><h2>Character Classes</h2>
+<pre>$resource = $wow->getCharacterClasses();</pre>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="character-races"></a><h2>Character Races</h2>
+<pre>$resource = $wow->getCharacterRaces();</pre>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="guild"></a><h2>Guild</h2>
+<pre>$resource = $wow->getGuild(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>realm</td>
+<td><code>slug</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>name</td>
+<td><code>guild</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>fields</td>
+<td><code>-</code></td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table></p>
+
+                            <p class="note"><strong><code>fields</code></strong>: Accepts an <code>array</code> (list) or a <code>string</code>.</p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="guild-achievements"></a><h2>Guild Achievements</h2>
+<pre>$resource = $wow->getGuildAchievements();</pre>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="guild-perks"></a><h2>Guild Perks</h2>
+<pre>$resource = $wow->getGuildPerks();</pre>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="guild-rewards"></a><h2>Guild Rewards</h2>
+<pre>$resource = $wow->getGuildRewards();</pre>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="icon"></a><h2>Icon</h2>
+<pre>$resource = $wow->getIcon(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>size</td>
+<td><code>iconsize</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>icon</td>
+<td><code>-</code></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table></p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="item"></a><h2>Item</h2>
+<pre>$resource = $wow->getItem(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><code>itemid</code></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table></p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="item-classes"></a><h2>Item Classes</h2>
+<pre>$resource = $wow->getItemClasses();</pre>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="item-set"></a><h2>Item Set</h2>
+<pre>$resource = $wow->getItemSet(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><code>setid</code></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table></p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="quest"></a><h2>Quest</h2>
+<pre>$resource = $wow->getQuest(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><code>-</code></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table></p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="rated-battleground-ladder"></a><h2>Rated Battleground Ladder</h2>
+<pre>$resource = $wow->getRatedBattlegroundLadder(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td><code>-</code></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>size</td>
+<td><code>-</code></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>asc</td>
+<td><code>-</code></td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table></p>
+
+                            <p class="note"><strong><code>asc</code></strong>: Accepts a <code>boolean</code> as string or PHP type. Example: <code>'asc' => true, 'asc' => 'true'</code></p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="realms"></a><h2>Realms</h2>
+<pre>$resource = $wow->getRealms(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>realms</td>
+<td><code>slug</code>, <code>realm</code></td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table></p>
+
+                            <p class="note"><strong><code>realms</code></strong>: Accepts an <code>array</code> (list) or a <code>string</code> and all Realm names will be converted into a slug (<code>array</code> only).</p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="recipe"></a><h2>Recipe</h2>
+<pre>$resource = $wow->getRecipe(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><code>-</code></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table></p>
+</div>
+</article>
+<article>
+<div class="inner">
+<a name="thumbnail"></a><h2>Thumbnail</h2>
+<pre>$resource = $wow->getThumbnail(array(/* arguments */));</pre>
+<h3>Request Keys</h3>
+<p><table class="resource">
+<thead>
+<tr>
+<th>Argument</th>
+<th>Alias</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>-</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>thumbnail</td>
+<td><code>-</code></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table></p>
+</div>
+</article><!-- resources~ -->
+        </section>
+    </section>
+    <footer>
+        © 2012 Eric Boh. All rights reserved.
+    </footer>
+</div>
+</body>
+</html>
