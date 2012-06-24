@@ -225,7 +225,7 @@ print_r($wow->getSupportedLocale(ZendFramework::REGION_US));</pre>
                         Whenever you request a Resource, the following will happen under the hood:
                         <ol>
                             <li>Look for Resource name in <code>$game::$resources</code> array.</li>
-                            <li>Parse passed arguments and check for the types, strings will be converted into <code>'url' => 'value'</code>. If a consumable Entity got passed, the arguments will be extracted.</li>
+                            <li>Parse passed arguments and check for the types, strings will be converted into <code>'url' => 'value'</code>. If a consumable Entity was passed, extract the arguments.</li>
                             <li>Lazy load the Configuration class.</li>
                             <li>Checks for <code>lastmodified</code> key in arguments. If present, checks if the value is a string, otherwise convert the timestamp/DateTime object to RFC 1123 compliant Date string.</li>
                             <li>Validates the passed arguments and builds the request URL as described in the Configuration. If the URL does not need to be build because it is static, the Object will enforce HTTPS if enabled.</li>
