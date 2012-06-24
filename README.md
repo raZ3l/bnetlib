@@ -151,6 +151,13 @@ Example
     }
 
 
+Composer
+--------
+
+    cd path/to/bnetlib
+    php composer.phar install
+
+
 License
 -------
 
