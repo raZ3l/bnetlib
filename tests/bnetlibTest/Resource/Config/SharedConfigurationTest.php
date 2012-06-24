@@ -5,7 +5,7 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code. You can also view the
- * LICENSE file online at https://gitbub.com/coss/bnetlib/LISENCE
+ * LICENSE file online at http://coss.github.com/bnetlib/license.html
  *
  * @category   bnetlib
  * @package    Resource
@@ -318,6 +318,7 @@ abstract class SharedConfigurationTest extends \PHPUnit_Framework_TestCase
             return;
         }
 
+        #$specials  = array('url', 'locale', 'region', 'lastmodified');
         $aliases   = $this->config->getArgumentAliases();
         $required  = $this->config->getRequiredArguments();
         $optional  = $this->config->getOptionalArguments();
@@ -338,7 +339,10 @@ abstract class SharedConfigurationTest extends \PHPUnit_Framework_TestCase
 
         foreach ($manipulable as $name => $value) {
             if (!in_array($name, $whitelist)) {
-                $this->fail('Only data within the configuration scope should be manipulated.');
+                $this->fail(sprintf(
+                    'Only data within the configuration scope should be manipulated (%s).',
+                    $name
+                ));
             }
         }
 

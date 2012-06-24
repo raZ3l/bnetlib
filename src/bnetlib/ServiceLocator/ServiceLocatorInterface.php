@@ -5,7 +5,7 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code. You can also view the
- * LICENSE file online at https://gitbub.com/coss/bnetlib/LISENCE
+ * LICENSE file online at http://coss.github.com/bnetlib/license.html
  *
  * @category  bnetlib
  * @package   ServiceLocator
