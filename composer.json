@@ -2,7 +2,7 @@
     "name":        "coss/bnetlib",
     "type":        "library",
     "description": "A Battle.net PHP 5.3 Library",
-    "keywords":    [
+    "keywords": [
         "wow",
         "world of warcraft",
         "diablo",
@@ -10,21 +10,32 @@
         "battle",
         "blizzard"
     ],
-    "homepage":    "http://coss.github.com/bnetlib",
-    "license":     "MIT",
-    "authors":     [
+    "homepage": "http://coss.github.com/bnetlib",
+    "license":  "MIT",
+    "authors": [
         {
             "name":  "Eric Boh",
             "email": "cossish@gmail.com"
         }
     ],
-    "require":     {
-        "php":                     ">= 5.3.3",
-        "Aura/Http":               "dev-1.0.0-beta2",
-        "kriswallsmith/buzz":      ">= 0.6",
-        "zendframework/zend-http": "dev-master"
+    "config": {
+        "bin-dir": "bin"
     },
-    "autoload":    {
+    "repositories": [
+        {
+            "type": "composer",
+            "url":  "http://packages.zendframework.com/"
+        }
+    ],
+    "require": {
+        "php":                     ">= 5.3.3",
+        "zendframework/zend-http": "2.0.*",
+    },
+    "suggest": {
+        "Aura/Http":          "Allows the usage of the Aura adapter.",
+        "kriswallsmith/buzz": "Allows the usage of the Buzz adapter."
+    },
+    "autoload": {
         "psr-0": {
             "bnetlib": "src/"
         }
