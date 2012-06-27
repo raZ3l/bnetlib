@@ -26,6 +26,25 @@ Features
 * Locale string helper for class names, race names, etc. etc. etc.
 
 
+Composer
+--------
+
+    $ cd path/to/bnetlib
+    $ php composer.phar install
+
+
+> **Note:** If you want to use the Aura or Buzz adapter, you have to add it to the composer.json file.
+
+    $ php composer.phar require Aura/Http:dev-1.0.0-beta2
+    $ php composer.phar require kriswallsmith/buzz:0.6
+
+
+Autoloading
+-----------
+
+bnetlib is PSR-0 compliant and provides a [class map](https://github.com/coss/bnetlib/blob/master/autoload_classmap.php). You may use any PSR-0 compliant/class map autoloader you like (e.g. [`Zend\Loader`](https://github.com/zendframework/zf2) or [`Symfony's ClassLoader`](https://github.com/symfony/ClassLoader)) or use the fallback [`autoload_register.php`](https://github.com/coss/bnetlib/blob/master/autoload_register.php).
+
+
 Resources
 ---------
 
@@ -56,12 +75,6 @@ Resources
 | Recipe                    | `getRecipe()`                  |
 | Realms                    | `getRealms()`                  |
 | Thumbnail Image           | `getThumbnail()`               |
-
-
-Autoloading
------------
-
-bnetlib is PSR-0 compliant and provides a [class map](https://github.com/coss/bnetlib/blob/master/autoload_classmap.php). You may use any PSR-0 compliant/class map autoloader you like (e.g. [`Zend\Loader`](https://github.com/zendframework/zf2) or [`Symfony's ClassLoader`](https://github.com/symfony/ClassLoader)) or use the fallback [`autoload_register.php`](https://github.com/coss/bnetlib/blob/master/autoload_register.php).
 
 
 Example
@@ -149,13 +162,6 @@ Example
             }
         }
     }
-
-
-Composer
---------
-
-    cd path/to/bnetlib
-    php composer.phar install
 
 
 License
