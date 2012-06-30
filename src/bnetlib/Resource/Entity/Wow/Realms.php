@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Realms implements EntityInterface, \Iterator
 {
     /**#@+
-     * @const string
+     * @var string
      */
     const TYPE_PVE    = 'pve';
     const TYPE_PVP    = 'pvp';
@@ -38,7 +38,7 @@ class Realms implements EntityInterface, \Iterator
     /**#@-*/
 
     /**#@+
-     * @const string
+     * @var string
      */
     const POPULATION_LOW    = 'low';
     const POPULATION_MEDIUM = 'medium';
@@ -61,7 +61,7 @@ class Realms implements EntityInterface, \Iterator
     protected $data = array();
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -104,7 +104,7 @@ class Realms implements EntityInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

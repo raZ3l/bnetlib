@@ -28,7 +28,7 @@ use bnetlib\Resource\Config\ConfigurationInterface;
 class Battlegroups implements ConfigurationInterface
 {
     /**
-     * @const string
+     * @var string
      */
     const RESOURCE_URL = '/api/wow/data/battlegroups/';
 

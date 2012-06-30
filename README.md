@@ -33,7 +33,11 @@ Composer
     $ php composer.phar install
 
 
-> **Note:** If you want to use the Aura or Buzz adapter, you have to add it to the composer.json file.
+> **Note:** If you want to use the Aura or Buzz adapter, you have to add it to the composer.json file. You can do this by using the `--install-suggests` flag or running the `require` command.
+
+    $ php composer.phar install --install-suggests
+
+    **OR**
 
     $ php composer.phar require Aura/Http:dev-1.0.0-beta2
     $ php composer.phar require kriswallsmith/buzz:0.6
@@ -83,7 +87,6 @@ Example
     use bnetlib\Locale\Locale;
     use bnetlib\WorldOfWarcraft;
     use bnetlib\Connection\ZendFramework;
-    use bnetlib\Resource\Entity\Wow\Character\Professions;
 
     $locale = new Locale(ZendFramework::LOCALE_ES);
 
@@ -156,7 +159,7 @@ Example
             $professions = $character->getProfessions();
             if ($professions->hasPrimaryProfession() && $professions->hasFirstAid()) {
                 /* @var $firstAid bnetlib\Resource\Entity\Wow\Character\Profession */
-                $firstAid = $professions->getById(Professions::PROFESSION_FIRST_AID);
+                $firstAid = $professions->getById($professions::PROFESSION_FIRST_AID);
 
                 echo ($firstAid->has(23787)) ? 'Yes' : 'No';
             }

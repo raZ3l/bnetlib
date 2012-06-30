@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class News implements EntityInterface, \Iterator, \Countable
 {
     /**#@+
-     * @const string
+     * @var string
      */
     const TYPE_GUILD_CREATED      = 'guildCreated';
     const TYPE_GUILD_LEVEL        = 'guildLevel';
@@ -55,7 +55,7 @@ class News implements EntityInterface, \Iterator, \Countable
     protected $data = array();
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -92,7 +92,7 @@ class News implements EntityInterface, \Iterator, \Countable
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

@@ -26,7 +26,7 @@ use bnetlib\ServiceLocator\ServiceLocatorAwareInterface;
 interface EntityInterface extends ServiceLocatorAwareInterface
 {
     /**
-     * @return \stdClass
+     * @return array
      */
     public function getResponseHeaders();
 
@@ -36,8 +36,8 @@ interface EntityInterface extends ServiceLocatorAwareInterface
     public function populate($data);
 
     /**
-     * @param \stdClass $headers
+     * @param array $headers
      */
-    public function setResponseHeaders(\stdClass $headers);
+    public function setResponseHeaders($headers);
 
 }

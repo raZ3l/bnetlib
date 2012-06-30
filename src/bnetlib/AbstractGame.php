@@ -32,7 +32,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 abstract class AbstractGame
 {
     /**#@+
-     * @const string
+     * @var string
      */
     const ERROR_RESOURCE_NOT_FOUND = 'There is no resource namend %s.';
     const ERROR_MSSING_ARGUMENT    = 'Unable to fulfill your request. No %s given.';
@@ -40,7 +40,7 @@ abstract class AbstractGame
     /**#@-*/
 
     /**#@+
-     * @const integer
+     * @var integer
      */
     const RETURN_PLAIN  = 1;
     const RETURN_OBJECT = 2;
@@ -239,7 +239,7 @@ abstract class AbstractGame
                 }
                 $class->populate($response['content']);
                 if (isset($response['headers'])) {
-                    $class->setResponseHeaders((object) $response['headers']);
+                    $class->setResponseHeaders($response['headers']);
                 }
                 return $class;
             case self::RETURN_PLAIN:

@@ -35,7 +35,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, \Countable
     protected $data = array();
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -69,7 +69,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, \Countable
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         return $this->headers = $headers;
     }

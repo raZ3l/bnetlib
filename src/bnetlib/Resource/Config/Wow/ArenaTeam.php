@@ -30,7 +30,7 @@ use bnetlib\Resource\Config\ConfigurationInterface;
 class ArenaTeam implements ConfigurationInterface
 {
     /**
-     * @const string
+     * @var string
      */
     const RESOURCE_URL = '/api/wow/arena/%s/%s/%s';
 

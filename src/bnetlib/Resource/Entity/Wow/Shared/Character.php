@@ -42,7 +42,7 @@ class Character implements EntityInterface, ConsumeInterface, LocaleAwareInterfa
     protected $locale;
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -80,7 +80,7 @@ class Character implements EntityInterface, ConsumeInterface, LocaleAwareInterfa
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

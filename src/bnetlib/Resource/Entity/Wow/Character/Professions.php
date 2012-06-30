@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Professions implements EntityInterface, \Iterator
 {
     /**#@+
-     * @const integer
+     * @var integer
      */
     const PROFESSION_ALCHEMY        = 171;
     const PROFESSION_BLACKSMITHING  = 164;
@@ -68,7 +68,7 @@ class Professions implements EntityInterface, \Iterator
     protected $data = array();
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -109,7 +109,7 @@ class Professions implements EntityInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

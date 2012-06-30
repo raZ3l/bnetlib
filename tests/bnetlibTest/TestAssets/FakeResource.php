@@ -34,7 +34,7 @@ class FakeResource implements EntityInterface
         return $this->header;
     }
 
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->header = $headers;
     }

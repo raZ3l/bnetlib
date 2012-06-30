@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Feed implements EntityInterface, \Iterator, \Countable
 {
     /**#@+
-     * @const string
+     * @var string
      */
     const TYPE_LOOT             = 'LOOT';
     const TYPE_ACHIEVEMENT      = 'ACHIEVEMENT';
@@ -54,7 +54,7 @@ class Feed implements EntityInterface, \Iterator, \Countable
     protected $data = array();
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -94,7 +94,7 @@ class Feed implements EntityInterface, \Iterator, \Countable
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

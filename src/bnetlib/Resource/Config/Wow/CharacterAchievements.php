@@ -28,7 +28,7 @@ use bnetlib\Resource\Config\ConfigurationInterface;
 class CharacterAchievements implements ConfigurationInterface
 {
     /**
-     * @const string
+     * @var string
      */
     const RESOURCE_URL = '/api/wow/data/character/achievements';
 

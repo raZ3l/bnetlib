@@ -34,7 +34,7 @@ class ArenaTeam implements EntityInterface
     protected $data = array();
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -68,7 +68,7 @@ class ArenaTeam implements EntityInterface
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }
