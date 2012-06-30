@@ -29,7 +29,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Image implements EntityInterface
 {
     /**#@+
-     * @const string
+     * @var string
      */
     const FILE_EXTENSION       = '.jpg';
     const FILE_EXTENSION_REGEX = '\.(jpeg|jpg)';
@@ -41,7 +41,7 @@ class Image implements EntityInterface
     protected $data;
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -69,7 +69,7 @@ class Image implements EntityInterface
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

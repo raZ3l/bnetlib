@@ -51,7 +51,7 @@ use bnetlib\Resource\Entity\ConsumeInterface;
 class WorldOfWarcraft extends AbstractGame
 {
     /**
-     * @const string
+     * @var string
      */
     const SHORT_NAME = 'wow';
 

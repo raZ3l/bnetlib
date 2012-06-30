@@ -36,7 +36,7 @@ class PvpArea implements EntityInterface, LocaleAwareInterface
     protected $data = array();
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -73,7 +73,7 @@ class PvpArea implements EntityInterface, LocaleAwareInterface
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

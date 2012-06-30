@@ -26,7 +26,7 @@ namespace bnetlib\Resource\Config;
 interface ConfigurationInterface
 {
     /**#@+
-     * @const integer
+     * @var integer
      */
     const TYPE_STATIC_URL   = 1;
     const TYPE_STATIC_PATH  = 2;

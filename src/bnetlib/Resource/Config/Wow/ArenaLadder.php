@@ -30,7 +30,7 @@ use bnetlib\Resource\Config\ConfigurationInterface;
 class ArenaLadder implements ConfigurationInterface
 {
     /**
-     * @const string
+     * @var string
      */
     const RESOURCE_URL = '/api/wow/pvp/arena/%s/%s';
 

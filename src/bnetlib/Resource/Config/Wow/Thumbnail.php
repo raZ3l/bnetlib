@@ -28,7 +28,7 @@ use bnetlib\Resource\Config\ConfigurationInterface;
 class Thumbnail implements ConfigurationInterface
 {
     /**
-     * @const string
+     * @var string
      */
     const RESOURCE_URL = '/static-render/%s/%s';
 

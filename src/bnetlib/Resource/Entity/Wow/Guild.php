@@ -51,7 +51,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     protected $data = array();
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -100,7 +100,7 @@ class Guild extends GuildEmblem implements ConsumeInterface, LocaleAwareInterfac
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

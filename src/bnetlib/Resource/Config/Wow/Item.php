@@ -28,7 +28,7 @@ use bnetlib\Resource\Config\ConfigurationInterface;
 class Item implements ConfigurationInterface
 {
     /**
-     * @const string
+     * @var string
      */
     const RESOURCE_URL = '/api/wow/item/%s';
 

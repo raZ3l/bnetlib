@@ -52,7 +52,7 @@ class Statistic implements EntityInterface
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

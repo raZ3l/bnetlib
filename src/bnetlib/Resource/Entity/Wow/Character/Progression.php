@@ -43,7 +43,7 @@ class Progression implements EntityInterface, \Iterator
     protected $data = array();
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -78,7 +78,7 @@ class Progression implements EntityInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

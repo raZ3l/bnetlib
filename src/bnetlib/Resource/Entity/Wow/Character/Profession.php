@@ -34,7 +34,7 @@ class Profession implements EntityInterface
     protected $data = array();
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -70,7 +70,7 @@ class Profession implements EntityInterface
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

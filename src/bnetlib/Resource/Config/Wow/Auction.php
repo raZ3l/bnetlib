@@ -29,7 +29,7 @@ use bnetlib\Resource\Config\ConfigurationInterface;
 class Auction implements ConfigurationInterface
 {
     /**
-     * @const string
+     * @var string
      */
     const RESOURCE_URL = '/api/wow/auction/data/%s';
 

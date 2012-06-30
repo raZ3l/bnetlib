@@ -41,7 +41,7 @@ class Faction implements EntityInterface, LocaleAwareInterface
     protected $locale;
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -69,7 +69,7 @@ class Faction implements EntityInterface, LocaleAwareInterface
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }

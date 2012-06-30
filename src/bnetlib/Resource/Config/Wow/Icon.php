@@ -29,7 +29,7 @@ use bnetlib\Resource\Config\ConfigurationInterface;
 class Icon implements ConfigurationInterface
 {
     /**
-     * @const string
+     * @var string
      */
     const RESOURCE_URL = '/wow-assets/static/images/icons/%s/%s.jpg';
 

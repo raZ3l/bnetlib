@@ -29,7 +29,7 @@ use bnetlib\Resource\Config\ConfigurationInterface;
 class Realms implements ConfigurationInterface
 {
     /**
-     * @const string
+     * @var string
      */
     const RESOURCE_URL = '/api/wow/realm/status';
 

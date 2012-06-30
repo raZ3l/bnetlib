@@ -24,12 +24,12 @@ namespace bnetlib\Connection;
 interface ConnectionInterface
 {
     /**
-     * @const string
+     * @var string
      */
     const VERSION = '1.1.1';
 
     /**#@+
-     * @const string
+     * @var string
      */
     const REGION_US = 'us';
     const REGION_EU = 'eu';
@@ -39,7 +39,7 @@ interface ConnectionInterface
     /**#@-*/
 
     /**#@+
-     * @const string
+     * @var string
      */
     const HOST_US = 'us.battle.net';
     const HOST_EU = 'eu.battle.net';
@@ -49,7 +49,7 @@ interface ConnectionInterface
     /**#@-*/
 
     /**#@+
-     * @const string
+     * @var string
      */
     const LOCALE_US = 'en_US';
     const LOCALE_MX = 'es_MX';

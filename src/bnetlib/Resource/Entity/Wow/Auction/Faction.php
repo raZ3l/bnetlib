@@ -30,7 +30,7 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 class Faction implements EntityInterface, \Iterator
 {
     /**#@+
-     * @const integer
+     * @var integer
      */
     const TIME_SHORT     = 1;
     const TIME_MEDIUM    = 2;
@@ -57,7 +57,7 @@ class Faction implements EntityInterface, \Iterator
     protected $data = array();
 
     /**
-     * @var \stdClass|null
+     * @var array|null
      */
     protected $headers;
 
@@ -106,7 +106,7 @@ class Faction implements EntityInterface, \Iterator
     /**
      * @inheritdoc
      */
-    public function setResponseHeaders(\stdClass $headers)
+    public function setResponseHeaders($headers)
     {
         $this->headers = $headers;
     }
