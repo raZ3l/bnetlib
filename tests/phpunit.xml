@@ -4,4 +4,9 @@
             <directory>./bnetlibTest/</directory>
         </testsuite>
     </testsuites>
+    <groups>
+        <exclude>
+            <group>AuraPHP</group>
+        </exclude>
+    </groups>
 </phpunit>
