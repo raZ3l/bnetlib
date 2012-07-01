@@ -50,7 +50,7 @@ class ZendFramework extends AbstractConnection
     {
         try {
             $request  = new Request();
-            $headers  = $request->headers();
+            $headers  = $request->getHeaders();
             $request->setUri($params['url']);
             $headers->addHeaderLine('Accept-Encoding', 'gzip,deflate');
 
@@ -62,7 +62,7 @@ class ZendFramework extends AbstractConnection
                  * @link http://www.php.net/manual/de/function.gmdate.php#25031
                  */
                 $date = gmdate('D, d M Y H:i:s \G\M\T');
-                $path = $request->uri()->getPath();
+                $path = $request->getUri()->getPath();
                 $headers->addHeaderLine('Date', $date);
                 $headers->addHeaderLine('Authorization', $this->signRequest('GET', $date, $path));
 
@@ -77,7 +77,7 @@ class ZendFramework extends AbstractConnection
             $headers  = null;
 
             if ($this->option['responseheader']) {
-                $headers = $response->headers()->toArray();
+                $headers = $response->getHeaders()->toArray();
                 $this->lastResponseHeaders = $headers;
             }
         } catch (\Exception $e) {
