@@ -33,11 +33,11 @@ Composer
     $ php composer.phar install
 
 
-> **Note:** If you want to use the Aura or Buzz adapter, you have to add it to the composer.json file. You can do this by using the `--install-suggests` flag or running the `require` command.
+> **Note:** If you want to use the Aura or Buzz adapter, you have to add it to the composer.json file. You can do this by using the `install-suggests` flag or running the `require` command.
 
     $ php composer.phar install --install-suggests
 
-    **OR**
+**OR**
 
     $ php composer.phar require Aura/Http:dev-1.0.0-beta2
     $ php composer.phar require kriswallsmith/buzz:0.6
