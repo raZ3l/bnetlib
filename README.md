@@ -18,12 +18,12 @@ bnetlib requires PHP 5.3.3+ and depends on (one of) the following HTTP libraries
 Features
 --------
 
-* If-Modified-Since Header support
-* Application authentication support
-* Converts timestamps to `DateTime` objects
-* Stub connection for testing and development
-* Returns simple array or full blown entity object
-* Locale string helper for class names, race names, etc. etc. etc.
+* If-Modified-Since Header support.
+* Application authentication support.
+* Stub connection for testing and development.
+* Returns simple array or full blown entity object.
+* Converts timestamps to `DateTime` objects (`getDate()`).
+* Locale string helper for class names, race names, etc.
 
 
 Composer
