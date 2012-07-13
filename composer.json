@@ -27,17 +27,21 @@
             "url":  "http://packages.zendframework.com/"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "php":                     ">= 5.3.3",
-        "zendframework/zend-http": "2.0.*",
+        "zendframework/zend-http": "2.0.0-beta5"
     },
     "suggest": {
-        "Aura/Http":          "Allows the usage of the Aura adapter.",
-        "kriswallsmith/buzz": "Allows the usage of the Buzz adapter."
+        "Aura/Http":          "Versuib: dev-1.0.0-beta2, Allows the usage of the Aura adapter.",
+        "kriswallsmith/buzz": "Version: 0.6, Allows the usage of the Buzz adapter."
     },
     "autoload": {
         "psr-0": {
             "bnetlib": "src/"
-        }
+        },
+        "classmap": [
+            "src/"
+        ]
     }
 }
