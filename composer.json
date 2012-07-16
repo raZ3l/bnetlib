@@ -33,8 +33,8 @@
         "zendframework/zend-http": "2.0.0-beta5"
     },
     "suggest": {
-        "Aura/Http":          "Versuib: dev-1.0.0-beta2, Allows the usage of the Aura adapter.",
-        "kriswallsmith/buzz": "Version: 0.6, Allows the usage of the Buzz adapter."
+        "Aura/Http":          "Version: dev-1.0.0-beta2, allows the usage of the Aura adapter.",
+        "kriswallsmith/buzz": "Version: 0.6, allows the usage of the Buzz adapter."
     },
     "autoload": {
         "psr-0": {
