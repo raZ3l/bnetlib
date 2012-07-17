@@ -31,8 +31,8 @@ class Image implements EntityInterface
     /**#@+
      * @var string
      */
-    const FILE_EXTENSION       = '.jpg';
-    const FILE_EXTENSION_REGEX = '\.(jpeg|jpg)';
+    protected $fileExtension      = '.jpg';
+    protected $fileExtensionRegex = '\.(jpeg|jpg)';
     /**#@-*/
 
     /**
@@ -83,6 +83,20 @@ class Image implements EntityInterface
     }
 
     /**
+     * Sets a new extension and RegEx pattern.
+     *
+     * @param string $ext
+     * @param string $regex
+     */
+    public function setFileExtension($ext, $regex)
+    {
+        $this->fileExtension      = $ext;
+        $this->fileExtensionRegex = $regex;
+    }
+
+    /**
+     * Returns the image as binary string.
+     *
      * @return string
      */
     public function getData()
@@ -91,16 +105,18 @@ class Image implements EntityInterface
     }
 
     /**
-     * Saves the file as $name. If your file name does not end with self::FILE_EXTENSION_REGEX
+     * Saves the file as $name. If your file name does not end with $this->fileExtension
      * (jpeg or jpg), the file extension "jpg" will be used.
+     *
+     * The used file extension may vary. See setFileExtension();
      *
      * @param  string $name
      * @return boolean
      */
     public function saveAs($name)
     {
-        if (!preg_match('/' . self::FILE_EXTENSION_REGEX . '$/i', $name)) {
-            $name .= self::FILE_EXTENSION;
+        if (!preg_match('/' . $this->fileExtensionRegex . '$/i', $name)) {
+            $name .= $this->fileExtension;
         }
 
         if (@file_put_contents($name, $this->data) === false) {

@@ -35,15 +35,15 @@ class Diablo extends AbstractGame
     /**
      * @const string
      */
-    const SHORT_NAME = 'diablo';
+    const SHORT_NAME = 'd3';
 
     /**
      * @inheritdoc
      */
     protected $resources = array(
-        'Career' => 'diablo.entity.career',
-        'Hero'   => 'diablo.entity.hero',
-        'Icon'   => 'shared.entity.imagepng',
+        'Career' => 'd3.entity.career',
+        'Hero'   => 'd3.entity.hero',
+        'Icon'   => 'shared.entity.image',
     );
 
     /**
