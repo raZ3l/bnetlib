@@ -26,7 +26,7 @@ use bnetlib\Diablo;
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class DiabloTest extends SharedGameTest
+class DiabloTest // extends SharedGameTest
 {
     public static function setUpBeforeClass()
     {

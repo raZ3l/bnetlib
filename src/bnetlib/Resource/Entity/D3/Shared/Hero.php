@@ -162,6 +162,6 @@ class Hero implements EntityInterface, ConsumeInterface
      */
     public function consume()
     {
-        return array('id' => $this->data['id'])
+        return array('id' => $this->data['id']);
     }
 }

@@ -46,8 +46,15 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
      * @var array
      */
     protected $services = array(
+        'd3.config.career'                          => 'bnetlib\Resource\Config\D3\Career',
+        'd3.config.hero'                            => 'bnetlib\Resource\Config\D3\Hero',
+        'd3.entity.career'                          => 'bnetlib\Resource\Entity\D3\Career',
+        'd3.entity.hero'                            => 'bnetlib\Resource\Entity\D3\Hero',
+        'd3.entity.shared.hero'                     => 'bnetlib\Resource\Entity\D3\Shared\Hero',
+        'shared.entity.data'                        => 'bnetlib\Resource\Entity\Shared\Data',
         'shared.entity.fallback'                    => 'bnetlib\Resource\Entity\Shared\Fallback',
         'shared.entity.image'                       => 'bnetlib\Resource\Entity\Shared\Image',
+        'shared.entity.listdata'                    => 'bnetlib\Resource\Entity\Shared\ListData',
         'wow.config.achievement'                    => 'bnetlib\Resource\Config\Wow\Achievement',
         'wow.config.arenaladder'                    => 'bnetlib\Resource\Config\Wow\ArenaLadder',
         'wow.config.arenateam'                      => 'bnetlib\Resource\Config\Wow\ArenaTeam',
@@ -149,10 +156,8 @@ class ServiceLocator implements ServiceLocatorInterface, LocaleAwareInterface
         'wow.entity.recipe'                         => 'bnetlib\Resource\Entity\Wow\Recipe',
         'wow.entity.shared.arenateam'               => 'bnetlib\Resource\Entity\Wow\Shared\ArenaTeam',
         'wow.entity.shared.character'               => 'bnetlib\Resource\Entity\Wow\Shared\Character',
-        'wow.entity.shared.data'                    => 'bnetlib\Resource\Entity\Wow\Shared\Data',
         'wow.entity.shared.guildemblem'             => 'bnetlib\Resource\Entity\Wow\Shared\GuildEmblem',
         'wow.entity.shared.item'                    => 'bnetlib\Resource\Entity\Wow\Shared\Item',
-        'wow.entity.shared.listdata'                => 'bnetlib\Resource\Entity\Wow\Shared\ListData',
     );
 
     /**

@@ -14,24 +14,23 @@
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-namespace bnetlibTest\Resource\Entity\Wow\Shared;
+namespace bnetlibTest\Resource\Entity\Shared;
 
 use bnetlib\ServiceLocator\ServiceLocator;
-use bnetlib\Resource\Entity\Wow\Shared\Data;
+use bnetlib\Resource\Entity\Shared\ListData;
 
 /**
  * @category   bnetlib
  * @package    Resource
  * @subpackage UnitTests
- * @group      WorldOfWarcraft
- * @group      WoW_Shared
+ * @group      Shared
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class DataTest extends \PHPUnit_Framework_TestCase
+class ListDataTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var bnetlib\Resource\Entity\Wow\Shared\Data
+     * @var \bnetlib\Resource\Entity\Shared\ListData
      */
     protected static $obj;
 
@@ -39,10 +38,10 @@ class DataTest extends \PHPUnit_Framework_TestCase
     {
         $data            = array();
         $data['content'] = json_decode(file_get_contents(
-            dirname(__DIR__) . '/fixtures/character.json'
+            dirname(__DIR__) . '/Wow/fixtures/character.json'
         ), true);;
 
-        self::$obj = new Data();
+        self::$obj = new ListData();
         self::$obj->setServiceLocator(new ServiceLocator());
         self::$obj->populate($data['content']['quests']);
 
@@ -53,10 +52,20 @@ class DataTest extends \PHPUnit_Framework_TestCase
         self::$obj = null;
     }
 
+    public function testCountable()
+    {
+        $this->assertEquals(5, count(self::$obj));
+    }
+
     public function testIterator()
     {
         foreach (self::$obj as $key => $item) {
             $this->assertInternalType('integer', $item);
         }
+    }
+
+    public function testHas()
+    {
+        $this->assertTrue(self::$obj->has(13136));
     }
 }
