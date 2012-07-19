@@ -12,7 +12,7 @@ Requirements
 bnetlib requires PHP 5.3.3+ and depends on (one of) the following HTTP libraries:
 * Buzz Library ([`Buzz`](https://github.com/kriswallsmith/Buzz))
 * Zend Framework ([`Zend\Http`](https://github.com/zendframework/zf2))
-* **Aura Framework ([`Aura.Http`](https://github.com/auraphp/Aura.Http)) – currently broken due to latest master changes.**
+* *Aura Framework ([`Aura.Http`](https://github.com/auraphp/Aura.Http)) – currently broken due to latest master changes.*
 
 
 Features
