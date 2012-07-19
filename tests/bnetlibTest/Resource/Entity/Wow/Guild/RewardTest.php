@@ -65,7 +65,7 @@ class RewardTest extends \PHPUnit_Framework_TestCase
 
     public function testRaces()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Shared\ListData', self::$obj->getRaces());
+        $this->assertInstanceOf('bnetlib\Resource\Entity\Shared\ListData', self::$obj->getRaces());
     }
 
     public function testItem()

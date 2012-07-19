@@ -86,7 +86,7 @@ class ItemTest extends \PHPUnit_Framework_TestCase
 
     public function testAllowableClasses()
     {
-         $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Shared\ListData', self::$obj->getAllowableClasses());
+         $this->assertInstanceOf('bnetlib\Resource\Entity\Shared\ListData', self::$obj->getAllowableClasses());
     }
 
     public function testHasRaceRestriction()
@@ -96,7 +96,7 @@ class ItemTest extends \PHPUnit_Framework_TestCase
 
     public function testAllowableRacees()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Shared\ListData', self::$obj->getAllowableRacees());
+        $this->assertInstanceOf('bnetlib\Resource\Entity\Shared\ListData', self::$obj->getAllowableRacees());
     }
 
     public function testIsNotBindable()

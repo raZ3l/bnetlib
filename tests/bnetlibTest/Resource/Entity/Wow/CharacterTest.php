@@ -68,7 +68,7 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
 
     public function testCompanionsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Shared\ListData', self::$obj->getCompanions());
+        $this->assertInstanceOf('bnetlib\Resource\Entity\Shared\ListData', self::$obj->getCompanions());
     }
 
     public function testGuildField()
@@ -83,7 +83,7 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
 
     public function testMountsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Shared\ListData', self::$obj->getMounts());
+        $this->assertInstanceOf('bnetlib\Resource\Entity\Shared\ListData', self::$obj->getMounts());
     }
 
     public function testFeedField()
@@ -113,7 +113,7 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
 
     public function testQuestsField()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Shared\ListData', self::$obj->getQuests());
+        $this->assertInstanceOf('bnetlib\Resource\Entity\Shared\ListData', self::$obj->getQuests());
     }
 
     public function testReputationField()

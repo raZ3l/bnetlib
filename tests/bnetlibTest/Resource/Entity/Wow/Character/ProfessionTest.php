@@ -80,7 +80,7 @@ class ProfessionTest extends \PHPUnit_Framework_TestCase
 
     public function testRecipes()
     {
-        $this->assertInstanceOf('bnetlib\Resource\Entity\Wow\Shared\ListData', self::$obj->getRecipes());
+        $this->assertInstanceOf('bnetlib\Resource\Entity\Shared\ListData', self::$obj->getRecipes());
     }
 
     public function testKnowsRecipe()
