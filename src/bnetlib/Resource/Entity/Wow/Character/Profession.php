@@ -50,7 +50,7 @@ class Profession implements EntityInterface
     {
         $this->data = $data;
 
-        $list = $this->serviceLocator->get('wow.entity.shared.listdata');
+        $list = $this->serviceLocator->get('shared.entity.listdata');
         if (isset($this->headers)) {
             $list->setResponseHeaders($this->headers);
         }

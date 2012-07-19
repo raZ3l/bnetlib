@@ -9,17 +9,17 @@
  *
  * @category   bnetlib
  * @package    Resource
- * @subpackage WorldOfWarcraft
+ * @subpackage Shared
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-namespace bnetlib\Resource\Entity\Wow\Shared;
+namespace bnetlib\Resource\Entity\Shared;
 
 /**
  * @category   bnetlib
  * @package    Resource
- * @subpackage WorldOfWarcraft
+ * @subpackage Shared
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */

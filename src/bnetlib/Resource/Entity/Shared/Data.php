@@ -9,12 +9,12 @@
  *
  * @category   bnetlib
  * @package    Resource
- * @subpackage WorldOfWarcraft
+ * @subpackage Shared
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-namespace bnetlib\Resource\Entity\Wow\Guild;
+namespace bnetlib\Resource\Entity\Shared;
 
 use bnetlib\Resource\Entity\EntityInterface;
 use bnetlib\ServiceLocator\ServiceLocatorInterface;
@@ -22,26 +22,21 @@ use bnetlib\ServiceLocator\ServiceLocatorInterface;
 /**
  * @category   bnetlib
  * @package    Resource
- * @subpackage WorldOfWarcraft
+ * @subpackage Shared
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Reward implements EntityInterface
+class Data implements EntityInterface, \Iterator
 {
+    /**
+     * @var integer
+     */
+    protected $position = 0;
+
     /**
      * @var array
      */
     protected $data = array();
-
-    /**
-     * @var array
-     */
-    protected $services = array(
-        'item'        => 'wow.entity.item.reward',
-        'races'       => 'shared.entity.listdata',
-        'achievement' => 'wow.entity.achievements.achievement',
-
-    );
 
     /**
      * @var array|null
@@ -59,14 +54,6 @@ class Reward implements EntityInterface
     public function populate($data)
     {
         $this->data = $data;
-
-        foreach ($this->services as $key => $service) {
-            $this->data[$key] = $this->serviceLocator->get($service);
-            if (isset($this->headers)) {
-                $this->data[$key]->setResponseHeaders($this->headers);
-            }
-            $this->data[$key]->populate($data[$key]);
-        }
     }
 
     /**
@@ -94,42 +81,62 @@ class Reward implements EntityInterface
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @see    \Countable
      * @return integer
      */
-    public function getMinGuildLevel()
+    public function count()
     {
-        return $this->data['minGuildLevel'];
+        return $this->count;
     }
 
     /**
+     * @see \Iterator
+     */
+    public function rewind()
+    {
+        $this->position = 0;
+    }
+
+    /**
+     * @see    \Iterator
+     * @return mixed
+     */
+    public function current()
+    {
+        return $this->data[$this->position];
+    }
+
+    /**
+     * @see    \Iterator
      * @return integer
      */
-    public function getMinGuildStanding()
+    public function key()
     {
-        return $this->data['minGuildRepLevel'];
+        return $this->position;
     }
 
     /**
-     * @return \bnetlib\Resource\Entity\Wow\Shared\ListData
+     * @see \Iterator
      */
-    public function getRaces()
+    public function next()
     {
-        return $this->data['races'];
+        ++$this->position;
     }
 
     /**
-     * @return \bnetlib\Resource\Entity\Wow\Item\Reward
+     * @see    \Iterator
+     * @return boolean
      */
-    public function getItem()
+    public function valid()
     {
-        return $this->data['item'];
-    }
-
-    /**
-     * @return \bnetlib\Resource\Entity\Wow\Achievements\Achievement
-     */
-    public function geAchievement()
-    {
-        return $this->data['achievement'];
+        return isset($this->data[$this->position]);
     }
 }

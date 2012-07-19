@@ -5,41 +5,37 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code. You can also view the
- * LICENSE file online at http://coss.github.com/bnetlib/license.html
+ * LICENSE file online at https://gitbub.com/coss/bnetlib/LISENCE
  *
  * @category   bnetlib
  * @package    Resource
- * @subpackage WorldOfWarcraft
+ * @subpackage Diablo3
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
 
-namespace bnetlib\Resource\Entity\Wow\Shared;
+namespace bnetlib\Resource\Entity\D3\Shared;
 
 use bnetlib\Resource\Entity\EntityInterface;
+use bnetlib\Resource\Entity\ConsumeInterface;
 use bnetlib\ServiceLocator\ServiceLocatorInterface;
 
 /**
  * @category   bnetlib
  * @package    Resource
- * @subpackage WorldOfWarcraft
+ * @subpackage Diablo3
  * @copyright  2012 Eric Boh <cossish@gmail.com>
  * @license    http://coss.gitbub.com/bnetlib/license.html    MIT License
  */
-class Data implements EntityInterface, \Iterator
+class Hero implements EntityInterface, ConsumeInterface
 {
-    /**
-     * @var integer
-     */
-    protected $position = 0;
-
     /**
      * @var array
      */
     protected $data = array();
 
     /**
-     * @var array|null
+     * @var \stdClass|null
      */
     protected $headers;
 
@@ -81,62 +77,91 @@ class Data implements EntityInterface, \Iterator
     }
 
     /**
-     * @return array
-     */
-    public function toArray()
-    {
-        return $this->data;
-    }
-
-    /**
-     * @see    \Countable
      * @return integer
      */
-    public function count()
+    public function getId()
     {
-        return $this->count;
+        return $this->data['id'];
     }
 
     /**
-     * @see \Iterator
+     * @return string
      */
-    public function rewind()
+    public function getName()
     {
-        $this->position = 0;
+        return $this->data['name'];
     }
 
     /**
-     * @see    \Iterator
-     * @return mixed
-     */
-    public function current()
-    {
-        return $this->data[$this->position];
-    }
-
-    /**
-     * @see    \Iterator
-     * @return integer
-     */
-    public function key()
-    {
-        return $this->position;
-    }
-
-    /**
-     * @see \Iterator
-     */
-    public function next()
-    {
-        ++$this->position;
-    }
-
-    /**
-     * @see    \Iterator
      * @return boolean
      */
-    public function valid()
+    public function isHardcore()
     {
-        return isset($this->data[$this->position]);
+        return $this->data['hardcore'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getClass()
+    {
+        return $this->data['class'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getClassLocale()
+    {
+        // currently hardcoded, just a preview!
+        return 'SomeClassLocale';
+    }
+
+    /**
+     * @return integer
+     */
+    public function getLevel()
+    {
+        return $this->data['level'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getGender()
+    {
+        return $this->data['gender'];
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isMale()
+    {
+        return $this->data['gender'] === 0;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isFemale()
+    {
+        return $this->data['gender'] === 1;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getLastUpdated()
+    {
+        return $this->data['last-updated'];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function consume()
+    {
+        return array('id' => $this->data['id'])
     }
 }

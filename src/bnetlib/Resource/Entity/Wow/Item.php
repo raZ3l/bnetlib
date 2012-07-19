@@ -33,8 +33,8 @@ class Item extends BaseItem
     protected $keys = array(
         'itemSet'          => 'wow.entity.itemset',
         'itemSpells'       => 'wow.entity.item.spells',
-        'allowableRaces'   => 'wow.entity.shared.listdata',
-        'allowableClasses' => 'wow.entity.shared.listdata',
+        'allowableRaces'   => 'shared.entity.listdata',
+        'allowableClasses' => 'shared.entity.listdata',
         'bonusStats'       => 'wow.entity.item.bonusstats',
         'weaponInfo'       => 'wow.entity.item.weaponinfo',
         'socketInfo'       => 'wow.entity.item.socketinfo',
